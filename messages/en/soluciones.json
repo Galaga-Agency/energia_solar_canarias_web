@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "eyebrow": "Solutions",
+    "title": "Energy that adapts to your business",
+    "body": "Every sector has its own operational and financial logic. Our solutions adapt to your reality, challenges and opportunities so you can get the most out of your energy.",
+    "items": [
+      { "label": "Photovoltaic", "title": "Photovoltaic energy", "body": "Specialized photovoltaic solution for your company or facility." },
+      { "label": "Storage", "title": "Energy storage", "body": "Specialized storage solution for your company or facility." },
+      { "label": "Consulting", "title": "Energy consulting", "body": "Specialized consulting solution for your company or facility." }
+    ]
+  },
+  "painPoints": {
+    "eyebrow": "What is slowing down your decision?",
+    "title": "We understand your energy challenges",
+    "body": "Companies in the Canary Islands operating with increasingly unpredictable energy costs need clarity around sustainability and decisions that are not always obvious. The question is no longer whether to change, but how to do it without taking unnecessary risks.",
+    "tags": ["Lack of visibility on return", "Complex and slow processes", "A market that is hard to evaluate"],
+    "cta": "See our projects"
+  },
+  "quote": {
+    "eyebrow": "Clients",
+    "quote": "It is not always clear when or how the investment is recovered.",
+    "body": "That is why Energía Solar Canarias always starts with a free audit that gives you a clear analysis of the expected return before you commit to anything."
+  },
+  "differentiator": {
+    "titleStart": "At Energía Solar",
+    "titleBrand": "Canarias",
+    "titleEnd": ", we make the difference",
+    "body": "We bring transparency, guidance and solutions designed from deep knowledge of the Canarian energy landscape, step by step and without uncertainty.",
+    "primary": "Contact",
+    "secondary": "Audit ↗"
+  },
+  "process": {
+    "title": "Your project, step by step.",
+    "body": "Every solution starts with an analysis of your reality. If you continue, we define a technical proposal, coordinate implementation and support the client through every phase.",
+    "items": [
+      { "n": "01", "title": "Analysis and diagnosis", "body": "We assess your consumption and identify improvement opportunities." },
+      { "n": "02", "title": "Design and strategic plan", "body": "We create a technical and financial plan adapted to your activity and island context." },
+      { "n": "03", "title": "Implementation and support", "body": "A technical team with years of experience handles installation and commissioning." },
+      { "n": "04", "title": "Monitoring and maintenance", "body": "We supervise system performance and make sure it works at its best every day." }
+    ]
+  },
+  "guarantees": {
+    "items": [
+      { "title": "Service guarantee", "body": "All our systems include installation warranty and technical follow-up after commissioning." },
+      { "title": "Full transparency", "body": "We explain every step and give you access to real-time performance data." },
+      { "title": "Continuous support", "body": "Our team is available to resolve any issue throughout the system's lifetime." }
+    ]
+  },
+  "cta": {
+    "title": "Request your free audit",
+    "body": "Discover how to optimize your consumption and move toward a more efficient energy model adapted to your company. No cost. No commitment. No waiting.",
+    "primary": "Request your audit ↗",
+    "secondary": "Contact us"
+  }
+}

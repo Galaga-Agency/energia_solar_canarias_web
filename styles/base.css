@@ -1,0 +1,101 @@
+/* ── Semantic text classes ─────────────────────────────────────────────────── */
+
+.text-display {
+  font-size: var(--text-display);
+  font-weight: var(--font-weight-black);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+}
+
+.text-title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+.text-heading {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--color-ink);
+}
+
+.text-subheading {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-ink);
+}
+
+.text-body {
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+}
+
+.text-body-sm {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.text-caption {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-subtle);
+}
+
+.text-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Global resets ────────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+button,
+[role="button"],
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  cursor: pointer;
+}
+
+/* iOS input zoom prevention */
+input,
+textarea,
+select {
+  font-size: 1rem;
+}
+
+/* ── Z-index utility classes ──────────────────────────────────────────────── */
+
+.z-drawer-backdrop { z-index: var(--z-drawer-backdrop); }
+.z-drawer          { z-index: var(--z-drawer); }
+.z-dropdown        { z-index: var(--z-dropdown); }
+.z-modal           { z-index: var(--z-modal); }
+.z-picker          { z-index: var(--z-picker); }
+.z-overlay         { z-index: var(--z-overlay); }
+.z-toast           { z-index: var(--z-toast); }
+
+/* ── Brand italic wordmark ────────────────────────────────────────────────── */
+.brand-canarias {
+  font-weight: var(--font-weight-semibold);
+  font-style: italic;
+}

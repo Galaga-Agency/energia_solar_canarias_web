@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "eyebrow":  "Instaladores certificados en Canarias",
+    "title":    "Tu energía renovable, diseñada para durar",
+    "body":     "Diseñamos, instalamos y mantenemos sistemas de energía solar adaptados a la realidad energética del archipiélago canario. Sin letra pequeña.",
+    "cta1":     "Solicita tu auditoría ↗",
+    "cta2":     "Ver soluciones"
+  },
+  "solutions": {
+    "eyebrow":  "Nuestras soluciones",
+    "title":    "Energía adaptada a la operativa de tu negocio",
+    "link":     "Ver todas las soluciones →",
+    "empresas": {
+      "label": "Empresas",
+      "desc":  "Reducimos la factura energética de tu empresa y te damos control total sobre tu consumo."
+    },
+    "instalaciones": {
+      "label": "Instalaciones industriales",
+      "desc":  "Diseñamos sistemas de gran escala para naves, fábricas e infraestructuras del sector terciario."
+    },
+    "hogares": {
+      "label": "Hogares",
+      "desc":  "Instalaciones residenciales adaptadas al clima canario, con retorno de inversión en menos de 7 años."
+    }
+  },
+  "benefits": {
+    "eyebrow": "Por qué elegirnos",
+    "title":   "Potencia tu negocio con decisiones energéticas inteligentes",
+    "body":    "Nuestro equipo combina experiencia técnica local con visión estratégica para ofrecerte soluciones que realmente funcionan en Canarias.",
+    "items": [
+      { "label": "Ahorro comprobado",    "desc": "Reducción media del 40% en factura energética desde el primer mes." },
+      { "label": "Rigor técnico",        "desc": "Ingenieros certificados con experiencia específica en el archipiélago." },
+      { "label": "Visión a largo plazo", "desc": "Proyectamos el retorno de inversión real antes de comprometerte con nada." },
+      { "label": "Conocimiento local",   "desc": "Entendemos las normativas canarias, el clima insular y sus particularidades." }
+    ]
+  },
+  "projects": {
+    "title": "Empresas que han tomado el control de su energía",
+    "body":  "Hemos acompañado a empresas de distintos sectores en su transición hacia una energía más eficiente y sostenible en el archipiélago canario.",
+    "cta":   "Ver nuestros proyectos"
+  },
+  "stats": {
+    "quote":  "\"La energía que consumes hoy define la empresa que serás mañana.\"",
+    "items": [
+      { "value": "40",  "suffix": "%", "label": "Reducción media de costes",  "desc": "Nuestros clientes reducen su factura energética de media un 40% desde el primer año de operación." },
+      { "value": "120", "suffix": "+", "label": "Proyectos completados",       "desc": "Más de 120 instalaciones en Canarias con retorno de inversión comprobado." },
+      { "value": "6,8", "suffix": "",  "label": "Años de retorno medio",       "desc": "Recupera tu inversión en menos de 7 años de media, con equipos que duran 25." }
+    ]
+  },
+  "founder": {
+    "eyebrow":  "Sobre nosotros",
+    "title":    "20 años construyendo un modelo energético más nuestro",
+    "role":     "Propietaria",
+    "name":     "Carla Isarí Díaz Ortega, CEO y propietaria",
+    "body1":    "Carla lleva dos décadas liderando proyectos de energía renovable en el archipiélago canario, combinando rigor técnico con una profunda comprensión del territorio y sus necesidades energéticas.",
+    "quote":    "\"Cada proyecto es una oportunidad de construir un Canarias más resiliente.\"",
+    "link":     "Conoce su labor →"
+  },
+  "testimonials": {
+    "eyebrow": "Clientes",
+    "title":   "Valoraciones de nuestros clientes",
+    "body":    "La mejor prueba de nuestro trabajo son las palabras de quienes confían en nosotros.",
+    "items": [
+      { "name": "Roberto Martínez", "role": "Director de Operaciones",    "quote": "El equipo no solo instaló nuestro sistema, nos resolvieron un problema real." },
+      { "name": "Ana García",       "role": "Gerente, Hotel Las Palmas",  "quote": "Redujimos nuestra factura eléctrica un 45% en el primer año." },
+      { "name": "Pedro Suárez",     "role": "Propietario, Finca La Palma","quote": "La auditoría gratuita fue el primer paso para tomar el control de nuestra energía." }
+    ]
+  },
+  "cta": {
+    "title":   "Solicita tu auditoría gratuita",
+    "body":    "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente. Sin coste. Sin compromiso.",
+    "primary": "Solicita tu auditoría ↗",
+    "secondary":"Contacta con nosotros"
+  }
+}

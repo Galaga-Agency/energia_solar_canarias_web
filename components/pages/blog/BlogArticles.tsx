@@ -1,0 +1,57 @@
+import { TransitionLink } from '@/components/ui/TransitionLink'
+import type { Article }   from '@/types/article'
+
+interface BlogArticlesProps {
+  articles: Article[]
+  viewMode: 'grid' | 'list'
+  readMore: string
+  empty: string
+}
+
+export function BlogArticles({ articles, viewMode, readMore, empty }: BlogArticlesProps) {
+  return (
+    <section className="section-spacing-both" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <div className="section-inner">
+        <div
+          className={viewMode === 'grid'
+            ? 'grid grid-cols-1 md:grid-cols-2 gap-6'
+            : 'flex flex-col gap-6'
+          }
+        >
+          {articles.map((article) => (
+            <article
+              key={article.id}
+              className={`card flex ${viewMode === 'list' ? 'flex-row' : 'flex-col'}`}
+              data-reveal
+            >
+              <div
+                className={`bg-[var(--color-border)] shrink-0 ${
+                  viewMode === 'list' ? 'w-48 aspect-square' : 'w-full aspect-video'
+                }`}
+              />
+              <div className="p-6 flex flex-col gap-3 flex-1">
+                <div className="flex flex-wrap gap-2">
+                  <span className="pill-tag">{article.category}</span>
+                  <span className="pill-tag">{article.readTime}</span>
+                </div>
+                <h2 className="text-subheading">{article.title}</h2>
+                <p className="text-body flex-1">{article.excerpt}</p>
+                <TransitionLink
+                  href={`/blog/${article.slug}`}
+                  className="text-body-sm font-semibold"
+                  style={{ color: 'var(--color-primary)' }}
+                >
+                  {readMore}
+                </TransitionLink>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {articles.length === 0 && (
+          <p className="text-body text-center py-12">{empty}</p>
+        )}
+      </div>
+    </section>
+  )
+}

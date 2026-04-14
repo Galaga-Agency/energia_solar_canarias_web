@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "Projects",
+    "title": "Every project tells a story of efficiency achieved.",
+    "body": "Real cases from companies and homes in the Canary Islands that have transformed their energy model with us."
+  },
+  "projects": [
+    {
+      "id": "1",
+      "slug": "hotel-las-palmas",
+      "title": "Hotel Las Palmas — 45% energy reduction",
+      "excerpt": "200 kWp photovoltaic installation with storage system for a four-star hotel in Gran Canaria.",
+      "image": "/assets/images/common/aerial-sandy-beach-shoreline.webp",
+      "tags": ["Hospitality", "Photovoltaic", "Storage"],
+      "updatedAt": "2025-03-01"
+    },
+    {
+      "id": "2",
+      "slug": "finca-la-palma",
+      "title": "Finca La Palma — Agricultural self-consumption",
+      "excerpt": "Photovoltaic self-consumption system for an 80-hectare agricultural estate in La Palma.",
+      "image": "/assets/images/common/volcanic-vineyard-landscape.webp",
+      "tags": ["Agriculture", "Self-consumption"],
+      "updatedAt": "2025-01-15"
+    },
+    {
+      "id": "3",
+      "slug": "nave-industrial-tenerife",
+      "title": "Industrial warehouse Tenerife — 120 kWp",
+      "excerpt": "Rooftop industrial installation with real-time monitoring and preventive maintenance contract.",
+      "image": "/assets/images/common/diagonal-solar-panel-grid.webp",
+      "tags": ["Industrial", "Photovoltaic"],
+      "updatedAt": "2024-11-20"
+    }
+  ],
+  "grid": {
+    "readMore": "Read more →",
+    "seeAll": "See all"
+  },
+  "testimonial": {
+    "quote": "The team did not just install our renewable energy system from day one. They solved a real problem for us.",
+    "name": "Roberto Martinez",
+    "role": "Operations Director, industrial plant",
+    "companyLogo": "/assets/logos/placeholder.svg",
+    "avatar": "/assets/avatars/roberto-martinez.webp"
+  },
+  "stats": {
+    "title": "Results that speak for themselves",
+    "body": "Every installation we complete demonstrates the real impact renewable energy can have on the finances of a Canarian company or home.",
+    "items": [
+      { "value": "40", "suffix": "%", "label": "Average savings", "body": "on energy bills" },
+      { "value": "6.8", "suffix": "", "label": "Years", "body": "average payback period" },
+      { "value": "120", "suffix": "", "label": "Projects", "body": "completed in the Canary Islands" },
+      { "value": "98", "suffix": "%", "label": "Satisfied clients", "body": "would recommend us" }
+    ]
+  },
+  "cta": {
+    "title": "Request your free audit",
+    "body": "Discover how to optimize your consumption and move toward a more efficient energy model adapted to your company. No cost. No commitment. No waiting.",
+    "primary": "Request your audit ↗",
+    "secondary": "Contact us"
+  }
+}

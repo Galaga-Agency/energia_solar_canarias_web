@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "eyebrow": "Soluciones",
+    "title": "Energía que se adapta a tu negocio",
+    "body": "Cada sector tiene su propia lógica operativa y financiera. Nuestras soluciones se ajustan a la realidad, desafíos y oportunidades para sacarle el máximo rendimiento a tu energía.",
+    "items": [
+      { "label": "Fotovoltaica", "title": "Fotovoltaica energética", "body": "Solución especializada en fotovoltaica para tu empresa o instalación." },
+      { "label": "Almacenamiento", "title": "Almacenamiento energético", "body": "Solución especializada en almacenamiento para tu empresa o instalación." },
+      { "label": "Consultoría", "title": "Consultoría energética", "body": "Solución especializada en consultoría para tu empresa o instalación." }
+    ]
+  },
+  "painPoints": {
+    "eyebrow": "¿Qué está frenando tu decisión?",
+    "title": "Conocemos tus desafíos energéticos",
+    "body": "Las empresas en Canarias que operan con costes energéticos cada vez más imprevisibles necesitan transparencia en la sostenibilidad y decisiones que no siempre están claras. La duda ya no es si cambiar, sino cómo hacerlo sin asumir riesgos innecesarios.",
+    "tags": ["Falta de visibilidad sobre el retorno", "Procesos complejos y poco ágiles", "Un mercado difícil de evaluar"],
+    "cta": "Conocer nuestros proyectos"
+  },
+  "quote": {
+    "eyebrow": "Clientes",
+    "quote": "No siempre está claro cuándo ni cómo se recupera la inversión.",
+    "body": "Por eso en Energía Solar Canarias comenzamos siempre con una auditoría gratuita que te da un análisis claro del retorno esperado antes de comprometerte con nada."
+  },
+  "differentiator": {
+    "titleStart": "En Energía Solar",
+    "titleBrand": "Canarias",
+    "titleEnd": ", marcamos la diferencia",
+    "body": "Aportamos transparencia, asesoramiento y soluciones diseñadas desde el conocimiento del territorio energético canario y paso a paso sin incertidumbre.",
+    "primary": "Contactar",
+    "secondary": "Auditoría ↗"
+  },
+  "process": {
+    "title": "Tu proyecto, paso a paso.",
+    "body": "Cada solución parte de un análisis de tu realidad. Después, si continúas, te definimos una propuesta técnica, coordinamos su implementación y acompañamos al cliente en cada fase.",
+    "items": [
+      { "n": "01", "title": "Análisis y diagnóstico", "body": "Evaluamos tu consumo y detectamos oportunidades de mejora." },
+      { "n": "02", "title": "Diseño y plan estratégico", "body": "Creamos un plan técnico y económico adaptado a la actividad y a la realidad insular." },
+      { "n": "03", "title": "Implementación y acompañamiento", "body": "Un equipo técnico con años de experiencia en el proceso de instalación y puesta en marcha." },
+      { "n": "04", "title": "Monitorización y mantenimiento", "body": "Supervisamos el rendimiento del sistema y nos aseguramos de que funcione al máximo cada día." }
+    ]
+  },
+  "guarantees": {
+    "items": [
+      { "title": "Garantía de nuestros servicios", "body": "Todos nuestros sistemas incluyen garantía de instalación y seguimiento técnico post-puesta en marcha." },
+      { "title": "Transparencia total", "body": "Te explicamos cada paso del proceso y te damos acceso a los datos de rendimiento en tiempo real." },
+      { "title": "Soporte continuo", "body": "Nuestro equipo está disponible para resolver cualquier incidencia durante toda la vida útil del sistema." }
+    ]
+  },
+  "cta": {
+    "title": "Solicita tu auditoría gratuita",
+    "body": "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente y adaptado a tu empresa. Sin coste. Sin compromiso. Sin esperas.",
+    "primary": "Solicita tu auditoría ↗",
+    "secondary": "Contacta con nosotros"
+  }
+}

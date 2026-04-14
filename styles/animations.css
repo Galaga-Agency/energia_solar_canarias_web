@@ -1,0 +1,46 @@
+/* ── Decorative CSS keyframes only ────────────────────────────────────────── */
+/* GSAP handles entrance/scroll animations. This file is purely for CSS-only  */
+/* decorative effects that don't require JS.                                   */
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes blob-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  33%       { transform: scale(1.05) rotate(3deg); }
+  66%       { transform: scale(0.97) rotate(-2deg); }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Marquee track — applied via JS class when JS is unavailable */
+.marquee-track {
+  display: flex;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  @keyframes blob-pulse {
+    from, to { transform: none; }
+  }
+}

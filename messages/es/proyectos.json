@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "eyebrow": "Proyectos",
+    "title": "Cada proyecto cuenta una historia de eficiencia lograda.",
+    "body": "Casos reales de empresas y hogares en Canarias que han transformado su modelo energético con nosotros."
+  },
+  "projects": [
+    {
+      "id": "1",
+      "slug": "hotel-las-palmas",
+      "title": "Hotel Las Palmas — 45% de reducción energética",
+      "excerpt": "Instalación fotovoltaica de 200 kWp con sistema de almacenamiento para un hotel de 4 estrellas en Gran Canaria.",
+      "image": "/assets/images/common/aerial-sandy-beach-shoreline.webp",
+      "tags": ["Hostelería", "Fotovoltaica", "Almacenamiento"],
+      "updatedAt": "2025-03-01"
+    },
+    {
+      "id": "2",
+      "slug": "finca-la-palma",
+      "title": "Finca La Palma — Autoconsumo agrícola",
+      "excerpt": "Sistema de autoconsumo fotovoltaico para una finca agrícola de 80 hectáreas en La Palma.",
+      "image": "/assets/images/common/volcanic-vineyard-landscape.webp",
+      "tags": ["Agricultura", "Autoconsumo"],
+      "updatedAt": "2025-01-15"
+    },
+    {
+      "id": "3",
+      "slug": "nave-industrial-tenerife",
+      "title": "Nave industrial Tenerife — 120 kWp",
+      "excerpt": "Instalación sobre cubierta industrial con monitorización en tiempo real y contrato de mantenimiento preventivo.",
+      "image": "/assets/images/common/diagonal-solar-panel-grid.webp",
+      "tags": ["Industrial", "Fotovoltaica"],
+      "updatedAt": "2024-11-20"
+    }
+  ],
+  "grid": {
+    "readMore": "Leer más →",
+    "seeAll": "Ver todos"
+  },
+  "testimonial": {
+    "quote": "El equipo no solo instaló nuestro sistema de energía renovable desde el primer día. No dudaron en ningún momento, nos resolvieron un problema real.",
+    "name": "Roberto Martínez",
+    "role": "Director de Operaciones, Planta industrial",
+    "companyLogo": "/assets/logos/placeholder.svg",
+    "avatar": "/assets/avatars/roberto-martinez.webp"
+  },
+  "stats": {
+    "title": "Resultados que hablan por sí solos",
+    "body": "Cada instalación que completamos es una demostración del impacto real que la energía renovable puede tener en la economía de una empresa o hogar canario.",
+    "items": [
+      { "value": "40", "suffix": "%", "label": "Ahorro medio", "body": "en factura energética" },
+      { "value": "6,8", "suffix": "", "label": "Años", "body": "de retorno de inversión" },
+      { "value": "120", "suffix": "", "label": "Proyectos", "body": "completados en Canarias" },
+      { "value": "98", "suffix": "%", "label": "Clientes satisfechos", "body": "nos recomendarían" }
+    ]
+  },
+  "cta": {
+    "title": "Solicita tu auditoría gratuita",
+    "body": "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente y adaptado a tu empresa. Sin coste. Sin compromiso. Sin esperas.",
+    "primary": "Solicita tu auditoría ↗",
+    "secondary": "Contacta con nosotros"
+  }
+}

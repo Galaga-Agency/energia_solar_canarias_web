@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "title": "Impulsamos una energía más nuestra",
+    "body": "Una empresa canaria comprometida con la transición energética del archipiélago."
+  },
+  "narrative": {
+    "title": "Un nuevo modelo energético",
+    "paragraphs": [
+      "Canarias es un archipiélago en plena transición energética. La isla ha asumido un reto enorme: la descarbonización del sistema energético antes de 2040, y eso cambia la forma en que la sociedad consume, produce y gestiona la energía.",
+      "Por eso participamos en proyectos que trasladan cómo se diseña el nuevo ecosistema en Canarias: del análisis al terreno, del rigor y el tiempo y la energía a la realidad económica y energética radical. No solo por sus soluciones, sino también por las relaciones que construimos con nuestros clientes.",
+      "Cada proyecto es una apuesta por un Canarias más autónomo, más resiliente y más justo en el acceso a la energía. Ese es nuestro compromiso y nuestra razón de ser."
+    ]
+  },
+  "benefits": {
+    "eyebrow": "Logros",
+    "title": "Beneficios comprobados",
+    "body": "Lo que garantiza la constancia y el compromiso de nuestro equipo.",
+    "items": [
+      { "title": "Ahorro real y medible", "body": "Nuestros clientes ven el impacto directo en su factura energética desde el primer mes de operación del sistema." },
+      { "title": "Tecnología de vanguardia", "body": "Trabajamos solo con equipos y soluciones que han demostrado su fiabilidad en el contexto climático y energético canario." }
+    ],
+    "cardTitle": "Independencia operativa",
+    "cardBody": "Nuestros en Canarias, y con los permisos canarios, lideramos el nuevo ecosistema en Canarias. Diseñamos, implementamos y gestionamos proyectos que construyen una nueva forma de hacer las cosas, la energía que permite apostar por otra forma de hacer. Porque queremos que Canarias sea un referente.",
+    "cta": "Nuestros proyectos"
+  },
+  "leadership": {
+    "eyebrow": "Liderazgo",
+    "title": "Hablemos de liderazgo",
+    "quote": "Para Carla, avanzar hacia una energía más nuestra no es solo una meta profesional, es una forma de fortalecer la resiliencia del archipiélago.",
+    "body": "Con más de 20 años en el sector energético canario, Carla Isarí Díaz Ortega ha liderado algunos de los proyectos más ambiciosos de transición energética de las islas. Su visión combina la exigencia técnica con un profundo respeto por el territorio y sus comunidades.",
+    "link": "Leer más →"
+  },
+  "testimonial": {
+    "quote": "El equipo no solo instaló nuestro sistema de energía renovable desde el primer día. No dudaron en ningún momento, nos resolvieron un problema real.",
+    "name": "Roberto Martínez",
+    "role": "Director de Operaciones, Planta industrial",
+    "companyLogo": "/assets/logos/placeholder.svg",
+    "avatar": "/assets/avatars/roberto-martinez.webp"
+  }
+}

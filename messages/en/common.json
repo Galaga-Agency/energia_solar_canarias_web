@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "solutions":  "Solutions",
+    "projects":   "Projects",
+    "about":      "About us",
+    "blog":       "Blog",
+    "contact":    "Contact",
+    "cta":        "Free audit ↗"
+  },
+  "actions": {
+    "send":       "Send",
+    "sending":    "Sending…",
+    "cancel":     "Cancel",
+    "learnMore":  "Learn more",
+    "seeAll":     "See all",
+    "back":       "Back"
+  },
+  "footer": {
+    "rights":     "All rights reserved.",
+    "newsletter": "Get updates on energy solutions and market trends.",
+    "subscribe":  "Subscribe",
+    "email":      "your@email.com",
+    "send":       "Send"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "openMenu":      "Open menu",
+    "closeMenu":     "Close menu",
+    "loading":       "Loading"
+  },
+  "errors": {
+    "required":    "This field is required",
+    "email":       "Invalid email address",
+    "sendError":   "Error sending your message. Please try again.",
+    "sendSuccess": "Message sent successfully"
+  }
+}

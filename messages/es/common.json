@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "solutions":  "Soluciones",
+    "projects":   "Proyectos",
+    "about":      "Sobre nosotros",
+    "blog":       "Blog",
+    "contact":    "Contactar",
+    "cta":        "Auditoría ↗"
+  },
+  "actions": {
+    "send":       "Enviar",
+    "sending":    "Enviando…",
+    "cancel":     "Cancelar",
+    "learnMore":  "Saber más",
+    "seeAll":     "Ver todo",
+    "back":       "Volver"
+  },
+  "footer": {
+    "rights":     "Todos los derechos reservados.",
+    "newsletter": "Recibe actualizaciones sobre soluciones energéticas y tendencias del mercado.",
+    "subscribe":  "Suscribirse",
+    "email":      "tu@email.com",
+    "send":       "Enviar"
+  },
+  "accessibility": {
+    "skipToContent": "Saltar al contenido principal",
+    "openMenu":      "Abrir menú",
+    "closeMenu":     "Cerrar menú",
+    "loading":       "Cargando"
+  },
+  "errors": {
+    "required":    "Este campo es obligatorio",
+    "email":       "Correo no válido",
+    "sendError":   "Error al enviar el mensaje. Inténtalo de nuevo.",
+    "sendSuccess": "Mensaje enviado correctamente"
+  }
+}

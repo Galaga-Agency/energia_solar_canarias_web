@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "title": "Driving energy that belongs to the islands",
+    "body": "A Canarian company committed to the archipelago's energy transition."
+  },
+  "narrative": {
+    "title": "A new energy model",
+    "paragraphs": [
+      "The Canary Islands are in the middle of an energy transition. The archipelago has taken on a major challenge: decarbonizing the energy system before 2040, changing how society consumes, produces and manages energy.",
+      "That is why we take part in projects that bring the new Canarian energy ecosystem to life: from analysis to the field, from technical rigor to economic and energy reality. Not only through our solutions, but through the relationships we build with our clients.",
+      "Every project is a commitment to a more autonomous, resilient and fair Canary Islands in access to energy. That is our commitment and our reason for being."
+    ]
+  },
+  "benefits": {
+    "eyebrow": "Achievements",
+    "title": "Proven benefits",
+    "body": "What our team's consistency and commitment make possible.",
+    "items": [
+      { "title": "Real, measurable savings", "body": "Our clients see the direct impact on their energy bill from the first month of system operation." },
+      { "title": "Advanced technology", "body": "We only work with equipment and solutions that have proven reliable in the Canarian climate and energy context." }
+    ],
+    "cardTitle": "Operational independence",
+    "cardBody": "From the Canary Islands, with local permits and local knowledge, we help lead the new energy ecosystem. We design, implement and manage projects that build a better way to do things because we want the Canary Islands to become a reference point.",
+    "cta": "Our projects"
+  },
+  "leadership": {
+    "eyebrow": "Leadership",
+    "title": "Leadership in action",
+    "quote": "For Carla, moving toward energy that belongs to the islands is not only a professional goal, it is a way to strengthen the archipelago's resilience.",
+    "body": "With more than 20 years in the Canarian energy sector, Carla Isarí Díaz Ortega has led some of the islands' most ambitious energy transition projects. Her vision combines technical rigor with deep respect for the territory and its communities.",
+    "link": "Read more →"
+  },
+  "testimonial": {
+    "quote": "The team did not just install our renewable energy system from day one. They solved a real problem for us.",
+    "name": "Roberto Martinez",
+    "role": "Operations Director, industrial plant",
+    "companyLogo": "/assets/logos/placeholder.svg",
+    "avatar": "/assets/avatars/roberto-martinez.webp"
+  }
+}
