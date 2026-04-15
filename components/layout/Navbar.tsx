@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import { DesktopMenu } from '@/components/layout/DesktopMenu'
 import { MobileMenu }  from '@/components/layout/MobileMenu'
 import { MenuToggle }  from '@/components/layout/MenuToggle'
 import { TransitionLink } from '@/components/ui/TransitionLink'
+import { Logo } from '@/components/shared/Logo'
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -22,13 +22,7 @@ export function Navbar() {
         }}
       >
         <TransitionLink href="/" aria-label="Energía Solar Canarias — inicio">
-          <Image
-            src="/assets/icons/logo.svg"
-            alt="Energía Solar Canarias"
-            width={180}
-            height={40}
-            priority
-          />
+          <Logo width={180} />
         </TransitionLink>
 
         <DesktopMenu />
