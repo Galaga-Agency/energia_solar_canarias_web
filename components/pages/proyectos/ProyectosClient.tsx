@@ -1,10 +1,11 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
-import { useEffect }       from 'react'
-import { useMarkReady }    from '@/hooks/useAppReady'
+import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
+import { useTranslation }  from '@/contexts/TranslationContext'
 import { ProyectosHero }   from '@/components/pages/proyectos/ProyectosHero'
+import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
 import type { Project }    from '@/types/project'
 import { initHeroAnimations }         from '@/utils/animations/hero-animations'
 import { initStatsCounterAnimations } from '@/utils/animations/stats-counter'
@@ -29,14 +30,8 @@ interface ProyectosClientProps {
 }
 
 export function ProyectosClient({ projects, messages }: ProyectosClientProps) {
-  const markReady = useMarkReady()
-
-  useEffect(() => {
-    document.fonts.ready.then(() => {
-      const t = setTimeout(markReady, 600)
-      return () => clearTimeout(t)
-    })
-  }, [markReady])
+  usePageReady()
+  const { t } = useTranslation()
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
@@ -46,6 +41,10 @@ export function ProyectosClient({ projects, messages }: ProyectosClientProps) {
 
   return (
     <>
+      <Breadcrumbs items={[
+        { label: t('nav.home'),     href: '/' },
+        { label: t('nav.projects'), href: '/proyectos' },
+      ]} />
       <ProyectosHero {...messages.hero} />
       <ProyectosGrid projects={projects} readMore={messages.grid.readMore} seeAll={messages.grid.seeAll} />
       <TestimonialSingle {...messages.testimonial} />

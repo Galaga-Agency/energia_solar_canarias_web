@@ -4,6 +4,7 @@ import { createContext, useContext, useCallback, useEffect, useRef, useState, ty
 import { usePathname, useRouter } from 'next/navigation'
 import { exitPage, enterPage } from '@/utils/animations/pageTransitions'
 import { getLenis } from '@/lib/lenis'
+import { stripLocaleFromPathname } from '@/config/i18n.config'
 
 interface TransitionContextValue {
   isTransitioning: boolean
@@ -25,7 +26,7 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
 
   const startTransition = useCallback((href: string) => {
     if (isTransitioning) return
-    if (href === pathname) {
+    if (normalizeTransitionPath(href) === normalizeTransitionPath(pathname)) {
       scrollToTop()
       return
     }
@@ -39,7 +40,11 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   }, [isTransitioning, pathname, router, scrollToTop])
 
   useEffect(() => {
-    if (!isTransitioning || pendingHref.current !== pathname) return
+    if (
+      !isTransitioning ||
+      !pendingHref.current ||
+      normalizeTransitionPath(pendingHref.current) !== normalizeTransitionPath(pathname)
+    ) return
 
     scrollToTop()
     requestAnimationFrame(() => {
@@ -55,6 +60,11 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
       {children}
     </TransitionContext.Provider>
   )
+}
+
+function normalizeTransitionPath(path: string): string {
+  const pathname = path.split('#')[0].split('?')[0] || '/'
+  return stripLocaleFromPathname(pathname)
 }
 
 export function useTransitionContext(): TransitionContextValue {

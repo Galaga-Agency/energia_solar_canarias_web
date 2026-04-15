@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useAppReady } from '@/contexts/AppReadyContext'
+import { useAppReady } from '@/hooks/useAppReady'
 
 export function PageLoader() {
   const loadingComplete = useAppReady()

@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "eyebrow": "Blog",
+    "title": "Noticias, análisis y tendencias energéticas",
+    "body": "Recursos y artículos sobre energía renovable, normativas canarias y tendencias del sector energético."
+  },
+  "filter": {
+    "categories": ["Todos", "Energía", "Normativas", "Sostenibilidad", "Instalación"],
+    "gridLabel": "Vista en cuadrícula",
+    "listLabel": "Vista en lista"
+  },
+  "readMore": "Leer más →",
+  "empty": "No hay artículos en esta categoría."
+}

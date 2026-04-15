@@ -1,5 +1,9 @@
+'use client'
+
 import { TransitionLink } from '@/components/ui/TransitionLink'
+import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 import type { Article }   from '@/types/article'
+import { initScrollRevealSections } from '@/utils/animations/scroll-reveal'
 
 interface BlogArticlesProps {
   articles: Article[]
@@ -9,6 +13,12 @@ interface BlogArticlesProps {
 }
 
 export function BlogArticles({ articles, viewMode, readMore, empty }: BlogArticlesProps) {
+  const articleKeys = articles.map((article) => article.id).join('|')
+
+  useGSAPAnimations(() => ({
+    timeout: [initScrollRevealSections],
+  }), { dependencies: [articleKeys, viewMode] })
+
   return (
     <section className="section-spacing-both" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner">

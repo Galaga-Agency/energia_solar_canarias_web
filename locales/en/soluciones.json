@@ -51,5 +51,15 @@
     "body": "Discover how to optimize your consumption and move toward a more efficient energy model adapted to your company. No cost. No commitment. No waiting.",
     "primary": "Request your audit ↗",
     "secondary": "Contact us"
+  },
+  "faq": {
+    "label": "Frequently asked questions",
+    "items": {
+      "timeline":   { "question": "How long does a project take from audit to commissioning?", "answer": "Depending on size and complexity, projects are typically completed within 3 to 6 months. We always communicate clear timelines from the outset." },
+      "guarantees": { "question": "What guarantees do installed systems come with?", "answer": "All our systems include an installation warranty and post-commissioning technical follow-up. Equipment comes with manufacturer warranties, which vary by product." },
+      "financing":  { "question": "Can I finance my project?", "answer": "Yes. We work with several financial institutions to offer financing options tailored to each project. Contact us and we will advise you with no commitment." },
+      "savings":    { "question": "What savings can I expect?", "answer": "Savings depend on current consumption and the installed system, but on average our clients reduce their energy bill by 30% to 70%." },
+      "audit":      { "question": "What does the energy audit include?", "answer": "The audit includes historical consumption analysis, evaluation of the solar generation potential at your facility, a technical proposal and an ROI estimate. It is free and without commitment." }
+    }
   }
 }

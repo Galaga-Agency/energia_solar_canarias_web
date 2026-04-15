@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { HomeClient } from "@/components/pages/home/HomeClient";
 import { generatePageMetadata } from "@/utils/seo";
-import homeEs from "@/messages/es/home.json";
-import homeEn from "@/messages/en/home.json";
+import homeEs from "@/locales/es/home.json";
+import homeEn from "@/locales/en/home.json";
 import type { Language } from "@/config/i18n.config";
 
 interface HomePageProps {
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
     isEn
       ? "Renewable energy solutions for businesses and homes in the Canary Islands. Free energy audit."
       : "Soluciones de energía renovable para empresas y hogares en Canarias. Auditoría energética gratuita.",
-  );
+  )  // homepage: no slug needed, canonical defaults to '/'
 }
 
 export default async function HomePage({ params }: HomePageProps) {

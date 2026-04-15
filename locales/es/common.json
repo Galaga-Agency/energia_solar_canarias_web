@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home":       "Inicio",
     "solutions":  "Soluciones",
     "projects":   "Proyectos",
     "about":      "Sobre nosotros",
@@ -20,7 +21,35 @@
     "newsletter": "Recibe actualizaciones sobre soluciones energéticas y tendencias del mercado.",
     "subscribe":  "Suscribirse",
     "email":      "tu@email.com",
-    "send":       "Enviar"
+    "send":       "Enviar",
+    "copyright":  "© 2026 Energía Solar Canarias.",
+    "sections": {
+      "solutions": "Soluciones",
+      "resources":  "Recursos",
+      "legal":      "Legal"
+    },
+    "links": {
+      "companies":      "Empresas",
+      "successStories": "Casos de éxito",
+      "blog":           "Blog",
+      "contact":        "Contacto",
+      "about":          "Sobre nosotros",
+      "energyAudit":    "Auditoría energética",
+      "sustainability":  "Sostenibilidad",
+      "regulations":    "Normativas",
+      "financing":      "Financiamiento",
+      "implementation": "Implementación",
+      "privacy":        "Privacidad",
+      "terms":          "Términos",
+      "cookies":        "Cookies",
+      "support":        "Soporte",
+      "newsletter":     "Boletín"
+    },
+    "bottomLinks": {
+      "privacyPolicy":  "Política de privacidad",
+      "termsOfService": "Términos de servicio",
+      "cookieSettings": "Configuración de cookies"
+    }
   },
   "accessibility": {
     "skipToContent": "Saltar al contenido principal",

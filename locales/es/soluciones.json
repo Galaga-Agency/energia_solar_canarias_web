@@ -51,5 +51,15 @@
     "body": "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente y adaptado a tu empresa. Sin coste. Sin compromiso. Sin esperas.",
     "primary": "Solicita tu auditoría ↗",
     "secondary": "Contacta con nosotros"
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "items": {
+      "timeline":   { "question": "¿Cuánto tarda un proyecto desde la auditoría hasta la puesta en marcha?", "answer": "Dependiendo del tamaño y complejidad, los proyectos suelen completarse entre 3 y 6 meses. Siempre comunicamos plazos claros desde el inicio." },
+      "guarantees": { "question": "¿Qué garantías ofrecen los sistemas instalados?", "answer": "Todos nuestros sistemas incluyen garantía de instalación y seguimiento post-puesta en marcha. Los equipos cuentan con las garantías del fabricante, que varían según el producto." },
+      "financing":  { "question": "¿Puedo financiar mi proyecto?", "answer": "Sí. Trabajamos con varias entidades financieras para ofrecer opciones de financiamiento adaptadas a cada proyecto. Consúltanos y te asesoramos sin compromiso." },
+      "savings":    { "question": "¿Qué ahorros puedo esperar?", "answer": "Los ahorros dependen del consumo actual y del sistema instalado, pero en promedio nuestros clientes reducen su factura energética entre un 30% y un 70%." },
+      "audit":      { "question": "¿Qué incluye la auditoría energética?", "answer": "La auditoría incluye análisis del consumo histórico, evaluación del potencial de generación solar en tu instalación, propuesta técnica y estimación de retorno de inversión. Es gratuita y sin compromiso." }
+    }
   }
 }

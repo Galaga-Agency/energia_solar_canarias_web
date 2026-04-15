@@ -1,13 +1,14 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
-import { useEffect, useState } from 'react'
-import { useMarkReady }    from '@/hooks/useAppReady'
+import { useState }        from 'react'
+import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
+import { useTranslation }  from '@/contexts/TranslationContext'
 import { BlogHero }        from '@/components/pages/blog/BlogHero'
+import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
 import type { Article }    from '@/types/article'
 import { initHeroAnimations }       from '@/utils/animations/hero-animations'
-import { initScrollRevealSections } from '@/utils/animations/scroll-reveal'
 
 const BlogFilterBar = dynamic(() => import('./BlogFilterBar').then(m => m.BlogFilterBar))
 const BlogArticles  = dynamic(() => import('./BlogArticles').then(m => m.BlogArticles))
@@ -23,20 +24,13 @@ interface BlogClientProps {
 }
 
 export function BlogClient({ articles, messages }: BlogClientProps) {
-  const markReady = useMarkReady()
+  usePageReady()
+  const { t } = useTranslation()
   const [category, setCategory] = useState(messages.filter.categories[0])
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
 
-  useEffect(() => {
-    document.fonts.ready.then(() => {
-      const t = setTimeout(markReady, 600)
-      return () => clearTimeout(t)
-    })
-  }, [markReady])
-
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
-    timeout:  [initScrollRevealSections],
   }))
 
   const filtered = category === messages.filter.categories[0]
@@ -45,6 +39,10 @@ export function BlogClient({ articles, messages }: BlogClientProps) {
 
   return (
     <>
+      <Breadcrumbs items={[
+        { label: t('nav.home'), href: '/' },
+        { label: t('nav.blog'), href: '/blog' },
+      ]} />
       <BlogHero {...messages.hero} />
       <BlogFilterBar
         category={category}

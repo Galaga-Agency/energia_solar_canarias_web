@@ -1,11 +1,12 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
-import { useEffect }       from 'react'
-import { useMarkReady }    from '@/hooks/useAppReady'
+import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
+import { useTranslation }  from '@/contexts/TranslationContext'
+import { FAQ_CONTACTO_KEYS } from '@/constants/faq.constants'
 import { ContactoSection } from '@/components/pages/contacto/ContactoSection'
-import { FAQ_ITEMS }       from '@/constants/faq.constants'
+import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
 import { initHeroAnimations }       from '@/utils/animations/hero-animations'
 import { initScrollRevealSections } from '@/utils/animations/scroll-reveal'
 import { initFAQAccordion }         from '@/utils/animations/faq-accordion'
@@ -20,17 +21,12 @@ interface ContactoMessages {
     officeTitle: string
     officeBody: string
   }
+  faq: { label: string }
 }
 
 export function ContactoClient({ messages }: { messages: ContactoMessages }) {
-  const markReady = useMarkReady()
-
-  useEffect(() => {
-    document.fonts.ready.then(() => {
-      const t = setTimeout(markReady, 600)
-      return () => clearTimeout(t)
-    })
-  }, [markReady])
+  usePageReady()
+  const { t } = useTranslation()
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
@@ -39,8 +35,18 @@ export function ContactoClient({ messages }: { messages: ContactoMessages }) {
 
   return (
     <>
+      <Breadcrumbs items={[
+        { label: t('nav.home'),    href: '/' },
+        { label: t('nav.contact'), href: '/contacto' },
+      ]} />
       <ContactoSection {...messages.section} />
-      <FAQAccordion items={FAQ_ITEMS} />
+      <FAQAccordion
+        label={messages.faq.label}
+        items={FAQ_CONTACTO_KEYS.map(key => ({
+          question: t(`faq.items.${key}.question`),
+          answer:   t(`faq.items.${key}.answer`),
+        }))}
+      />
     </>
   )
 }

@@ -54,8 +54,8 @@ export function TranslationProvider({
   const loadMessages = useCallback(async (lang: Language, pageName: string) => {
     try {
       const [common, page] = await Promise.all([
-        import(`@/messages/${lang}/common.json`),
-        import(`@/messages/${lang}/${pageName}.json`).catch(() => ({ default: {} })),
+        import(`@/locales/${lang}/common.json`),
+        import(`@/locales/${lang}/${pageName}.json`).catch(() => ({ default: {} })),
       ])
       setMessages(Object.assign({}, common.default, page.default))
     } catch {

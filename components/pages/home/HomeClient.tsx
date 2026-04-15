@@ -1,8 +1,7 @@
 'use client'
 
 import dynamic            from 'next/dynamic'
-import { useEffect }      from 'react'
-import { useMarkReady }   from '@/hooks/useAppReady'
+import { usePageReady }   from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 import { HomeHero }       from '@/components/pages/home/HomeHero'
 import { initHeroAnimations }         from '@/utils/animations/hero-animations'
@@ -37,12 +36,7 @@ interface HomeMessages {
 }
 
 export function HomeClient({ messages }: { messages: HomeMessages }) {
-  const markReady = useMarkReady()
-
-  useEffect(() => {
-    const min = new Promise<void>(r => setTimeout(r, 600))
-    Promise.all([document.fonts.ready, min]).then(() => markReady())
-  }, [markReady])
+  usePageReady()
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],

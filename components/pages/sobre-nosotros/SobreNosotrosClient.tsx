@@ -1,10 +1,11 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
-import { useEffect }       from 'react'
-import { useMarkReady }    from '@/hooks/useAppReady'
+import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
+import { useTranslation }  from '@/contexts/TranslationContext'
 import { SobreNosotrosHero } from '@/components/pages/sobre-nosotros/SobreNosotrosHero'
+import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
 import { initHeroAnimations }       from '@/utils/animations/hero-animations'
 import { initScrollRevealSections } from '@/utils/animations/scroll-reveal'
 import { initBlobAnimation }        from '@/utils/animations/blob'
@@ -31,14 +32,8 @@ interface SobreNosotrosMessages {
 }
 
 export function SobreNosotrosClient({ messages }: { messages: SobreNosotrosMessages }) {
-  const markReady = useMarkReady()
-
-  useEffect(() => {
-    document.fonts.ready.then(() => {
-      const t = setTimeout(markReady, 600)
-      return () => clearTimeout(t)
-    })
-  }, [markReady])
+  usePageReady()
+  const { t } = useTranslation()
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
@@ -47,6 +42,10 @@ export function SobreNosotrosClient({ messages }: { messages: SobreNosotrosMessa
 
   return (
     <>
+      <Breadcrumbs items={[
+        { label: t('nav.home'),  href: '/' },
+        { label: t('nav.about'), href: '/sobre-nosotros' },
+      ]} />
       <SobreNosotrosHero {...messages.hero} />
       <SobreNosotrosNarrative {...messages.narrative} />
       <SobreNosotrosBenefits {...messages.benefits} />

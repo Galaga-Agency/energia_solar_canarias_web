@@ -5,15 +5,16 @@ import type { FAQItem } from '@/types/faq'
 import { useState } from 'react'
 
 interface FAQAccordionProps {
-  items: FAQItem[]
+  items:  FAQItem[]
+  label?: string
 }
 
-export function FAQAccordion({ items }: FAQAccordionProps) {
+export function FAQAccordion({ items, label = 'FAQ' }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section
-      aria-label="Preguntas frecuentes"
+      aria-label={label}
       className="section-spacing-both"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >

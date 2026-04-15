@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "eyebrow": "Blog",
+    "title": "News, analysis and energy trends",
+    "body": "Resources and articles on renewable energy, Canarian regulations and energy sector trends."
+  },
+  "filter": {
+    "categories": ["All", "Energy", "Regulations", "Sustainability", "Installation"],
+    "gridLabel": "Grid view",
+    "listLabel": "List view"
+  },
+  "readMore": "Read more →",
+  "empty": "There are no articles in this category."
+}

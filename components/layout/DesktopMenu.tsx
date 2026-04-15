@@ -5,8 +5,8 @@ import { NAV_LINKS } from '@/constants/nav.constants'
 import { Button } from '@/components/ui/Button'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import { getLocaleFromPathname, getLocalizedHref } from '@/config/i18n.config'
-import commonEs from '@/messages/es/common.json'
-import commonEn from '@/messages/en/common.json'
+import commonEs from '@/locales/es/common.json'
+import commonEn from '@/locales/en/common.json'
 
 export function DesktopMenu() {
   const pathname = usePathname()
