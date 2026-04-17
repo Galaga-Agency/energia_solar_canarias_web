@@ -17,7 +17,7 @@ export function SolucionesPainPoints({ eyebrow, title, body, tags, cta }: Soluci
         <p className="text-body mb-8 max-w-xl">{body}</p>
         <div className="flex flex-wrap gap-3 mb-8">
           {tags.map((tag) => (
-            <span key={tag} className="pill-tag">{tag}</span>
+            <span key={tag} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-surface text-text">{tag}</span>
           ))}
         </div>
         <Button variant="outlined" href="/proyectos">{cta}</Button>

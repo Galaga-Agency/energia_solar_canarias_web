@@ -1,7 +1,6 @@
 'use client'
 
-import { BlobDecor } from '@/components/ui/BlobDecor'
-import { Button }    from '@/components/ui/Button'
+import { Button } from '@/components/ui/Button'
 
 interface CTABannerProps {
   title:          string
@@ -25,8 +24,6 @@ export function CTABanner({
       className="relative overflow-hidden section-spacing-both"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
-      <BlobDecor className="inset-0 m-auto w-[600px] h-[600px] opacity-10" />
-
       <div className="section-inner relative text-center" data-reveal>
         <h2 className="text-heading mb-4">{title}</h2>
         <p className="text-body max-w-2xl mx-auto mb-8">{body}</p>

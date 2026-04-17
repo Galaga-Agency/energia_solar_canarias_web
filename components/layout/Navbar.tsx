@@ -1,31 +1,45 @@
 'use client'
 
-import { useState } from 'react'
-import { DesktopMenu } from '@/components/layout/DesktopMenu'
-import { MobileMenu }  from '@/components/layout/MobileMenu'
-import { MenuToggle }  from '@/components/layout/MenuToggle'
+import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import { DesktopMenu }   from '@/components/layout/DesktopMenu'
+import { MobileMenu }    from '@/components/layout/MobileMenu'
+import { MenuToggle }    from '@/components/layout/MenuToggle'
 import { TransitionLink } from '@/components/ui/TransitionLink'
-import { Logo } from '@/components/shared/Logo'
+import { Logo }          from '@/components/shared/Logo'
+import { stripLocaleFromPathname } from '@/config/i18n.config'
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled,   setScrolled]   = useState(false)
+  const pathname = usePathname()
+
+  const isHome  = stripLocaleFromPathname(pathname) === '/'
+  const showCta = !isHome || scrolled
+
+  useEffect(() => {
+    const check = () => setScrolled(window.scrollY > window.innerHeight * 0.85)
+    check()
+    window.addEventListener('scroll', check, { passive: true })
+    return () => window.removeEventListener('scroll', check)
+  }, [])
 
   return (
     <>
       <header
-        className="sticky top-0 w-full px-6 flex items-center justify-between"
+        className="sticky top-0 w-full px-6 flex items-center relative"
         style={{
           backgroundColor: 'var(--color-bg)',
           borderBottom:    '1px solid var(--color-border)',
           height:          '64px',
-          zIndex:          'var(--z-drawer)',
+          zIndex:          100,
         }}
       >
         <TransitionLink href="/" aria-label="Energía Solar Canarias — inicio">
           <Logo width={180} />
         </TransitionLink>
 
-        <DesktopMenu />
+        <DesktopMenu showCta={showCta} />
         <MenuToggle open={mobileOpen} onToggle={() => setMobileOpen((v) => !v)} />
       </header>
 

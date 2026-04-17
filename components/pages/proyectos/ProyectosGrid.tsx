@@ -14,12 +14,12 @@ export function ProyectosGrid({ projects, readMore, seeAll }: ProyectosGridProps
       <div className="section-inner">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {projects.map((p) => (
-            <article key={p.id} className="card flex flex-col">
+            <article key={p.id} className="bg-surface rounded-2xl overflow-hidden flex flex-col">
               <div className="w-full aspect-video bg-[var(--color-border)]" />
               <div className="p-6 flex flex-col gap-3 flex-1">
                 <div className="flex flex-wrap gap-2">
                   {p.tags.map((tag) => (
-                    <span key={tag} className="pill-tag pill-tag-dark">{tag}</span>
+                    <span key={tag} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-ink text-text-on-dark">{tag}</span>
                   ))}
                 </div>
                 <h3 className="text-subheading">{p.title}</h3>

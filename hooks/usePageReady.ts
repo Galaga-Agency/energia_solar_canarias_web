@@ -12,6 +12,7 @@ export function usePageReady() {
   const markReady = useMarkReady()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const min = new Promise<void>(r => setTimeout(r, 600))
     Promise.all([document.fonts.ready, min]).then(() => markReady())
   }, [markReady])

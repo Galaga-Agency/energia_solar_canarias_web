@@ -10,12 +10,11 @@ export function initMarqueeAnimation(): () => void {
   const tweens: gsap.core.Tween[] = []
 
   tracks.forEach((track) => {
-    const tween = gsap.to(track, {
-      xPercent: -50,
-      duration: 30,
-      ease:     'none',
-      repeat:   -1,
-    })
+    const tween = gsap.fromTo(
+      track,
+      { xPercent: -50 },
+      { xPercent: 0, duration: 60, ease: 'none', repeat: -1 },
+    )
     tweens.push(tween)
   })
 

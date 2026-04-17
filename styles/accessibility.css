@@ -29,18 +29,18 @@
 .skip-link {
   position: absolute;
   top: -100%;
-  left: var(--space-4);
-  padding: var(--space-2) var(--space-4);
+  left: 1rem;
+  padding: 0.5rem 1rem;
   background-color: var(--color-primary);
   color: var(--color-text-on-primary);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   font-weight: var(--font-weight-semibold);
   z-index: var(--z-toast);
-  transition: top var(--duration-fast) var(--ease-out);
+  transition: top 150ms ease-out;
 }
 
 .skip-link:focus {
-  top: var(--space-4);
+  top: 1rem;
 }
 
 /* ── Touch targets ────────────────────────────────────────────────────────── */

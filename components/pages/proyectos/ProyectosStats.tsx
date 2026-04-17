@@ -14,7 +14,7 @@ export function ProyectosStats({ title, body, items }: ProyectosStatsProps) {
         </div>
         <div className="grid grid-cols-2 gap-6">
           {items.map(({ value, suffix, label, body }) => (
-            <div key={label} className="card p-6">
+            <div key={label} className="bg-surface rounded-2xl overflow-hidden p-6">
               <p className="text-title mb-1" style={{ color: 'var(--color-primary)' }}>
                 <span data-counter={value}>0</span>{suffix}
               </p>

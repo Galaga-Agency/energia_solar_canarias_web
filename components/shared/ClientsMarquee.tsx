@@ -1,38 +1,32 @@
 'use client'
 
-const PLACEHOLDER_LOGOS = [
-  'Cliente 1', 'Cliente 2', 'Cliente 3', 'Cliente 4',
-  'Cliente 5', 'Cliente 6', 'Cliente 7', 'Cliente 8',
-]
+import Image from 'next/image'
+
+const LOGO_COUNT = 8
 
 export function ClientsMarquee() {
-  const doubled = [...PLACEHOLDER_LOGOS, ...PLACEHOLDER_LOGOS]
+  const logos = Array.from({ length: LOGO_COUNT })
+  const doubled = [...logos, ...logos]
 
   return (
-    <section
-      aria-hidden="true"
-      className="overflow-hidden section-spacing"
-      style={{ backgroundColor: 'var(--color-bg)' }}
-    >
+    <div aria-hidden="true" className="overflow-hidden section-spacing">
       <div
         data-marquee-track
-        className="flex gap-12 w-max"
+        className="flex items-center gap-32 w-max"
         style={{ willChange: 'transform' }}
       >
-        {doubled.map((name, i) => (
-          <div
-            key={i}
-            className="flex items-center justify-center px-6 py-3 rounded-lg opacity-40"
-            style={{
-              backgroundColor: 'var(--color-surface)',
-              minWidth:        '140px',
-              color:           'var(--color-ink)',
-            }}
-          >
-            <span className="text-label">{name}</span>
+        {doubled.map((_, i) => (
+          <div key={i} className="flex items-center justify-center opacity-40 shrink-0">
+            <Image
+              src="/assets/images/home/placeholder-logo.png"
+              alt=""
+              width={120}
+              height={40}
+              className="object-contain"
+            />
           </div>
         ))}
       </div>
-    </section>
+    </div>
   )
 }

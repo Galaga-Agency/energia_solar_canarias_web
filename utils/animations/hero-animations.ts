@@ -9,6 +9,11 @@ export function initHeroAnimations(): void {
   const elements = hero.querySelectorAll('[data-hero-item]')
   if (!elements.length) return
 
+  const heroImage = hero.querySelector<HTMLElement>('[data-hero-image]')
+  if (heroImage) {
+    gsap.fromTo(heroImage, { scale: 1.12 }, { scale: 1, duration: 3, ease: 'power3.out' })
+  }
+
   gsap.fromTo(
     elements,
     { opacity: 0, y: 40 },

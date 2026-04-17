@@ -1,38 +1,53 @@
 'use client'
 
-import { BlobDecor } from '@/components/ui/BlobDecor'
+import Image from 'next/image'
 
 interface StatItem { value: string; suffix: string; label: string; desc: string }
 
 interface HomeStatsProps {
-  quote: string
-  items: StatItem[]
+  eyebrow: string
+  quote:   string
+  items:   StatItem[]
 }
 
-export function HomeStats({ quote, items }: HomeStatsProps) {
+export function HomeStats({ eyebrow, quote, items }: HomeStatsProps) {
   return (
-    <section
-      className="relative overflow-hidden section-spacing"
-      style={{ backgroundColor: 'var(--color-surface-dark)' }}
-    >
-      <BlobDecor className="right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-20" />
-      <div className="section-inner relative" data-reveal>
-        <p
-          className="text-heading mb-16 max-w-2xl"
-          style={{ fontWeight: 'var(--font-weight-semibold)', fontStyle: 'italic', color: 'var(--color-text-on-dark)' }}
-        >
-          {quote}
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {items.map(({ value, suffix, label, desc }) => (
-            <div key={label}>
-              <p className="text-display mb-2" style={{ color: 'var(--color-primary)' }}>
-                <span data-counter={value}>0</span>{suffix}
-              </p>
-              <h4 className="text-subheading mb-2" style={{ color: 'var(--color-text-on-dark)' }}>{label}</h4>
-              <p className="text-body-sm" style={{ color: 'var(--color-text-on-dark)', opacity: 0.7 }}>{desc}</p>
-            </div>
-          ))}
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-x-0 inset-y-[-20%] z-0" data-speed="0.8">
+        <Image
+          src="/assets/images/home/lanzarote-volcanic-vineyard-palms.webp"
+          alt=""
+          fill
+          className="object-cover object-center"
+          aria-hidden="true"
+          priority={false}
+        />
+        <div className="absolute inset-0 bg-[#111]/55" />
+      </div>
+
+      <div className="relative z-10 section-inner py-[clamp(4rem,8vw,8rem)]">
+        <div className="mb-12 md:mb-16 max-w-3xl" data-reveal>
+          <p className="text-label text-white/60! mb-4">{eyebrow}</p>
+          <h2 className="text-title text-white! font-semibold leading-snug">{quote}</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-reveal>
+          {items.map(({ value, suffix, label, desc }) => {
+            const numericValue = value.replace(',', '.')
+            return (
+              <div key={label} className="bg-white rounded-2xl p-7 md:p-8 flex flex-col">
+                <h3 className="text-subheading font-semibold text-ink mb-6 leading-snug">{label}</h3>
+                <p
+                  className="font-light leading-none text-primary mb-5"
+                  style={{ fontSize: 'clamp(3.5rem, 7vw, 5.5rem)' }}
+                >
+                  <span data-counter={numericValue}>0</span>{suffix}
+                </p>
+                <hr className="border-sand-200 mb-5" />
+                <p className="text-body-sm">{desc}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

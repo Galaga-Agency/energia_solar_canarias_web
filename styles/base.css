@@ -2,16 +2,17 @@
 
 .text-display {
   font-size: var(--text-display);
-  font-weight: var(--font-weight-black);
-  line-height: var(--leading-tight);
-  letter-spacing: var(--tracking-tight);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
 }
 
 .text-title {
-  font-size: var(--text-4xl);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--leading-tight);
+  font-size: var(--text-display);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
 }
 
@@ -31,21 +32,21 @@
 
 .text-body {
   font-size: var(--text-base);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--leading-normal);
   color: var(--color-text);
 }
 
 .text-body-sm {
   font-size: var(--text-sm);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--leading-normal);
   color: var(--color-text-muted);
 }
 
 .text-caption {
   font-size: var(--text-xs);
-  font-weight: var(--font-weight-regular);
+  font-weight: 400;
   line-height: var(--leading-normal);
   color: var(--color-text-subtle);
 }
@@ -98,4 +99,74 @@ select {
 .brand-canarias {
   font-weight: var(--font-weight-semibold);
   font-style: italic;
+}
+
+/* ── Brand radius ─────────────────────────────────────────────────────────── */
+
+.brand-radius {
+  border-radius: 12px;
+}
+
+/* ── Card typography ──────────────────────────────────────────────────────── */
+
+.card-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  color: var(--color-surface-dark);
+}
+
+.card-title {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+}
+
+.card-content {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* ── Section layout ───────────────────────────────────────────────────────── */
+
+.section-spacing,
+.section-spacing-both {
+  padding-top:    clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.section-inner {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 5vw, 4rem);
+}
+
+.panel-surface {
+  background: var(--color-bg);
+}
+
+.section-spacing.home-soluciones-panel {
+  padding-bottom: clamp(10rem, 16vw, 16rem);
+}
+
+.home-bird-flock-stage {
+  isolation: isolate;
+}
+
+.home-bird-flock-backdrop {
+  position: absolute;
+  top: 12%;
+  right: -46%;
+  z-index: 0;
+  width: 150%;
+  height: 105%;
 }

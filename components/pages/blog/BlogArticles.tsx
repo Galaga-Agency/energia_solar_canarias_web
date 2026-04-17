@@ -41,8 +41,8 @@ export function BlogArticles({ articles, viewMode, readMore, empty }: BlogArticl
               />
               <div className="p-6 flex flex-col gap-3 flex-1">
                 <div className="flex flex-wrap gap-2">
-                  <span className="pill-tag">{article.category}</span>
-                  <span className="pill-tag">{article.readTime}</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-surface text-text">{article.category}</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-surface text-text">{article.readTime}</span>
                 </div>
                 <h2 className="text-subheading">{article.title}</h2>
                 <p className="text-body flex-1">{article.excerpt}</p>

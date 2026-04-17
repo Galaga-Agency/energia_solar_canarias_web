@@ -1,75 +1,120 @@
 {
   "hero": {
-    "eyebrow":  "Certified installers in the Canary Islands",
-    "title":    "Your renewable energy, built to last",
-    "body":     "We design, install and maintain solar energy systems tailored to the energy reality of the Canarian archipelago. No fine print.",
-    "cta1":     "Request your free audit ↗",
-    "cta2":     "See solutions"
+    "eyebrow": "Certified installers in the Canary Islands",
+    "title": "Your renewable energy, built to last",
+    "body": "We design, install and maintain solar energy systems tailored to the energy reality of the Canarian archipelago. No fine print.",
+    "cta1": "Request your free audit ↗",
+    "cta2": "See solutions"
   },
   "solutions": {
-    "eyebrow":  "Our solutions",
-    "title":    "Energy adapted to how your business operates",
-    "link":     "See all solutions →",
+    "eyebrow": "Solutions",
+    "title": "Energy adapted to how your business operates",
+    "link": "See all solutions →",
     "empresas": {
       "label": "Businesses",
-      "desc":  "We reduce your company's energy bill and give you full control over your consumption."
+      "desc": "We reduce your company's energy bill and give you full control over your consumption.",
+      "title": "Full control over your energy bill"
     },
     "instalaciones": {
       "label": "Industrial facilities",
-      "desc":  "We design large-scale systems for warehouses, factories and tertiary sector infrastructure."
+      "desc": "We design large-scale systems for warehouses, factories and tertiary sector infrastructure.",
+      "title": "Large-scale infrastructure for your sector"
     },
     "hogares": {
       "label": "Homes",
-      "desc":  "Residential installations adapted to the Canarian climate, with return on investment in under 7 years."
-    }
+      "desc": "Residential installations adapted to the Canarian climate, with return on investment in under 7 years.",
+      "title": "Return on investment in under 7 years"
+    },
+    "body": "We analyse, size and integrate every system to improve efficiency, reduce costs and bring stability to your business.",
+    "cta": "Explore our solutions"
   },
   "benefits": {
     "eyebrow": "Why choose us",
-    "title":   "Power your business with smart energy decisions",
-    "body":    "Our team combines local technical expertise with strategic vision to deliver solutions that truly work in the Canary Islands.",
+    "title": "Power your business with smart energy decisions",
+    "body": "Our team combines local technical expertise with strategic vision to deliver solutions that truly work in the Canary Islands.",
     "items": [
-      { "label": "Proven savings",     "desc": "Average 40% reduction in energy bills from the first month." },
-      { "label": "Technical rigour",   "desc": "Certified engineers with specific experience in the archipelago." },
-      { "label": "Long-term vision",   "desc": "We project your real return on investment before you commit to anything." },
-      { "label": "Local knowledge",    "desc": "We understand Canarian regulations, the island climate and its particularities." }
+      {
+        "label": "Proven savings",
+        "desc": "Average 40% reduction in energy bills from the first month."
+      },
+      {
+        "label": "Technical rigour",
+        "desc": "Certified engineers with specific experience in the archipelago."
+      },
+      {
+        "label": "Long-term vision",
+        "desc": "We project your real return on investment before you commit to anything."
+      },
+      {
+        "label": "Local knowledge",
+        "desc": "We understand Canarian regulations, the island climate and its particularities."
+      }
     ]
   },
   "projects": {
     "title": "Companies that have taken control of their energy",
-    "body":  "We have guided companies from different sectors in their transition to more efficient and sustainable energy in the Canarian archipelago.",
-    "cta":   "See our projects"
+    "body": "We have guided companies from different sectors in their transition to more efficient and sustainable energy in the Canarian archipelago.",
+    "cta": "See our projects"
   },
   "stats": {
-    "quote":  "\"The energy you consume today defines the company you will be tomorrow.\"",
+    "eyebrow": "The numbers speak for themselves",
+    "quote": "The energy you consume today defines the company you will be tomorrow.",
     "items": [
-      { "value": "40",  "suffix": "%", "label": "Average cost reduction",  "desc": "Our clients reduce their energy bill by an average of 40% from the first year of operation." },
-      { "value": "120", "suffix": "+", "label": "Completed projects",       "desc": "Over 120 installations in the Canary Islands with proven return on investment." },
-      { "value": "6.8", "suffix": "",  "label": "Average payback period",   "desc": "Recover your investment in under 7 years on average, with equipment that lasts 25." }
+      {
+        "value": "40",
+        "suffix": "%",
+        "label": "Average cost reduction",
+        "desc": "Our clients reduce their energy bill by an average of 40% from the first year of operation."
+      },
+      {
+        "value": "120",
+        "suffix": "+",
+        "label": "Completed projects",
+        "desc": "Over 120 installations in the Canary Islands with proven return on investment."
+      },
+      {
+        "value": "6.8",
+        "suffix": "",
+        "label": "Average payback period",
+        "desc": "Recover your investment in under 7 years on average, with equipment that lasts 25."
+      }
     ]
   },
   "founder": {
-    "eyebrow":  "About us",
-    "title":    "20 years building a more sustainable energy model",
-    "role":     "Owner",
-    "name":     "Carla Isarí Díaz Ortega, CEO & Owner",
-    "body1":    "Carla has spent two decades leading renewable energy projects in the Canarian archipelago, combining technical rigour with a deep understanding of the territory and its energy needs.",
-    "quote":    "\"Every project is an opportunity to build a more resilient Canarias.\"",
-    "link":     "Learn about her work →"
+    "eyebrow": "About us",
+    "title": "20 years building a more sustainable energy model",
+    "role": "Purpose",
+    "name": "Carla Isarí Díaz Ortega, CEO & Owner",
+    "body1": "For us, moving towards a more local energy model is not just a professional goal — it is a commitment we keep with our territory and its people.",
+    "quote": "leads the company with the conviction that the archipelago can become a world reference in island energy transition.",
+    "link": "Learn more about us"
   },
   "testimonials": {
     "eyebrow": "Clients",
-    "title":   "What our clients say",
-    "body":    "The best proof of our work is the words of those who trust us.",
+    "title": "What our clients say",
+    "body": "The best proof of our work is the words of those who trust us.",
     "items": [
-      { "name": "Roberto Martínez", "role": "Operations Director",        "quote": "The team didn't just install our system — they solved a real problem for us." },
-      { "name": "Ana García",       "role": "Manager, Hotel Las Palmas",  "quote": "We reduced our electricity bill by 45% in the first year." },
-      { "name": "Pedro Suárez",     "role": "Owner, Finca La Palma",      "quote": "The free audit was the first step in taking control of our energy." }
+      {
+        "name": "Roberto Martínez",
+        "role": "Operations Director",
+        "quote": "The team didn't just install our system — they solved a real problem for us."
+      },
+      {
+        "name": "Ana García",
+        "role": "Manager, Hotel Las Palmas",
+        "quote": "We reduced our electricity bill by 45% in the first year."
+      },
+      {
+        "name": "Pedro Suárez",
+        "role": "Owner, Finca La Palma",
+        "quote": "The free audit was the first step in taking control of our energy."
+      }
     ]
   },
   "cta": {
-    "title":    "Request your free energy audit",
-    "body":     "Discover how to optimise your consumption and move towards a more efficient energy model. No cost. No commitment.",
-    "primary":  "Request your audit ↗",
-    "secondary":"Contact us"
+    "title": "Request your free energy audit",
+    "body": "Discover how to optimise your consumption and move towards a more efficient energy model. No cost. No commitment.",
+    "primary": "Request your audit ↗",
+    "secondary": "Contact us"
   }
 }

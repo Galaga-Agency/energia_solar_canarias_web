@@ -1,41 +1,59 @@
 'use client'
 
-import { TransitionLink } from '@/components/ui/TransitionLink'
+import { useState }     from 'react'
+import { Button }       from '@/components/ui/Button'
+import { SolucionCard } from '@/components/ui/SolucionCard'
 
 interface SolucionItem {
   label: string
+  title: string
   desc:  string
 }
 
 interface HomeSolucionesProps {
-  eyebrow:      string
-  title:        string
-  link:         string
-  empresas:     SolucionItem
-  instalaciones:SolucionItem
-  hogares:      SolucionItem
+  eyebrow:       string
+  title:         string
+  body:          string
+  cta:           string
+  empresas:      SolucionItem
+  instalaciones: SolucionItem
+  hogares:       SolucionItem
 }
 
-export function HomeSoluciones({ eyebrow, title, link, empresas, instalaciones, hogares }: HomeSolucionesProps) {
+const IMAGES = [
+  '/assets/images/home/cactus-mountain-landscape.webp',
+  '/assets/images/home/maspalomas-sand-dunes.webp',
+  '/assets/images/home/aerial-solar-panel-rows.webp',
+]
+
+export function HomeSoluciones({ eyebrow, title, body, cta, empresas, instalaciones, hogares }: HomeSolucionesProps) {
+  const [openIndex, setOpenIndex] = useState(0)
   const items = [empresas, instalaciones, hogares]
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section className="section-spacing home-soluciones-panel panel-surface relative z-0" data-home-panel-pin>
       <div className="section-inner" data-reveal>
-        <span className="text-label block mb-4">{eyebrow}</span>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <h2 className="text-heading max-w-lg">{title}</h2>
-          <TransitionLink href="/soluciones" className="text-body-sm font-semibold" style={{ color: 'var(--color-primary)' }}>
-            {link}
-          </TransitionLink>
+
+        {/* Header */}
+        <div className="flex flex-col items-center text-center gap-6 mb-12 max-w-2xl mx-auto">
+          <span className="text-label text-primary!">{eyebrow}</span>
+          <h2 className="text-title">{title}</h2>
+          <p className="text-body">{body}</p>
+          <Button variant="green-dark" href="/soluciones">{cta}</Button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {items.map(({ label, desc }) => (
-            <TransitionLink key={label} href="/soluciones" className="card p-8 flex flex-col gap-4">
-              <div className="w-full aspect-video rounded-lg" style={{ backgroundColor: 'var(--color-border)' }} />
-              <span className="text-label">{label}</span>
-              <p className="text-body">{desc}</p>
-            </TransitionLink>
+
+        {/* Cards */}
+        <div className="flex flex-col md:flex-row md:h-115 gap-4">
+          {items.map((item, i) => (
+            <SolucionCard
+              key={item.label}
+              label={item.label}
+              title={item.title}
+              desc={item.desc}
+              image={IMAGES[i]}
+              isOpen={openIndex === i}
+              onSelect={() => setOpenIndex(i)}
+            />
           ))}
         </div>
       </div>

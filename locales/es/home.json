@@ -1,25 +1,30 @@
 {
   "hero": {
     "eyebrow":  "Instaladores certificados en Canarias",
-    "title":    "Tu energía renovable, diseñada para durar",
-    "body":     "Diseñamos, instalamos y mantenemos sistemas de energía solar adaptados a la realidad energética del archipiélago canario. Sin letra pequeña.",
-    "cta1":     "Solicita tu auditoría ↗",
+    "title":    "Energía renovable que impulsa tu negocio y tu hogar",
+    "body":     "Soluciones de energía renovable diseñadas para ahorrar, ganar autonomía y tener mayor control sobre tu energía.",
+    "cta1":     "Contacta con nosotros",
     "cta2":     "Ver soluciones"
   },
   "solutions": {
-    "eyebrow":  "Nuestras soluciones",
+    "eyebrow":  "Soluciones",
     "title":    "Energía adaptada a la operativa de tu negocio",
+    "body":     "Analizamos, dimensionamos e integramos cada sistema para mejorar la eficiencia, reducir costes y aportar estabilidad a tu negocio.",
+    "cta":      "Explora nuestras soluciones",
     "link":     "Ver todas las soluciones →",
     "empresas": {
       "label": "Empresas",
+      "title": "Control total sobre tu factura energética",
       "desc":  "Reducimos la factura energética de tu empresa y te damos control total sobre tu consumo."
     },
     "instalaciones": {
       "label": "Instalaciones industriales",
+      "title": "Infraestructura de gran escala para tu sector",
       "desc":  "Diseñamos sistemas de gran escala para naves, fábricas e infraestructuras del sector terciario."
     },
     "hogares": {
       "label": "Hogares",
+      "title": "Retorno de inversión en menos de 7 años",
       "desc":  "Instalaciones residenciales adaptadas al clima canario, con retorno de inversión en menos de 7 años."
     }
   },
@@ -40,7 +45,8 @@
     "cta":   "Ver nuestros proyectos"
   },
   "stats": {
-    "quote":  "\"La energía que consumes hoy define la empresa que serás mañana.\"",
+    "eyebrow": "Los números hablan por sí mismos",
+    "quote":  "La energía que consumes hoy define la empresa que serás mañana.",
     "items": [
       { "value": "40",  "suffix": "%", "label": "Reducción media de costes",  "desc": "Nuestros clientes reducen su factura energética de media un 40% desde el primer año de operación." },
       { "value": "120", "suffix": "+", "label": "Proyectos completados",       "desc": "Más de 120 instalaciones en Canarias con retorno de inversión comprobado." },
@@ -48,13 +54,13 @@
     ]
   },
   "founder": {
-    "eyebrow":  "Sobre nosotros",
+    "eyebrow":  "Conócenos",
     "title":    "20 años construyendo un modelo energético más nuestro",
-    "role":     "Propietaria",
+    "role":     "Propósito",
     "name":     "Carla Isarí Díaz Ortega, CEO y propietaria",
-    "body1":    "Carla lleva dos décadas liderando proyectos de energía renovable en el archipiélago canario, combinando rigor técnico con una profunda comprensión del territorio y sus necesidades energéticas.",
-    "quote":    "\"Cada proyecto es una oportunidad de construir un Canarias más resiliente.\"",
-    "link":     "Conoce su labor →"
+    "body1":    "Para nosotros, avanzar hacia una energía más nuestra no es solo una meta profesional, es un compromiso que mantenemos con nuestro territorio y su gente.",
+    "quote":    "lidera la compañía con la convicción de que el archipiélago puede ser un referente mundial en transición energética insular.",
+    "link":     "Conoce más sobre nosotros"
   },
   "testimonials": {
     "eyebrow": "Clientes",

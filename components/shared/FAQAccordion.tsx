@@ -26,7 +26,7 @@ export function FAQAccordion({ items, label = 'FAQ' }: FAQAccordionProps) {
             const isOpen    = openIndex === i
 
             return (
-              <div key={i} className="accordion-item">
+              <div key={i} className="border-b border-border">
                 <dt>
                   <button
                     id={triggerId}
@@ -34,7 +34,7 @@ export function FAQAccordion({ items, label = 'FAQ' }: FAQAccordionProps) {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     data-accordion-trigger={panelId}
-                    className="accordion-trigger"
+                    className="w-full flex items-center justify-between py-6 bg-transparent border-0 text-left cursor-pointer"
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                   >
                     <h3 className="text-subheading text-left">{item.question}</h3>

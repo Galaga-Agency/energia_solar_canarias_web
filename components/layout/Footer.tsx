@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useTranslation } from '@/contexts/TranslationContext'
-import { BlobDecor } from '@/components/ui/BlobDecor'
 import {
   FOOTER_SOCIAL,
   FOOTER_SOLUCIONES,
@@ -36,7 +35,6 @@ export function Footer() {
       className="relative overflow-hidden"
       style={{ backgroundColor: 'var(--color-surface-dark)', color: 'var(--color-text-on-dark)' }}
     >
-      <BlobDecor className="bottom-0 right-0 w-96 h-96 opacity-10" />
 
       <div className="section-inner section-spacing-both relative">
         {/* Top grid */}

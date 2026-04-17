@@ -44,7 +44,7 @@ export function SobreNosotrosBenefits({
           ))}
         </div>
 
-        <div className="card p-8 md:p-12">
+        <div className="bg-surface rounded-2xl overflow-hidden p-8 md:p-12">
           <div
             aria-hidden="true"
             className="w-16 h-16 rounded-full flex items-center justify-center mb-6"

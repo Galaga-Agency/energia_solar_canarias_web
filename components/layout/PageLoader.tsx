@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useAppReady } from '@/hooks/useAppReady'
+import { Logo } from '@/components/shared/Logo'
 
 export function PageLoader() {
   const loadingComplete = useAppReady()
@@ -27,10 +28,7 @@ export function PageLoader() {
         pointerEvents: loadingComplete ? 'none' : 'auto',
       }}
     >
-      <div
-        className="w-16 h-16 rounded-full animate-pulse"
-        style={{ backgroundColor: 'var(--color-primary)' }}
-      />
+      <Logo width={260} />
     </div>
   )
 }
