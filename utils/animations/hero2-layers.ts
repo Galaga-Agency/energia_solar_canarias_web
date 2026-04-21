@@ -24,12 +24,13 @@ export function initHero2Animations(): () => void {
 
   const call = ++_callCount
   const t0 = performance.now()
-  const l1 = hero.querySelector<HTMLElement>('[data-layer-scroll="1"]')
-  console.log(`[hero#${call}] init at ${t0.toFixed(0)}ms | layer-1 opacity="${l1 ? getComputedStyle(l1).opacity : 'null'}" vis="${l1?.style.visibility}"`)
-
-  setTimeout(() => {
-    console.log(`[hero#${call}] +1s | layer-1 opacity="${l1 ? getComputedStyle(l1).opacity : 'null'}" vis="${l1?.style.visibility}" transform="${l1?.style.transform}"`)
-  }, 1000)
+  const l4 = hero.querySelector<HTMLElement>('[data-layer-scroll="4"]')
+  console.log(`[hero#${call}] init at ${t0.toFixed(0)}ms`)
+  ;[0, 50, 100, 200, 400, 800, 1500].forEach(ms => {
+    setTimeout(() => {
+      console.log(`[hero#${call}] +${ms}ms | layer-4 tr="${l4?.style.transform}" op="${l4?.style.opacity}"`)
+    }, ms)
+  })
 
   const tweens: gsap.core.Tween[] = []
   const triggers: ScrollTrigger[] = []

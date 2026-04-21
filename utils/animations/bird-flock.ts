@@ -1,7 +1,7 @@
 'use client'
 
-import { ScrollTrigger }          from '@/lib/gsap'
-import { prefersReducedMotion }   from '@/utils/animations/motionPrefs'
+import { ScrollTrigger }        from '@/lib/gsap'
+import { prefersReducedMotion } from '@/utils/animations/motionPrefs'
 
 const FLOCK_SRC = '/assets/images/home/new-birds.svg'
 const DEFAULT_VIEW_BOX = '0 0 1440 1546'
