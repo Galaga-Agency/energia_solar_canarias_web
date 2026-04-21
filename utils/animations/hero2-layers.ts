@@ -16,21 +16,9 @@ const DRIFT = [
   { key: '1', x:  -8, y:  -5, xDur: 13, yDur: 10, delay: 1.5 },
 ]
 
-let _callCount = 0
-
 export function initHero2Animations(): () => void {
   const hero = document.querySelector<HTMLElement>('[data-hero2]')
   if (!hero) return () => {}
-
-  const call = ++_callCount
-  const t0 = performance.now()
-  const l4 = hero.querySelector<HTMLElement>('[data-layer-scroll="4"]')
-  console.log(`[hero#${call}] init at ${t0.toFixed(0)}ms`)
-  ;[0, 50, 100, 200, 400, 800, 1500].forEach(ms => {
-    setTimeout(() => {
-      console.log(`[hero#${call}] +${ms}ms | layer-4 tr="${l4?.style.transform}" op="${l4?.style.opacity}"`)
-    }, ms)
-  })
 
   const tweens: gsap.core.Tween[] = []
   const triggers: ScrollTrigger[] = []
@@ -80,7 +68,6 @@ export function initHero2Animations(): () => void {
   }
 
   return () => {
-    console.log(`[hero#${call}] cleanup`)
     tweens.forEach(t => t.kill())
     triggers.forEach(t => t.kill())
   }

@@ -48,32 +48,6 @@ const parseViewBox = (value: string) => {
   return { x, y, width, height }
 }
 
-const createPathMeasurer = (viewBox: string) => {
-  const svg = document.createElementNS(SVG_NS, 'svg')
-  svg.setAttribute('viewBox', viewBox)
-  svg.setAttribute('width', '0')
-  svg.setAttribute('height', '0')
-  svg.style.position = 'absolute'
-  svg.style.left = '-9999px'
-  svg.style.top = '-9999px'
-  svg.style.opacity = '0'
-  svg.style.pointerEvents = 'none'
-  document.body.appendChild(svg)
-
-  const measure = (pathData: string) => {
-    const path = document.createElementNS(SVG_NS, 'path')
-    path.setAttribute('d', pathData)
-    svg.appendChild(path)
-    const bounds = path.getBBox()
-    svg.removeChild(path)
-    return bounds
-  }
-
-  return () => {
-    svg.remove()
-  }
-}
-
 const createLayerCanvas = (width: number, height: number) => {
   const layer = document.createElement('canvas')
   layer.width = Math.max(Math.ceil(width), 1)
@@ -184,25 +158,27 @@ function initBirdFlockCanvas({
     const layerHeight = bounds.height + padding * 2
     const originX = -drawX
     const originY = -drawY
+    const birdSize = Math.max(bounds.width, bounds.height)
+    const shouldAnimate = birdSize >= 18
     const leftWingRect = {
       x: 0,
       y: 0,
-      width: Math.max(bounds.width * 0.42, 8),
-      height: Math.max(bounds.height * 0.34, 6),
+      width: Math.max(bounds.width * 0.5, 10),
+      height: Math.max(bounds.height * 0.42, 8),
     }
     const rightWingRect = {
-      x: Math.max(layerWidth - Math.max(bounds.width * 0.42, 8), 0),
+      x: Math.max(layerWidth - Math.max(bounds.width * 0.5, 10), 0),
       y: 0,
-      width: Math.max(bounds.width * 0.42, 8),
-      height: Math.max(bounds.height * 0.34, 6),
+      width: Math.max(bounds.width * 0.5, 10),
+      height: Math.max(bounds.height * 0.42, 8),
     }
     const leftWingPivot = {
-      x: bounds.x + bounds.width * 0.34,
-      y: bounds.y + bounds.height * 0.22,
+      x: bounds.x + bounds.width * 0.36,
+      y: bounds.y + bounds.height * 0.2,
     }
     const rightWingPivot = {
-      x: bounds.x + bounds.width * 0.66,
-      y: bounds.y + bounds.height * 0.22,
+      x: bounds.x + bounds.width * 0.64,
+      y: bounds.y + bounds.height * 0.2,
     }
 
     const shape = new Path2D(path)
@@ -216,32 +192,42 @@ function initBirdFlockCanvas({
     const bodyLayer = createLayerCanvas(layerWidth, layerHeight)
     const bodyContext = bodyLayer.getContext('2d')!
     bodyContext.drawImage(fullLayer, 0, 0)
-    clearRect(bodyContext, leftWingRect)
-    clearRect(bodyContext, rightWingRect)
+    if (shouldAnimate) {
+      clearRect(bodyContext, leftWingRect)
+      clearRect(bodyContext, rightWingRect)
+    }
 
     const leftWingLayer = createLayerCanvas(layerWidth, layerHeight)
     const leftWingContext = leftWingLayer.getContext('2d')!
     leftWingContext.drawImage(fullLayer, 0, 0)
     leftWingContext.globalCompositeOperation = 'destination-in'
     leftWingContext.fillStyle = '#000'
-    maskPolygon(leftWingContext, [
-      { x: 0, y: 0 },
-      { x: leftWingRect.width, y: 0 },
-      { x: leftWingRect.width * 0.78, y: leftWingRect.height },
-      { x: 0, y: leftWingRect.height * 0.64 },
-    ])
+    if (shouldAnimate) {
+      maskPolygon(leftWingContext, [
+        { x: 0, y: 0 },
+        { x: leftWingRect.width, y: 0 },
+        { x: leftWingRect.width * 0.82, y: leftWingRect.height },
+        { x: 0, y: leftWingRect.height * 0.72 },
+      ])
+    } else {
+      clearRect(leftWingContext, { x: 0, y: 0, width: layerWidth, height: layerHeight })
+    }
 
     const rightWingLayer = createLayerCanvas(layerWidth, layerHeight)
     const rightWingContext = rightWingLayer.getContext('2d')!
     rightWingContext.drawImage(fullLayer, 0, 0)
     rightWingContext.globalCompositeOperation = 'destination-in'
     rightWingContext.fillStyle = '#000'
-    maskPolygon(rightWingContext, [
-      { x: rightWingRect.x + rightWingRect.width * 0.22, y: 0 },
-      { x: rightWingRect.x + rightWingRect.width, y: 0 },
-      { x: rightWingRect.x + rightWingRect.width, y: rightWingRect.height * 0.64 },
-      { x: rightWingRect.x, y: rightWingRect.height },
-    ])
+    if (shouldAnimate) {
+      maskPolygon(rightWingContext, [
+        { x: rightWingRect.x + rightWingRect.width * 0.18, y: 0 },
+        { x: rightWingRect.x + rightWingRect.width, y: 0 },
+        { x: rightWingRect.x + rightWingRect.width, y: rightWingRect.height * 0.72 },
+        { x: rightWingRect.x, y: rightWingRect.height },
+      ])
+    } else {
+      clearRect(rightWingContext, { x: 0, y: 0, width: layerWidth, height: layerHeight })
+    }
 
     return {
       bodyLayer,
@@ -251,6 +237,7 @@ function initBirdFlockCanvas({
       drawY,
       leftWingPivot,
       rightWingPivot,
+      shouldAnimate,
       finalOpacity: seededRange(seed, 1, 0.08, 0.16),
       revealStart: seededRange(seed, 2, 0.05, 0.38),
       revealDuration: seededRange(seed, 3, 0.08, 0.18),
@@ -259,9 +246,9 @@ function initBirdFlockCanvas({
       flightStart: seededRange(seed, 6, 0, 0.06),
       flightDuration: seededRange(seed, 7, 0.68, 1.12),
       flapOffset: seededRange(seed, 8, 0, Math.PI * 2),
-      flapAngle: seededRange(seed, 9, 0.14, 0.28),
-      flapLift: seededRange(seed, 10, 0.2, 1),
-      flapCycles: seededRange(seed, 11, 6.5, 10),
+      flapAngle: seededRange(seed, 9, 0.28, 0.55),
+      flapLift: seededRange(seed, 10, 0.8, 3.2),
+      flapCycles: seededRange(seed, 11, 7.5, 12),
     }
   })
 
@@ -314,21 +301,23 @@ function initBirdFlockCanvas({
       context.translate(bird.flightX * flightProgress, bird.flightY * flightProgress)
       context.drawImage(bird.bodyLayer, bird.drawX, bird.drawY)
 
-      context.save()
-      context.translate(bird.leftWingPivot.x, bird.leftWingPivot.y)
-      context.rotate(-flapWave * bird.flapAngle)
-      context.translate(0, -Math.abs(flapWave) * bird.flapLift)
-      context.translate(-bird.leftWingPivot.x, -bird.leftWingPivot.y)
-      context.drawImage(bird.leftWingLayer, bird.drawX, bird.drawY)
-      context.restore()
+      if (bird.shouldAnimate) {
+        context.save()
+        context.translate(bird.leftWingPivot.x, bird.leftWingPivot.y)
+        context.rotate(-flapWave * bird.flapAngle)
+        context.translate(0, -Math.abs(flapWave) * bird.flapLift)
+        context.translate(-bird.leftWingPivot.x, -bird.leftWingPivot.y)
+        context.drawImage(bird.leftWingLayer, bird.drawX, bird.drawY)
+        context.restore()
 
-      context.save()
-      context.translate(bird.rightWingPivot.x, bird.rightWingPivot.y)
-      context.rotate(flapWave * bird.flapAngle)
-      context.translate(0, -Math.abs(flapWave) * bird.flapLift)
-      context.translate(-bird.rightWingPivot.x, -bird.rightWingPivot.y)
-      context.drawImage(bird.rightWingLayer, bird.drawX, bird.drawY)
-      context.restore()
+        context.save()
+        context.translate(bird.rightWingPivot.x, bird.rightWingPivot.y)
+        context.rotate(flapWave * bird.flapAngle)
+        context.translate(0, -Math.abs(flapWave) * bird.flapLift)
+        context.translate(-bird.rightWingPivot.x, -bird.rightWingPivot.y)
+        context.drawImage(bird.rightWingLayer, bird.drawX, bird.drawY)
+        context.restore()
+      }
 
       context.restore()
     })

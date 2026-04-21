@@ -11,10 +11,10 @@ interface HomeHero2Props {
 }
 
 const LAYERS = [
-  { key: "4", z: 2, cls: "object-cover object-bottom" },
-  { key: "3", z: 3, cls: "object-cover" },
-  { key: "2", z: 4, cls: "object-cover" },
-  { key: "1", z: 5, cls: "object-cover" },
+  { key: "4", z: 2, cls: "object-cover object-bottom", initY: -90 },
+  { key: "3", z: 3, cls: "object-cover",               initY: -60 },
+  { key: "2", z: 4, cls: "object-cover",               initY: -35 },
+  { key: "1", z: 5, cls: "object-cover",               initY: -12.5 },
 ] as const;
 
 export function HomeHero2({ title, body, cta1 }: HomeHero2Props) {
@@ -30,11 +30,11 @@ export function HomeHero2({ title, body, cta1 }: HomeHero2Props) {
       />
 
       {/* Parallax layers — z-index fixed, order never swaps */}
-      {LAYERS.map(({ key, z, cls }) => (
+      {LAYERS.map(({ key, z, cls, initY }) => (
         <div
           key={key}
           className="absolute -inset-[10%]"
-          style={{ zIndex: z }}
+          style={{ zIndex: z, transform: `translateY(${initY}px)` }}
           data-layer-scroll={key}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
