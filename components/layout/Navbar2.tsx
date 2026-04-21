@@ -30,6 +30,8 @@ export function Navbar2() {
 
   const transparent = isHome && !scrolled
 
+  // test
+
   return (
     <>
       <header
