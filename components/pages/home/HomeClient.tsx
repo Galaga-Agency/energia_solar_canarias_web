@@ -91,12 +91,7 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
       <HomeStats {...stats} />
       <HomeFounder {...founder} />
       <HomeTestimonials {...testimonials} />
-      <HomeCTA
-        title={cta.title}
-        body={cta.body}
-        secondaryLabel={cta.secondary}
-        secondaryHref="/contacto"
-      />
+      <HomeCTA {...cta} secondaryHref="/contacto" />
       {/* {PerfMonitor && <PerfMonitor />} */}
     </>
   )

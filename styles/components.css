@@ -74,33 +74,12 @@
   position: relative;
   min-height: 19rem;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 56%, rgba(255, 255, 255, 0.92) 0, rgba(255, 255, 255, 0.78) 16rem, transparent 42rem),
-    linear-gradient(90deg, #f2c5b2 0%, #f7e4dc 18%, #fbf9f6 38%, #ffffff 50%, #fbf9f6 62%, #f7e4dc 82%, #f2c5b2 100%);
-}
-
-.home-cta-glow {
-  position: absolute;
-  width: 38rem;
-  height: 20rem;
-  pointer-events: none;
-  background:
-    radial-gradient(circle, rgba(228, 87, 44, 0.34) 0, rgba(244, 146, 114, 0.2) 34%, transparent 70%);
-  filter: blur(4px);
-  opacity: 0.85;
-  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse 80% 80% at 15% 10%, #ffffff 0%, #fbf9f6 25%, #f7e4dc 55%, #f2c5b2 80%, #e8a690 100%);
 }
 
 .home-cta-action {
   display: flex;
   justify-content: center;
-}
-
-@media (max-width: 767px) {
-  .home-cta-glow {
-    width: 28rem;
-    height: 18rem;
-  }
 }
 
 /* ── Highlight draw ───────────────────────────────────────────────────────── */
