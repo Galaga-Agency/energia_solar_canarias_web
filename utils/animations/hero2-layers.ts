@@ -39,7 +39,6 @@ export function initHero2Animations(): () => void {
       {
         y: half,
         ease: 'none',
-        immediateRender: false,
         scrollTrigger: {
           trigger: hero,
           start: 'top top',

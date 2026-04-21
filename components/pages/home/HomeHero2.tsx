@@ -33,7 +33,7 @@ export function HomeHero2({ title, body, cta1 }: HomeHero2Props) {
       {LAYERS.map(({ key, z, cls }) => (
         <div
           key={key}
-          className="absolute -inset-[10%] opacity-0"
+          className="absolute -inset-[10%] opacity-0 will-change-transform"
           style={{ zIndex: z }}
           data-layer-scroll={key}
         >
