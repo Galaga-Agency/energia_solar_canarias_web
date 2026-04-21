@@ -81,6 +81,19 @@ const createLayerCanvas = (width: number, height: number) => {
   return layer
 }
 
+const maskPolygon = (
+  context: CanvasRenderingContext2D,
+  points: Array<{ x: number; y: number }>,
+) => {
+  context.beginPath()
+  context.moveTo(points[0].x, points[0].y)
+  for (let index = 1; index < points.length; index += 1) {
+    context.lineTo(points[index].x, points[index].y)
+  }
+  context.closePath()
+  context.fill()
+}
+
 const clearRect = (
   context: CanvasRenderingContext2D,
   rect: { x: number; y: number; width: number; height: number },
@@ -171,22 +184,25 @@ function initBirdFlockCanvas({
     const layerHeight = bounds.height + padding * 2
     const originX = -drawX
     const originY = -drawY
-    const hingeX = bounds.x + bounds.width * 0.5
-    const hingeY = bounds.y + bounds.height * 0.22
-    const bodyWidth = Math.max(bounds.width * 0.34, 4)
-    const wingHeight = Math.max(bounds.height * 0.22, 2)
-    const wingInset = bounds.width * 0.12
     const leftWingRect = {
       x: 0,
       y: 0,
-      width: Math.max(hingeX - bodyWidth * 0.5 - drawX - wingInset, 1),
-      height: wingHeight + padding,
+      width: Math.max(bounds.width * 0.42, 8),
+      height: Math.max(bounds.height * 0.34, 6),
     }
     const rightWingRect = {
-      x: Math.max(hingeX + bodyWidth * 0.5 - drawX + wingInset, 0),
+      x: Math.max(layerWidth - Math.max(bounds.width * 0.42, 8), 0),
       y: 0,
-      width: Math.max(drawX + layerWidth - (hingeX + bodyWidth * 0.5) - wingInset, 1),
-      height: wingHeight + padding,
+      width: Math.max(bounds.width * 0.42, 8),
+      height: Math.max(bounds.height * 0.34, 6),
+    }
+    const leftWingPivot = {
+      x: bounds.x + bounds.width * 0.34,
+      y: bounds.y + bounds.height * 0.22,
+    }
+    const rightWingPivot = {
+      x: bounds.x + bounds.width * 0.66,
+      y: bounds.y + bounds.height * 0.22,
     }
 
     const shape = new Path2D(path)
@@ -208,24 +224,24 @@ function initBirdFlockCanvas({
     leftWingContext.drawImage(fullLayer, 0, 0)
     leftWingContext.globalCompositeOperation = 'destination-in'
     leftWingContext.fillStyle = '#000'
-    leftWingContext.fillRect(
-      leftWingRect.x,
-      leftWingRect.y,
-      leftWingRect.width,
-      leftWingRect.height,
-    )
+    maskPolygon(leftWingContext, [
+      { x: 0, y: 0 },
+      { x: leftWingRect.width, y: 0 },
+      { x: leftWingRect.width * 0.78, y: leftWingRect.height },
+      { x: 0, y: leftWingRect.height * 0.64 },
+    ])
 
     const rightWingLayer = createLayerCanvas(layerWidth, layerHeight)
     const rightWingContext = rightWingLayer.getContext('2d')!
     rightWingContext.drawImage(fullLayer, 0, 0)
     rightWingContext.globalCompositeOperation = 'destination-in'
     rightWingContext.fillStyle = '#000'
-    rightWingContext.fillRect(
-      rightWingRect.x,
-      rightWingRect.y,
-      rightWingRect.width,
-      rightWingRect.height,
-    )
+    maskPolygon(rightWingContext, [
+      { x: rightWingRect.x + rightWingRect.width * 0.22, y: 0 },
+      { x: rightWingRect.x + rightWingRect.width, y: 0 },
+      { x: rightWingRect.x + rightWingRect.width, y: rightWingRect.height * 0.64 },
+      { x: rightWingRect.x, y: rightWingRect.height },
+    ])
 
     return {
       bodyLayer,
@@ -233,8 +249,8 @@ function initBirdFlockCanvas({
       rightWingLayer,
       drawX,
       drawY,
-      hingeX,
-      hingeY,
+      leftWingPivot,
+      rightWingPivot,
       finalOpacity: seededRange(seed, 1, 0.08, 0.16),
       revealStart: seededRange(seed, 2, 0.05, 0.38),
       revealDuration: seededRange(seed, 3, 0.08, 0.18),
@@ -243,8 +259,8 @@ function initBirdFlockCanvas({
       flightStart: seededRange(seed, 6, 0, 0.06),
       flightDuration: seededRange(seed, 7, 0.68, 1.12),
       flapOffset: seededRange(seed, 8, 0, Math.PI * 2),
-      flapAngle: seededRange(seed, 9, 0.12, 0.24),
-      flapLift: seededRange(seed, 10, 0.25, 1.25),
+      flapAngle: seededRange(seed, 9, 0.14, 0.28),
+      flapLift: seededRange(seed, 10, 0.2, 1),
       flapCycles: seededRange(seed, 11, 6.5, 10),
     }
   })
@@ -299,18 +315,18 @@ function initBirdFlockCanvas({
       context.drawImage(bird.bodyLayer, bird.drawX, bird.drawY)
 
       context.save()
-      context.translate(bird.hingeX, bird.hingeY)
+      context.translate(bird.leftWingPivot.x, bird.leftWingPivot.y)
       context.rotate(-flapWave * bird.flapAngle)
       context.translate(0, -Math.abs(flapWave) * bird.flapLift)
-      context.translate(-bird.hingeX, -bird.hingeY)
+      context.translate(-bird.leftWingPivot.x, -bird.leftWingPivot.y)
       context.drawImage(bird.leftWingLayer, bird.drawX, bird.drawY)
       context.restore()
 
       context.save()
-      context.translate(bird.hingeX, bird.hingeY)
+      context.translate(bird.rightWingPivot.x, bird.rightWingPivot.y)
       context.rotate(flapWave * bird.flapAngle)
       context.translate(0, -Math.abs(flapWave) * bird.flapLift)
-      context.translate(-bird.hingeX, -bird.hingeY)
+      context.translate(-bird.rightWingPivot.x, -bird.rightWingPivot.y)
       context.drawImage(bird.rightWingLayer, bird.drawX, bird.drawY)
       context.restore()
 
