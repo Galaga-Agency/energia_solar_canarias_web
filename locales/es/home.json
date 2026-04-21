@@ -65,11 +65,12 @@
   "testimonials": {
     "eyebrow": "Clientes",
     "title":   "Valoraciones de nuestros clientes",
-    "body":    "La mejor prueba de nuestro trabajo son las palabras de quienes confían en nosotros.",
+    "body":    "Cuando tus clientes son tu mejor carta de presentación, sabes que vas por buen camino.",
     "items": [
-      { "name": "Roberto Martínez", "role": "Director de Operaciones",    "quote": "El equipo no solo instaló nuestro sistema, nos resolvieron un problema real." },
-      { "name": "Ana García",       "role": "Gerente, Hotel Las Palmas",  "quote": "Redujimos nuestra factura eléctrica un 45% en el primer año." },
-      { "name": "Pedro Suárez",     "role": "Propietario, Finca La Palma","quote": "La auditoría gratuita fue el primer paso para tomar el control de nuestra energía." }
+      { "name": "Roberto Díaz",    "role": "CEO, Manufactura Industrial",      "quote": "Carla eliminó toda la complejidad burocrática. Hoy operamos con energía limpia y nuestros costos bajaron significativamente." },
+      { "name": "Marcela Ruiz",    "role": "CFO, Logística y Distribución",    "quote": "El equipo manejó cada detalle técnico sin que tuviéramos que intervenir. Fue llave en mano como prometieron." },
+      { "name": "Ana García",      "role": "Gerente, Hotel Las Palmas",        "quote": "Redujimos nuestra factura eléctrica un 45% en el primer año. El retorno fue más rápido de lo que esperábamos." },
+      { "name": "Pedro Suárez",    "role": "Propietario, Finca La Palma",      "quote": "La auditoría gratuita fue el primer paso para tomar el control de nuestra energía. Altamente recomendable." }
     ]
   },
   "cta": {

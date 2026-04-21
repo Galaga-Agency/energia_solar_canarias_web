@@ -92,23 +92,12 @@
   "testimonials": {
     "eyebrow": "Clients",
     "title": "What our clients say",
-    "body": "The best proof of our work is the words of those who trust us.",
+    "body": "When your clients are your best business card, you know you're on the right track.",
     "items": [
-      {
-        "name": "Roberto Martínez",
-        "role": "Operations Director",
-        "quote": "The team didn't just install our system — they solved a real problem for us."
-      },
-      {
-        "name": "Ana García",
-        "role": "Manager, Hotel Las Palmas",
-        "quote": "We reduced our electricity bill by 45% in the first year."
-      },
-      {
-        "name": "Pedro Suárez",
-        "role": "Owner, Finca La Palma",
-        "quote": "The free audit was the first step in taking control of our energy."
-      }
+      { "name": "Roberto Díaz",  "role": "CEO, Manufacturing Industrial",    "quote": "Carla removed all the bureaucratic complexity. Today we run on clean energy and our costs dropped significantly." },
+      { "name": "Marcela Ruiz",  "role": "CFO, Logistics & Distribution",    "quote": "The team handled every technical detail without us having to intervene. Turnkey, just as promised." },
+      { "name": "Ana García",    "role": "Manager, Hotel Las Palmas",        "quote": "We cut our electricity bill by 45% in the first year. The return came faster than we expected." },
+      { "name": "Pedro Suárez",  "role": "Owner, Finca La Palma",            "quote": "The free audit was the first step in taking control of our energy. Highly recommended." }
     ]
   },
   "cta": {

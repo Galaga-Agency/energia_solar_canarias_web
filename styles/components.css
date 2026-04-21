@@ -68,6 +68,58 @@
   padding-inline: clamp(1.5rem, 5vw, 4rem);
 }
 
+/* ── Home CTA ─────────────────────────────────────────────────────────────── */
+
+.home-cta-section {
+  --home-cta-glow-x: 82%;
+  --home-cta-glow-y: 14%;
+  position: relative;
+  min-height: 19rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 56%, rgba(255, 255, 255, 0.92) 0, rgba(255, 255, 255, 0.78) 16rem, transparent 42rem),
+    linear-gradient(90deg, #f2c5b2 0%, #f7e4dc 18%, #fbf9f6 38%, #ffffff 50%, #fbf9f6 62%, #f7e4dc 82%, #f2c5b2 100%);
+}
+
+.home-cta-section:has(.home-cta-action :is(a, button):hover) {
+  --home-cta-glow-x: 50%;
+  --home-cta-glow-y: 70%;
+}
+
+.home-cta-glow {
+  position: absolute;
+  left: var(--home-cta-glow-x);
+  top: var(--home-cta-glow-y);
+  width: 38rem;
+  height: 20rem;
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(228, 87, 44, 0.34) 0, rgba(244, 146, 114, 0.2) 34%, transparent 70%);
+  filter: blur(4px);
+  opacity: 0.85;
+  transform: translate(-50%, -50%);
+  transition:
+    left 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 300ms ease;
+}
+
+.home-cta-section:has(.home-cta-action :is(a, button):hover) .home-cta-glow {
+  opacity: 1;
+}
+
+.home-cta-action {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .home-cta-glow {
+    width: 28rem;
+    height: 18rem;
+  }
+}
+
 /* ── Highlight draw ───────────────────────────────────────────────────────── */
 
 [data-highlight-draw] {

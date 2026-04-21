@@ -15,6 +15,14 @@
   --text-4xl: clamp(2.2rem, 6vw, 3.5rem);
   --text-display: clamp(2rem, 4.5vw, 3.5rem);
 
+  /* ── Brand colors ────────────────────────────── */
+  --color-brand-bg:      #f4f1ea; /* sand-100   */
+  --color-brand-primary: #e4572c; /* orange-500 */
+  --color-brand-surface: #d8cbb5; /* tan-200    */
+  --color-brand-dark:    #1f3a34; /* teal-900   */
+  --color-brand-dark-2:  #2f4a3c; /* forest-700 */
+  --color-brand-neutral: #a8a39a; /* neutral-400*/
+
   /* ── Sand palette ───────────────────────────────── */
   --color-sand-50: #f9f7f3;
   --color-sand-100: #f4f1ea;

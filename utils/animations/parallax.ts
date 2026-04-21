@@ -7,7 +7,7 @@ export function initParallax(root: HTMLElement | Document = document): () => voi
 
   elements.forEach((el) => {
     const speed  = parseFloat(el.dataset.speed ?? '1')
-    const offset = (1 - speed) * 60
+    const offset = (1 - speed) * 100
 
     gsap.fromTo(
       el,

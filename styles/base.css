@@ -59,6 +59,28 @@
   color: var(--color-text-muted);
 }
 
+/* ── Utilities ─────────────────────────────────────────────────────────────── */
+
+.carousel-track-first {
+  margin-left: max(clamp(1.5rem, 5vw, 4rem), calc((100vw - 80rem) / 2 + clamp(1.5rem, 5vw, 4rem)));
+}
+
+.carousel-scroll-padding {
+  scroll-padding-left: max(clamp(1.5rem, 5vw, 4rem), calc((100vw - 80rem) / 2 + clamp(1.5rem, 5vw, 4rem)));
+}
+
+.carousel-track-end {
+  padding-right: max(clamp(1.5rem, 5vw, 4rem), calc((100vw - 80rem) / 2 + clamp(1.5rem, 5vw, 4rem)));
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 /* ── Global resets ────────────────────────────────────────────────────────── */
 
 html {
@@ -155,6 +177,7 @@ select {
 }
 
 .section-spacing.home-soluciones-panel {
+  padding-top:    0;
   padding-bottom: clamp(10rem, 16vw, 16rem);
 }
 

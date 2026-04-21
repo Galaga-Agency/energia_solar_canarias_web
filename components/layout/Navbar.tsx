@@ -26,15 +26,7 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className="sticky top-0 w-full px-6 flex items-center relative"
-        style={{
-          backgroundColor: 'var(--color-bg)',
-          borderBottom:    '1px solid var(--color-border)',
-          height:          '64px',
-          zIndex:          100,
-        }}
-      >
+      <header className="fixed top-0 w-full px-6 flex items-center h-16 z-100 bg-(--color-bg) border-b border-(--color-border)">
         <TransitionLink href="/" aria-label="Energía Solar Canarias — inicio">
           <Logo width={180} />
         </TransitionLink>

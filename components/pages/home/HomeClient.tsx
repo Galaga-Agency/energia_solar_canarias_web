@@ -3,9 +3,9 @@
 import dynamic            from 'next/dynamic'
 import { usePageReady }   from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
-import { HomeHero }       from '@/components/pages/home/HomeHero'
+import { HomeHero2 }      from '@/components/pages/home/HomeHero2'
 import { initParallax }               from '@/utils/animations/parallax'
-import { initHeroAnimations }         from '@/utils/animations/hero-animations'
+import { initHero2Animations }        from '@/utils/animations/hero2-layers'
 import { initStatsCounterAnimations } from '@/utils/animations/stats-counter'
 import { initScrollRevealSections }   from '@/utils/animations/scroll-reveal'
 import { initMarqueeAnimation }       from '@/utils/animations/marquee'
@@ -22,7 +22,7 @@ const HomeProyectos    = dynamic(() => import('./HomeProyectos').then(m => m.Hom
 const HomeStats        = dynamic(() => import('./HomeStats').then(m => m.HomeStats))
 const HomeFounder      = dynamic(() => import('./HomeFounder').then(m => m.HomeFounder))
 const HomeTestimonials = dynamic(() => import('./HomeTestimonials').then(m => m.HomeTestimonials))
-const CTABanner        = dynamic(() => import('@/components/shared/CTABanner').then(m => m.CTABanner), { ssr: false })
+const HomeCTA          = dynamic(() => import('./HomeCTA').then(m => m.HomeCTA))
 const PerfMonitor      = process.env.NODE_ENV === 'development'
   ? dynamic(() => import('@/components/dev/PerfMonitor'), { ssr: false })
   : null
@@ -66,7 +66,7 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
   usePageReady()
 
   useGSAPAnimations(() => ({
-    critical: [initHeroAnimations, initParallax],
+    critical: [initHero2Animations, initParallax],
     raf:      [initStatsCounterAnimations],
     timeout:  [initScrollRevealSections, initMarqueeAnimation, initBlobAnimation, initScrollMarqueeAnimation, initHomePanelStackAnimation, initBirdFlockAnimation],
   }))
@@ -75,7 +75,7 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
 
   return (
     <>
-      <HomeHero {...hero} />
+      <HomeHero2 {...hero} />
       <div className="relative isolate z-0 overflow-visible" data-home-panel-stack>
         <HomeSoluciones {...solutions} />
         <div className="relative z-10">
@@ -92,11 +92,9 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
       <HomeStats {...stats} />
       <HomeFounder {...founder} />
       <HomeTestimonials {...testimonials} />
-      <CTABanner
+      <HomeCTA
         title={cta.title}
         body={cta.body}
-        primaryLabel={cta.primary}
-        primaryHref="/contacto"
         secondaryLabel={cta.secondary}
         secondaryHref="/contacto"
       />

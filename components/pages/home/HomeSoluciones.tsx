@@ -32,7 +32,7 @@ export function HomeSoluciones({ eyebrow, title, body, cta, empresas, instalacio
 
   return (
     <section className="section-spacing home-soluciones-panel panel-surface relative z-0" data-home-panel-pin>
-      <div className="section-inner" data-reveal>
+<div className="section-inner" data-reveal>
 
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-6 mb-12 max-w-2xl mx-auto">
