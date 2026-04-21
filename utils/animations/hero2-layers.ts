@@ -16,9 +16,20 @@ const DRIFT = [
   { key: '1', x:  -8, y:  -5, xDur: 13, yDur: 10, delay: 1.5 },
 ]
 
+let _callCount = 0
+
 export function initHero2Animations(): () => void {
   const hero = document.querySelector<HTMLElement>('[data-hero2]')
   if (!hero) return () => {}
+
+  const call = ++_callCount
+  const t0 = performance.now()
+  const l1 = hero.querySelector<HTMLElement>('[data-layer-scroll="1"]')
+  console.log(`[hero#${call}] init at ${t0.toFixed(0)}ms | layer-1 opacity="${l1 ? getComputedStyle(l1).opacity : 'null'}" vis="${l1?.style.visibility}"`)
+
+  setTimeout(() => {
+    console.log(`[hero#${call}] +1s | layer-1 opacity="${l1 ? getComputedStyle(l1).opacity : 'null'}" vis="${l1?.style.visibility}" transform="${l1?.style.transform}"`)
+  }, 1000)
 
   const tweens: gsap.core.Tween[] = []
   const triggers: ScrollTrigger[] = []
@@ -52,17 +63,7 @@ export function initHero2Animations(): () => void {
     )
   })
 
-  // Layers entrance — each layer fades in with slight scale
-  SCROLL.forEach(({ key }, i) => {
-    const el = hero.querySelector<HTMLElement>(`[data-layer-scroll="${key}"]`)
-    if (!el) return
-    gsap.fromTo(el,
-      { autoAlpha: 0, scale: 1.06 },
-      { autoAlpha: 1, scale: 1, duration: 1.8, ease: 'power2.out', delay: i * 0.12 },
-    )
-  })
-
-  // Text entrance — staggered, no opacity-0 class fighting GSAP
+  // Text entrance — staggered
   const items = hero.querySelectorAll<HTMLElement>('[data-hero2-item]')
   if (items.length) {
     gsap.set(items, { autoAlpha: 0, y: 30 })
@@ -78,6 +79,7 @@ export function initHero2Animations(): () => void {
   }
 
   return () => {
+    console.log(`[hero#${call}] cleanup`)
     tweens.forEach(t => t.kill())
     triggers.forEach(t => t.kill())
   }

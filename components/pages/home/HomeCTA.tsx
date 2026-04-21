@@ -4,9 +4,16 @@ import { useRef } from 'react'
 import { gsap } from '@/lib/gsap'
 import { Button } from '@/components/ui/Button'
 
-function buildBg(x: number, y: number) {
-  return `radial-gradient(ellipse 80% 80% at ${x}% ${y}%, #ffffff 0%, #fbf9f6 25%, #f7e4dc 55%, #f2c5b2 80%, #e8a690 100%)`
+const BG_BASE = 'linear-gradient(90deg, #f2c5b2 0%, #f7e4dc 18%, #fbf9f6 38%, #ffffff 50%, #fbf9f6 62%, #f7e4dc 82%, #f2c5b2 100%)'
+
+function buildBg(x: number, y: number, rx: number, ry: number) {
+  return [
+    `radial-gradient(ellipse ${rx}% ${ry}% at ${x}% ${y}%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.55) 50%, transparent 80%)`,
+    BG_BASE,
+  ].join(', ')
 }
+
+const DEFAULT = { x: 50, y: 50, rx: 95, ry: 95 }
 
 interface HomeCTAProps {
   title:         string
@@ -18,22 +25,13 @@ interface HomeCTAProps {
 export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
-  const pos        = useRef({ x: 15, y: 10 })
+  const pos        = useRef({ ...DEFAULT })
   const tween      = useRef<gsap.core.Tween | null>(null)
 
-  function animateTo(tx: number, ty: number) {
-    tween.current?.kill()
-    tween.current = gsap.to(pos.current, {
-      x: tx,
-      y: ty,
-      duration: 0.7,
-      ease: 'power3.out',
-      onUpdate() {
-        if (sectionRef.current) {
-          sectionRef.current.style.background = buildBg(pos.current.x, pos.current.y)
-        }
-      },
-    })
+  function sync() {
+    if (sectionRef.current) {
+      sectionRef.current.style.background = buildBg(pos.current.x, pos.current.y, pos.current.rx, pos.current.ry)
+    }
   }
 
   function onEnter() {
@@ -42,7 +40,13 @@ export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps)
     const tr = triggerRef.current.getBoundingClientRect()
     const tx = ((tr.left + tr.width  / 2 - sr.left) / sr.width)  * 100
     const ty = ((tr.top  + tr.height / 2 - sr.top)  / sr.height) * 100
-    animateTo(tx, ty)
+    tween.current?.kill()
+    tween.current = gsap.to(pos.current, { x: tx, y: ty, rx: 28, ry: 28, duration: 0.7, ease: 'power3.out', onUpdate: sync })
+  }
+
+  function onLeave() {
+    tween.current?.kill()
+    tween.current = gsap.to(pos.current, { ...DEFAULT, duration: 0.7, ease: 'power3.out', onUpdate: sync })
   }
 
   const titleWords  = title.split(' ')
@@ -65,7 +69,7 @@ export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps)
           ref={triggerRef}
           className="home-cta-action"
           onMouseEnter={onEnter}
-          onMouseLeave={() => animateTo(15, 10)}
+          onMouseLeave={onLeave}
         >
           <Button variant="filled" href={secondaryHref}>
             {secondary}

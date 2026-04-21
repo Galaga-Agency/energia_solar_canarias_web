@@ -47,18 +47,6 @@ const parseViewBox = (value: string) => {
   return { x, y, width, height }
 }
 
-const SVG_NS = 'http://www.w3.org/2000/svg'
-
-const getPathBounds = (svg: SVGSVGElement, path: string) => {
-  const element = document.createElementNS(SVG_NS, 'path')
-  element.setAttribute('d', path)
-  svg.appendChild(element)
-  const bounds = element.getBBox()
-  svg.removeChild(element)
-
-  return bounds
-}
-
 export function initBirdFlockAnimation(): () => void {
   const root = document.querySelector<HTMLElement>('[data-bird-flock]')
   const canvas = root?.querySelector<HTMLCanvasElement>('[data-bird-flock-canvas]')
@@ -115,22 +103,11 @@ function initBirdFlockCanvas({
   const birdLayer = doc.querySelector('path')
   const pathData = birdLayer?.getAttribute('d') ?? ''
   const viewBoxRect = parseViewBox(svg?.getAttribute('viewBox') ?? DEFAULT_VIEW_BOX)
-
-  if (!svg) return () => {}
-
   const reduceMotion = prefersReducedMotion()
   const birds = splitPathIntoBirds(pathData).map((path, index) => {
     const seed = getStablePathScore(path, index)
-    const bounds = getPathBounds(svg, path)
-    const hingeX = bounds.x + bounds.width * 0.5
-    const hingeY = bounds.y + bounds.height * 0.38
-    const bodyWidth = Math.max(bounds.width * 0.14, 3)
 
     return {
-      bounds,
-      hingeX,
-      hingeY,
-      bodyWidth,
       shape: new Path2D(path),
       finalOpacity: seededRange(seed, 1, 0.08, 0.16),
       revealStart: seededRange(seed, 2, 0.05, 0.38),
@@ -139,10 +116,6 @@ function initBirdFlockCanvas({
       flightY: seededRange(seed, 5, -20, 20),
       flightStart: seededRange(seed, 6, 0, 0.06),
       flightDuration: seededRange(seed, 7, 0.68, 1.12),
-      flapSpeed: seededRange(seed, 8, 2.8, 4.4),
-      flapOffset: seededRange(seed, 9, 0, Math.PI * 2),
-      flapAngle: seededRange(seed, 10, 0.09, 0.22),
-      flapLift: seededRange(seed, 11, 0.02, 0.08),
     }
   })
 
@@ -150,12 +123,9 @@ function initBirdFlockCanvas({
   let currentProgress = 0
   let maxRevealProgress = reduceMotion ? 1 : 0
   let frame: number | null = null
-  let lastTimestamp = 0
-  let elapsedTime = 0
   let canvasWidth = 0
   let canvasHeight = 0
   let pixelRatio = 1
-  let isActive = false
 
   const resizeCanvas = () => {
     const rect = canvas.getBoundingClientRect()
@@ -166,7 +136,7 @@ function initBirdFlockCanvas({
     canvas.height = Math.max(Math.round(canvasHeight * pixelRatio), 1)
   }
 
-  const draw = (time: number) => {
+  const draw = () => {
     context.clearRect(0, 0, canvas.width, canvas.height)
     context.save()
     context.scale(pixelRatio, pixelRatio)
@@ -189,75 +159,25 @@ function initBirdFlockCanvas({
       const flightProgress = reduceMotion
         ? 0
         : clamp01((currentProgress - bird.flightStart) / bird.flightDuration)
-      const flap = reduceMotion ? 0 : Math.sin(time * bird.flapSpeed + bird.flapOffset)
-      const flapAngle = flap * bird.flapAngle * smoothstep(revealProgress)
-      const flapLift = Math.abs(flap) * bird.bounds.height * bird.flapLift
 
       context.save()
       context.globalAlpha = bird.finalOpacity * revealProgress
       context.translate(bird.flightX * flightProgress, bird.flightY * flightProgress)
-
-      context.save()
-      context.beginPath()
-      context.rect(
-        bird.bounds.x,
-        bird.bounds.y,
-        Math.max(bird.hingeX - bird.bodyWidth * 0.5 - bird.bounds.x, 1),
-        bird.bounds.height,
-      )
-      context.clip()
-      context.translate(bird.hingeX, bird.hingeY)
-      context.rotate(-flapAngle)
-      context.translate(0, -flapLift)
-      context.translate(-bird.hingeX, -bird.hingeY)
       context.fill(bird.shape)
-      context.restore()
-
-      context.save()
-      context.beginPath()
-      context.rect(
-        bird.hingeX + bird.bodyWidth * 0.5,
-        bird.bounds.y,
-        Math.max(bird.bounds.x + bird.bounds.width - (bird.hingeX + bird.bodyWidth * 0.5), 1),
-        bird.bounds.height,
-      )
-      context.clip()
-      context.translate(bird.hingeX, bird.hingeY)
-      context.rotate(flapAngle)
-      context.translate(0, -flapLift)
-      context.translate(-bird.hingeX, -bird.hingeY)
-      context.fill(bird.shape)
-      context.restore()
-
-      context.save()
-      context.beginPath()
-      context.rect(
-        bird.hingeX - bird.bodyWidth * 0.5,
-        bird.bounds.y,
-        bird.bodyWidth,
-        bird.bounds.height,
-      )
-      context.clip()
-      context.fill(bird.shape)
-      context.restore()
-
       context.restore()
     })
 
     context.restore()
   }
 
-  const tick = (timestamp: number) => {
+  const tick = () => {
     frame = null
-    if (lastTimestamp === 0) lastTimestamp = timestamp
-    const delta = Math.min((timestamp - lastTimestamp) / 1000, 0.05)
-    lastTimestamp = timestamp
-    elapsedTime += delta
     currentProgress += (targetProgress - currentProgress) * 0.08
-    draw(elapsedTime)
+    draw()
 
-    const isSettling = Math.abs(targetProgress - currentProgress) > 0.001
-    if (isActive || isSettling) frame = requestAnimationFrame(tick)
+    if (Math.abs(targetProgress - currentProgress) > 0.001) {
+      frame = requestAnimationFrame(tick)
+    }
   }
 
   const requestDraw = () => {
@@ -265,11 +185,11 @@ function initBirdFlockCanvas({
   }
 
   resizeCanvas()
-  draw(elapsedTime)
+  draw()
 
   const resizeObserver = new ResizeObserver(() => {
     resizeCanvas()
-    draw(elapsedTime)
+    draw()
   })
 
   resizeObserver.observe(canvas)
@@ -278,10 +198,6 @@ function initBirdFlockCanvas({
     trigger: triggerElement,
     start: 'top 45%',
     end: 'bottom top',
-    onToggle: (self) => {
-      isActive = self.isActive
-      requestDraw()
-    },
     onUpdate: (self) => {
       targetProgress = self.progress
       maxRevealProgress = Math.max(maxRevealProgress, self.progress)
@@ -289,11 +205,10 @@ function initBirdFlockCanvas({
     },
   })
 
-  isActive = trigger.isActive
   targetProgress = trigger.progress
   currentProgress = trigger.progress
   maxRevealProgress = Math.max(maxRevealProgress, trigger.progress)
-  draw(elapsedTime)
+  draw()
 
   return () => {
     if (frame !== null) cancelAnimationFrame(frame)

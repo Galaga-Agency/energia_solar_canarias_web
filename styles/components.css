@@ -74,7 +74,9 @@
   position: relative;
   min-height: 19rem;
   overflow: hidden;
-  background: radial-gradient(ellipse 80% 80% at 15% 10%, #ffffff 0%, #fbf9f6 25%, #f7e4dc 55%, #f2c5b2 80%, #e8a690 100%);
+  background:
+    radial-gradient(ellipse 95% 95% at 50% 50%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.55) 50%, transparent 80%),
+    linear-gradient(90deg, #f2c5b2 0%, #f7e4dc 18%, #fbf9f6 38%, #ffffff 50%, #fbf9f6 62%, #f7e4dc 82%, #f2c5b2 100%);
 }
 
 .home-cta-action {
