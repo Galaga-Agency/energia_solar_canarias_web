@@ -94,6 +94,8 @@ const createLayerCanvas = (width: number, height: number) => {
   return layer
 }
 
+const isHTMLElement = (value: unknown): value is HTMLElement => value instanceof HTMLElement
+
 const createMeasurerHost = (viewBox: string) => {
   const svg = document.createElementNS(SVG_NS, 'svg')
   svg.setAttribute('viewBox', viewBox)
@@ -178,7 +180,7 @@ export function initBirdFlockAnimation(scope?: ParentNode | null, options: BirdF
     ?? (scope instanceof HTMLElement && scope.matches('[data-bird-flock-stage]') ? scope : null)
     ?? (scope instanceof Element ? scope.querySelector<HTMLElement>('[data-bird-flock-stage]') : null)
     ?? defaultHomeStage
-    ?? root
+    ?? (isHTMLElement(root) ? root : null)
 
   if (!root || !canvas || !triggerElement) return () => {}
 
