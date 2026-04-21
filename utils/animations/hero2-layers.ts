@@ -23,13 +23,6 @@ export function initHero2Animations(): () => void {
   const tweens: gsap.core.Tween[] = []
   const triggers: ScrollTrigger[] = []
 
-  // Hide all layers immediately before any tween runs — prevents flash if CSS
-  // hasn't applied opacity-0 yet (e.g. slow style injection on first load).
-  const allScrollEls = SCROLL.map(({ key }) =>
-    hero.querySelector<HTMLElement>(`[data-layer-scroll="${key}"]`)
-  ).filter(Boolean)
-  gsap.set(allScrollEls, { autoAlpha: 0 })
-
   SCROLL.forEach(({ key, scrollY }) => {
     const el = hero.querySelector<HTMLElement>(`[data-layer-scroll="${key}"]`)
     if (!el) return

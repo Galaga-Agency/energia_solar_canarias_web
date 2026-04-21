@@ -3,12 +3,12 @@
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 interface PanelStackAnimationOptions {
-  triggerSelector: string
-  endTriggerSelector: string
-  triggerId?: string
-  minWidth?: number
-  start?: string
-  end?: string
+  triggerSelector?:    string
+  endTriggerSelector?: string
+  triggerId?:          string
+  minWidth?:           number
+  start?:              string
+  end?:                string
 }
 
 const DEFAULT_TRIGGER_ID = 'panel-stack'
@@ -22,13 +22,13 @@ const killPanelStackTriggers = (triggerId: string) => {
 }
 
 export function initPanelStackAnimation({
-  triggerSelector,
-  endTriggerSelector,
-  triggerId = DEFAULT_TRIGGER_ID,
-  minWidth = 1024,
-  start = 'top top',
-  end = 'top top',
-}: PanelStackAnimationOptions): () => void {
+  triggerSelector    = '[data-home-panel-pin]',
+  endTriggerSelector = '[data-home-panel-end]',
+  triggerId          = DEFAULT_TRIGGER_ID,
+  minWidth           = 1024,
+  start              = 'bottom bottom',
+  end                = 'top top',
+}: PanelStackAnimationOptions = {}): () => void {
   killPanelStackTriggers(triggerId)
 
   const media = gsap.matchMedia()
@@ -71,3 +71,4 @@ export function initPanelStackAnimation({
     killPanelStackTriggers(triggerId)
   }
 }
+

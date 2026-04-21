@@ -11,7 +11,7 @@ import { initScrollRevealSections }   from '@/utils/animations/scroll-reveal'
 import { initMarqueeAnimation }       from '@/utils/animations/marquee'
 import { initBlobAnimation }          from '@/utils/animations/blob'
 import { initScrollMarqueeAnimation } from '@/utils/animations/scroll-marquee'
-import { initPanelStackAnimation }      from '@/utils/animations/panel-stack'
+import { initPanelStackAnimation }           from '@/utils/animations/panel-stack'
 import { initBirdFlockAnimation }       from '@/utils/animations/bird-flock'
 import { Marquee }                    from '@/components/shared/Marquee'
 import { AnimatedBirdFlock }          from '@/components/shared/AnimatedBirdFlock'
@@ -54,21 +54,20 @@ const HOMEPAGE_MARQUEE_ITEMS = [
   'Ingeniería local',
 ]
 
-const initHomePanelStackAnimation = () =>
-  initPanelStackAnimation({
-    triggerSelector: '[data-home-panel-pin]',
-    endTriggerSelector: '[data-home-panel-end]',
-    triggerId: 'home-panel-stack',
-    start: 'bottom bottom',
-  })
-
 export function HomeClient({ messages }: { messages: HomeMessages }) {
   usePageReady()
 
   useGSAPAnimations(() => ({
     critical: [initHero2Animations, initParallax],
     raf:      [initStatsCounterAnimations],
-    timeout:  [initScrollRevealSections, initMarqueeAnimation, initBlobAnimation, initScrollMarqueeAnimation, initHomePanelStackAnimation, initBirdFlockAnimation],
+    timeout:  [
+      initScrollRevealSections,
+      initMarqueeAnimation,
+      initBlobAnimation,
+      initScrollMarqueeAnimation,
+      initPanelStackAnimation,
+      initBirdFlockAnimation,
+    ],
   }))
 
   const { hero, solutions, benefits, projects, stats, founder, testimonials, cta } = messages
