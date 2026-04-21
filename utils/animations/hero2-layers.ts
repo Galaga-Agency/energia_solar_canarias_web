@@ -9,13 +9,6 @@ const SCROLL = [
   { key: '1', scrollY: 25  },
 ]
 
-const DRIFT = [
-  { key: '4', x:  22, y: -16, xDur: 26, yDur: 20, delay: 0.0 },
-  { key: '3', x: -16, y: -12, xDur: 20, yDur: 16, delay: 0.5 },
-  { key: '2', x:  12, y:  -8, xDur: 16, yDur: 13, delay: 1.0 },
-  { key: '1', x:  -8, y:  -5, xDur: 13, yDur: 10, delay: 1.5 },
-]
-
 export function initHero2Animations(): () => void {
   const hero = document.querySelector<HTMLElement>('[data-hero2]')
   if (!hero) return () => {}
@@ -41,15 +34,6 @@ export function initHero2Animations(): () => void {
       },
     )
     tweens.push(t)
-  })
-
-  DRIFT.forEach(({ key, x, y, xDur, yDur, delay }) => {
-    const el = hero.querySelector<HTMLElement>(`[data-layer-drift="${key}"]`)
-    if (!el) return
-    tweens.push(
-      gsap.to(el, { x, duration: xDur, ease: 'sine.inOut', repeat: -1, yoyo: true, delay }),
-      gsap.to(el, { y, duration: yDur, ease: 'sine.inOut', repeat: -1, yoyo: true, delay: delay + 0.3 }),
-    )
   })
 
   // Text entrance — staggered
