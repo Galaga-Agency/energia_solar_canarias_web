@@ -7,6 +7,7 @@ const FLOCK_SRC = '/assets/images/home/new-birds.svg'
 const DEFAULT_VIEW_BOX = '0 0 1440 1546'
 const BIRD_FILL = '#593C3C'
 const CANVAS_DPR_LIMIT = 1.25
+const SVG_NS = 'http://www.w3.org/2000/svg'
 
 const splitPathIntoBirds = (pathData: string) =>
   pathData.match(/M[^M]+/g)
@@ -45,6 +46,46 @@ const parseViewBox = (value: string) => {
     .map((part) => Number.parseFloat(part))
 
   return { x, y, width, height }
+}
+
+const createPathMeasurer = (viewBox: string) => {
+  const svg = document.createElementNS(SVG_NS, 'svg')
+  svg.setAttribute('viewBox', viewBox)
+  svg.setAttribute('width', '0')
+  svg.setAttribute('height', '0')
+  svg.style.position = 'absolute'
+  svg.style.left = '-9999px'
+  svg.style.top = '-9999px'
+  svg.style.opacity = '0'
+  svg.style.pointerEvents = 'none'
+  document.body.appendChild(svg)
+
+  const measure = (pathData: string) => {
+    const path = document.createElementNS(SVG_NS, 'path')
+    path.setAttribute('d', pathData)
+    svg.appendChild(path)
+    const bounds = path.getBBox()
+    svg.removeChild(path)
+    return bounds
+  }
+
+  return () => {
+    svg.remove()
+  }
+}
+
+const createLayerCanvas = (width: number, height: number) => {
+  const layer = document.createElement('canvas')
+  layer.width = Math.max(Math.ceil(width), 1)
+  layer.height = Math.max(Math.ceil(height), 1)
+  return layer
+}
+
+const clearRect = (
+  context: CanvasRenderingContext2D,
+  rect: { x: number; y: number; width: number; height: number },
+) => {
+  context.clearRect(rect.x, rect.y, rect.width, rect.height)
 }
 
 export function initBirdFlockAnimation(): () => void {
@@ -102,13 +143,98 @@ function initBirdFlockCanvas({
   const svg = doc.querySelector('svg')
   const birdLayer = doc.querySelector('path')
   const pathData = birdLayer?.getAttribute('d') ?? ''
-  const viewBoxRect = parseViewBox(svg?.getAttribute('viewBox') ?? DEFAULT_VIEW_BOX)
+  const viewBox = svg?.getAttribute('viewBox') ?? DEFAULT_VIEW_BOX
+  const viewBoxRect = parseViewBox(viewBox)
   const reduceMotion = prefersReducedMotion()
+  const measurerHost = document.createElementNS(SVG_NS, 'svg')
+  measurerHost.setAttribute('viewBox', viewBox)
+  measurerHost.setAttribute('width', '0')
+  measurerHost.setAttribute('height', '0')
+  measurerHost.style.position = 'absolute'
+  measurerHost.style.left = '-9999px'
+  measurerHost.style.top = '-9999px'
+  measurerHost.style.opacity = '0'
+  measurerHost.style.pointerEvents = 'none'
+  document.body.appendChild(measurerHost)
   const birds = splitPathIntoBirds(pathData).map((path, index) => {
     const seed = getStablePathScore(path, index)
+    const measurePath = document.createElementNS(SVG_NS, 'path')
+    measurePath.setAttribute('d', path)
+    measurerHost.appendChild(measurePath)
+    const bounds = measurePath.getBBox()
+    measurerHost.removeChild(measurePath)
+
+    const padding = Math.max(Math.ceil(Math.max(bounds.width, bounds.height) * 0.08), 4)
+    const drawX = bounds.x - padding
+    const drawY = bounds.y - padding
+    const layerWidth = bounds.width + padding * 2
+    const layerHeight = bounds.height + padding * 2
+    const originX = -drawX
+    const originY = -drawY
+    const hingeX = bounds.x + bounds.width * 0.5
+    const hingeY = bounds.y + bounds.height * 0.22
+    const bodyWidth = Math.max(bounds.width * 0.34, 4)
+    const wingHeight = Math.max(bounds.height * 0.22, 2)
+    const wingInset = bounds.width * 0.12
+    const leftWingRect = {
+      x: 0,
+      y: 0,
+      width: Math.max(hingeX - bodyWidth * 0.5 - drawX - wingInset, 1),
+      height: wingHeight + padding,
+    }
+    const rightWingRect = {
+      x: Math.max(hingeX + bodyWidth * 0.5 - drawX + wingInset, 0),
+      y: 0,
+      width: Math.max(drawX + layerWidth - (hingeX + bodyWidth * 0.5) - wingInset, 1),
+      height: wingHeight + padding,
+    }
+
+    const shape = new Path2D(path)
+    const fullLayer = createLayerCanvas(layerWidth, layerHeight)
+    const fullContext = fullLayer.getContext('2d')!
+
+    fullContext.fillStyle = BIRD_FILL
+    fullContext.translate(originX, originY)
+    fullContext.fill(shape)
+
+    const bodyLayer = createLayerCanvas(layerWidth, layerHeight)
+    const bodyContext = bodyLayer.getContext('2d')!
+    bodyContext.drawImage(fullLayer, 0, 0)
+    clearRect(bodyContext, leftWingRect)
+    clearRect(bodyContext, rightWingRect)
+
+    const leftWingLayer = createLayerCanvas(layerWidth, layerHeight)
+    const leftWingContext = leftWingLayer.getContext('2d')!
+    leftWingContext.drawImage(fullLayer, 0, 0)
+    leftWingContext.globalCompositeOperation = 'destination-in'
+    leftWingContext.fillStyle = '#000'
+    leftWingContext.fillRect(
+      leftWingRect.x,
+      leftWingRect.y,
+      leftWingRect.width,
+      leftWingRect.height,
+    )
+
+    const rightWingLayer = createLayerCanvas(layerWidth, layerHeight)
+    const rightWingContext = rightWingLayer.getContext('2d')!
+    rightWingContext.drawImage(fullLayer, 0, 0)
+    rightWingContext.globalCompositeOperation = 'destination-in'
+    rightWingContext.fillStyle = '#000'
+    rightWingContext.fillRect(
+      rightWingRect.x,
+      rightWingRect.y,
+      rightWingRect.width,
+      rightWingRect.height,
+    )
 
     return {
-      shape: new Path2D(path),
+      bodyLayer,
+      leftWingLayer,
+      rightWingLayer,
+      drawX,
+      drawY,
+      hingeX,
+      hingeY,
       finalOpacity: seededRange(seed, 1, 0.08, 0.16),
       revealStart: seededRange(seed, 2, 0.05, 0.38),
       revealDuration: seededRange(seed, 3, 0.08, 0.18),
@@ -116,6 +242,10 @@ function initBirdFlockCanvas({
       flightY: seededRange(seed, 5, -20, 20),
       flightStart: seededRange(seed, 6, 0, 0.06),
       flightDuration: seededRange(seed, 7, 0.68, 1.12),
+      flapOffset: seededRange(seed, 8, 0, Math.PI * 2),
+      flapAngle: seededRange(seed, 9, 0.12, 0.24),
+      flapLift: seededRange(seed, 10, 0.25, 1.25),
+      flapCycles: seededRange(seed, 11, 6.5, 10),
     }
   })
 
@@ -159,11 +289,31 @@ function initBirdFlockCanvas({
       const flightProgress = reduceMotion
         ? 0
         : clamp01((currentProgress - bird.flightStart) / bird.flightDuration)
+      const flapWave = reduceMotion
+        ? 0
+        : Math.sin(currentProgress * bird.flapCycles * Math.PI * 2 + bird.flapOffset)
 
       context.save()
       context.globalAlpha = bird.finalOpacity * revealProgress
       context.translate(bird.flightX * flightProgress, bird.flightY * flightProgress)
-      context.fill(bird.shape)
+      context.drawImage(bird.bodyLayer, bird.drawX, bird.drawY)
+
+      context.save()
+      context.translate(bird.hingeX, bird.hingeY)
+      context.rotate(-flapWave * bird.flapAngle)
+      context.translate(0, -Math.abs(flapWave) * bird.flapLift)
+      context.translate(-bird.hingeX, -bird.hingeY)
+      context.drawImage(bird.leftWingLayer, bird.drawX, bird.drawY)
+      context.restore()
+
+      context.save()
+      context.translate(bird.hingeX, bird.hingeY)
+      context.rotate(flapWave * bird.flapAngle)
+      context.translate(0, -Math.abs(flapWave) * bird.flapLift)
+      context.translate(-bird.hingeX, -bird.hingeY)
+      context.drawImage(bird.rightWingLayer, bird.drawX, bird.drawY)
+      context.restore()
+
       context.restore()
     })
 
@@ -212,6 +362,7 @@ function initBirdFlockCanvas({
 
   return () => {
     if (frame !== null) cancelAnimationFrame(frame)
+    measurerHost.remove()
     resizeObserver.disconnect()
     trigger.kill()
   }
