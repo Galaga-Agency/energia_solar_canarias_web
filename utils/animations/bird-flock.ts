@@ -167,14 +167,17 @@ const drawWingSlices = ({
 }
 
 export function initBirdFlockAnimation(scope?: ParentNode | null, options: BirdFlockOptions = {}): () => void {
+  const defaultHomeStage = document.querySelector<HTMLElement>('[data-home-bird-flock-stage]')
   const root = scope instanceof Element && scope.matches('[data-bird-flock]')
     ? scope
     : scope?.querySelector<HTMLElement>('[data-bird-flock]')
+      ?? defaultHomeStage?.querySelector<HTMLElement>('[data-bird-flock]')
       ?? document.querySelector<HTMLElement>('[data-bird-flock]')
   const canvas = root?.querySelector<HTMLCanvasElement>('[data-bird-flock-canvas]')
   const triggerElement = root?.closest<HTMLElement>('[data-bird-flock-stage]')
     ?? (scope instanceof HTMLElement && scope.matches('[data-bird-flock-stage]') ? scope : null)
     ?? (scope instanceof Element ? scope.querySelector<HTMLElement>('[data-bird-flock-stage]') : null)
+    ?? defaultHomeStage
     ?? root
 
   if (!root || !canvas || !triggerElement) return () => {}

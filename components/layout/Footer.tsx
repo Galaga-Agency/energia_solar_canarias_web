@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useRef, type ElementType } from 'react'
+import { type ElementType } from 'react'
 import { useTranslation } from '@/contexts/TranslationContext'
 import {
   FOOTER_SOCIAL,
@@ -12,7 +12,6 @@ import {
 } from '@/constants/footer.constants'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import { AnimatedBirdFlock } from '@/components/shared/AnimatedBirdFlock'
-import { initBirdFlockAnimation } from '@/utils/animations/bird-flock'
 import { FaInstagram, FaLinkedin } from '@/components/ui/Icons'
 
 const socialIconMap: Record<string, ElementType> = {
@@ -20,35 +19,18 @@ const socialIconMap: Record<string, ElementType> = {
   FaLinkedin,
 }
 
-const FOOTER_BIRD_FILL = '#121c18'
-
 export function Footer() {
   const { t } = useTranslation()
-  const footerStageRef = useRef<HTMLElement | null>(null)
   const footerColumns = [
     { title: t('footer.sections.sections'), links: FOOTER_SECCIONES },
     { title: t('footer.sections.resources'), links: FOOTER_RECURSOS },
     { title: t('footer.sections.legal'), links: FOOTER_LEGAL },
   ] as const
 
-  useEffect(
-    () =>
-      initBirdFlockAnimation(footerStageRef.current, {
-        fill: FOOTER_BIRD_FILL,
-        rootMargin: '500px',
-        scrollStart: 'top bottom',
-        scrollEnd: 'bottom top',
-        opacityMin: 0.3,
-        opacityMax: 0.34,
-        animatedOpacityCap: 0.58,
-      }),
-    [],
-  )
-
   return (
     <footer
-      ref={footerStageRef}
       className="relative isolate overflow-hidden bg-surface-dark text-white"
+      data-footer-bird-flock-stage
       data-bird-flock-stage
     >
       <AnimatedBirdFlock className="absolute inset-0 h-full w-full opacity-100" />

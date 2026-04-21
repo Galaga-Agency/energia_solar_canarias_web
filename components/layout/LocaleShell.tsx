@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
-import type { ReactNode } from 'react'
-import { Navbar2 as Navbar }  from '@/components/layout/Navbar2'
-import { Footer }  from '@/components/layout/Footer'
+import type { ReactNode } from "react";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 export function LocaleShell({ children }: { children: ReactNode }) {
   return (
@@ -13,5 +13,5 @@ export function LocaleShell({ children }: { children: ReactNode }) {
       </main>
       <Footer />
     </>
-  )
+  );
 }
