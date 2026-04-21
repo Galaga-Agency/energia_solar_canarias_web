@@ -35,7 +35,7 @@ export function Navbar2() {
       <header
         className={`fixed top-0 w-full z-100 h-18 flex items-center px-8 transition-all duration-500 ${
           transparent
-            ? 'bg-transparent'
+            ? 'bg-transparent border-transparent'
             : 'bg-(--color-bg) border-b border-(--color-border)'
         }`}
       >
@@ -43,7 +43,7 @@ export function Navbar2() {
         <TransitionLink href="/" aria-label="Energía Solar Canarias — inicio">
           <Logo
             width={160}
-            className={`transition-all duration-500 ${transparent ? '[&_path]:fill-white [&_g_path]:fill-white' : ''}`}
+            className={transparent ? '[&_path]:fill-white [&_g_path]:fill-white' : ''}
           />
         </TransitionLink>
 
@@ -62,7 +62,7 @@ export function Navbar2() {
                 aria-current={isActive ? 'page' : undefined}
                 className={`relative text-sm tracking-wide transition-colors duration-200 group ${
                   transparent
-                    ? isActive ? 'text-white' : 'text-white/70 hover:text-white'
+                    ? isActive ? 'text-white' : 'text-white/75 hover:text-white'
                     : isActive ? 'text-primary' : 'text-ink hover:text-primary'
                 }`}
               >

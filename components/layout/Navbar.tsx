@@ -31,7 +31,7 @@ export function Navbar() {
           <Logo width={180} />
         </TransitionLink>
 
-        <DesktopMenu showCta={showCta} />
+        <DesktopMenu showCta={showCta} scrolled={scrolled} />
         <MenuToggle open={mobileOpen} onToggle={() => setMobileOpen((v) => !v)} />
       </header>
 

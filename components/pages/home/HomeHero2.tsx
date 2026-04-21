@@ -33,7 +33,7 @@ export function HomeHero2({ title, body, cta1 }: HomeHero2Props) {
       {LAYERS.map(({ key, z, cls }) => (
         <div
           key={key}
-          className="absolute -inset-[10%]"
+          className="absolute -inset-[10%] opacity-0"
           style={{ zIndex: z }}
           data-layer-scroll={key}
         >
@@ -46,6 +46,9 @@ export function HomeHero2({ title, body, cta1 }: HomeHero2Props) {
           />
         </div>
       ))}
+
+      {/* Top scrim — above cloud layers, keeps navbar readable */}
+      <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 z-10 h-56 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0.2)_55%,transparent_100%)]" />
 
       {/* Bottom fade into next section */}
       <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 z-10 h-[60%] bg-[linear-gradient(to_bottom,transparent_0%,rgba(244,241,234,0.3)_40%,rgba(244,241,234,0.7)_65%,#f4f1ea_100%)]" />

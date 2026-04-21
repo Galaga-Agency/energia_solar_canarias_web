@@ -9,10 +9,11 @@ import commonEs from '@/locales/es/common.json'
 import commonEn from '@/locales/en/common.json'
 
 interface DesktopMenuProps {
-  showCta: boolean
+  showCta:  boolean
+  scrolled: boolean
 }
 
-export function DesktopMenu({ showCta }: DesktopMenuProps) {
+export function DesktopMenu({ showCta, scrolled }: DesktopMenuProps) {
   const pathname = usePathname()
   const locale   = getLocaleFromPathname(pathname)
   const messages = locale === 'en' ? commonEn : commonEs
@@ -33,7 +34,7 @@ export function DesktopMenu({ showCta }: DesktopMenuProps) {
               key={href}
               href={localizedHref}
               aria-current={isActive ? 'page' : undefined}
-              className={`text-base font-normal transition-colors hover:text-primary ${isActive ? 'text-primary' : 'text-ink'}`}
+              className={`text-base font-normal transition-colors hover:text-primary ${isActive || !scrolled ? 'text-primary' : 'text-ink'}`}
             >
               {messages.nav[labelKey]}
             </TransitionLink>
