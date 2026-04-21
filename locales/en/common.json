@@ -20,15 +20,20 @@
     "rights":     "All rights reserved.",
     "newsletter": "Get updates on energy solutions and market trends.",
     "subscribe":  "Subscribe",
-    "email":      "your@email.com",
+    "email":      "Your email address",
+    "disclaimer": "By subscribing you accept our privacy policy and will receive company communications.",
     "send":       "Send",
     "copyright":  "© 2026 Energía Solar Canarias.",
     "sections": {
+      "sections":  "Sections",
       "solutions": "Solutions",
       "resources":  "Resources",
       "legal":      "Legal"
     },
     "links": {
+      "esc":            "ESC",
+      "solutions":      "Solutions",
+      "projects":       "Projects",
       "companies":      "Companies",
       "successStories": "Success stories",
       "blog":           "Blog",

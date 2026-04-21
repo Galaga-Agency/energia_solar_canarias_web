@@ -8,6 +8,45 @@ const DEFAULT_VIEW_BOX = '0 0 1440 1546'
 const BIRD_FILL = '#593C3C'
 const CANVAS_DPR_LIMIT = 1.25
 const SVG_NS = 'http://www.w3.org/2000/svg'
+const ANIMATED_BIRD_COUNT = 12
+
+interface BirdFlockOptions {
+  fill?: string
+  rootMargin?: string
+  scrollStart?: string
+  scrollEnd?: string
+  opacityMin?: number
+  opacityMax?: number
+  animatedOpacityCap?: number
+}
+
+type BirdBase = {
+  pathData: string
+  shape: Path2D
+  finalOpacity: number
+  revealStart: number
+  revealDuration: number
+  flightX: number
+  flightY: number
+  flightStart: number
+  flightDuration: number
+}
+
+type AnimatedBird = BirdBase & {
+  size: number
+  drawX: number
+  drawY: number
+  layerWidth: number
+  layerHeight: number
+  sourceLayer: HTMLCanvasElement
+  bodyLayer: HTMLCanvasElement
+  leftWingRect: { x: number; y: number; width: number; height: number }
+  rightWingRect: { x: number; y: number; width: number; height: number }
+  flapOffset: number
+  flapCycles: number
+  flapShift: number
+  flapLift: number
+}
 
 const splitPathIntoBirds = (pathData: string) =>
   pathData.match(/M[^M]+/g)
@@ -55,30 +94,88 @@ const createLayerCanvas = (width: number, height: number) => {
   return layer
 }
 
-const maskPolygon = (
-  context: CanvasRenderingContext2D,
-  points: Array<{ x: number; y: number }>,
-) => {
-  context.beginPath()
-  context.moveTo(points[0].x, points[0].y)
-  for (let index = 1; index < points.length; index += 1) {
-    context.lineTo(points[index].x, points[index].y)
+const createMeasurerHost = (viewBox: string) => {
+  const svg = document.createElementNS(SVG_NS, 'svg')
+  svg.setAttribute('viewBox', viewBox)
+  svg.setAttribute('width', '0')
+  svg.setAttribute('height', '0')
+  svg.style.position = 'absolute'
+  svg.style.left = '-9999px'
+  svg.style.top = '-9999px'
+  svg.style.opacity = '0'
+  svg.style.pointerEvents = 'none'
+  document.body.appendChild(svg)
+
+  return svg
+}
+
+const measurePath = (host: SVGSVGElement, pathData: string) => {
+  const path = document.createElementNS(SVG_NS, 'path')
+  path.setAttribute('d', pathData)
+  host.appendChild(path)
+  const bounds = path.getBBox()
+  host.removeChild(path)
+  return bounds
+}
+
+const drawWingSlices = ({
+  context,
+  source,
+  rect,
+  flapWave,
+  flapShift,
+  flapLift,
+  side,
+}: {
+  context: CanvasRenderingContext2D
+  source: HTMLCanvasElement
+  rect: { x: number; y: number; width: number; height: number }
+  flapWave: number
+  flapShift: number
+  flapLift: number
+  side: 'left' | 'right'
+}) => {
+  const rowCount = Math.max(Math.floor(rect.height), 1)
+
+  for (let row = 0; row < rowCount; row += 1) {
+    const t = rowCount <= 1 ? 1 : row / (rowCount - 1)
+    const influence = smoothstep(1 - t)
+    const horizontal = flapWave * flapShift * influence * (side === 'left' ? -1 : 1)
+    const vertical = -Math.abs(flapWave) * flapLift * influence
+    const sourceY = rect.y + row
+    const sourceH = Math.min(1, rect.y + rect.height - sourceY)
+
+    if (sourceH <= 0) continue
+
+    const shrink = 1 - Math.abs(flapWave) * 0.18 * influence
+    const destWidth = rect.width * shrink
+    const widthDelta = rect.width - destWidth
+    const anchorOffset = side === 'left' ? widthDelta : 0
+
+    context.drawImage(
+      source,
+      rect.x,
+      sourceY,
+      rect.width,
+      sourceH,
+      rect.x + horizontal + anchorOffset,
+      sourceY + vertical,
+      destWidth,
+      sourceH,
+    )
   }
-  context.closePath()
-  context.fill()
 }
 
-const clearRect = (
-  context: CanvasRenderingContext2D,
-  rect: { x: number; y: number; width: number; height: number },
-) => {
-  context.clearRect(rect.x, rect.y, rect.width, rect.height)
-}
-
-export function initBirdFlockAnimation(): () => void {
-  const root = document.querySelector<HTMLElement>('[data-bird-flock]')
+export function initBirdFlockAnimation(scope?: ParentNode | null, options: BirdFlockOptions = {}): () => void {
+  const root = scope instanceof Element && scope.matches('[data-bird-flock]')
+    ? scope
+    : scope?.querySelector<HTMLElement>('[data-bird-flock]')
+      ?? document.querySelector<HTMLElement>('[data-bird-flock]')
   const canvas = root?.querySelector<HTMLCanvasElement>('[data-bird-flock-canvas]')
-  const triggerElement = root?.closest<HTMLElement>('[data-bird-flock-stage]') ?? root
+  const triggerElement = root?.closest<HTMLElement>('[data-bird-flock-stage]')
+    ?? (scope instanceof HTMLElement && scope.matches('[data-bird-flock-stage]') ? scope : null)
+    ?? (scope instanceof Element ? scope.querySelector<HTMLElement>('[data-bird-flock-stage]') : null)
+    ?? root
 
   if (!root || !canvas || !triggerElement) return () => {}
 
@@ -90,7 +187,17 @@ export function initBirdFlockAnimation(): () => void {
       .then((response) => response.text())
       .then((svgText) => {
         if (abortController.signal.aborted) return
-        cleanup = initBirdFlockCanvas({ canvas, svgText, triggerElement })
+        cleanup = initBirdFlockCanvas({
+          canvas,
+          svgText,
+          triggerElement,
+          fill: options.fill ?? BIRD_FILL,
+          scrollStart: options.scrollStart,
+          scrollEnd: options.scrollEnd,
+          opacityMin: options.opacityMin,
+          opacityMax: options.opacityMax,
+          animatedOpacityCap: options.animatedOpacityCap,
+        })
       })
       .catch(() => {})
   }
@@ -102,7 +209,7 @@ export function initBirdFlockAnimation(): () => void {
         load()
       }
     },
-    { rootMargin: '300px' },
+    { rootMargin: options.rootMargin ?? '300px' },
   )
   observer.observe(triggerElement)
 
@@ -117,10 +224,22 @@ function initBirdFlockCanvas({
   canvas,
   svgText,
   triggerElement,
+  fill,
+  scrollStart,
+  scrollEnd,
+  opacityMin,
+  opacityMax,
+  animatedOpacityCap,
 }: {
   canvas: HTMLCanvasElement
   svgText: string
   triggerElement: HTMLElement
+  fill: string
+  scrollStart?: string
+  scrollEnd?: string
+  opacityMin?: number
+  opacityMax?: number
+  animatedOpacityCap?: number
 }) {
   const context = canvas.getContext('2d')
 
@@ -128,129 +247,88 @@ function initBirdFlockCanvas({
 
   const doc = new DOMParser().parseFromString(svgText, 'image/svg+xml')
   const svg = doc.querySelector('svg')
-  const birdLayer = doc.querySelector('path')
-  const pathData = birdLayer?.getAttribute('d') ?? ''
+  const flockPath = doc.querySelector('path')
+  const flockPathData = flockPath?.getAttribute('d') ?? ''
   const viewBox = svg?.getAttribute('viewBox') ?? DEFAULT_VIEW_BOX
   const viewBoxRect = parseViewBox(viewBox)
   const reduceMotion = prefersReducedMotion()
-  const measurerHost = document.createElementNS(SVG_NS, 'svg')
-  measurerHost.setAttribute('viewBox', viewBox)
-  measurerHost.setAttribute('width', '0')
-  measurerHost.setAttribute('height', '0')
-  measurerHost.style.position = 'absolute'
-  measurerHost.style.left = '-9999px'
-  measurerHost.style.top = '-9999px'
-  measurerHost.style.opacity = '0'
-  measurerHost.style.pointerEvents = 'none'
-  document.body.appendChild(measurerHost)
-  const birds = splitPathIntoBirds(pathData).map((path, index) => {
-    const seed = getStablePathScore(path, index)
-    const measurePath = document.createElementNS(SVG_NS, 'path')
-    measurePath.setAttribute('d', path)
-    measurerHost.appendChild(measurePath)
-    const bounds = measurePath.getBBox()
-    measurerHost.removeChild(measurePath)
+  const measurerHost = createMeasurerHost(viewBox)
 
-    const padding = Math.max(Math.ceil(Math.max(bounds.width, bounds.height) * 0.08), 4)
-    const drawX = bounds.x - padding
-    const drawY = bounds.y - padding
-    const layerWidth = bounds.width + padding * 2
-    const layerHeight = bounds.height + padding * 2
-    const originX = -drawX
-    const originY = -drawY
-    const birdSize = Math.max(bounds.width, bounds.height)
-    const shouldAnimate = birdSize >= 18
-    const leftWingRect = {
-      x: 0,
-      y: 0,
-      width: Math.max(bounds.width * 0.5, 10),
-      height: Math.max(bounds.height * 0.42, 8),
-    }
-    const rightWingRect = {
-      x: Math.max(layerWidth - Math.max(bounds.width * 0.5, 10), 0),
-      y: 0,
-      width: Math.max(bounds.width * 0.5, 10),
-      height: Math.max(bounds.height * 0.42, 8),
-    }
-    const leftWingPivot = {
-      x: bounds.x + bounds.width * 0.36,
-      y: bounds.y + bounds.height * 0.2,
-    }
-    const rightWingPivot = {
-      x: bounds.x + bounds.width * 0.64,
-      y: bounds.y + bounds.height * 0.2,
-    }
-
-    const shape = new Path2D(path)
-    const fullLayer = createLayerCanvas(layerWidth, layerHeight)
-    const fullContext = fullLayer.getContext('2d')!
-
-    fullContext.fillStyle = BIRD_FILL
-    fullContext.translate(originX, originY)
-    fullContext.fill(shape)
-
-    const bodyLayer = createLayerCanvas(layerWidth, layerHeight)
-    const bodyContext = bodyLayer.getContext('2d')!
-    bodyContext.drawImage(fullLayer, 0, 0)
-    if (shouldAnimate) {
-      clearRect(bodyContext, leftWingRect)
-      clearRect(bodyContext, rightWingRect)
-    }
-
-    const leftWingLayer = createLayerCanvas(layerWidth, layerHeight)
-    const leftWingContext = leftWingLayer.getContext('2d')!
-    leftWingContext.drawImage(fullLayer, 0, 0)
-    leftWingContext.globalCompositeOperation = 'destination-in'
-    leftWingContext.fillStyle = '#000'
-    if (shouldAnimate) {
-      maskPolygon(leftWingContext, [
-        { x: 0, y: 0 },
-        { x: leftWingRect.width, y: 0 },
-        { x: leftWingRect.width * 0.82, y: leftWingRect.height },
-        { x: 0, y: leftWingRect.height * 0.72 },
-      ])
-    } else {
-      clearRect(leftWingContext, { x: 0, y: 0, width: layerWidth, height: layerHeight })
-    }
-
-    const rightWingLayer = createLayerCanvas(layerWidth, layerHeight)
-    const rightWingContext = rightWingLayer.getContext('2d')!
-    rightWingContext.drawImage(fullLayer, 0, 0)
-    rightWingContext.globalCompositeOperation = 'destination-in'
-    rightWingContext.fillStyle = '#000'
-    if (shouldAnimate) {
-      maskPolygon(rightWingContext, [
-        { x: rightWingRect.x + rightWingRect.width * 0.18, y: 0 },
-        { x: rightWingRect.x + rightWingRect.width, y: 0 },
-        { x: rightWingRect.x + rightWingRect.width, y: rightWingRect.height * 0.72 },
-        { x: rightWingRect.x, y: rightWingRect.height },
-      ])
-    } else {
-      clearRect(rightWingContext, { x: 0, y: 0, width: layerWidth, height: layerHeight })
-    }
+  const birds: BirdBase[] = splitPathIntoBirds(flockPathData).map((pathData, index) => {
+    const seed = getStablePathScore(pathData, index)
 
     return {
-      bodyLayer,
-      leftWingLayer,
-      rightWingLayer,
-      drawX,
-      drawY,
-      leftWingPivot,
-      rightWingPivot,
-      shouldAnimate,
-      finalOpacity: seededRange(seed, 1, 0.08, 0.16),
+      pathData,
+      shape: new Path2D(pathData),
+      finalOpacity: seededRange(seed, 1, opacityMin ?? 0.08, opacityMax ?? 0.16),
       revealStart: seededRange(seed, 2, 0.05, 0.38),
       revealDuration: seededRange(seed, 3, 0.08, 0.18),
       flightX: seededRange(seed, 4, -860, -360),
       flightY: seededRange(seed, 5, -20, 20),
       flightStart: seededRange(seed, 6, 0, 0.06),
       flightDuration: seededRange(seed, 7, 0.68, 1.12),
-      flapOffset: seededRange(seed, 8, 0, Math.PI * 2),
-      flapAngle: seededRange(seed, 9, 0.28, 0.55),
-      flapLift: seededRange(seed, 10, 0.8, 3.2),
-      flapCycles: seededRange(seed, 11, 7.5, 12),
     }
   })
+
+  const animatedBirds: AnimatedBird[] = birds
+    .map((bird, index) => {
+      const bounds = measurePath(measurerHost, bird.pathData)
+      const seed = getStablePathScore(bird.pathData, index)
+      const size = Math.max(bounds.width, bounds.height)
+      const padding = Math.max(Math.ceil(size * 0.08), 4)
+      const drawX = bounds.x - padding
+      const drawY = bounds.y - padding
+      const layerWidth = bounds.width + padding * 2
+      const layerHeight = bounds.height + padding * 2
+      const originX = -drawX
+      const originY = -drawY
+
+      const leftWingRect = {
+        x: 0,
+        y: 0,
+        width: Math.max(bounds.width * 0.62, 12),
+        height: Math.max(bounds.height * 0.5, 10),
+      }
+      const rightWingRect = {
+        x: Math.max(layerWidth - Math.max(bounds.width * 0.62, 12), 0),
+        y: 0,
+        width: Math.max(bounds.width * 0.62, 12),
+        height: Math.max(bounds.height * 0.5, 10),
+      }
+
+      const sourceLayer = createLayerCanvas(layerWidth, layerHeight)
+      const sourceContext = sourceLayer.getContext('2d')!
+      sourceContext.fillStyle = fill
+      sourceContext.translate(originX, originY)
+      sourceContext.fill(bird.shape)
+
+      const bodyLayer = createLayerCanvas(layerWidth, layerHeight)
+      const bodyContext = bodyLayer.getContext('2d')!
+      bodyContext.drawImage(sourceLayer, 0, 0)
+      bodyContext.clearRect(leftWingRect.x, leftWingRect.y, leftWingRect.width, leftWingRect.height)
+      bodyContext.clearRect(rightWingRect.x, rightWingRect.y, rightWingRect.width, rightWingRect.height)
+
+      return {
+        ...bird,
+        size,
+        drawX,
+        drawY,
+        layerWidth,
+        layerHeight,
+        sourceLayer,
+        bodyLayer,
+        leftWingRect,
+        rightWingRect,
+        flapOffset: seededRange(seed, 8, 0, Math.PI * 2),
+        flapShift: seededRange(seed, 9, bounds.width * 0.22, bounds.width * 0.38),
+        flapLift: seededRange(seed, 10, Math.max(bounds.height * 0.08, 2.5), Math.max(bounds.height * 0.18, 7)),
+        flapCycles: seededRange(seed, 11, 9, 15),
+      } satisfies AnimatedBird
+    })
+    .sort((a, b) => b.size - a.size)
+    .slice(0, ANIMATED_BIRD_COUNT)
+
+  const animatedBirdSet = new Set(animatedBirds.map((bird) => bird.pathData))
 
   let targetProgress = 0
   let currentProgress = 0
@@ -280,9 +358,29 @@ function initBirdFlockCanvas({
 
     context.translate(xOffset, yOffset)
     context.scale(scale, scale)
-    context.fillStyle = BIRD_FILL
+    context.fillStyle = fill
 
     birds.forEach((bird) => {
+      if (animatedBirdSet.has(bird.pathData)) return
+
+      const revealProgress = reduceMotion
+        ? 1
+        : smoothstep((maxRevealProgress - bird.revealStart) / bird.revealDuration)
+
+      if (revealProgress <= 0) return
+
+      const flightProgress = reduceMotion
+        ? 0
+        : clamp01((currentProgress - bird.flightStart) / bird.flightDuration)
+
+      context.save()
+      context.globalAlpha = bird.finalOpacity * revealProgress
+      context.translate(bird.flightX * flightProgress, bird.flightY * flightProgress)
+      context.fill(bird.shape)
+      context.restore()
+    })
+
+    animatedBirds.forEach((bird) => {
       const revealProgress = reduceMotion
         ? 1
         : smoothstep((maxRevealProgress - bird.revealStart) / bird.revealDuration)
@@ -297,27 +395,30 @@ function initBirdFlockCanvas({
         : Math.sin(currentProgress * bird.flapCycles * Math.PI * 2 + bird.flapOffset)
 
       context.save()
-      context.globalAlpha = bird.finalOpacity * revealProgress
+      context.globalAlpha = Math.min(bird.finalOpacity * revealProgress * 2.4, animatedOpacityCap ?? 0.5)
       context.translate(bird.flightX * flightProgress, bird.flightY * flightProgress)
+
       context.drawImage(bird.bodyLayer, bird.drawX, bird.drawY)
 
-      if (bird.shouldAnimate) {
-        context.save()
-        context.translate(bird.leftWingPivot.x, bird.leftWingPivot.y)
-        context.rotate(-flapWave * bird.flapAngle)
-        context.translate(0, -Math.abs(flapWave) * bird.flapLift)
-        context.translate(-bird.leftWingPivot.x, -bird.leftWingPivot.y)
-        context.drawImage(bird.leftWingLayer, bird.drawX, bird.drawY)
-        context.restore()
+      drawWingSlices({
+        context,
+        source: bird.sourceLayer,
+        rect: bird.leftWingRect,
+        flapWave,
+        flapShift: bird.flapShift,
+        flapLift: bird.flapLift,
+        side: 'left',
+      })
 
-        context.save()
-        context.translate(bird.rightWingPivot.x, bird.rightWingPivot.y)
-        context.rotate(flapWave * bird.flapAngle)
-        context.translate(0, -Math.abs(flapWave) * bird.flapLift)
-        context.translate(-bird.rightWingPivot.x, -bird.rightWingPivot.y)
-        context.drawImage(bird.rightWingLayer, bird.drawX, bird.drawY)
-        context.restore()
-      }
+      drawWingSlices({
+        context,
+        source: bird.sourceLayer,
+        rect: bird.rightWingRect,
+        flapWave,
+        flapShift: bird.flapShift,
+        flapLift: bird.flapLift,
+        side: 'right',
+      })
 
       context.restore()
     })
@@ -351,8 +452,8 @@ function initBirdFlockCanvas({
 
   const trigger = ScrollTrigger.create({
     trigger: triggerElement,
-    start: 'top 45%',
-    end: 'bottom top',
+    start: scrollStart ?? 'top 45%',
+    end: scrollEnd ?? 'bottom top',
     onUpdate: (self) => {
       targetProgress = self.progress
       maxRevealProgress = Math.max(maxRevealProgress, self.progress)

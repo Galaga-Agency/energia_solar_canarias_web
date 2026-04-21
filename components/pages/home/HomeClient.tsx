@@ -1,6 +1,7 @@
 'use client'
 
 import dynamic            from 'next/dynamic'
+import { useRef }         from 'react'
 import { usePageReady }   from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 import { HomeHero2 }      from '@/components/pages/home/HomeHero2'
@@ -23,9 +24,6 @@ const HomeStats        = dynamic(() => import('./HomeStats').then(m => m.HomeSta
 const HomeFounder      = dynamic(() => import('./HomeFounder').then(m => m.HomeFounder))
 const HomeTestimonials = dynamic(() => import('./HomeTestimonials').then(m => m.HomeTestimonials))
 const HomeCTA          = dynamic(() => import('./HomeCTA').then(m => m.HomeCTA))
-const PerfMonitor      = process.env.NODE_ENV === 'development'
-  ? dynamic(() => import('@/components/dev/PerfMonitor'), { ssr: false })
-  : null
 
 interface SolucionItem { label: string; title: string; desc: string }
 interface StatItem     { value: string; suffix: string; label: string; desc: string }
@@ -55,6 +53,8 @@ const HOMEPAGE_MARQUEE_ITEMS = [
 ]
 
 export function HomeClient({ messages }: { messages: HomeMessages }) {
+  const birdFlockStageRef = useRef<HTMLDivElement | null>(null)
+
   usePageReady()
 
   useGSAPAnimations(() => ({
@@ -66,7 +66,7 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
       initBlobAnimation,
       initScrollMarqueeAnimation,
       initPanelStackAnimation,
-      initBirdFlockAnimation,
+      () => initBirdFlockAnimation(birdFlockStageRef.current),
     ],
   }))
 
@@ -80,7 +80,11 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
         <div className="relative z-10">
           <Marquee items={HOMEPAGE_MARQUEE_ITEMS} />
         </div>
-        <div className="home-bird-flock-stage panel-surface relative overflow-hidden" data-bird-flock-stage>
+        <div
+          ref={birdFlockStageRef}
+          className="home-bird-flock-stage panel-surface relative overflow-hidden"
+          data-bird-flock-stage
+        >
           <AnimatedBirdFlock className="home-bird-flock-backdrop" />
           <div className="relative z-10">
             <HomeBeneficios {...benefits} />
@@ -92,7 +96,6 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
       <HomeFounder {...founder} />
       <HomeTestimonials {...testimonials} />
       <HomeCTA {...cta} secondaryHref="/contacto" />
-      {/* {PerfMonitor && <PerfMonitor />} */}
     </>
   )
 }
