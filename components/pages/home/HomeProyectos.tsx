@@ -24,7 +24,7 @@ export function HomeProyectos({ title, body, cta, marqueeItems }: HomeProyectosP
           <div className="flex flex-col items-center text-center gap-6 max-w-2xl mx-auto">
             <h2 className="text-title">{title}</h2>
             <p className="text-body">{body}</p>
-            <Button variant="surface-dark" href="/proyectos">{cta}</Button>
+            <Button variant="green-dark" href="/proyectos">{cta}</Button>
           </div>
         </div>
         <ClientsMarquee />

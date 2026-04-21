@@ -2,21 +2,21 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { Language } from "@/config/i18n.config";
 import { SITE_URL, SITE_NAME } from "@/config/site";
-import blogEs from "@/locales/es/blog.json";
-import blogEn from "@/locales/en/blog.json";
+import { BLOG_ARTICLES_EN } from "@/data/blog/en";
+import { BLOG_ARTICLES_ES } from "@/data/blog/es";
 
 interface BlogPostPageProps {
   params: Promise<{ locale: Language; slug: string }>;
 }
 
 function getPost(locale: Language, slug: string) {
-  const articles = locale === "en" ? blogEn.articles : blogEs.articles;
+  const articles = locale === "en" ? BLOG_ARTICLES_EN : BLOG_ARTICLES_ES;
   return articles.find((a) => a.slug === slug) ?? null;
 }
 
 export async function generateStaticParams() {
-  const slugsEs = blogEs.articles.map((a) => ({ locale: "es", slug: a.slug }));
-  const slugsEn = blogEn.articles.map((a) => ({ locale: "en", slug: a.slug }));
+  const slugsEs = BLOG_ARTICLES_ES.map((a) => ({ locale: "es", slug: a.slug }));
+  const slugsEn = BLOG_ARTICLES_EN.map((a) => ({ locale: "en", slug: a.slug }));
   return [...slugsEs, ...slugsEn];
 }
 
