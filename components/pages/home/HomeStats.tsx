@@ -1,16 +1,12 @@
 'use client'
 
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
-interface StatItem { value: string; suffix: string; label: string; desc: string }
+export function HomeStats() {
+  const t     = useTranslations('home.stats')
+  const items = t.raw('items') as { value: string; suffix: string; label: string; desc: string }[]
 
-interface HomeStatsProps {
-  eyebrow: string
-  quote:   string
-  items:   StatItem[]
-}
-
-export function HomeStats({ eyebrow, quote, items }: HomeStatsProps) {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-x-0 inset-y-[-20%] z-0" data-speed="0.8">
@@ -27,8 +23,8 @@ export function HomeStats({ eyebrow, quote, items }: HomeStatsProps) {
 
       <div className="relative z-10 section-inner py-[clamp(4rem,8vw,8rem)]">
         <div className="mb-12 md:mb-16 max-w-3xl" data-reveal>
-          <p className="text-label text-white/60! mb-4">{eyebrow}</p>
-          <h2 className="text-title text-white! font-semibold leading-snug">{quote}</h2>
+          <p className="text-label text-white/60! mb-4">{t('eyebrow')}</p>
+          <h2 className="text-title text-white! font-semibold leading-snug">{t('quote')}</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5" data-reveal>

@@ -3,8 +3,6 @@ import { ContactoClient } from "@/components/pages/contacto/ContactoClient";
 import { generatePageMetadata } from "@/utils/seo";
 import type { Language } from "@/config/i18n.config";
 import { SITE_URL } from "@/config/site";
-import contactoEs from "@/locales/es/contacto.json";
-import contactoEn from "@/locales/en/contacto.json";
 
 interface ContactoPageProps {
   params: Promise<{ locale: Language }>;
@@ -43,7 +41,7 @@ export default async function ContactoPage({ params }: ContactoPageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <ContactoClient messages={isEn ? contactoEn : contactoEs} />
+      <ContactoClient />
     </>
   );
 }

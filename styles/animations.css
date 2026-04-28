@@ -47,8 +47,187 @@
 }
 
 
+.mobile-menu-shell {
+  pointer-events: none;
+}
+
+.mobile-menu-shell[data-state='open'] {
+  pointer-events: auto;
+}
+
+.mobile-menu-backdrop {
+  opacity: 0;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 180ms ease;
+}
+
+.mobile-menu-panel {
+  opacity: 0;
+  transform: translateY(-8px);
+  will-change: transform, opacity;
+  transition:
+    opacity 260ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-nav {
+  transform: translate(2rem, 1.5rem);
+  transform-origin: top left;
+  pointer-events: none;
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-link {
+  position: relative;
+  align-items: center;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 1;
+  will-change: height, margin-top, opacity;
+  transition:
+    height 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    line-height 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    margin-top 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 120ms linear;
+}
+
+.mobile-menu-label {
+  display: inline-block;
+  color: transparent;
+  letter-spacing: -0.34em;
+  transform: scaleY(0.22);
+  transform-origin: left center;
+  white-space: nowrap;
+  transition:
+    color 220ms ease,
+    letter-spacing 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  transform: translateY(-50%) scaleY(5);
+  opacity: 0.9;
+  transition:
+    opacity 120ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-link:nth-child(1) .mobile-menu-label {
+  letter-spacing: -0.4em;
+}
+
+.mobile-menu-link:nth-child(2) .mobile-menu-label {
+  letter-spacing: -0.36em;
+}
+
+.mobile-menu-link:nth-child(3) .mobile-menu-label {
+  letter-spacing: -0.34em;
+}
+
+.mobile-menu-link:nth-child(n + 4) {
+  margin-top: -0.5rem;
+  opacity: 0;
+}
+
+.mobile-menu-arrow {
+  opacity: 0;
+  transform: translateX(-0.75rem);
+  transition:
+    opacity 180ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-backdrop {
+  opacity: 1;
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-panel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-nav {
+  transform: translate(0.75rem, 0.75rem);
+  pointer-events: auto;
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-link {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin-top: 0;
+  opacity: 1;
+  transition-delay: calc((var(--mobile-menu-count, 1) - var(--menu-index, 0) - 1) * 50ms);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-label {
+  color: var(--color-ink);
+  letter-spacing: 0;
+  transform: scaleY(1);
+  transition-delay: calc((var(--mobile-menu-count, 1) - var(--menu-index, 0) - 1) * 50ms);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-link:hover .mobile-menu-label {
+  color: var(--color-primary);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-link::before {
+  opacity: 0;
+  transform: translateY(-50%) scaleY(1);
+  transition-delay: calc((var(--mobile-menu-count, 1) - var(--menu-index, 0) - 1) * 50ms);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: calc((var(--mobile-menu-count, 1) - var(--menu-index, 0) - 1) * 50ms);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-link[aria-current='page'] .mobile-menu-label {
+  color: var(--color-primary);
+}
+
+.mobile-menu-cta {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 220ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu-shell[data-state='open'] .mobile-menu-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--mobile-menu-count, 1) * 50ms);
+}
+
+.mobile-menu-shell[data-state='closed'] .mobile-menu-link,
+.mobile-menu-shell[data-state='closed'] .mobile-menu-cta,
+.mobile-menu-shell[data-state='closed'] .mobile-menu-nav,
+.mobile-menu-shell[data-state='closed'] .mobile-menu-link::before,
+.mobile-menu-shell[data-state='closed'] .mobile-menu-label,
+.mobile-menu-shell[data-state='closed'] .mobile-menu-arrow {
+  transition-delay: calc(var(--menu-index, 0) * 50ms);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+
+  .mobile-menu-backdrop,
+  .mobile-menu-panel,
+  .mobile-menu-link,
+  .mobile-menu-cta {
+    transition: none;
   }
 }

@@ -6,6 +6,11 @@ const englishToCanonical = Object.fromEntries(
   Object.entries(routeTranslations.en).map(([canonical, translated]) => [translated, canonical]),
 )
 
+function withLocaleHeader(response: NextResponse, locale: string): NextResponse {
+  response.headers.set('x-next-intl-locale', locale)
+  return response
+}
+
 export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
   const segments = pathname.split('/').filter(Boolean)
@@ -14,26 +19,26 @@ export function proxy(req: NextRequest) {
 
   if (!firstSegment) {
     req.nextUrl.pathname = `/${defaultLocale}`
-    return NextResponse.rewrite(req.nextUrl)
+    return withLocaleHeader(NextResponse.rewrite(req.nextUrl), defaultLocale)
   }
 
   if (isLocale(firstSegment)) {
     if (firstSegment === 'en' && secondSegment && secondSegment in englishToCanonical) {
       segments[1] = englishToCanonical[secondSegment]
       req.nextUrl.pathname = `/${segments.join('/')}`
-      return NextResponse.rewrite(req.nextUrl)
+      return withLocaleHeader(NextResponse.rewrite(req.nextUrl), firstSegment)
     }
 
-    return NextResponse.next()
+    return withLocaleHeader(NextResponse.next(), firstSegment)
   }
 
   if (firstSegment in englishToCanonical) {
     req.nextUrl.pathname = `/${defaultLocale}/${englishToCanonical[firstSegment]}`
-    return NextResponse.redirect(req.nextUrl)
+    return withLocaleHeader(NextResponse.redirect(req.nextUrl), defaultLocale)
   }
 
   req.nextUrl.pathname = `/${defaultLocale}${pathname}`
-  return NextResponse.rewrite(req.nextUrl)
+  return withLocaleHeader(NextResponse.rewrite(req.nextUrl), defaultLocale)
 }
 
 export const config = {

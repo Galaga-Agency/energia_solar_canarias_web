@@ -1,30 +1,16 @@
+import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/Button'
 
-interface SobreNosotrosBenefitsProps {
-  eyebrow: string
-  title: string
-  body: string
-  items: { title: string; body: string }[]
-  cardTitle: string
-  cardBody: string
-  cta: string
-}
+export function SobreNosotrosBenefits() {
+  const t     = useTranslations('sobre-nosotros.benefits')
+  const items = t.raw('items') as { title: string; body: string }[]
 
-export function SobreNosotrosBenefits({
-  eyebrow,
-  title,
-  body,
-  items,
-  cardTitle,
-  cardBody,
-  cta,
-}: SobreNosotrosBenefitsProps) {
   return (
     <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner" data-reveal>
-        <span className="text-label block mb-4">{eyebrow}</span>
-        <h2 className="text-heading mb-4">{title}</h2>
-        <p className="text-body mb-12 max-w-xl">{body}</p>
+        <span className="text-label block mb-4">{t('eyebrow')}</span>
+        <h2 className="text-heading mb-4">{t('title')}</h2>
+        <p className="text-body mb-12 max-w-xl">{t('body')}</p>
 
         <div className="flex flex-col gap-12 mb-12">
           {items.map((item) => (
@@ -52,9 +38,9 @@ export function SobreNosotrosBenefits({
           >
             🏝
           </div>
-          <h3 className="text-subheading mb-4">{cardTitle}</h3>
-          <p className="text-body mb-6">{cardBody}</p>
-          <Button variant="outlined" href="/proyectos">{cta}</Button>
+          <h3 className="text-subheading mb-4">{t('cardTitle')}</h3>
+          <p className="text-body mb-6">{t('cardBody')}</p>
+          <Button variant="outlined" href="/proyectos">{t('cta')}</Button>
         </div>
       </div>
     </section>

@@ -43,17 +43,19 @@ export function Button({ variant = 'filled', children, ...props }: Props) {
   const locale   = getLocaleFromPathname(pathname)
 
   if ('href' in props && props.href) {
-    const { href, ...rest } = props as AnchorProps
+    const { href, className, ...rest } = props as AnchorProps
     const localizedHref = href.startsWith('/') ? getLocalizedHref(href, locale) : href
     return (
-      <Link href={localizedHref} className={`${BASE} ${VARIANTS[variant]}`} {...rest}>
+      <Link href={localizedHref} className={`${BASE} ${VARIANTS[variant]}${className ? ` ${className}` : ''}`} {...rest}>
         {children}
       </Link>
     )
   }
 
+  const { className, ...rest } = props as ButtonProps
+
   return (
-    <button className={`${BASE} ${VARIANTS[variant]}`} {...(props as ButtonProps)}>
+    <button className={`${BASE} ${VARIANTS[variant]}${className ? ` ${className}` : ''}`} {...rest}>
       {children}
     </button>
   )

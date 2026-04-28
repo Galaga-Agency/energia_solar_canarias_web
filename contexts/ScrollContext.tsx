@@ -8,7 +8,6 @@ const ScrollContext = createContext<{ lenis: Lenis | null }>({ lenis: null })
 
 export function ScrollProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    // Only enable smooth scroll on desktop
     const isDesktop = window.matchMedia('(min-width: 1024px)').matches
     if (isDesktop) initLenis()
     return () => { destroyLenis() }

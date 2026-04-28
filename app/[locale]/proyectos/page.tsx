@@ -26,7 +26,6 @@ export async function generateMetadata({ params }: ProyectosPageProps): Promise<
 export default async function ProyectosPage({ params }: ProyectosPageProps) {
   const { locale } = await params;
   const isEn = locale === "en";
-  const messages = isEn ? proyectosEn : proyectosEs;
 
   const schema = {
     "@context": "https://schema.org",
@@ -40,10 +39,12 @@ export default async function ProyectosPage({ params }: ProyectosPageProps) {
     isPartOf: { "@id": `${SITE_URL}/#website` },
   };
 
+  const data = isEn ? proyectosEn : proyectosEs;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <ProyectosClient projects={messages.projects} messages={messages} />
+      <ProyectosClient projects={data.projects} />
     </>
   );
 }

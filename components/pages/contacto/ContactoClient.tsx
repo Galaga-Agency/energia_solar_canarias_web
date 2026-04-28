@@ -1,9 +1,9 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
+import { useTranslations } from 'next-intl'
 import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
-import { useTranslation }  from '@/contexts/TranslationContext'
 import { FAQ_CONTACTO_KEYS } from '@/constants/faq.constants'
 import { ContactoSection } from '@/components/pages/contacto/ContactoSection'
 import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
@@ -13,20 +13,10 @@ import { initFAQAccordion }         from '@/utils/animations/faq-accordion'
 
 const FAQAccordion = dynamic(() => import('@/components/shared/FAQAccordion').then(m => m.FAQAccordion), { ssr: false })
 
-interface ContactoMessages {
-  section: {
-    title: string
-    body: string
-    emphasis: string
-    officeTitle: string
-    officeBody: string
-  }
-  faq: { label: string }
-}
-
-export function ContactoClient({ messages }: { messages: ContactoMessages }) {
+export function ContactoClient() {
   usePageReady()
-  const { t } = useTranslation()
+  const nav = useTranslations('nav')
+  const t   = useTranslations('contacto')
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
@@ -36,12 +26,12 @@ export function ContactoClient({ messages }: { messages: ContactoMessages }) {
   return (
     <>
       <Breadcrumbs items={[
-        { label: t('nav.home'),    href: '/' },
-        { label: t('nav.contact'), href: '/contacto' },
+        { label: nav('home'),    href: '/' },
+        { label: nav('contact'), href: '/contacto' },
       ]} />
-      <ContactoSection {...messages.section} />
+      <ContactoSection />
       <FAQAccordion
-        label={messages.faq.label}
+        label={t('faq.label')}
         items={FAQ_CONTACTO_KEYS.map(key => ({
           question: t(`faq.items.${key}.question`),
           answer:   t(`faq.items.${key}.answer`),

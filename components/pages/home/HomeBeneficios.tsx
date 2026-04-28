@@ -1,15 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { BeneficioCard } from '@/components/ui/BeneficioCard'
-
-interface BeneficioItem { label: string; desc: string }
-
-interface HomeBeneficiosProps {
-  eyebrow: string
-  title:   string
-  body:    string
-  items:   BeneficioItem[]
-}
 
 const IMAGES = [
   { src: '/assets/images/home/solar-panel-laptop-workspace.webp',        alt: 'Persona trabajando con paneles solares' },
@@ -18,15 +10,18 @@ const IMAGES = [
   { src: '/assets/images/home/aerial-coastal-neighborhood.webp',          alt: 'Vista aérea de barrio costero en Canarias' },
 ]
 
-export function HomeBeneficios({ eyebrow, title, body, items }: HomeBeneficiosProps) {
+export function HomeBeneficios() {
+  const t     = useTranslations('home.benefits')
+  const items = t.raw('items') as { label: string; desc: string }[]
+
   return (
     <section className="section-spacing relative z-20" data-home-panel-end>
       <div className="section-inner relative z-10" data-reveal>
 
         <div className="flex flex-col items-center text-center gap-6 mb-12 max-w-2xl mx-auto">
-          <span className="text-label text-primary!">{eyebrow}</span>
-          <h2 className="text-title">{title}</h2>
-          <p className="text-body">{body}</p>
+          <span className="text-label text-primary!">{t('eyebrow')}</span>
+          <h2 className="text-title">{t('title')}</h2>
+          <p className="text-body">{t('body')}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

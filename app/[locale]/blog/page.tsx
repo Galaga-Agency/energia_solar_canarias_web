@@ -3,8 +3,6 @@ import { BlogClient } from "@/components/pages/blog/BlogClient";
 import { generatePageMetadata } from "@/utils/seo";
 import type { Language } from "@/config/i18n.config";
 import { SITE_URL } from "@/config/site";
-import blogEs from "@/locales/es/blog.json";
-import blogEn from "@/locales/en/blog.json";
 import { BLOG_ARTICLES_ES } from "@/data/blog/es";
 import { BLOG_ARTICLES_EN } from "@/data/blog/en";
 
@@ -28,7 +26,6 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params;
   const isEn = locale === "en";
-  const messages = isEn ? blogEn : blogEs;
 
   const schema = {
     "@context": "https://schema.org",
@@ -49,7 +46,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <BlogClient articles={articles} messages={messages} />
+      <BlogClient articles={articles} />
     </>
   );
 }

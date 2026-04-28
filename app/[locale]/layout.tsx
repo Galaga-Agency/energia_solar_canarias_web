@@ -1,10 +1,10 @@
-import type { ReactNode }         from 'react'
-import { notFound }               from 'next/navigation'
-import { TranslationProvider }    from '@/contexts/TranslationContext'
-import { LocaleShell }            from '@/components/layout/LocaleShell'
+import type { ReactNode }      from 'react'
+import { notFound }            from 'next/navigation'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages }         from 'next-intl/server'
+import { TranslationProvider } from '@/contexts/TranslationContext'
+import { LocaleShell }         from '@/components/layout/LocaleShell'
 import { isLocale, locales, type Language } from '@/config/i18n.config'
-import commonEs from '@/locales/es/common.json'
-import commonEn from '@/locales/en/common.json'
 
 interface LocaleLayoutProps {
   children: ReactNode
@@ -22,13 +22,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     notFound()
   }
 
-  const common = locale === 'en' ? commonEn : commonEs
+  const messages = await getMessages()
 
   return (
-    <TranslationProvider locale={locale as Language} initialPages={[common]}>
-      <LocaleShell>
-        {children}
-      </LocaleShell>
-    </TranslationProvider>
+    <NextIntlClientProvider messages={messages}>
+      <TranslationProvider locale={locale as Language}>
+        <LocaleShell>
+          {children}
+        </LocaleShell>
+      </TranslationProvider>
+    </NextIntlClientProvider>
   )
 }

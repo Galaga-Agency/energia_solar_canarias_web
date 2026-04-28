@@ -1,9 +1,9 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
+import { useTranslations } from 'next-intl'
 import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
-import { useTranslation }  from '@/contexts/TranslationContext'
 import { FAQ_SOLUCIONES_KEYS } from '@/constants/faq.constants'
 import { SolucionesHero }  from '@/components/pages/soluciones/SolucionesHero'
 import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
@@ -22,32 +22,10 @@ const ClientsMarquee           = dynamic(() => import('@/components/shared/Clien
 const FAQAccordion             = dynamic(() => import('@/components/shared/FAQAccordion').then(m => m.FAQAccordion), { ssr: false })
 const CTABanner                = dynamic(() => import('@/components/shared/CTABanner').then(m => m.CTABanner), { ssr: false })
 
-interface SolucionesMessages {
-  hero: {
-    eyebrow: string
-    title: string
-    body: string
-    items: { label: string; title: string; body: string }[]
-  }
-  painPoints: { eyebrow: string; title: string; body: string; tags: string[]; cta: string }
-  quote: { eyebrow: string; quote: string; body: string }
-  differentiator: {
-    titleStart: string
-    titleBrand: string
-    titleEnd: string
-    body: string
-    primary: string
-    secondary: string
-  }
-  process: { title: string; body: string; items: { n: string; title: string; body: string }[] }
-  guarantees: { items: { title: string; body: string }[] }
-  cta: { title: string; body: string; primary: string; secondary: string }
-  faq: { label: string }
-}
-
-export function SolucionesClient({ messages }: { messages: SolucionesMessages }) {
+export function SolucionesClient() {
   usePageReady()
-  const { t } = useTranslation()
+  const nav = useTranslations('nav')
+  const t   = useTranslations('soluciones')
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
@@ -58,29 +36,29 @@ export function SolucionesClient({ messages }: { messages: SolucionesMessages })
   return (
     <>
       <Breadcrumbs items={[
-        { label: t('nav.home'),      href: '/' },
-        { label: t('nav.solutions'), href: '/soluciones' },
+        { label: nav('home'),      href: '/' },
+        { label: nav('solutions'), href: '/soluciones' },
       ]} />
-      <SolucionesHero {...messages.hero} />
-      <SolucionesPainPoints {...messages.painPoints} />
-      <SolucionesQuote {...messages.quote} />
-      <SolucionesDifferentiator {...messages.differentiator} />
-      <SolucionesProcess {...messages.process} />
-      <SolucionesGuarantees {...messages.guarantees} />
+      <SolucionesHero />
+      <SolucionesPainPoints />
+      <SolucionesQuote />
+      <SolucionesDifferentiator />
+      <SolucionesProcess />
+      <SolucionesGuarantees />
       <ClientsMarquee />
       <FAQAccordion
-        label={messages.faq.label}
+        label={t('faq.label')}
         items={FAQ_SOLUCIONES_KEYS.map(key => ({
           question: t(`faq.items.${key}.question`),
           answer:   t(`faq.items.${key}.answer`),
         }))}
       />
       <CTABanner
-        title={messages.cta.title}
-        body={messages.cta.body}
-        primaryLabel={messages.cta.primary}
+        title={t('cta.title')}
+        body={t('cta.body')}
+        primaryLabel={t('cta.primary')}
         primaryHref="/contacto"
-        secondaryLabel={messages.cta.secondary}
+        secondaryLabel={t('cta.secondary')}
         secondaryHref="/contacto"
       />
     </>

@@ -36,7 +36,8 @@ export function TestimonialsSlider({ items }: { items: TestimonialItem[] }) {
       <div
         ref={trackRef}
         onScroll={handleScroll}
-        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none mb-8 carousel-scroll-padding carousel-track-end"
+        data-testimonials-track
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-none mb-4 sm:mb-8 carousel-scroll-padding carousel-track-end"
       >
         {items.map((item, i) => (
           <div
@@ -48,20 +49,23 @@ export function TestimonialsSlider({ items }: { items: TestimonialItem[] }) {
         ))}
       </div>
 
-      <div className="section-inner flex items-center justify-between">
-        <div className="flex gap-2">
+      <div className="section-inner">
+        <div className="flex items-end justify-between">
+          <div className="flex items-end gap-2 leading-none">
           {items.map((_, i) => (
             <button
               key={i}
               onClick={() => scrollToIndex(i)}
               aria-label={`Ir al testimonio ${i + 1}`}
-              className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 ${
+              className="flex h-2.5 w-2.5 shrink-0 items-center justify-center p-0 leading-none"
+            >
+              <span className={`block h-2.5 w-2.5 rounded-full transition-colors duration-200 ${
                 i === current ? 'bg-primary' : 'bg-sand-300'
-              }`}
-            />
+              }`} />
+            </button>
           ))}
-        </div>
-        <div className="flex gap-2">
+          </div>
+          <div className="flex gap-2">
           <button
             onClick={() => scrollToIndex(Math.max(0, current - 1))}
             disabled={current === 0}
@@ -78,6 +82,7 @@ export function TestimonialsSlider({ items }: { items: TestimonialItem[] }) {
           >
             <FiArrowRight size={18} />
           </button>
+          </div>
         </div>
       </div>
     </>

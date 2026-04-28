@@ -1,13 +1,13 @@
-interface SobreNosotrosNarrativeProps {
-  title: string
-  paragraphs: string[]
-}
+import { useTranslations } from 'next-intl'
 
-export function SobreNosotrosNarrative({ title, paragraphs }: SobreNosotrosNarrativeProps) {
+export function SobreNosotrosNarrative() {
+  const t          = useTranslations('sobre-nosotros.narrative')
+  const paragraphs = t.raw('paragraphs') as string[]
+
   return (
     <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner" data-reveal>
-        <h2 className="text-heading mb-8 max-w-lg">{title}</h2>
+        <h2 className="text-heading mb-8 max-w-lg">{t('title')}</h2>
         <div className="max-w-2xl flex flex-col gap-6 mb-12">
           {paragraphs.map((paragraph) => (
             <p key={paragraph} className="text-body">{paragraph}</p>

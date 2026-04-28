@@ -1,112 +1,46 @@
 'use client'
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-  type ReactNode,
-} from 'react'
-import {
-  locales,
-  routeTranslations,
-  type Language,
-} from '@/config/i18n.config'
-
-type Messages = Record<string, unknown>
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import { useLocale } from 'next-intl'
+import { locales, routeTranslations, type Language } from '@/config/i18n.config'
 
 interface TranslationContextValue {
   language:       Language
   changeLanguage: (lang: Language) => void
   toggleLanguage: () => void
-  t:              (key: string) => string
 }
 
 const TranslationContext = createContext<TranslationContextValue | null>(null)
 
-function getNestedValue(obj: Messages, key: string): string {
-  const parts  = key.split('.')
-  let   cursor: unknown = obj
-  for (const part of parts) {
-    if (typeof cursor !== 'object' || cursor === null) return key
-    cursor = (cursor as Messages)[part]
-  }
-  return typeof cursor === 'string' ? cursor : key
-}
+export function TranslationProvider({ children, locale }: { children: ReactNode; locale: Language }) {
+  const [language, setLanguage] = useState<Language>(locale)
 
-interface TranslationProviderProps {
-  children:     ReactNode
-  locale:       Language
-  initialPages: Messages[]
-}
+  const changeLanguage = useCallback((lang: Language) => {
+    if (!locales.includes(lang)) return
 
-export function TranslationProvider({
-  children,
-  locale,
-  initialPages,
-}: TranslationProviderProps) {
-  const [language,  setLanguage]  = useState<Language>(locale)
-  const [messages,  setMessages]  = useState<Messages>(() =>
-    Object.assign({}, ...initialPages),
-  )
+    setLanguage(lang)
+    document.documentElement.setAttribute('lang', lang)
 
-  const loadMessages = useCallback(async (lang: Language, pageName: string) => {
-    try {
-      const [common, page] = await Promise.all([
-        import(`@/locales/${lang}/common.json`),
-        import(`@/locales/${lang}/${pageName}.json`).catch(() => ({ default: {} })),
-      ])
-      setMessages(Object.assign({}, common.default, page.default))
-    } catch {
-      // fall back to existing messages
-    }
+    const { pathname } = window.location
+    const segments     = pathname.split('/').filter(Boolean)
+    const currentLang  = segments[0] as Language
+    const currentSlug  = segments[1] ?? ''
+
+    const newSlug = routeTranslations[lang][currentSlug] ?? currentSlug
+    const hasLang = locales.includes(currentLang)
+    const newPath = hasLang
+      ? `/${lang}${newSlug ? '/' + newSlug : ''}`
+      : `/${lang}${pathname}`
+
+    window.history.replaceState(null, '', newPath)
   }, [])
 
-  const changeLanguage = useCallback(
-    (lang: Language) => {
-      if (!locales.includes(lang)) return
-
-      setLanguage(lang)
-      document.documentElement.setAttribute('lang', lang)
-
-      const { pathname } = window.location
-      const segments = pathname.split('/').filter(Boolean)
-      const currentLang = segments[0] as Language
-      const currentSlug = segments[1] ?? ''
-
-      const translations = routeTranslations[lang]
-      const newSlug = translations[currentSlug] ?? currentSlug
-
-      const hasLang = locales.includes(currentLang)
-      const newPath = hasLang
-        ? `/${lang}${newSlug ? '/' + newSlug : ''}`
-        : `/${lang}${pathname}`
-
-      window.history.replaceState(null, '', newPath)
-    },
-    [],
-  )
-
   const toggleLanguage = useCallback(() => {
-    const next = language === 'es' ? 'en' : 'es'
-    changeLanguage(next)
+    changeLanguage(language === 'es' ? 'en' : 'es')
   }, [language, changeLanguage])
 
-  const t = useCallback(
-    (key: string): string => getNestedValue(messages, key),
-    [messages],
-  )
-
-  // Re-load messages when language changes
-  useEffect(() => {
-    document.documentElement.setAttribute('lang', language)
-    const pageName = window.location.pathname.split('/').filter(Boolean)[1] ?? 'home'
-    loadMessages(language, pageName)
-  }, [language, loadMessages])
-
   return (
-    <TranslationContext.Provider value={{ language, changeLanguage, toggleLanguage, t }}>
+    <TranslationContext.Provider value={{ language, changeLanguage, toggleLanguage }}>
       {children}
     </TranslationContext.Provider>
   )
@@ -116,4 +50,8 @@ export function useTranslation(): TranslationContextValue {
   const ctx = useContext(TranslationContext)
   if (!ctx) throw new Error('useTranslation must be used inside TranslationProvider')
   return ctx
+}
+
+export function useLanguage(): Language {
+  return useLocale() as Language
 }

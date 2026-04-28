@@ -3,8 +3,6 @@ import { SobreNosotrosClient } from "@/components/pages/sobre-nosotros/SobreNoso
 import { generatePageMetadata } from "@/utils/seo";
 import type { Language } from "@/config/i18n.config";
 import { SITE_URL, SITE_NAME } from "@/config/site";
-import sobreNosotrosEs from "@/locales/es/sobre-nosotros.json";
-import sobreNosotrosEn from "@/locales/en/sobre-nosotros.json";
 
 interface SobreNosotrosPageProps {
   params: Promise<{ locale: Language }>;
@@ -43,7 +41,7 @@ export default async function SobreNosotrosPage({ params }: SobreNosotrosPagePro
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <SobreNosotrosClient messages={isEn ? sobreNosotrosEn : sobreNosotrosEs} />
+      <SobreNosotrosClient />
     </>
   );
 }

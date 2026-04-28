@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import localFont         from 'next/font/local'
+import Script            from 'next/script'
 import { Providers }     from '@/components/layout/Providers'
 import { SITE_URL, SITE_NAME } from '@/config/site'
 import '@/globals.css'
@@ -156,11 +157,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={acumin.variable}>
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema).replace(/</g, '\\u003c') }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema).replace(/</g, '\\u003c') }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c') }} />
       </head>
       <body>
+        <Script
+          id="scroll-restoration"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: `history.scrollRestoration='manual';window.addEventListener('load',function(){window.scrollTo(0,0);});window.addEventListener('pageshow',function(e){if(e.persisted)window.scrollTo(0,0);});` }}
+        />
         <Providers>{children}</Providers>
       </body>
     </html>

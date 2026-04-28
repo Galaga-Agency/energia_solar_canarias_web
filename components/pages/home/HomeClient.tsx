@@ -1,64 +1,59 @@
-'use client'
+"use client";
 
-import dynamic            from 'next/dynamic'
-import { usePageReady }   from '@/hooks/usePageReady'
-import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
-import { HomeHero2 }      from '@/components/pages/home/HomeHero2'
-import { initParallax }               from '@/utils/animations/parallax'
-import { initHero2Animations }        from '@/utils/animations/hero2-layers'
-import { initStatsCounterAnimations } from '@/utils/animations/stats-counter'
-import { initScrollRevealSections }   from '@/utils/animations/scroll-reveal'
-import { initMarqueeAnimation }       from '@/utils/animations/marquee'
-import { initBlobAnimation }          from '@/utils/animations/blob'
-import { initScrollMarqueeAnimation } from '@/utils/animations/scroll-marquee'
-import { initPanelStackAnimation }           from '@/utils/animations/panel-stack'
-import { initBirdFlockAnimation }       from '@/utils/animations/bird-flock'
-import { initFooterBirdFlockAnimation } from '@/utils/animations/footer-bird-flock'
-import { Marquee }                    from '@/components/shared/Marquee'
-import { AnimatedBirdFlock }          from '@/components/shared/AnimatedBirdFlock'
+import dynamic from "next/dynamic";
+import { usePageReady } from "@/hooks/usePageReady";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { Marquee } from "@/components/shared/Marquee";
+import { AnimatedBirdFlock } from "@/components/shared/AnimatedBirdFlock";
+import { initParallax } from "@/utils/animations/parallax";
+import { initStatsCounterAnimations } from "@/utils/animations/stats-counter";
+import { initScrollRevealSections } from "@/utils/animations/scroll-reveal";
+import { initMarqueeAnimation } from "@/utils/animations/marquee";
+import { initBlobAnimation } from "@/utils/animations/blob";
+import { initScrollMarqueeAnimation } from "@/utils/animations/scroll-marquee";
+import { initPanelStackAnimation } from "@/utils/animations/panel-stack";
+import { initBirdFlockAnimation } from "@/utils/animations/bird-flock";
+import { initFooterBirdFlockAnimation } from "@/utils/animations/footer-bird-flock";
+import { initTestimonialsCardsAnimation } from "@/utils/animations/testimonials-cards";
+import { HomeHero } from "./HomeHero";
+import { initHeroAnimations } from "@/utils/animations/hero-animations";
 
-const HomeSoluciones   = dynamic(() => import('./HomeSoluciones').then(m => m.HomeSoluciones))
-const HomeBeneficios   = dynamic(() => import('./HomeBeneficios').then(m => m.HomeBeneficios))
-const HomeProyectos    = dynamic(() => import('./HomeProyectos').then(m => m.HomeProyectos))
-const HomeStats        = dynamic(() => import('./HomeStats').then(m => m.HomeStats))
-const HomeFounder      = dynamic(() => import('./HomeFounder').then(m => m.HomeFounder))
-const HomeTestimonials = dynamic(() => import('./HomeTestimonials').then(m => m.HomeTestimonials))
-const HomeCTA          = dynamic(() => import('./HomeCTA').then(m => m.HomeCTA))
+const HomeSoluciones = dynamic(() =>
+  import("./HomeSoluciones").then((m) => m.HomeSoluciones),
+);
+const HomeBeneficios = dynamic(() =>
+  import("./HomeBeneficios").then((m) => m.HomeBeneficios),
+);
+const HomeProyectos = dynamic(() =>
+  import("./HomeProyectos").then((m) => m.HomeProyectos),
+);
+const HomeStats = dynamic(() => import("./HomeStats").then((m) => m.HomeStats));
+const HomeFounder = dynamic(() =>
+  import("./HomeFounder").then((m) => m.HomeFounder),
+);
+const HomeTestimonials = dynamic(() =>
+  import("./HomeTestimonials").then((m) => m.HomeTestimonials),
+);
+const HomeCTA = dynamic(() => import("./HomeCTA").then((m) => m.HomeCTA));
 
-interface SolucionItem { label: string; title: string; desc: string }
-interface StatItem     { value: string; suffix: string; label: string; desc: string }
-interface TestimonialItem { name: string; role: string; quote: string }
-interface BeneficioItem   { label: string; desc: string }
+const MARQUEE_ITEMS = [
+  "Energía solar en Canarias",
+  "Instalaciones certificadas",
+  "Ahorra en tu factura",
+  "Sistemas fotovoltaicos",
+  "Autoconsumo inteligente",
+  "Soluciones industriales",
+  "Retorno garantizado",
+  "Ingeniería local",
+];
 
-interface HomeMessages {
-  hero:         { eyebrow: string; title: string; body: string; cta1: string; cta2: string }
-  solutions:    { eyebrow: string; title: string; body: string; cta: string; link: string; empresas: SolucionItem; instalaciones: SolucionItem; hogares: SolucionItem }
-  benefits:     { eyebrow: string; title: string; body: string; items: BeneficioItem[] }
-  projects:     { title: string; body: string; cta: string }
-  stats:        { eyebrow: string; quote: string; items: StatItem[] }
-  founder:      { eyebrow: string; title: string; role: string; name: string; body1: string; quote: string; link: string }
-  testimonials: { eyebrow: string; title: string; body: string; items: TestimonialItem[] }
-  cta:          { title: string; body: string; primary: string; secondary: string }
-}
-
-const HOMEPAGE_MARQUEE_ITEMS = [
-  'Energía solar en Canarias',
-  'Instalaciones certificadas',
-  'Ahorra en tu factura',
-  'Sistemas fotovoltaicos',
-  'Autoconsumo inteligente',
-  'Soluciones industriales',
-  'Retorno garantizado',
-  'Ingeniería local',
-]
-
-export function HomeClient({ messages }: { messages: HomeMessages }) {
-  usePageReady()
+export function HomeClient() {
+  usePageReady();
 
   useGSAPAnimations(() => ({
-    critical: [initHero2Animations, initParallax],
-    raf:      [initStatsCounterAnimations],
-    timeout:  [
+    critical: [initHeroAnimations, initParallax],
+    raf: [initStatsCounterAnimations],
+    timeout: [
       initScrollRevealSections,
       initMarqueeAnimation,
       initBlobAnimation,
@@ -66,18 +61,20 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
       initPanelStackAnimation,
       initBirdFlockAnimation,
       initFooterBirdFlockAnimation,
+      initTestimonialsCardsAnimation,
     ],
-  }))
-
-  const { hero, solutions, benefits, projects, stats, founder, testimonials, cta } = messages
+  }));
 
   return (
     <>
-      <HomeHero2 {...hero} />
-      <div className="relative isolate z-0 overflow-visible" data-home-panel-stack>
-        <HomeSoluciones {...solutions} />
+      <HomeHero />
+      <div
+        className="relative isolate z-0 overflow-visible"
+        data-home-panel-stack
+      >
+        <HomeSoluciones />
         <div className="relative z-10">
-          <Marquee items={HOMEPAGE_MARQUEE_ITEMS} />
+          <Marquee items={MARQUEE_ITEMS} />
         </div>
         <div
           className="home-bird-flock-stage panel-surface relative overflow-hidden"
@@ -86,15 +83,15 @@ export function HomeClient({ messages }: { messages: HomeMessages }) {
         >
           <AnimatedBirdFlock className="home-bird-flock-backdrop" />
           <div className="relative z-10">
-            <HomeBeneficios {...benefits} />
-            <HomeProyectos {...projects} marqueeItems={HOMEPAGE_MARQUEE_ITEMS} />
+            <HomeBeneficios />
+            <HomeProyectos />
           </div>
         </div>
       </div>
-      <HomeStats {...stats} />
-      <HomeFounder {...founder} />
-      <HomeTestimonials {...testimonials} />
-      <HomeCTA {...cta} secondaryHref="/contacto" />
+      <HomeStats />
+      <HomeFounder />
+      <HomeTestimonials />
+      <HomeCTA />
     </>
-  )
+  );
 }

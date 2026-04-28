@@ -1,14 +1,11 @@
+import { useTranslations } from 'next-intl'
 import { Button }         from '@/components/ui/Button'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import type { Project }   from '@/types/project'
 
-interface ProyectosGridProps {
-  projects: Project[]
-  readMore: string
-  seeAll: string
-}
+export function ProyectosGrid({ projects }: { projects: Project[] }) {
+  const t = useTranslations('proyectos.grid')
 
-export function ProyectosGrid({ projects, readMore, seeAll }: ProyectosGridProps) {
   return (
     <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner">
@@ -29,14 +26,14 @@ export function ProyectosGrid({ projects, readMore, seeAll }: ProyectosGridProps
                   className="text-body-sm font-semibold"
                   style={{ color: 'var(--color-primary)' }}
                 >
-                  {readMore}
+                  {t('readMore')}
                 </TransitionLink>
               </div>
             </article>
           ))}
         </div>
         <div className="flex justify-center">
-          <Button variant="outlined" href="/proyectos">{seeAll}</Button>
+          <Button variant="outlined" href="/proyectos">{t('seeAll')}</Button>
         </div>
       </div>
     </section>

@@ -3,8 +3,6 @@ import { SolucionesClient } from "@/components/pages/soluciones/SolucionesClient
 import { generatePageMetadata } from "@/utils/seo";
 import type { Language } from "@/config/i18n.config";
 import { SITE_URL, SITE_NAME } from "@/config/site";
-import solucionesEs from "@/locales/es/soluciones.json";
-import solucionesEn from "@/locales/en/soluciones.json";
 
 interface SolucionesPageProps {
   params: Promise<{ locale: Language }>;
@@ -45,7 +43,7 @@ export default async function SolucionesPage({ params }: SolucionesPageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <SolucionesClient messages={isEn ? solucionesEn : solucionesEs} />
+      <SolucionesClient />
     </>
   );
 }

@@ -1,7 +1,5 @@
 'use client'
 
-import { HiMenu, HiX } from '@/components/ui/Icons'
-
 interface MenuToggleProps {
   open:     boolean
   onToggle: () => void
@@ -15,12 +13,13 @@ export function MenuToggle({ open, onToggle }: MenuToggleProps) {
       aria-expanded={open}
       aria-controls="mobile-menu"
       onClick={onToggle}
-      className="p-2 rounded-md md:hidden"
+      className="ml-auto flex items-center justify-center w-10 h-10 md:hidden"
     >
-      {open
-        ? <HiX    aria-hidden="true" className="w-6 h-6" />
-        : <HiMenu aria-hidden="true" className="w-6 h-6" />
-      }
+      <span className="relative flex flex-col justify-between w-6 h-4.5">
+        <span className={`block h-0.5 w-6 bg-ink rounded-full transition-all duration-300 ease-in-out origin-center ${open ? 'translate-y-2 rotate-45' : ''}`} />
+        <span className={`block h-0.5 bg-ink rounded-full transition-all duration-300 ease-in-out origin-center ${open ? 'w-0 opacity-0' : 'w-6'}`} />
+        <span className={`block h-0.5 w-6 bg-ink rounded-full transition-all duration-300 ease-in-out origin-center ${open ? '-translate-y-2 -rotate-45' : ''}`} />
+      </span>
     </button>
   )
 }

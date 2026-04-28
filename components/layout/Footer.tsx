@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { type ElementType } from 'react'
-import { useTranslation } from '@/contexts/TranslationContext'
+import { useTranslations } from 'next-intl'
 import {
   FOOTER_SOCIAL,
   FOOTER_SECCIONES,
@@ -20,7 +20,7 @@ const socialIconMap: Record<string, ElementType> = {
 }
 
 export function Footer() {
-  const { t } = useTranslation()
+  const t = useTranslations()
   const footerColumns = [
     { title: t('footer.sections.sections'), links: FOOTER_SECCIONES },
     { title: t('footer.sections.resources'), links: FOOTER_RECURSOS },

@@ -1,8 +1,9 @@
 'use client'
 
-import { useRef } from 'react'
-import { gsap } from '@/lib/gsap'
-import { Button } from '@/components/ui/Button'
+import { useRef }          from 'react'
+import { useTranslations } from 'next-intl'
+import { gsap }            from '@/lib/gsap'
+import { Button }          from '@/components/ui/Button'
 
 const BG_BASE = 'linear-gradient(90deg, #f2c5b2 0%, #f7e4dc 18%, #fbf9f6 38%, #ffffff 50%, #fbf9f6 62%, #f7e4dc 82%, #f2c5b2 100%)'
 
@@ -15,14 +16,8 @@ function buildBg(x: number, y: number, rx: number, ry: number) {
 
 const DEFAULT = { x: 50, y: 50, rx: 95, ry: 95 }
 
-interface HomeCTAProps {
-  title:         string
-  body:          string
-  secondary:     string
-  secondaryHref: string
-}
-
-export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps) {
+export function HomeCTA() {
+  const t          = useTranslations('home.cta')
   const sectionRef = useRef<HTMLElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
   const pos        = useRef({ ...DEFAULT })
@@ -49,6 +44,7 @@ export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps)
     tween.current = gsap.to(pos.current, { ...DEFAULT, duration: 0.7, ease: 'power3.out', onUpdate: sync })
   }
 
+  const title       = t('title')
   const titleWords  = title.split(' ')
   const accentStart = Math.max(0, titleWords.length - 2)
   const titleLead   = titleWords.slice(0, accentStart).join(' ')
@@ -63,7 +59,7 @@ export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps)
           <span className="text-primary">{titleAccent}</span>
         </h2>
         <p className="mx-auto mb-8 max-w-2xl text-base leading-normal tracking-[0] text-[#5f514d]">
-          {body}
+          {t('body')}
         </p>
         <div
           ref={triggerRef}
@@ -71,8 +67,8 @@ export function HomeCTA({ title, body, secondary, secondaryHref }: HomeCTAProps)
           onMouseEnter={onEnter}
           onMouseLeave={onLeave}
         >
-          <Button variant="filled" href={secondaryHref}>
-            {secondary}
+          <Button variant="filled" href="/contacto">
+            {t('secondary')}
           </Button>
         </div>
       </div>

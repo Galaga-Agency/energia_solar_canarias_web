@@ -1,15 +1,14 @@
-interface SolucionesProcessProps {
-  title: string
-  body: string
-  items: { n: string; title: string; body: string }[]
-}
+import { useTranslations } from 'next-intl'
 
-export function SolucionesProcess({ title, body, items }: SolucionesProcessProps) {
+export function SolucionesProcess() {
+  const t     = useTranslations('soluciones.process')
+  const items = t.raw('items') as { n: string; title: string; body: string }[]
+
   return (
     <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner" data-reveal>
-        <h2 className="text-heading mb-4">{title}</h2>
-        <p className="text-body mb-12 max-w-xl">{body}</p>
+        <h2 className="text-heading mb-4">{t('title')}</h2>
+        <p className="text-body mb-12 max-w-xl">{t('body')}</p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {items.map(({ n, title, body }) => (
             <div key={n} data-process-step className="flex flex-col gap-4">

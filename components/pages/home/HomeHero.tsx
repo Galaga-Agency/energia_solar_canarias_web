@@ -1,21 +1,15 @@
 "use client";
 
-import Image    from "next/image";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 
-interface HomeHeroProps {
-  eyebrow: string;
-  title: string;
-  body: string;
-  cta1: string;
-  cta2: string;
-}
-
-export function HomeHero({ title, body, cta1 }: HomeHeroProps) {
+export function HomeHero() {
+  const t = useTranslations("home.hero");
   return (
     <section
       data-hero
-      className="relative min-h-[calc(100svh-64px)] flex items-center justify-center overflow-hidden pb-[10%]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pb-[10%]"
     >
       <div className="absolute inset-x-0 inset-y-[-15%] z-0" data-speed="0.85" data-hero-image>
         <Image
@@ -30,16 +24,16 @@ export function HomeHero({ title, body, cta1 }: HomeHeroProps) {
 
       <div className="relative z-10 flex flex-col items-center text-center px-6 sm:px-10 max-w-5xl mx-auto">
         <h1 className="text-display text-white! mb-6 opacity-0" data-hero-item>
-          {title}
+          {t("title")}
         </h1>
 
         <p className="text-lg text-white/80! mb-10 max-w-2xl opacity-0" data-hero-item>
-          {body}
+          {t("body")}
         </p>
 
         <div className="opacity-0" data-hero-item>
           <Button variant="white-filled" href="/contacto">
-            {cta1}
+            {t("cta1")}
           </Button>
         </div>
       </div>

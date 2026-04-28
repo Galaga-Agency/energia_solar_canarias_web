@@ -1,11 +1,12 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import { Dropdown }               from '@/components/ui/Dropdown'
 import { MdGridView, MdViewList } from '@/components/ui/Icons'
 
 interface BlogFilterBarProps {
   category: string
   categories: string[]
-  gridLabel: string
-  listLabel: string
   viewMode: 'grid' | 'list'
   onCategoryChange: (category: string) => void
   onViewModeChange: (viewMode: 'grid' | 'list') => void
@@ -14,19 +15,19 @@ interface BlogFilterBarProps {
 export function BlogFilterBar({
   category,
   categories,
-  gridLabel,
-  listLabel,
   viewMode,
   onCategoryChange,
   onViewModeChange,
 }: BlogFilterBarProps) {
+  const t = useTranslations('blog.filter')
+
   return (
     <div className="sticky top-16 z-10" style={{ backgroundColor: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)' }}>
       <div className="section-inner flex items-center justify-between py-4 gap-4">
         <div className="flex items-center gap-3">
           <button
             type="button"
-            aria-label={gridLabel}
+            aria-label={t('gridLabel')}
             aria-pressed={viewMode === 'grid'}
             onClick={() => onViewModeChange('grid')}
             className="p-2 rounded-md"
@@ -36,7 +37,7 @@ export function BlogFilterBar({
           </button>
           <button
             type="button"
-            aria-label={listLabel}
+            aria-label={t('listLabel')}
             aria-pressed={viewMode === 'list'}
             onClick={() => onViewModeChange('list')}
             className="p-2 rounded-md"

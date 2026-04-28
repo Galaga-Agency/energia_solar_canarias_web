@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 import type { Article }   from '@/types/article'
@@ -8,11 +9,10 @@ import { initScrollRevealSections } from '@/utils/animations/scroll-reveal'
 interface BlogArticlesProps {
   articles: Article[]
   viewMode: 'grid' | 'list'
-  readMore: string
-  empty: string
 }
 
-export function BlogArticles({ articles, viewMode, readMore, empty }: BlogArticlesProps) {
+export function BlogArticles({ articles, viewMode }: BlogArticlesProps) {
+  const t           = useTranslations('blog')
   const articleKeys = articles.map((article) => article.id).join('|')
 
   useGSAPAnimations(() => ({
@@ -51,7 +51,7 @@ export function BlogArticles({ articles, viewMode, readMore, empty }: BlogArticl
                   className="text-body-sm font-semibold"
                   style={{ color: 'var(--color-primary)' }}
                 >
-                  {readMore}
+                  {t('readMore')}
                 </TransitionLink>
               </div>
             </article>
@@ -59,7 +59,7 @@ export function BlogArticles({ articles, viewMode, readMore, empty }: BlogArticl
         </div>
 
         {articles.length === 0 && (
-          <p className="text-body text-center py-12">{empty}</p>
+          <p className="text-body text-center py-12">{t('empty')}</p>
         )}
       </div>
     </section>

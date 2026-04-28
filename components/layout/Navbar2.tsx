@@ -13,6 +13,7 @@ import commonEs from '@/locales/es/common.json'
 import commonEn from '@/locales/en/common.json'
 
 export function Navbar2() {
+  const headerHeight = 72
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled,   setScrolled]   = useState(false)
   const pathname = usePathname()
@@ -35,10 +36,11 @@ export function Navbar2() {
   return (
     <>
       <header
-        className={`fixed top-0 w-full z-100 h-18 flex items-center px-8 transition-all duration-500 ${
+        style={{ height: `${headerHeight}px` }}
+        className={`fixed top-0 w-full z-100 flex items-center px-8 transition-all duration-500 ${
           transparent
             ? 'bg-transparent border-transparent'
-            : 'bg-(--color-bg) border-b border-(--color-border)'
+            : 'bg-(--color-bg)'
         }`}
       >
         {/* Logo */}
@@ -97,7 +99,11 @@ export function Navbar2() {
         </div>
       </header>
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileMenu
+        open={mobileOpen}
+        onClose={() => setMobileOpen(false)}
+        headerHeight={headerHeight}
+      />
     </>
   )
 }

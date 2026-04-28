@@ -1,9 +1,9 @@
 'use client'
 
 import dynamic             from 'next/dynamic'
+import { useTranslations } from 'next-intl'
 import { usePageReady }    from '@/hooks/usePageReady'
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
-import { useTranslation }  from '@/contexts/TranslationContext'
 import { ProyectosHero }   from '@/components/pages/proyectos/ProyectosHero'
 import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
 import type { Project }    from '@/types/project'
@@ -12,26 +12,16 @@ import { initStatsCounterAnimations } from '@/utils/animations/stats-counter'
 import { initScrollRevealSections }   from '@/utils/animations/scroll-reveal'
 import { initMarqueeAnimation }       from '@/utils/animations/marquee'
 
-const ProyectosGrid     = dynamic(() => import('./ProyectosGrid').then(m => m.ProyectosGrid))
-const ProyectosStats    = dynamic(() => import('./ProyectosStats').then(m => m.ProyectosStats))
-const ClientsMarquee    = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
-const CTABanner         = dynamic(() => import('@/components/shared/CTABanner').then(m => m.CTABanner), { ssr: false })
-const TestimonialSingle = dynamic(() => import('@/components/shared/TestimonialSingle').then(m => m.TestimonialSingle), { ssr: false })
+const ProyectosGrid        = dynamic(() => import('./ProyectosGrid').then(m => m.ProyectosGrid))
+const ProyectosStats       = dynamic(() => import('./ProyectosStats').then(m => m.ProyectosStats))
+const ProyectosTestimonial = dynamic(() => import('./ProyectosTestimonial').then(m => m.ProyectosTestimonial), { ssr: false })
+const ClientsMarquee       = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
+const CTABanner            = dynamic(() => import('@/components/shared/CTABanner').then(m => m.CTABanner), { ssr: false })
 
-interface ProyectosClientProps {
-  projects: Project[]
-  messages: {
-    hero: { eyebrow: string; title: string; body: string }
-    grid: { readMore: string; seeAll: string }
-    testimonial: { quote: string; name: string; role: string; companyLogo: string; avatar: string }
-    stats: { title: string; body: string; items: { value: string; suffix: string; label: string; body: string }[] }
-    cta: { title: string; body: string; primary: string; secondary: string }
-  }
-}
-
-export function ProyectosClient({ projects, messages }: ProyectosClientProps) {
+export function ProyectosClient({ projects }: { projects: Project[] }) {
   usePageReady()
-  const { t } = useTranslation()
+  const nav = useTranslations('nav')
+  const t   = useTranslations('proyectos')
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
@@ -42,20 +32,20 @@ export function ProyectosClient({ projects, messages }: ProyectosClientProps) {
   return (
     <>
       <Breadcrumbs items={[
-        { label: t('nav.home'),     href: '/' },
-        { label: t('nav.projects'), href: '/proyectos' },
+        { label: nav('home'),     href: '/' },
+        { label: nav('projects'), href: '/proyectos' },
       ]} />
-      <ProyectosHero {...messages.hero} />
-      <ProyectosGrid projects={projects} readMore={messages.grid.readMore} seeAll={messages.grid.seeAll} />
-      <TestimonialSingle {...messages.testimonial} />
-      <ProyectosStats {...messages.stats} />
+      <ProyectosHero />
+      <ProyectosGrid projects={projects} />
+      <ProyectosTestimonial />
+      <ProyectosStats />
       <ClientsMarquee />
       <CTABanner
-        title={messages.cta.title}
-        body={messages.cta.body}
-        primaryLabel={messages.cta.primary}
+        title={t('cta.title')}
+        body={t('cta.body')}
+        primaryLabel={t('cta.primary')}
         primaryHref="/contacto"
-        secondaryLabel={messages.cta.secondary}
+        secondaryLabel={t('cta.secondary')}
         secondaryHref="/contacto"
       />
     </>

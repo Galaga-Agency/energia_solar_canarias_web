@@ -1,16 +1,15 @@
-interface ProyectosStatsProps {
-  title: string
-  body: string
-  items: { value: string; suffix: string; label: string; body: string }[]
-}
+import { useTranslations } from 'next-intl'
 
-export function ProyectosStats({ title, body, items }: ProyectosStatsProps) {
+export function ProyectosStats() {
+  const t     = useTranslations('proyectos.stats')
+  const items = t.raw('items') as { value: string; suffix: string; label: string; body: string }[]
+
   return (
     <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-reveal>
         <div>
-          <h2 className="text-heading mb-6">{title}</h2>
-          <p className="text-body">{body}</p>
+          <h2 className="text-heading mb-6">{t('title')}</h2>
+          <p className="text-body">{t('body')}</p>
         </div>
         <div className="grid grid-cols-2 gap-6">
           {items.map(({ value, suffix, label, body }) => (

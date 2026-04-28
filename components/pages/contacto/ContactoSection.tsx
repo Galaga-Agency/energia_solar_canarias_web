@@ -1,30 +1,25 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { useTranslations } from 'next-intl'
 import { ContactForm } from '@/components/forms/ContactForm'
 import { CONTACT_INFO } from '@/constants/contact.constants'
 import { HiPhone, HiMail, HiLocationMarker, HiClock } from '@/components/ui/Icons'
 
 const MapEmbed = dynamic(() => import('@/components/ui/MapEmbed').then(m => m.MapEmbed), { ssr: false })
 
-interface ContactoSectionProps {
-  title: string
-  body: string
-  emphasis: string
-  officeTitle: string
-  officeBody: string
-}
+export function ContactoSection() {
+  const t = useTranslations('contacto.section')
 
-export function ContactoSection({ title, body, emphasis, officeTitle, officeBody }: ContactoSectionProps) {
   return (
     <section data-hero className="section-spacing-both" style={{ backgroundColor: 'var(--color-bg)' }}>
       <div className="section-inner">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div data-hero-item>
-            <h2 className="text-heading mb-4">{title}</h2>
-            <p className="text-body mb-4">{body}</p>
+            <h2 className="text-heading mb-4">{t('title')}</h2>
+            <p className="text-body mb-4">{t('body')}</p>
             <p className="text-body" style={{ fontWeight: 'var(--font-weight-semibold)' }}>
-              {emphasis}
+              {t('emphasis')}
             </p>
           </div>
 
@@ -33,8 +28,8 @@ export function ContactoSection({ title, body, emphasis, officeTitle, officeBody
           </div>
 
           <div data-hero-item className="flex flex-col gap-5">
-            <h3 className="text-subheading">{officeTitle}</h3>
-            <p className="text-body">{officeBody}</p>
+            <h3 className="text-subheading">{t('officeTitle')}</h3>
+            <p className="text-body">{t('officeBody')}</p>
             <div className="flex gap-3 items-start">
               <HiClock aria-hidden="true" className="w-5 h-5 shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
               <div>
