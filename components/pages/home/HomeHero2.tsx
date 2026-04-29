@@ -1,7 +1,9 @@
 "use client";
 
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Button } from "@/components/ui/Button";
+import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
 
 const LAYERS = [
   { key: "4", z: 2, cls: "object-cover object-right-top", initY: -90 },
@@ -43,23 +45,42 @@ export function HomeHero2() {
       <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 z-10 h-56 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0.2)_55%,transparent_100%)]" />
       <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 z-10 h-[85%] bg-[linear-gradient(to_bottom,transparent_0%,rgba(244,241,234,0.05)_20%,rgba(244,241,234,0.25)_45%,rgba(244,241,234,0.65)_72%,#f4f1ea_100%)]" />
 
-      <div className="absolute bottom-16 sm:bottom-20 left-10 sm:left-16 z-20 max-w-2xl">
-        <h1
-          className="text-display text-white! mb-5 [text-shadow:0_2px_40px_rgba(228,87,44,0.3),0_2px_20px_rgba(0,0,0,0.6)]"
-          data-hero2-item
-        >
-          {t('title')}
-        </h1>
-        <p
-          className="text-white/65 text-lg mb-8 max-w-lg [text-shadow:0_1px_10px_rgba(0,0,0,0.5)]"
-          data-hero2-item
-        >
-          {t('body')}
-        </p>
-        <div data-hero2-item>
-          <Button variant="white-filled" href="/contacto">
-            {t('cta1')}
-          </Button>
+      {/* Content — centered on screen, left-aligned within column */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pt-20 pb-16">
+        <div className="flex flex-col items-start gap-6 w-full max-w-3xl">
+
+          <div className="relative inline-block isolate overflow-visible" data-hero2-item>
+            <AnimatedBrandBlob className="pointer-events-none absolute -left-20 -top-24 z-1 h-auto w-[clamp(22rem,40vw,30rem)] max-sm:-left-16 max-sm:-top-16 max-sm:w-64" />
+            <Image
+              src="/assets/logos/svg/logo-icon-orange.svg"
+              alt="Energía Solar Canarias"
+              width={88}
+              height={88}
+              className="relative z-2 block h-auto w-28 sm:w-36"
+              priority
+            />
+          </div>
+
+          <h1
+            className="text-display text-white! [text-shadow:0_2px_20px_rgba(0,0,0,0.42)]"
+            data-hero2-item
+          >
+            {t('title')}
+          </h1>
+
+          <p
+            className="text-base text-white/65 [text-shadow:0_1px_10px_rgba(0,0,0,0.5)]"
+            data-hero2-item
+          >
+            {t('body')}
+          </p>
+
+          <div data-hero2-item>
+            <Button variant="white-filled" href="/contacto">
+              {t('cta1')}
+            </Button>
+          </div>
+
         </div>
       </div>
     </section>

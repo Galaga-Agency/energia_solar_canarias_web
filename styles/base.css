@@ -156,7 +156,7 @@ select {
   font-family: var(--font-sans);
   font-size: var(--text-xl);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.4;
   letter-spacing: -0.02em;
   color: var(--color-ink);
 }

@@ -46,7 +46,7 @@ export function HomeFounder() {
           <div className="relative min-h-80 md:min-h-144 overflow-hidden">
             <div className="absolute inset-x-0 inset-y-[-12%]" data-speed="0.85">
               <Image
-                src="/assets/images/home/carla.webp"
+                src="/assets/images/home/carla-new.webp"
                 alt={name}
                 fill
                 className="object-cover"

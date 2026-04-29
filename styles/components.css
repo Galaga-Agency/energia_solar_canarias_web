@@ -4,37 +4,88 @@
   background: radial-gradient(ellipse 80% 70% at 50% 72%, rgba(228,87,44,0.90) 0%, rgba(180,50,15,0.52) 42%, transparent 74%);
 }
 
-.solucion-card-aura {
-  background: radial-gradient(ellipse 65% 80% at 18% 28%, rgba(228,87,44,0.68) 0%, rgba(210,65,25,0.32) 44%, transparent 72%);
+/* ── Navbar ──────────────────────────────────────────────────────────────── */
+
+.navbar-shell {
+  transition:
+    background-color 320ms ease,
+    border-color 320ms ease,
+    box-shadow 320ms ease,
+    backdrop-filter 320ms ease,
+    max-width 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ── Soluciones accordion cards ───────────────────────────────────────────── */
-
-.solucion-card {
-  flex: 1 1 0%;
-  min-width: 0;
-  isolation: isolate;
-  transition: flex-grow 650ms cubic-bezier(0.4, 0, 0.2, 1);
+.navbar-shell-layout {
+  width: 100%;
 }
 
-.solucion-card--open {
-  flex-grow: 2;
+.navbar-shell--hero {
+  max-width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
 }
 
-@media (min-width: 768px) {
-  .solucion-card-image {
-    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .solucion-card--open .solucion-card-image {
-    transform: scale(1.04);
-  }
+.navbar-shell--scrolled {
+  max-width: 1240px;
+  background: rgba(244, 241, 234, 0.84);
+  border: 1px solid rgba(216, 203, 181, 0.92);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(18, 28, 24, 0.08);
+}
 
-  .solucion-card-label {
-    transition: opacity 200ms ease;
-  }
-  .solucion-card--open .solucion-card-label {
-    opacity: 0;
-  }
+.navbar-desktop {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem;
+  border-radius: 999px;
+}
+
+.navbar-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.35rem;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    color 220ms ease,
+    background-color 220ms ease;
+}
+
+.navbar-link--hero {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.navbar-link--hero:hover,
+.navbar-link--hero.navbar-link--active {
+  color: #fff;
+}
+
+.navbar-link--active.navbar-link--hero {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.navbar-link--scrolled {
+  color: rgba(31, 58, 52, 0.72);
+}
+
+.navbar-link--scrolled:hover {
+  color: #1f3a34;
+  background: rgba(31, 58, 52, 0.06);
+}
+
+.navbar-link--active.navbar-link--scrolled {
+  color: #1f3a34;
+  background: rgba(31, 58, 52, 0.1);
 }
 
 /* ── Section spacing ──────────────────────────────────────────────────────── */

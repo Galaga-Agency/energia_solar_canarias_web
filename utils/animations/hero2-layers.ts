@@ -36,17 +36,31 @@ export function initHero2Animations(): () => void {
     tweens.push(t)
   })
 
-  // Text entrance — staggered
+  // Brand mark drifts in from above
+  const logo = hero.querySelector<HTMLElement>('[data-hero2-logo]')
+  if (logo) {
+    gsap.set(logo, { autoAlpha: 0, y: -32 })
+    gsap.to(logo, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 1.1,
+      ease: 'power3.out',
+      delay: 0.4,
+      overwrite: 'auto',
+    })
+  }
+
+  // Text content rises from below with stagger
   const items = hero.querySelectorAll<HTMLElement>('[data-hero2-item]')
   if (items.length) {
-    gsap.set(items, { autoAlpha: 0, y: 30 })
+    gsap.set(items, { autoAlpha: 0, y: 48 })
     gsap.to(items, {
       autoAlpha: 1,
       y: 0,
-      duration: 0.85,
-      ease: 'power3.out',
-      stagger: 0.12,
-      delay: 0.6,
+      duration: 1.0,
+      ease: 'power4.out',
+      stagger: 0.14,
+      delay: 0.5,
       overwrite: 'auto',
     })
   }

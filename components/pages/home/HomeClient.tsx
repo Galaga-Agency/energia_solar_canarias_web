@@ -15,6 +15,7 @@ import { initPanelStackAnimation } from "@/utils/animations/panel-stack";
 import { initBirdFlockAnimation } from "@/utils/animations/bird-flock";
 import { initFooterBirdFlockAnimation } from "@/utils/animations/footer-bird-flock";
 import { initTestimonialsCardsAnimation } from "@/utils/animations/testimonials-cards";
+import { initSolucionCardsAnimation } from "@/utils/animations/solucion-cards";
 import { HomeHero2 } from "./HomeHero2";
 import { initHero2Animations } from "@/utils/animations/hero2-layers";
 
@@ -62,6 +63,7 @@ export function HomeClient() {
       initBirdFlockAnimation,
       initFooterBirdFlockAnimation,
       initTestimonialsCardsAnimation,
+      initSolucionCardsAnimation,
     ],
   }));
 

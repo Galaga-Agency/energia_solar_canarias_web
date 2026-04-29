@@ -37,65 +37,55 @@ export function Navbar2() {
     <>
       <header
         style={{ height: `${headerHeight}px` }}
-        className={`fixed top-0 w-full z-100 flex items-center px-8 transition-all duration-500 ${
-          transparent
-            ? 'bg-transparent border-transparent'
-            : 'bg-(--color-bg)'
-        }`}
+        className="fixed inset-x-0 top-0 z-100 px-4 pt-3 md:px-6 lg:px-8"
       >
-        {/* Logo */}
-        <TransitionLink href="/" aria-label="Energía Solar Canarias — inicio">
-          <Logo
-            width={160}
-            className={transparent ? '[&_path]:fill-white [&_g_path]:fill-white' : ''}
-          />
-        </TransitionLink>
-
-        {/* Nav links — centered */}
-        <nav
-          aria-label="Navegación principal"
-          className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10"
-        >
-          {NAV_LINKS.map(({ labelKey, href }) => {
-            const localizedHref = getLocalizedHref(href, locale)
-            const isActive = pathname === localizedHref || pathname.startsWith(`${localizedHref}/`)
-            return (
-              <TransitionLink
-                key={href}
-                href={localizedHref}
-                aria-current={isActive ? 'page' : undefined}
-                className={`relative text-sm tracking-wide transition-colors duration-200 group ${
-                  transparent
-                    ? isActive ? 'text-white' : 'text-white/75 hover:text-white'
-                    : isActive ? 'text-primary' : 'text-ink hover:text-primary'
-                }`}
-              >
-                {messages.nav[labelKey]}
-                <span className={`absolute -bottom-1 left-0 h-px w-full bg-current scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${isActive ? 'scale-x-100' : ''}`} />
-              </TransitionLink>
-            )
-          })}
-        </nav>
-
-        {/* CTA — right */}
-        <div className="hidden md:flex ml-auto">
-          <div
-            className={`transition-all duration-300 ${
-              transparent ? 'opacity-0 pointer-events-none -translate-y-1' : 'opacity-100 translate-y-0'
-            }`}
+        <div className={`brand-radius navbar-shell navbar-shell-layout mx-auto flex h-[72px] items-center gap-4 px-5 md:px-6 ${transparent ? 'navbar-shell--hero' : 'navbar-shell--scrolled'}`}>
+          <TransitionLink
+            href="/"
+            aria-label="Energía Solar Canarias — inicio"
+            className={`shrink-0 transition-opacity duration-500 ${transparent ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           >
-            <Button variant="filled" href={getLocalizedHref('/contacto', locale)}>
-              {messages.nav.cta}
-            </Button>
-          </div>
-        </div>
+            <Logo width={150} className="transition-all duration-300" />
+          </TransitionLink>
 
-        {/* Mobile toggle */}
-        <div className="md:hidden ml-auto">
-          <MenuToggle
-            open={mobileOpen}
-            onToggle={() => setMobileOpen((v) => !v)}
-          />
+          <nav
+            aria-label="Navegación principal"
+            className="navbar-desktop hidden md:flex"
+          >
+            {NAV_LINKS.map(({ labelKey, href }) => {
+              const localizedHref = getLocalizedHref(href, locale)
+              const isActive = pathname === localizedHref || pathname.startsWith(`${localizedHref}/`)
+              return (
+                <TransitionLink
+                  key={href}
+                  href={localizedHref}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`navbar-link ${isActive ? 'navbar-link--active' : ''} ${transparent ? 'navbar-link--hero' : 'navbar-link--scrolled'}`}
+                >
+                  {messages.nav[labelKey]}
+                </TransitionLink>
+              )
+            })}
+          </nav>
+
+          <div className="hidden md:flex ml-auto">
+            <div
+              className={`transition-all duration-300 ${
+                transparent ? 'opacity-0 pointer-events-none -translate-y-1' : 'opacity-100 translate-y-0'
+              }`}
+            >
+              <Button variant="filled" href={getLocalizedHref('/contacto', locale)}>
+                {messages.nav.cta}
+              </Button>
+            </div>
+          </div>
+
+          <div className="md:hidden ml-auto">
+            <MenuToggle
+              open={mobileOpen}
+              onToggle={() => setMobileOpen((v) => !v)}
+            />
+          </div>
         </div>
       </header>
 
