@@ -2,8 +2,8 @@
   "hero": {
     "eyebrow":  "Instaladores certificados en Canarias",
     "title":    "Energía renovable que impulsa tu negocio y tu hogar",
-    "body":     "Soluciones de energía renovable diseñadas para ahorrar, ganar autonomía y tener mayor control sobre tu energía.",
-    "cta1":     "Contacta con nosotros",
+    "body":     "Creemos en la energía libre, la que la naturaleza nos brinda. La transformamos y la llevamos a donde le pertenece: a cada empresa y hogar de Canarias.",
+    "cta1":     "Solicita tu auditoría gratuita ↗",
     "cta2":     "Ver soluciones"
   },
   "solutions": {
@@ -58,8 +58,8 @@
     "title":    "20 años construyendo un modelo energético más nuestro",
     "role":     "Propósito",
     "name":     "Carla Isarí Díaz Ortega, CEO y propietaria",
-    "body1":    "Para nosotros, avanzar hacia una energía más nuestra no es solo una meta profesional, es un compromiso que mantenemos con nuestro territorio y su gente.",
-    "quote":    "lidera la compañía con la convicción de que el archipiélago puede ser un referente mundial en transición energética insular.",
+    "body1":    "Creemos en la energía libre, aquella que nos brinda la naturaleza. Queremos transformarla y llevarla a quien le pertenece: a cada empresa y hogar del archipiélago canario.",
+    "quote":    "lidera ESC con más de 20 años de experiencia en el sector energético canario, convencida de que las islas pueden ser un referente mundial en transición energética insular.",
     "link":     "Conoce más sobre nosotros"
   },
   "testimonials": {
@@ -67,10 +67,12 @@
     "title":   "Valoraciones de nuestros clientes",
     "body":    "Cuando tus clientes son tu mejor carta de presentación, sabes que vas por buen camino.",
     "items": [
-      { "name": "Roberto Díaz",    "role": "CEO, Manufactura Industrial",      "quote": "Carla eliminó toda la complejidad burocrática. Hoy operamos con energía limpia y nuestros costos bajaron significativamente." },
-      { "name": "Marcela Ruiz",    "role": "CFO, Logística y Distribución",    "quote": "El equipo manejó cada detalle técnico sin que tuviéramos que intervenir. Fue llave en mano como prometieron." },
-      { "name": "Ana García",      "role": "Gerente, Hotel Las Palmas",        "quote": "Redujimos nuestra factura eléctrica un 45% en el primer año. El retorno fue más rápido de lo que esperábamos." },
-      { "name": "Pedro Suárez",    "role": "Propietario, Finca La Palma",      "quote": "La auditoría gratuita fue el primer paso para tomar el control de nuestra energía. Altamente recomendable." }
+      { "name": "Sofía Rubio",              "role": "Reseña de Google",              "quote": "Si buscas profesionalidad, calidad y confianza a largo plazo, sin duda ellos son los mejores. Un 10 sobre 10 la experiencia." },
+      { "name": "Miguel Ángel Sánchez",     "role": "Reseña de Google",              "quote": "Son buenos profesionales, trabajo rápido y limpio. Se ocuparon de todos los trámites. Aunque al principio tenía mis dudas sobre hacer la inversión, ahora estoy muy contento. Estoy cubriendo el consumo de la casa y del coche eléctrico." },
+      { "name": "Ton Pot",                  "role": "Reseña de Google",              "quote": "Muy satisfecho con la entrega, instalación y tramitación de la solicitud de subvención. El personal es muy amable y correcto." },
+      { "name": "Juan Monzón",              "role": "Reseña de Google",              "quote": "Esta empresa canaria me ha instalado los paneles solares con acumuladores. Rápidos, limpios, gestionan la documentación y el personal es muy profesional. Empresa muy recomendable." },
+      { "name": "Grancanarion",             "role": "Reseña de Google · Local Guide", "quote": "Funcionan perfectamente. Estudio solar completo y siempre atienden cualquier consulta. Ninguna queja. Tengo paneles desde hace 5 años y cualquier incidencia, pocas, te la solucionan en remoto." },
+      { "name": "Julio Rubio Robles",       "role": "Reseña de Google",              "quote": "Excelentes profesionales y siempre a disposición de la mejor solución para el cliente. Tremendamente satisfechos con todo el proceso y una garantía de calidad." }
     ]
   },
   "cta": {

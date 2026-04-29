@@ -1,13 +1,13 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Navbar2 } from "./Navbar2";
 
 export function LocaleShell({ children }: { children: ReactNode }) {
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <main id="main-content" tabIndex={-1}>
         {children}
       </main>

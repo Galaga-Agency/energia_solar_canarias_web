@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { Button } from "@/components/ui/Button";
 
 const LAYERS = [
-  { key: "4", z: 2, cls: "object-cover object-bottom", initY: -90 },
+  { key: "4", z: 2, cls: "object-cover object-right-top", initY: -90 },
   { key: "3", z: 3, cls: "object-cover",               initY: -60 },
   { key: "2", z: 4, cls: "object-cover",               initY: -35 },
   { key: "1", z: 5, cls: "object-cover",               initY: -12.5 },
@@ -41,7 +41,7 @@ export function HomeHero2() {
       ))}
 
       <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 z-10 h-56 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0.2)_55%,transparent_100%)]" />
-      <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 z-10 h-[60%] bg-[linear-gradient(to_bottom,transparent_0%,rgba(244,241,234,0.3)_40%,rgba(244,241,234,0.7)_65%,#f4f1ea_100%)]" />
+      <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 z-10 h-[85%] bg-[linear-gradient(to_bottom,transparent_0%,rgba(244,241,234,0.05)_20%,rgba(244,241,234,0.25)_45%,rgba(244,241,234,0.65)_72%,#f4f1ea_100%)]" />
 
       <div className="absolute bottom-16 sm:bottom-20 left-10 sm:left-16 z-20 max-w-2xl">
         <h1

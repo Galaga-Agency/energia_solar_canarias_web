@@ -10,7 +10,7 @@ interface BeneficioCardProps {
 export function BeneficioCard({ label, desc, image, alt }: BeneficioCardProps) {
   return (
     <article className="flex flex-col brand-radius overflow-hidden bg-white border border-border">
-      <div className="relative aspect-[4/3] w-full shrink-0">
+      <div className="relative aspect-video w-full shrink-0">
         <Image
           src={image}
           alt={alt}

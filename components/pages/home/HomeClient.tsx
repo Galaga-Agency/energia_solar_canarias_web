@@ -15,8 +15,8 @@ import { initPanelStackAnimation } from "@/utils/animations/panel-stack";
 import { initBirdFlockAnimation } from "@/utils/animations/bird-flock";
 import { initFooterBirdFlockAnimation } from "@/utils/animations/footer-bird-flock";
 import { initTestimonialsCardsAnimation } from "@/utils/animations/testimonials-cards";
-import { HomeHero } from "./HomeHero";
-import { initHeroAnimations } from "@/utils/animations/hero-animations";
+import { HomeHero2 } from "./HomeHero2";
+import { initHero2Animations } from "@/utils/animations/hero2-layers";
 
 const HomeSoluciones = dynamic(() =>
   import("./HomeSoluciones").then((m) => m.HomeSoluciones),
@@ -51,7 +51,7 @@ export function HomeClient() {
   usePageReady();
 
   useGSAPAnimations(() => ({
-    critical: [initHeroAnimations, initParallax],
+    critical: [initHero2Animations, initParallax],
     raf: [initStatsCounterAnimations],
     timeout: [
       initScrollRevealSections,
@@ -67,7 +67,7 @@ export function HomeClient() {
 
   return (
     <>
-      <HomeHero />
+      <HomeHero2 />
       <div
         className="relative isolate z-0 overflow-visible"
         data-home-panel-stack

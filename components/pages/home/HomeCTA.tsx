@@ -53,12 +53,12 @@ export function HomeCTA() {
   return (
     <section ref={sectionRef} className="home-cta-section section-spacing-both">
       <div className="section-inner relative z-10 text-center" data-reveal>
-        <h2 className="mx-auto mb-5 max-w-3xl text-[3rem] max-md:text-[2.25rem] leading-none font-normal tracking-[0] text-ink">
+        <h2 className="text-display mx-auto mb-5 max-w-3xl leading-none font-normal text-ink">
           {titleLead}
           {titleLead ? ' ' : ''}
           <span className="text-primary">{titleAccent}</span>
         </h2>
-        <p className="mx-auto mb-8 max-w-2xl text-base leading-normal tracking-[0] text-[#5f514d]">
+        <p className="text-body mx-auto mb-8 max-w-2xl text-text-muted">
           {t('body')}
         </p>
         <div

@@ -129,6 +129,18 @@ select {
   border-radius: 12px;
 }
 
+/* ── Card ghost number (decorative) ──────────────────────────────────────── */
+
+.card-ghost-num {
+  font-size: clamp(6rem, 12vw, 9rem);
+}
+
+/* ── Stat counter value ───────────────────────────────────────────────────── */
+
+.stat-counter-value {
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+}
+
 /* ── Card typography ──────────────────────────────────────────────────────── */
 
 .card-eyebrow {
@@ -177,6 +189,7 @@ select {
 }
 
 .section-spacing.home-soluciones-panel {
+  padding-top:    clamp(2rem, 4vw, 4rem);
   padding-bottom: clamp(10rem, 16vw, 16rem);
 }
 

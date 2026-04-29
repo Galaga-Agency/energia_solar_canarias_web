@@ -1,13 +1,20 @@
+/* ── Brand blob / aura — the signature graphic element ───────────────────── */
+
+.beneficio-card-blob {
+  background: radial-gradient(ellipse 80% 70% at 50% 72%, rgba(228,87,44,0.90) 0%, rgba(180,50,15,0.52) 42%, transparent 74%);
+}
+
+.solucion-card-aura {
+  background: radial-gradient(ellipse 65% 80% at 18% 28%, rgba(228,87,44,0.68) 0%, rgba(210,65,25,0.32) 44%, transparent 72%);
+}
+
 /* ── Soluciones accordion cards ───────────────────────────────────────────── */
 
 .solucion-card {
   flex: 1 1 0%;
   min-width: 0;
   isolation: isolate;
-  transform: translateZ(0);
-  transition:
-    flex-grow 700ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 240ms ease;
+  transition: flex-grow 650ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .solucion-card--open {
@@ -15,41 +22,18 @@
 }
 
 @media (min-width: 768px) {
-  .solucion-card-closed-panel {
-    z-index: 10;
-    pointer-events: none;
-    will-change: opacity;
-    transition: opacity 200ms ease 320ms;
+  .solucion-card-image {
+    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .solucion-card--open .solucion-card-closed-panel {
-    opacity: 0;
-    transition: opacity 60ms ease 0ms;
+  .solucion-card--open .solucion-card-image {
+    transform: scale(1.04);
   }
 
-  .solucion-card-open-panel {
-    z-index: 20;
-    grid-template-columns: 13.75rem minmax(0, 1fr);
+  .solucion-card-label {
+    transition: opacity 200ms ease;
+  }
+  .solucion-card--open .solucion-card-label {
     opacity: 0;
-    pointer-events: none;
-    will-change: opacity;
-    transition: opacity 200ms ease 0ms;
-  }
-  .solucion-card--open .solucion-card-open-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity 240ms ease 200ms;
-  }
-
-  .solucion-card-open-text {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  .solucion-card--open .solucion-card-open-text {
-    opacity: 1;
-    transform: translateY(0);
-    transition:
-      opacity   260ms ease                             320ms,
-      transform 420ms cubic-bezier(0.22, 1, 0.36, 1)  300ms;
   }
 }
 

@@ -4,10 +4,10 @@ import { useTranslations } from 'next-intl'
 import { BeneficioCard } from '@/components/ui/BeneficioCard'
 
 const IMAGES = [
-  { src: '/assets/images/home/solar-panel-laptop-workspace.webp',        alt: 'Persona trabajando con paneles solares' },
+  { src: '/assets/images/home/solar-panel-laptop-workspace.webp',            alt: 'Persona trabajando con paneles solares' },
   { src: '/assets/images/home/solar-engineers-inspecting-installation.webp', alt: 'Ingenieros inspeccionando instalación solar' },
-  { src: '/assets/images/home/solar-panel-planning-meeting.webp',         alt: 'Reunión de planificación de proyecto solar' },
-  { src: '/assets/images/home/aerial-coastal-neighborhood.webp',          alt: 'Vista aérea de barrio costero en Canarias' },
+  { src: '/assets/images/home/solar-panel-planning-meeting.webp',            alt: 'Reunión de planificación de proyecto solar' },
+  { src: '/assets/images/home/aerial-coastal-neighborhood.webp',             alt: 'Vista aérea de barrio costero en Canarias' },
 ]
 
 export function HomeBeneficios() {

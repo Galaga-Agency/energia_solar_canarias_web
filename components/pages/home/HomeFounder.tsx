@@ -16,7 +16,7 @@ export function HomeFounder() {
   const name = t('name')
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
+    <section className="section-spacing bg-bg">
       <div className="section-inner" data-reveal>
 
         <div className="flex flex-col items-center text-center gap-4 mb-12 max-w-3xl mx-auto">

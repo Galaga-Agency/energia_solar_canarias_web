@@ -33,10 +33,7 @@ export function HomeStats() {
             return (
               <div key={label} className="bg-white rounded-2xl p-7 md:p-8 flex flex-col">
                 <h3 className="text-subheading font-semibold text-ink mb-6 leading-snug">{label}</h3>
-                <p
-                  className="font-light leading-none text-primary mb-5"
-                  style={{ fontSize: 'clamp(3.5rem, 7vw, 5.5rem)' }}
-                >
+                <p className="stat-counter-value font-light leading-none text-primary mb-5">
                   <span data-counter={numericValue}>0</span>{suffix}
                 </p>
                 <hr className="border-sand-200 mb-5" />

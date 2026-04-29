@@ -1,23 +1,23 @@
-"use client";
+'use client'
 
-import { useState } from "react";
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Button } from "@/components/ui/Button";
-import { SolucionCard } from "@/components/ui/SolucionCard";
+import { Button } from '@/components/ui/Button'
+import { SolucionCard } from '@/components/ui/SolucionCard'
 
 const IMAGES = [
-  "/assets/images/home/cactus-mountain-landscape.webp",
-  "/assets/images/home/maspalomas-sand-dunes.webp",
-  "/assets/images/home/aerial-solar-panel-rows.webp",
-];
+  '/assets/images/home/cactus-mountain-landscape.webp',
+  '/assets/images/home/maspalomas-sand-dunes.webp',
+  '/assets/images/home/aerial-solar-panel-rows.webp',
+]
 
 export function HomeSoluciones() {
   const t = useTranslations('home.solutions')
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(0)
   const items = [
-    t.raw('empresas') as { label: string; title: string; desc: string },
+    t.raw('empresas')      as { label: string; title: string; desc: string },
     t.raw('instalaciones') as { label: string; title: string; desc: string },
-    t.raw('hogares') as { label: string; title: string; desc: string },
+    t.raw('hogares')       as { label: string; title: string; desc: string },
   ]
 
   return (
@@ -50,5 +50,5 @@ export function HomeSoluciones() {
         </div>
       </div>
     </section>
-  );
+  )
 }

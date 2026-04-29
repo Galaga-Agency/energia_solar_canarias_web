@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Certified installers in the Canary Islands",
     "title": "Your renewable energy, built to last",
-    "body": "We design, install and maintain solar energy systems tailored to the energy reality of the Canarian archipelago. No fine print.",
+    "body": "We believe energy is free — given to us by nature. We transform it and bring it to where it belongs: every business and home across the Canary Islands.",
     "cta1": "Request your free audit ↗",
     "cta2": "See solutions"
   },
@@ -85,8 +85,8 @@
     "title": "20 years building a more sustainable energy model",
     "role": "Purpose",
     "name": "Carla Isarí Díaz Ortega, CEO & Owner",
-    "body1": "For us, moving towards a more local energy model is not just a professional goal — it is a commitment we keep with our territory and its people.",
-    "quote": "leads the company with the conviction that the archipelago can become a world reference in island energy transition.",
+    "body1": "We believe energy is free — given by nature, meant for all. Our mission is to transform it and bring it to where it belongs: every business and home across the Canarian archipelago.",
+    "quote": "leads ESC with over 20 years of experience in the Canarian energy sector, convinced that the islands can become a world reference in island energy transition.",
     "link": "Learn more about us"
   },
   "testimonials": {
@@ -94,10 +94,12 @@
     "title": "What our clients say",
     "body": "When your clients are your best business card, you know you're on the right track.",
     "items": [
-      { "name": "Roberto Díaz",  "role": "CEO, Manufacturing Industrial",    "quote": "Carla removed all the bureaucratic complexity. Today we run on clean energy and our costs dropped significantly." },
-      { "name": "Marcela Ruiz",  "role": "CFO, Logistics & Distribution",    "quote": "The team handled every technical detail without us having to intervene. Turnkey, just as promised." },
-      { "name": "Ana García",    "role": "Manager, Hotel Las Palmas",        "quote": "We cut our electricity bill by 45% in the first year. The return came faster than we expected." },
-      { "name": "Pedro Suárez",  "role": "Owner, Finca La Palma",            "quote": "The free audit was the first step in taking control of our energy. Highly recommended." }
+      { "name": "Sofía Rubio",              "role": "Google Review",              "quote": "If you're looking for professionalism, quality and long-term trust, they are without doubt the best. A 10 out of 10 experience." },
+      { "name": "Miguel Ángel Sánchez",     "role": "Google Review",              "quote": "Great professionals — fast, clean work. They handled all the paperwork. I had doubts about the investment at first, but now I'm very happy. I'm covering the consumption of my home and my electric car." },
+      { "name": "Ton Pot",                  "role": "Google Review",              "quote": "Very satisfied with the delivery, installation and grant application process. The staff are friendly and professional." },
+      { "name": "Juan Monzón",              "role": "Google Review",              "quote": "This Canarian company installed my solar panels with storage batteries. Fast, clean, they handle all the paperwork and the staff are very professional. Highly recommended." },
+      { "name": "Grancanarion",             "role": "Google Review · Local Guide", "quote": "Works perfectly. Full solar study and they always respond to any query. No complaints at all. I've had panels for 5 years and on the rare occasion there's an issue, they sort it remotely." },
+      { "name": "Julio Rubio Robles",       "role": "Google Review",              "quote": "Excellent professionals, always focused on the best solution for the client. Tremendously satisfied with the whole process and a real guarantee of quality." }
     ]
   },
   "cta": {
