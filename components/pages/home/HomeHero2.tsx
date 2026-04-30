@@ -18,7 +18,7 @@ export function HomeHero2() {
   return (
     <section
       data-hero2
-      className="relative min-h-svh overflow-hidden bg-[#f4f1ea]"
+      className="relative min-h-svh overflow-x-hidden overflow-y-hidden bg-[#f4f1ea]"
     >
       <div
         aria-hidden
@@ -28,7 +28,7 @@ export function HomeHero2() {
       {LAYERS.map(({ key, z, cls }) => (
         <div
           key={key}
-          className="absolute -inset-[10%] will-change-transform"
+          className="absolute inset-0 will-change-transform"
           style={{ zIndex: z }}
           data-layer-scroll={key}
         >
@@ -43,7 +43,7 @@ export function HomeHero2() {
       ))}
 
       <div aria-hidden className="pointer-events-none absolute top-0 inset-x-0 z-10 h-56 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.65)_0%,rgba(0,0,0,0.2)_55%,transparent_100%)]" />
-      <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 z-10 h-[85%] bg-[linear-gradient(to_bottom,transparent_0%,rgba(244,241,234,0.05)_20%,rgba(244,241,234,0.25)_45%,rgba(244,241,234,0.65)_72%,#f4f1ea_100%)]" />
+      <div aria-hidden className="pointer-events-none absolute bottom-0 inset-x-0 z-10 h-[85%] bg-[linear-gradient(to_bottom,transparent_0%,rgba(244,241,234,0.05)_22%,rgba(244,241,234,0.22)_48%,rgba(244,241,234,0.62)_76%,#f4f1ea_96%)]" />
 
       {/* Content — centered on screen, left-aligned within column */}
       <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pt-20 pb-16">

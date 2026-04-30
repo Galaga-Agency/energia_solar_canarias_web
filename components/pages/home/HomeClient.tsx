@@ -71,7 +71,7 @@ export function HomeClient() {
     <>
       <HomeHero2 />
       <div
-        className="relative isolate z-0 overflow-visible"
+        className="relative isolate z-0 -mt-px overflow-x-hidden overflow-y-visible bg-[#f4f1ea]"
         data-home-panel-stack
       >
         <HomeSoluciones />
