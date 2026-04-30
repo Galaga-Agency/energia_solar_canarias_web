@@ -40,7 +40,7 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
   return (
     <header
       style={{ height: "72px" }}
-      className="fixed inset-x-0 top-0 z-70 px-4 pt-3 lg:px-8"
+      className="lg:fixed lg:inset-x-0 lg:top-0 lg:z-70 px-4 pt-3 lg:px-8"
     >
       <div
         className={`relative brand-radius navbar-shell navbar-shell-layout mx-auto flex h-[72px] items-center gap-4 px-5 lg:px-6 ${transparent ? "navbar-shell--hero" : "navbar-shell--scrolled"}`}
@@ -96,6 +96,7 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
           <MenuToggle
             open={mobileMenuOpen}
             onToggle={onMobileMenuToggle}
+            heroMode={transparent}
           />
         </div>
       </div>

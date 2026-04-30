@@ -18,7 +18,7 @@ export function HomeHero2() {
   return (
     <section
       data-hero2
-      className="relative min-h-svh overflow-x-hidden overflow-y-hidden bg-[#f4f1ea]"
+      className="relative min-h-svh overflow-x-hidden overflow-y-hidden bg-[#f4f1ea] max-lg:-mt-18"
     >
       <div
         aria-hidden

@@ -1,7 +1,6 @@
 'use client'
 
 import type { CSSProperties } from 'react'
-import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { NAV_LINKS } from '@/constants/nav.constants'
 import { Button } from '@/components/ui/Button'
@@ -16,17 +15,11 @@ interface MobileMenuProps {
 }
 
 const ALL_LINKS = [{ labelKey: 'home' as const, href: '/' }, ...NAV_LINKS]
-const ITEM_COUNT = ALL_LINKS.length
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname()
   const locale   = getLocaleFromPathname(pathname)
   const messages = locale === 'en' ? commonEn : commonEs
-
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [open])
 
   return (
     <div
@@ -43,10 +36,6 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           {ALL_LINKS.map(({ labelKey, href }, i) => {
             const localizedHref = getLocalizedHref(href, locale)
             const isActive      = pathname === localizedHref || pathname.startsWith(`${localizedHref}/`)
-            // CodePen stagger: last item opens first (unfurls bottom-up)
-            const openDelay  = (ITEM_COUNT - 1 - i) * 50
-            // Close: first item closes first (folds top-down)
-            const closeDelay = i * 50
 
             return (
               <TransitionLink
@@ -55,10 +44,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 onClick={onClose}
                 aria-current={isActive ? 'page' : undefined}
                 className="mob-nav-item"
-                style={{
-                  '--open-delay':  `${openDelay}ms`,
-                  '--close-delay': `${closeDelay}ms`,
-                } as CSSProperties}
+                style={{ '--open-delay': `${i * 40}ms` } as CSSProperties}
               >
                 {messages.nav[labelKey]}
               </TransitionLink>
