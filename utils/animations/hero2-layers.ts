@@ -20,11 +20,13 @@ export function initHero2Animations(): () => void {
     const el = hero.querySelector<HTMLElement>(`[data-layer-scroll="${key}"]`)
     if (!el) return
     const half = scrollY / 2
+    gsap.set(el, { y: -half, force3D: true })
     const t = gsap.fromTo(el,
       { y: -half },
       {
         y: half,
         ease: 'none',
+        force3D: true,
         scrollTrigger: {
           trigger: hero,
           start: 'top top',

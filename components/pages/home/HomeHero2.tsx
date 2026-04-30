@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/Button";
 import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
 
 const LAYERS = [
-  { key: "4", z: 2, cls: "object-cover object-right-top", initY: -90 },
-  { key: "3", z: 3, cls: "object-cover",               initY: -60 },
-  { key: "2", z: 4, cls: "object-cover",               initY: -35 },
-  { key: "1", z: 5, cls: "object-cover",               initY: -12.5 },
+  { key: "4", z: 2, cls: "object-cover object-right-top" },
+  { key: "3", z: 3, cls: "object-cover" },
+  { key: "2", z: 4, cls: "object-cover" },
+  { key: "1", z: 5, cls: "object-cover" },
 ] as const;
 
 export function HomeHero2() {
@@ -25,11 +25,11 @@ export function HomeHero2() {
         className="absolute inset-0 z-1 bg-[linear-gradient(to_bottom,rgba(15,36,33,0.75)_0%,rgba(31,58,52,0.45)_50%,transparent_100%)]"
       />
 
-      {LAYERS.map(({ key, z, cls, initY }) => (
+      {LAYERS.map(({ key, z, cls }) => (
         <div
           key={key}
-          className="absolute -inset-[10%]"
-          style={{ zIndex: z, transform: `translateY(${initY}px)` }}
+          className="absolute -inset-[10%] will-change-transform"
+          style={{ zIndex: z }}
           data-layer-scroll={key}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
