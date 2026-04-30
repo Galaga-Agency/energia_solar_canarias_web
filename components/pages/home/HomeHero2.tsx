@@ -49,8 +49,8 @@ export function HomeHero2() {
       <div className="absolute inset-0 z-20 flex items-center justify-center px-6 pt-20 pb-16">
         <div className="flex flex-col items-start gap-6 w-full max-w-3xl">
 
-          <div className="relative inline-block isolate overflow-visible" data-hero2-item>
-            <AnimatedBrandBlob className="pointer-events-none absolute -left-20 -top-24 z-1 h-auto w-[clamp(22rem,40vw,30rem)] max-sm:-left-16 max-sm:-top-16 max-sm:w-64" />
+          <div className="relative inline-block isolate overflow-visible ml-8 sm:ml-0" data-hero2-item>
+            <AnimatedBrandBlob className="pointer-events-none absolute -left-10 -top-16 z-1 h-auto w-56 sm:-left-20 sm:-top-24 sm:w-[clamp(22rem,40vw,30rem)]" />
             <Image
               src="/assets/logos/svg/logo-icon-orange.svg"
               alt="Energía Solar Canarias"

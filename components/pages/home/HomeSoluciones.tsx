@@ -24,26 +24,34 @@ export function HomeSoluciones() {
       data-home-panel-pin
     >
       <div className="section-inner">
-        <div className="flex flex-col items-center text-center gap-6 mb-20 max-w-2xl mx-auto" data-reveal>
-          <span className="text-label text-primary!">{t('eyebrow')}</span>
-          <h2 className="text-title">{t('title')}</h2>
-          <p className="text-body">{t('body')}</p>
-          <Button variant="green-dark" href="/soluciones">
-            {t('cta')}
-          </Button>
-        </div>
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[2fr_3fr] lg:gap-20">
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-10" data-soluciones-grid>
-          {items.map((item, i) => (
-            <SolucionCard
-              key={item.label}
-              index={i}
-              label={item.label}
-              title={item.title}
-              desc={item.desc}
-              image={IMAGES[i]}
-            />
-          ))}
+          <div className="lg:sticky lg:top-[35vh] lg:self-start">
+            <div className="flex flex-col items-start gap-6" data-reveal>
+              <span className="text-label text-primary!">{t('eyebrow')}</span>
+              <h2 className="text-title">{t('title')}</h2>
+              <p className="text-body">{t('body')}</p>
+              <Button variant="green-dark" href="/soluciones">
+                {t('cta')}
+              </Button>
+            </div>
+          </div>
+
+          {/* Right: 2-col portrait row + full-width landscape card */}
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-6" data-soluciones-grid>
+            {items.map((item, i) => (
+              <SolucionCard
+                key={item.label}
+                index={i}
+                label={item.label}
+                title={item.title}
+                desc={item.desc}
+                image={IMAGES[i]}
+                className={i === 2 ? 'sm:col-span-2' : ''}
+              />
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

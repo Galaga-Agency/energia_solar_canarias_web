@@ -6,7 +6,7 @@ import { prefersReducedMotion } from '@/utils/animations/motionPrefs'
 const FLOCK_SRC = '/assets/images/home/new-birds.svg'
 const DEFAULT_VIEW_BOX = '0 0 1440 1546'
 const BIRD_FILL = '#593C3C'
-const CANVAS_DPR_LIMIT = 1.25
+const CANVAS_DPR_LIMIT = 2
 const SVG_NS = 'http://www.w3.org/2000/svg'
 const ANIMATED_BIRD_COUNT = 12
 

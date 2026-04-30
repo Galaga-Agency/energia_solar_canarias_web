@@ -84,7 +84,7 @@ export function MobileMenu({ open, onClose, headerHeight, onHeightChange }: Mobi
         ['--mobile-header-height' as string]: `${headerHeight}px`,
         ['--mobile-menu-count' as string]: itemCount,
       } as CSSProperties}
-      className="mobile-menu-shell fixed inset-0 overflow-hidden md:hidden z-99"
+      className="mobile-menu-shell fixed inset-0 overflow-hidden md:hidden z-69"
     >
       <div
         aria-hidden="true"
@@ -107,20 +107,15 @@ export function MobileMenu({ open, onClose, headerHeight, onHeightChange }: Mobi
                 href={localizedHref}
                 onClick={onClose}
                 aria-current={isActive ? 'page' : undefined}
-                className="mobile-menu-link group flex items-center justify-between [-webkit-tap-highlight-color:transparent]"
+                className="mobile-menu-link group flex items-center justify-between border-b border-ink/8 py-4 [-webkit-tap-highlight-color:transparent]"
                 style={getStaggerStyle(i)}
               >
-                <div className="flex items-baseline">
-                  <span
-                    className="mobile-menu-label font-normal leading-[1.05] tracking-tight transition-colors duration-200"
-                    style={{ fontSize: 'var(--text-2xl)' }}
-                  >
-                    {messages.nav[labelKey]}
-                  </span>
-                </div>
+                <span className={`mobile-menu-label text-subtitle font-normal tracking-tight ${isActive ? 'text-primary' : 'text-ink'}`}>
+                  {messages.nav[labelKey]}
+                </span>
                 <HiArrowRight
                   aria-hidden="true"
-                  className={`mobile-menu-arrow h-5 w-5 shrink-0 transition-all duration-200 ${isActive ? 'text-primary' : 'text-surface group-hover:text-primary'}`}
+                  className={`mobile-menu-arrow h-5 w-5 shrink-0 ${isActive ? 'text-primary' : 'text-ink/30 group-hover:text-primary transition-colors duration-200'}`}
                 />
               </TransitionLink>
             )

@@ -35,6 +35,8 @@
 .navbar-desktop {
   position: absolute;
   left: 50%;
+  top: 0;
+  bottom: 0;
   transform: translateX(-50%);
   align-items: center;
   gap: 0.35rem;
@@ -46,42 +48,71 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   min-height: 2.35rem;
   padding: 0 0.95rem;
-  border-radius: 999px;
   font-size: 0.82rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition:
-    color 220ms ease,
-    background-color 220ms ease;
+  text-decoration: none;
+  transition: color 220ms ease;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0.95rem;
+  right: 0.95rem;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-link--hero {
   color: rgba(255, 255, 255, 0.76);
 }
 
-.navbar-link--hero:hover,
-.navbar-link--hero.navbar-link--active {
+.navbar-link--hero::after {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.navbar-link--hero:hover {
   color: #fff;
 }
 
+.navbar-link--hero:hover::after {
+  transform: scaleX(1);
+}
+
 .navbar-link--active.navbar-link--hero {
-  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
 }
 
 .navbar-link--scrolled {
   color: rgba(31, 58, 52, 0.72);
 }
 
+.navbar-link--scrolled::after {
+  background: rgba(31, 58, 52, 0.5);
+}
+
 .navbar-link--scrolled:hover {
   color: #1f3a34;
-  background: rgba(31, 58, 52, 0.06);
+}
+
+.navbar-link--scrolled:hover::after {
+  transform: scaleX(1);
 }
 
 .navbar-link--active.navbar-link--scrolled {
-  color: #1f3a34;
-  background: rgba(31, 58, 52, 0.1);
+  color: var(--color-primary);
+}
+
+.navbar-link--active.navbar-link--scrolled::after {
+  background: var(--color-primary);
+  transform: scaleX(1);
 }
 
 /* ── Section spacing ──────────────────────────────────────────────────────── */

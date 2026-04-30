@@ -43,16 +43,17 @@ export function HomeFounder() {
             </div>
           </div>
 
-          <div className="relative min-h-80 md:min-h-144 overflow-hidden">
-            <div className="absolute inset-x-0 inset-y-[-12%]" data-speed="0.85">
+          <div className="relative min-h-80 md:min-h-144">
+            <div className="absolute inset-x-[-2px] inset-y-[-10%]" data-speed="0.85">
               <Image
-                src="/assets/images/home/carla-new.webp"
+                src="/assets/images/home/carla-portrait.webp"
                 alt={name}
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </div>
+            <div className="absolute inset-0 bg-orange-500/30 mix-blend-multiply pointer-events-none" />
           </div>
 
         </div>
