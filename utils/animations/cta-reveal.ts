@@ -51,7 +51,7 @@ export function initCtaRevealAnimation(): () => void {
 
   // Typewriter the phone number, then scale pop
   if (phone && phoneText) {
-    const typeStart = tl.recent().endTime() - 0.25
+    const typeStart = tl.duration() - 0.25
     const charDelay = 0.045
     const chars = Array.from(phoneText)
 
