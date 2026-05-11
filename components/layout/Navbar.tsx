@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuToggle } from "@/components/layout/MenuToggle";
 import { TransitionLink } from "@/components/ui/TransitionLink";
@@ -10,6 +11,7 @@ import { NAV_LINKS } from "@/constants/nav.constants";
 import {
   getLocaleFromPathname,
   getLocalizedHref,
+  getLocalizedCanonicalPath,
   stripLocaleFromPathname,
 } from "@/config/i18n.config";
 import commonEs from "@/locales/es/common.json";
@@ -40,10 +42,10 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
   return (
     <header
       style={{ height: "72px" }}
-      className="lg:fixed lg:inset-x-0 lg:top-0 lg:z-70 px-4 pt-3 lg:px-8"
+      className="lg:fixed lg:inset-x-0 lg:top-0 lg:z-70"
     >
       <div
-        className={`relative brand-radius navbar-shell navbar-shell-layout mx-auto flex h-[72px] items-center gap-4 px-5 lg:px-6 ${transparent ? "navbar-shell--hero" : "navbar-shell--scrolled"}`}
+        className={`relative navbar-shell navbar-shell-layout flex h-[72px] items-center gap-4 px-[clamp(1.5rem,5vw,4rem)] ${transparent ? "navbar-shell--hero" : "navbar-shell--scrolled"}`}
       >
         <TransitionLink
           href="/"
@@ -75,7 +77,38 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
           })}
         </nav>
 
-        <div className="hidden lg:flex ml-auto">
+        <div className="hidden lg:flex ml-auto items-center gap-6">
+          <div
+            className={`flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.18em] transition-colors ${
+              transparent ? "text-white/65" : "text-ink/55"
+            }`}
+          >
+            {(["es", "en"] as const).map((loc, i) => {
+              const active = loc === locale;
+              const href   = getLocalizedCanonicalPath(pathname, loc);
+              return (
+                <span key={loc} className="flex items-center gap-2">
+                  {i > 0 && (
+                    <span aria-hidden className={transparent ? "text-white/30" : "text-ink/25"}>
+                      |
+                    </span>
+                  )}
+                  <Link
+                    href={href}
+                    aria-current={active ? "true" : undefined}
+                    className={`transition-colors ${
+                      active
+                        ? transparent ? "text-white" : "text-primary"
+                        : transparent ? "hover:text-white" : "hover:text-ink"
+                    }`}
+                  >
+                    {loc.toUpperCase()}
+                  </Link>
+                </span>
+              );
+            })}
+          </div>
+
           <div
             className={`transition-all duration-300 ${
               transparent
@@ -86,6 +119,7 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
             <Button
               variant="filled"
               href={getLocalizedHref("/contacto", locale)}
+              className="px-5! py-2! text-sm!"
             >
               {messages.nav.cta}
             </Button>

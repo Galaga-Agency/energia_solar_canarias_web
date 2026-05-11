@@ -3,9 +3,9 @@
 import { gsap } from '@/lib/gsap'
 
 const MEDIA_CLIP_FROM = [
-  'inset(0% 0% 100% 0% round 12px)',
-  'inset(100% 0% 0% 0% round 12px)',
-  'inset(0% 100% 0% 0% round 12px)',
+  'inset(0% 0% 100% 0%)',
+  'inset(100% 0% 0% 0%)',
+  'inset(0% 100% 0% 0%)',
 ]
 
 const PANEL_FROM = [
@@ -24,9 +24,9 @@ export function initSolucionCardsAnimation(): () => void {
   const imageElems = cards.map(c => c.querySelector<HTMLElement>('.solucion-card-image'))
 
   gsap.set(cards, { opacity: 0, y: 32, scale: 0.97 })
-  mediaElems.forEach((el, i) => { if (el) gsap.set(el, { clipPath: MEDIA_CLIP_FROM[i] }) })
+  mediaElems.forEach((el, i) => { if (el) gsap.set(el, { clipPath: MEDIA_CLIP_FROM[i % MEDIA_CLIP_FROM.length] }) })
   imageElems.forEach(el => { if (el) gsap.set(el, { scale: 1.1 }) })
-  copyElems.forEach((el, i) => { if (el) gsap.set(el, { opacity: 0, ...PANEL_FROM[i] }) })
+  copyElems.forEach((el, i) => { if (el) gsap.set(el, { opacity: 0, ...PANEL_FROM[i % PANEL_FROM.length] }) })
 
   const tl = gsap.timeline({
     scrollTrigger: { trigger: grid ?? cards[0], start: 'top 95%', once: true },
@@ -39,7 +39,7 @@ export function initSolucionCardsAnimation(): () => void {
     const image = imageElems[i]
 
     tl.to(card,  { opacity: 1, y: 0, scale: 1, duration: 1.4, ease: 'power4.out' }, t)
-    if (media) tl.to(media, { clipPath: 'inset(0% 0% 0% 0% round 12px)', duration: 1.2, ease: 'power4.out' }, t + 0.1)
+    if (media) tl.to(media, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.2, ease: 'power4.out' }, t + 0.1)
     if (image) tl.to(image, { scale: 1, duration: 1.6, ease: 'power4.out' }, t + 0.08)
     if (copy)  tl.to(copy,  { opacity: 1, y: 0, x: 0, duration: 1.0, ease: 'power4.out' }, t + 0.4)
   })

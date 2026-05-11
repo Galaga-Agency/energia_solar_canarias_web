@@ -3,32 +3,33 @@
 import dynamic from "next/dynamic";
 import { usePageReady } from "@/hooks/usePageReady";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
-import { Marquee } from "@/components/shared/Marquee";
-import { AnimatedBirdFlock } from "@/components/shared/AnimatedBirdFlock";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { initParallax } from "@/utils/animations/parallax";
-import { initStatsCounterAnimations } from "@/utils/animations/stats-counter";
 import { initScrollRevealSections } from "@/utils/animations/scroll-reveal";
 import { initMarqueeAnimation } from "@/utils/animations/marquee";
 import { initBlobAnimation } from "@/utils/animations/blob";
-import { initScrollMarqueeAnimation } from "@/utils/animations/scroll-marquee";
-import { initPanelStackAnimation } from "@/utils/animations/panel-stack";
-import { initBirdFlockAnimation } from "@/utils/animations/bird-flock";
-import { initFooterBirdFlockAnimation } from "@/utils/animations/footer-bird-flock";
-import { initTestimonialsCardsAnimation } from "@/utils/animations/testimonials-cards";
 import { initSolucionCardsAnimation } from "@/utils/animations/solucion-cards";
-import { HomeHero2 } from "./HomeHero2";
+import { initStatsRevealAnimation } from "@/utils/animations/stats-reveal";
+import { initProcesoTimelineAnimation } from "@/utils/animations/proceso-timeline";
+import { initCtaRevealAnimation } from "@/utils/animations/cta-reveal";
 import { initHero2Animations } from "@/utils/animations/hero2-layers";
+import { HomeHero2 } from "./HomeHero2";
+import { HomeManifestoStrip } from "./HomeManifestoStrip";
+import { MouseReactiveFlock } from "@/components/shared/MouseReactiveFlock";
 
+const HomeStats = dynamic(() => import("./HomeStats").then((m) => m.HomeStats));
+const HomeBeneficios = dynamic(() =>
+  import("./HomeBeneficios").then((m) => m.HomeBeneficios),
+);
 const HomeSoluciones = dynamic(() =>
   import("./HomeSoluciones").then((m) => m.HomeSoluciones),
 );
-const HomeBeneficios = dynamic(() =>
-  import("./HomeBeneficios").then((m) => m.HomeBeneficios),
+const HomeProceso = dynamic(() =>
+  import("./HomeProceso").then((m) => m.HomeProceso),
 );
 const HomeProyectos = dynamic(() =>
   import("./HomeProyectos").then((m) => m.HomeProyectos),
 );
-const HomeStats = dynamic(() => import("./HomeStats").then((m) => m.HomeStats));
 const HomeFounder = dynamic(() =>
   import("./HomeFounder").then((m) => m.HomeFounder),
 );
@@ -37,60 +38,49 @@ const HomeTestimonials = dynamic(() =>
 );
 const HomeCTA = dynamic(() => import("./HomeCTA").then((m) => m.HomeCTA));
 
-const MARQUEE_ITEMS = [
-  "Energía solar en Canarias",
-  "Instalaciones certificadas",
-  "Ahorra en tu factura",
-  "Sistemas fotovoltaicos",
-  "Autoconsumo inteligente",
-  "Soluciones industriales",
-  "Retorno garantizado",
-  "Ingeniería local",
-];
-
 export function HomeClient() {
   usePageReady();
 
+  const isMobile = useIsMobile();
+  const flockBirds = isMobile
+    ? { top: 60,  bottom: 40  }
+    : { top: 140, bottom: 100 };
+
   useGSAPAnimations(() => ({
     critical: [initHero2Animations, initParallax],
-    raf: [initStatsCounterAnimations],
+    raf: [],
     timeout: [
       initScrollRevealSections,
       initMarqueeAnimation,
       initBlobAnimation,
-      initScrollMarqueeAnimation,
-      initPanelStackAnimation,
-      initBirdFlockAnimation,
-      initFooterBirdFlockAnimation,
-      initTestimonialsCardsAnimation,
       initSolucionCardsAnimation,
+      initStatsRevealAnimation,
+      initProcesoTimelineAnimation,
+      initCtaRevealAnimation,
     ],
   }));
 
   return (
     <>
       <HomeHero2 />
-      <div
-        className="relative isolate z-0 -mt-px overflow-x-hidden overflow-y-visible bg-[#f4f1ea]"
-        data-home-panel-stack
-      >
-        <HomeSoluciones />
-        <div className="relative z-10">
-          <Marquee items={MARQUEE_ITEMS} />
-        </div>
-        <div
-          className="home-bird-flock-stage panel-surface relative overflow-hidden"
-          data-home-bird-flock-stage
-          data-bird-flock-stage
-        >
-          <AnimatedBirdFlock className="home-bird-flock-backdrop" />
-          <div className="relative z-10">
-            <HomeBeneficios />
-            <HomeProyectos />
-          </div>
-        </div>
-      </div>
+      <HomeManifestoStrip />
       <HomeStats />
+      <div className="relative bg-[#f4f1ea]">
+        <MouseReactiveFlock
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          birds={flockBirds.top}
+        />
+        <HomeBeneficios />
+        <HomeSoluciones />
+      </div>
+      <HomeProceso />
+      <div className="relative bg-[#f4f1ea]">
+        <MouseReactiveFlock
+          className="pointer-events-none absolute inset-0 h-full w-full"
+          birds={flockBirds.bottom}
+        />
+        <HomeProyectos />
+      </div>
       <HomeFounder />
       <HomeTestimonials />
       <HomeCTA />

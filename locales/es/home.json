@@ -1,84 +1,102 @@
 {
   "hero": {
     "eyebrow":  "Instaladores certificados en Canarias",
-    "title":    "Energía renovable que impulsa tu negocio y tu hogar",
-    "body":     "Creemos en la energía libre, la que la naturaleza nos brinda. La transformamos y la llevamos a donde le pertenece: a cada empresa y hogar de Canarias.",
-    "cta1":     "Solicita tu auditoría gratuita ↗",
-    "cta2":     "Ver soluciones"
+    "title":    "Diseñamos tu independencia energética",
+    "body":     "El socio energético local de referencia para empresas canarias. Auditoría, subvención, instalación y mantenimiento.",
+    "cta1":     "Solicita tu auditoría",
+    "cta2":     "Por qué elegirnos",
+    "scroll":   "Scroll"
   },
-  "solutions": {
-    "eyebrow":  "Soluciones",
-    "title":    "Energía adaptada a la operativa de tu negocio",
-    "body":     "Analizamos, dimensionamos e integramos cada sistema para mejorar la eficiencia, reducir costes y aportar estabilidad a tu negocio.",
-    "cta":      "Explora nuestras soluciones",
-    "link":     "Ver todas las soluciones →",
-    "empresas": {
-      "label": "Empresas",
-      "title": "Control total sobre tu factura energética",
-      "desc":  "Reducimos la factura energética de tu empresa y te damos control total sobre tu consumo."
-    },
-    "instalaciones": {
-      "label": "Instalaciones industriales",
-      "title": "Infraestructura de gran escala para tu sector",
-      "desc":  "Diseñamos sistemas de gran escala para naves, fábricas e infraestructuras del sector terciario."
-    },
-    "hogares": {
-      "label": "Hogares",
-      "title": "Retorno de inversión en menos de 7 años",
-      "desc":  "Instalaciones residenciales adaptadas al clima canario, con retorno de inversión en menos de 7 años."
-    }
-  },
-  "benefits": {
-    "eyebrow": "Por qué elegirnos",
-    "title":   "Potencia tu negocio con decisiones energéticas inteligentes",
-    "body":    "Nuestro equipo combina experiencia técnica local con visión estratégica para ofrecerte soluciones que realmente funcionan en Canarias.",
-    "items": [
-      { "label": "Ahorro comprobado",    "desc": "Reducción media del 40% en factura energética desde el primer mes." },
-      { "label": "Rigor técnico",        "desc": "Ingenieros certificados con experiencia específica en el archipiélago." },
-      { "label": "Visión a largo plazo", "desc": "Proyectamos el retorno de inversión real antes de comprometerte con nada." },
-      { "label": "Conocimiento local",   "desc": "Entendemos las normativas canarias, el clima insular y sus particularidades." }
-    ]
-  },
-  "projects": {
-    "title": "Empresas que han tomado el control de su energía",
-    "body":  "Hemos acompañado a empresas de distintos sectores en su transición hacia una energía más eficiente y sostenible en el archipiélago canario.",
-    "cta":   "Ver nuestros proyectos"
+  "manifesto": {
+    "eyebrow":   "Manifesto",
+    "statement": "La luz como origen, el equilibrio como sistema, y la energía como orden.",
+    "note":      "Diseñamos la independencia energética de las empresas que sostienen Canarias.",
+    "label":     "Energía Solar Canarias"
   },
   "stats": {
-    "eyebrow": "Los números hablan por sí mismos",
-    "quote":  "La energía que consumes hoy define la empresa que serás mañana.",
+    "eyebrow": "Energía en operación",
+    "title":   "Veinte años transformando la factura energética del archipiélago.",
     "items": [
-      { "value": "40",  "suffix": "%", "label": "Reducción media de costes",  "desc": "Nuestros clientes reducen su factura energética de media un 40% desde el primer año de operación." },
-      { "value": "120", "suffix": "+", "label": "Proyectos completados",       "desc": "Más de 120 instalaciones en Canarias con retorno de inversión comprobado." },
-      { "value": "6,8", "suffix": "",  "label": "Años de retorno medio",       "desc": "Recupera tu inversión en menos de 7 años de media, con equipos que duran 25." }
+      { "value": "20",  "suffix": "+", "label": "Años",         "body": "operando en Canarias" },
+      { "value": "120", "suffix": "+", "label": "Proyectos",    "body": "completados en el archipiélago" },
+      { "value": "40",  "suffix": "%", "label": "Ahorro medio", "body": "en factura energética" },
+      { "value": "6,8", "suffix": "",  "label": "Años",         "body": "retorno medio de inversión" }
+    ]
+  },
+  "benefits": {
+    "eyebrow": "Por qué ESC",
+    "title":   "El socio energético que entiende las islas.",
+    "items": [
+      { "num": "01", "label": "Conocemos el territorio",  "desc": "Más de dos décadas operando en el archipiélago. Entendemos su clima, su normativa y sus particularidades como nadie fuera puede hacerlo." },
+      { "num": "02", "label": "Gestionamos todo",          "desc": "Del diagnóstico energético a la subvención, la instalación y el mantenimiento. Una sola interlocución, sin fricción." },
+      { "num": "03", "label": "Simplificamos la decisión", "desc": "Te damos certeza antes de comprometerte. Estudio de viabilidad, escenarios financieros y plazos reales desde el primer día." },
+      { "num": "04", "label": "Acompañamos siempre",       "desc": "Soporte continuo, monitorización y reporting. No somos un proveedor puntual: somos tu socio energético a largo plazo." }
+    ]
+  },
+  "sectores": {
+    "eyebrow": "Sectores",
+    "title":   "Cada sector pide una energía distinta.",
+    "body":    "Diseñamos arquitecturas energéticas a la medida de las operaciones que sostienen la economía canaria.",
+    "cta":     "Conoce todas las soluciones B2B",
+    "items": [
+      { "key": "hoteles",   "label": "Hoteles",       "title": "Energía que protege la experiencia del huésped", "desc": "Cubiertas de gran escala, almacenamiento y mantenimiento crítico. Cero parada operativa.",       "metric": "Hasta 45% menos coste por habitación·año" },
+      { "key": "industria", "label": "Industria",     "title": "Procesos productivos blindados frente al precio", "desc": "Naves, frío industrial, climatización. Diseño dimensionado al pico de demanda real.",            "metric": "ROI medio < 6 años" },
+      { "key": "retail",    "label": "Retail",        "title": "Operación distribuida, factura unificada",        "desc": "Multi-tienda, multi-isla. Monitorización centralizada y reporting financiero por punto de venta.", "metric": "Ahorro estructural en P&L" },
+      { "key": "agro",      "label": "Agroindustria", "title": "Bombeo, riego y refrigeración con energía propia", "desc": "Autoconsumo compartido, almacenamiento y gestión íntegra de subvención agraria.",                "metric": "Subvenciones específicas gestionadas" }
+    ],
+    "hogares": {
+      "label": "También hogares",
+      "title": "Residencial canario con retorno inferior a 7 años.",
+      "body":  "Instalaciones domésticas dimensionadas al clima y la tarifa de las islas. La energía libre que también te pertenece a ti.",
+      "cta":   "Ver soluciones para hogar →"
+    }
+  },
+  "proceso": {
+    "eyebrow": "Cómo trabajamos",
+    "title":   "Una sola interlocución, del primer kilovatio al último reporte.",
+    "items": [
+      { "num": "01", "title": "Diagnóstico",    "body": "Auditoría de consumo, simulación de retorno y plan de generación por isla y sector." },
+      { "num": "02", "title": "Subvención",     "body": "Gestionamos íntegramente la tramitación de ayudas. Un proceso complejo que convertimos en algo sencillo para ti." },
+      { "num": "03", "title": "Instalación",    "body": "Equipo local, plazos comprometidos. Cero parada operativa." },
+      { "num": "04", "title": "Mantenimiento",  "body": "Monitorización continua, revisiones programadas, reporting periódico. Tu instalación, siempre bajo control." }
+    ]
+  },
+  "casos": {
+    "eyebrow": "Casos",
+    "title":   "Energía ya en marcha.",
+    "cta":     "Todos los proyectos",
+    "items": [
+      { "tag": "Hotel · Sur de Tenerife",       "title": "Cubierta de 4.200 m²",      "detail": "Subvención del 35% gestionada en 11 semanas. Sin parada operativa.",          "kpis": [ { "v": "4.200", "u": "m² cubierta" }, { "v": "35",   "u": "% subvención" }, { "v": "11",   "u": "semanas" } ] },
+      { "tag": "Industria · Polígono Arinaga",  "title": "450 kWp + almacenamiento",  "detail": "Monitorización 24/7. Caída del coste por kWh superior al 40%.",                "kpis": [ { "v": "450",   "u": "kWp" },        { "v": "40",   "u": "% ahorro" },     { "v": "24/7", "u": "monitorización" } ] },
+      { "tag": "Agro · Gáldar",                 "title": "Bombeo solar · 18 ha",      "detail": "Autoconsumo compartido con cooperativa vecina. Gestión íntegra de subvención.", "kpis": [ { "v": "18",    "u": "hectáreas" },   { "v": "100",  "u": "% subvención" }, { "v": "0",    "u": "€ inversión" } ] }
     ]
   },
   "founder": {
-    "eyebrow":  "Conócenos",
-    "title":    "20 años construyendo un modelo energético más nuestro",
-    "role":     "Propósito",
-    "name":     "Carla Isarí Díaz Ortega, CEO y propietaria",
-    "body1":    "Creemos en la energía libre, aquella que nos brinda la naturaleza. Queremos transformarla y llevarla a quien le pertenece: a cada empresa y hogar del archipiélago canario.",
-    "quote":    "lidera ESC con más de 20 años de experiencia en el sector energético canario, convencida de que las islas pueden ser un referente mundial en transición energética insular.",
-    "link":     "Conoce más sobre nosotros"
+    "eyebrow":     "Liderazgo visible",
+    "name":        "Carla Isarí Díaz Ortega",
+    "role":        "CEO y propietaria · Energía Solar Canarias",
+    "credentials": "20 años en el sector energético canario",
+    "quote":       "Creemos en la energía libre, aquella que nos brinda la naturaleza. Queremos transformarla y llevarla a quien le pertenece: a cada empresa y hogar del archipiélago canario.",
+    "link":        "Conoce más sobre nosotros"
   },
   "testimonials": {
-    "eyebrow": "Clientes",
-    "title":   "Valoraciones de nuestros clientes",
-    "body":    "Cuando tus clientes son tu mejor carta de presentación, sabes que vas por buen camino.",
+    "eyebrow":   "Voces · Reseñas verificadas",
+    "title":     "Lo que dicen quienes ya operan con nosotros.",
+    "trustmark": "Reseñas verificadas en Google",
     "items": [
-      { "name": "Sofía Rubio",              "role": "Reseña de Google",              "quote": "Si buscas profesionalidad, calidad y confianza a largo plazo, sin duda ellos son los mejores. Un 10 sobre 10 la experiencia." },
-      { "name": "Miguel Ángel Sánchez",     "role": "Reseña de Google",              "quote": "Son buenos profesionales, trabajo rápido y limpio. Se ocuparon de todos los trámites. Aunque al principio tenía mis dudas sobre hacer la inversión, ahora estoy muy contento. Estoy cubriendo el consumo de la casa y del coche eléctrico." },
-      { "name": "Ton Pot",                  "role": "Reseña de Google",              "quote": "Muy satisfecho con la entrega, instalación y tramitación de la solicitud de subvención. El personal es muy amable y correcto." },
-      { "name": "Juan Monzón",              "role": "Reseña de Google",              "quote": "Esta empresa canaria me ha instalado los paneles solares con acumuladores. Rápidos, limpios, gestionan la documentación y el personal es muy profesional. Empresa muy recomendable." },
-      { "name": "Grancanarion",             "role": "Reseña de Google · Local Guide", "quote": "Funcionan perfectamente. Estudio solar completo y siempre atienden cualquier consulta. Ninguna queja. Tengo paneles desde hace 5 años y cualquier incidencia, pocas, te la solucionan en remoto." },
-      { "name": "Julio Rubio Robles",       "role": "Reseña de Google",              "quote": "Excelentes profesionales y siempre a disposición de la mejor solución para el cliente. Tremendamente satisfechos con todo el proceso y una garantía de calidad." }
+      { "name": "Sofía Rubio",          "role": "Reseña de Google",               "quote": "Si buscas profesionalidad, calidad y confianza a largo plazo, sin duda ellos son los mejores. Un 10 sobre 10 la experiencia." },
+      { "name": "Miguel Ángel Sánchez", "role": "Reseña de Google",               "quote": "Trabajo rápido y limpio. Se ocuparon de todos los trámites. Estoy cubriendo el consumo de la casa y del coche eléctrico." },
+      { "name": "Ton Pot",              "role": "Reseña de Google",               "quote": "Muy satisfecho con la entrega, instalación y tramitación de la solicitud de subvención. El personal es muy amable y correcto." },
+      { "name": "Juan Monzón",          "role": "Reseña de Google",               "quote": "Rápidos, limpios, gestionan la documentación y el personal es muy profesional. Empresa muy recomendable." },
+      { "name": "Grancanarion",         "role": "Reseña de Google · Local Guide", "quote": "Funcionan perfectamente. Estudio solar completo y siempre atienden cualquier consulta. Ninguna queja en 5 años." },
+      { "name": "Julio Rubio Robles",   "role": "Reseña de Google",               "quote": "Excelentes profesionales y siempre a disposición de la mejor solución para el cliente. Tremendamente satisfechos con todo el proceso." }
     ]
   },
   "cta": {
-    "title":   "Solicita tu auditoría gratuita",
-    "body":    "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente. Sin coste. Sin compromiso.",
-    "primary": "Solicita tu auditoría ↗",
-    "secondary":"Contacta con nosotros"
+    "title":     "Solicita tu auditoría energética gratuita",
+    "primary":   "Solicita tu auditoría ↗",
+    "secondary": "Contacta con nosotros",
+    "trust":     "Sin coste · Sin compromiso · Respuesta en 24h",
+    "signRole":  "Carla y el equipo · Energía Solar Canarias"
   }
 }

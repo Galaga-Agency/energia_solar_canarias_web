@@ -28,7 +28,7 @@ export function ScrollToTopButton() {
       aria-label="Volver al inicio"
       className={[
         'fixed bottom-6 right-6 z-50',
-        'w-11 h-11 rounded-full',
+        'w-11 h-11',
         'bg-primary text-text-on-primary',
         'flex items-center justify-center',
         'shadow-md',

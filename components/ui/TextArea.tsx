@@ -24,7 +24,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           required={required}
           aria-invalid={!!error}
           aria-describedby={errorId}
-          className="w-full py-3 px-4 border-[1.5px] border-border rounded-md bg-bg text-text font-sans text-base transition-[border-color] duration-150 ease-out focus:outline-none focus:border-primary aria-invalid:border-danger min-h-35 resize-y"
+          className="w-full py-3 px-4 border-[1.5px] border-border bg-bg text-text font-sans text-base transition-[border-color] duration-150 ease-out focus:outline-none focus:border-primary aria-invalid:border-danger min-h-35 resize-y"
           rows={5}
           ref={ref}
           {...props}

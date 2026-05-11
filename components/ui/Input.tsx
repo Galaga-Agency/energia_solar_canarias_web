@@ -27,7 +27,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           required={required}
           aria-invalid={!!error}
           aria-describedby={ariaDesc}
-          className="w-full py-3 px-4 border-[1.5px] border-border rounded-md bg-bg text-text font-sans text-base transition-[border-color] duration-150 ease-out focus:outline-none focus:border-primary aria-invalid:border-danger"
+          className="w-full py-3 px-4 border-[1.5px] border-border bg-bg text-text font-sans text-base transition-[border-color] duration-150 ease-out focus:outline-none focus:border-primary aria-invalid:border-danger"
           ref={ref}
           {...props}
         />

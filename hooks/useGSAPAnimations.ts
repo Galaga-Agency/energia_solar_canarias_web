@@ -1,7 +1,8 @@
 'use client'
 
+import { useContext } from 'react'
 import { gsap, useGSAP } from '@/lib/gsap'
-import { useAppReady }   from '@/hooks/useAppReady'
+import { AppReadyContext } from '@/contexts/AppReadyContext'
 
 export type AnimationInit = () => void | (() => void)
 
@@ -21,10 +22,12 @@ export function useGSAPAnimations(
   options: UseGSAPAnimationsOptions = {},
 ) {
   const { delay = 0, dependencies = [] } = options
-  const appReady = useAppReady()
+  const ctx0 = useContext(AppReadyContext)
+  if (!ctx0) throw new Error('useGSAPAnimations must be used inside AppReadyProvider')
+  const { loaderGone } = ctx0
 
   useGSAP(() => {
-    if (!appReady) return
+    if (!loaderGone) return
 
     const ctx = gsap.context(() => {
       const cleanupFns: (() => void)[] = []
@@ -50,7 +53,7 @@ export function useGSAPAnimations(
     })
 
     return () => ctx.revert()
-  }, [appReady, delay, ...dependencies])
+  }, [loaderGone, delay, ...dependencies])
 }
 
 const isSchedule = (value: unknown): value is AnimationSchedule =>

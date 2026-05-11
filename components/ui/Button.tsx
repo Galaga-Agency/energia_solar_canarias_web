@@ -21,20 +21,27 @@ interface AnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 type Props = ButtonProps | AnchorProps
 
-const BASE = 'inline-flex items-center justify-center gap-2 text-base font-normal font-sans leading-[1.1] tracking-[-0.02em] no-underline transition-[background-color,color,border-color,filter,box-shadow] duration-300 ease-out cursor-pointer whitespace-nowrap'
+const BASE =
+  'group inline-flex items-center justify-center gap-2.5 px-7 py-3.5 ' +
+  'text-base font-normal font-sans leading-none tracking-normal no-underline ' +
+  'rounded-none border whitespace-nowrap cursor-pointer ' +
+  'transition-[background-color,color,border-color] duration-300 ease-out ' +
+  '[&_[aria-hidden]]:inline-block [&_[aria-hidden]]:transition-transform ' +
+  '[&_[aria-hidden]]:duration-300 [&_[aria-hidden]]:ease-out ' +
+  'hover:[&_[aria-hidden]]:translate-x-1'
 
 const VARIANTS: Record<Variant, string> = {
   'filled':
-    'px-5 py-2 rounded-[8px] border-2 border-[#f49272] bg-[linear-gradient(160deg,#f07248_0%,#e4572c_55%,#c03820_100%)] text-text-on-primary btn-glow-orange ' +
-    'hover:bg-[linear-gradient(160deg,#ff8c5a_0%,#f05535_55%,#d04020_100%)] hover:border-[#ff9e82]',
+    'border-primary bg-primary text-text-on-primary ' +
+    'hover:bg-primary-hover hover:border-primary-hover',
   'outlined':
-    'px-5 py-2 rounded-[8px] border-2 border-primary text-primary bg-transparent btn-glow-orange-outline ' +
-    'hover:border-[#ff9e82] hover:text-primary',
+    'border-primary bg-transparent text-primary ' +
+    'hover:bg-primary hover:text-text-on-primary',
   'white-filled':
-    'px-5 py-2 rounded-[8px] border-2 border-[rgba(244,146,114,0.35)] bg-white text-primary btn-glow-warm ' +
-    'hover:border-[rgba(244,146,114,0.55)]',
+    'border-white bg-white text-primary ' +
+    'hover:bg-transparent hover:border-white hover:text-white',
   'green-dark':
-    'px-5 py-2 rounded-[8px] border-2 border-surface-dark bg-surface-dark text-text-on-dark btn-glow-dark ' +
+    'border-surface-dark bg-surface-dark text-text-on-dark ' +
     'hover:bg-surface-dark-2 hover:border-surface-dark-2',
 }
 

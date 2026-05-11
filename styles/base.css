@@ -3,16 +3,24 @@
 .text-display {
   font-size: var(--text-display);
   font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
   color: var(--color-ink);
 }
 
 .text-title {
-  font-size: var(--text-display);
+  font-size: var(--text-title);
   font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  color: var(--color-ink);
+}
+
+.text-stat {
+  font-size: var(--text-stat);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
   color: var(--color-ink);
 }
 
@@ -85,6 +93,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   width: 100%;
   max-width: 100%;
   overflow-x: clip;
@@ -136,7 +145,7 @@ select {
 /* ── Brand radius ─────────────────────────────────────────────────────────── */
 
 .brand-radius {
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 /* ── Card ghost number (decorative) ──────────────────────────────────────── */

@@ -11,7 +11,6 @@ import {
   FOOTER_BOTTOM_LINKS,
 } from '@/constants/footer.constants'
 import { TransitionLink } from '@/components/ui/TransitionLink'
-import { AnimatedBirdFlock } from '@/components/shared/AnimatedBirdFlock'
 import { FaInstagram, FaLinkedin } from '@/components/ui/Icons'
 
 const socialIconMap: Record<string, ElementType> = {
@@ -28,13 +27,11 @@ export function Footer() {
   ] as const
 
   return (
-    <footer
-      className="relative isolate overflow-hidden bg-surface-dark text-white"
-      data-footer-bird-flock-stage
-      data-bird-flock-stage
-    >
-      <AnimatedBirdFlock className="absolute inset-0 h-full w-full opacity-100" />
-
+    <footer className="relative isolate overflow-hidden bg-[#1f3a34] text-white">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-35 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center"
+      />
       <div className="section-inner section-spacing-both relative z-10 pt-16 pb-10 md:pt-20 md:pb-12">
         <div className="grid gap-12 border-b border-white/18 pb-14 md:grid-cols-[120px_minmax(0,1fr)_minmax(0,0.9fr)_minmax(0,0.9fr)_minmax(280px,1.35fr)] md:gap-x-8 lg:gap-x-14">
           <div className="pt-1">
@@ -89,7 +86,7 @@ export function Footer() {
 
               <button
                 type="submit"
-                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/18 px-5 text-base font-medium text-white transition-colors hover:border-white/30 hover:bg-white/6"
+                className="inline-flex min-h-12 items-center justify-center border border-white/18 px-5 text-base font-medium text-white transition-colors hover:border-white/30 hover:bg-white/6"
               >
                 {t('footer.send')}
               </button>

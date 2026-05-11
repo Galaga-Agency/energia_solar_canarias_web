@@ -1,60 +1,47 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
-const IMAGES = [
-  { src: '/assets/images/home/solar-panel-laptop-workspace.webp',            alt: 'Persona trabajando con paneles solares' },
-  { src: '/assets/images/home/solar-engineers-inspecting-installation.webp', alt: 'Ingenieros inspeccionando instalación solar' },
-  { src: '/assets/images/home/solar-panel-planning-meeting.webp',            alt: 'Reunión de planificación de proyecto solar' },
-  { src: '/assets/images/home/aerial-coastal-neighborhood.webp',             alt: 'Vista aérea de barrio costero en Canarias' },
-]
-
 export function HomeBeneficios() {
-  const t = useTranslations('home.benefits')
-  const items = t.raw('items') as { label: string; desc: string }[]
+  const t     = useTranslations('home.benefits')
+  const items = t.raw('items') as { num: string; label: string; desc: string }[]
 
   return (
-    <section className="section-spacing relative z-20" data-home-panel-end>
-      <div className="section-inner">
-        <div className="mx-auto mb-8 max-w-2xl text-center sm:mb-10" data-reveal>
-          <span className="text-label text-primary! block mb-2">{t('eyebrow')}</span>
-          <h2 className="text-title">{t('title')}</h2>
-          <p className="text-body mt-4">
-            {t('body')}
-          </p>
-        </div>
-
-        <div className="mx-auto max-w-5xl" data-reveal>
-          <div className="divide-y divide-border/80 border-y border-border/80">
-            {items.map((item, i) => (
-              <article
-                key={item.label}
-                className="grid grid-cols-1 gap-4 py-5 sm:grid-cols-[minmax(0,1fr)_10rem] sm:items-center sm:gap-6 sm:py-6 lg:grid-cols-[minmax(0,1fr)_13rem] lg:gap-8"
-              >
-                <div className="min-w-0">
-                  <h3 className="card-title text-[1.15rem] leading-[1.06] tracking-[-0.03em] sm:text-[1.25rem] lg:text-[1.35rem]">
-                    {item.label}
-                  </h3>
-                  <p className="text-body mt-2 max-w-2xl text-[0.94rem] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[12px] bg-[rgba(18,28,24,0.06)]">
-                  <Image
-                    src={IMAGES[i % IMAGES.length].src}
-                    alt={IMAGES[i % IMAGES.length].alt}
-                    fill
-                    className="object-cover transition-transform duration-700"
-                    sizes="(min-width: 1024px) 13rem, (min-width: 640px) 10rem, 100vw"
-                  />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-black/6" />
-                </div>
-              </article>
-            ))}
+    <section className="section-spacing relative isolate overflow-hidden">
+      <div className="section-inner relative z-10">
+        <div className="mb-20 grid grid-cols-1 gap-8 md:grid-cols-12 md:items-end md:gap-12" data-reveal>
+          <div className="md:col-span-7">
+            <span className="text-label text-primary! mb-4 block">{t('eyebrow')}</span>
+            <h2 className="text-title max-w-[24ch]">{t('title')}</h2>
           </div>
+          <span className="font-mono text-[12px] uppercase tracking-[0.22em] text-ink/45 md:col-span-5 md:justify-self-end md:text-right">
+            Un socio energético
+          </span>
         </div>
+
+        <ul data-reveal>
+          {items.map((item) => (
+            <li
+              key={item.label}
+              className="group grid grid-cols-1 items-start gap-x-12 gap-y-3 border-t border-[#d8cbb5]/55 py-10 transition-[padding] duration-500 ease-out last:border-b last:border-[#d8cbb5]/55 md:grid-cols-[1fr_2fr_auto] md:py-12 md:hover:pl-3"
+            >
+              <h3 className="self-center text-[clamp(1.2rem,1.8vw,1.6rem)] leading-[1.15] tracking-[-0.018em] text-ink">
+                {item.label}
+              </h3>
+
+              <p className="max-w-[58ch] text-[clamp(0.98rem,1.2vw,1.1rem)] leading-relaxed text-ink/65">
+                {item.desc}
+              </p>
+
+              <span
+                aria-hidden
+                className="hidden self-center justify-self-end font-mono text-[18px] text-ink/35 transition-[transform,color] duration-300 group-hover:translate-x-1 group-hover:text-primary md:block"
+              >
+                ↗
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

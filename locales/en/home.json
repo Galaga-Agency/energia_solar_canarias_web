@@ -1,111 +1,102 @@
 {
   "hero": {
     "eyebrow": "Certified installers in the Canary Islands",
-    "title": "Your renewable energy, built to last",
-    "body": "We believe energy is free — given to us by nature. We transform it and bring it to where it belongs: every business and home across the Canary Islands.",
-    "cta1": "Request your free audit ↗",
-    "cta2": "See solutions"
+    "title":   "We design your energy independence",
+    "body":    "The local energy partner of reference for Canarian companies. Audit, grants, installation and maintenance.",
+    "cta1":    "Request your audit",
+    "cta2":    "Why choose us",
+    "scroll":  "Scroll"
   },
-  "solutions": {
-    "eyebrow": "Solutions",
-    "title": "Energy adapted to how your business operates",
-    "link": "See all solutions →",
-    "empresas": {
-      "label": "Businesses",
-      "desc": "We reduce your company's energy bill and give you full control over your consumption.",
-      "title": "Full control over your energy bill"
-    },
-    "instalaciones": {
-      "label": "Industrial facilities",
-      "desc": "We design large-scale systems for warehouses, factories and tertiary sector infrastructure.",
-      "title": "Large-scale infrastructure for your sector"
-    },
-    "hogares": {
-      "label": "Homes",
-      "desc": "Residential installations adapted to the Canarian climate, with return on investment in under 7 years.",
-      "title": "Return on investment in under 7 years"
-    },
-    "body": "We analyse, size and integrate every system to improve efficiency, reduce costs and bring stability to your business.",
-    "cta": "Explore our solutions"
-  },
-  "benefits": {
-    "eyebrow": "Why choose us",
-    "title": "Power your business with smart energy decisions",
-    "body": "Our team combines local technical expertise with strategic vision to deliver solutions that truly work in the Canary Islands.",
-    "items": [
-      {
-        "label": "Proven savings",
-        "desc": "Average 40% reduction in energy bills from the first month."
-      },
-      {
-        "label": "Technical rigour",
-        "desc": "Certified engineers with specific experience in the archipelago."
-      },
-      {
-        "label": "Long-term vision",
-        "desc": "We project your real return on investment before you commit to anything."
-      },
-      {
-        "label": "Local knowledge",
-        "desc": "We understand Canarian regulations, the island climate and its particularities."
-      }
-    ]
-  },
-  "projects": {
-    "title": "Companies that have taken control of their energy",
-    "body": "We have guided companies from different sectors in their transition to more efficient and sustainable energy in the Canarian archipelago.",
-    "cta": "See our projects"
+  "manifesto": {
+    "eyebrow":   "Manifesto",
+    "statement": "Light as origin, balance as system, and energy as order.",
+    "note":      "We design the energy independence of the businesses that hold the Canary Islands together.",
+    "label":     "Energía Solar Canarias"
   },
   "stats": {
-    "eyebrow": "The numbers speak for themselves",
-    "quote": "The energy you consume today defines the company you will be tomorrow.",
+    "eyebrow": "Energy in operation",
+    "title":   "Twenty years reshaping the energy bill of the archipelago.",
     "items": [
-      {
-        "value": "40",
-        "suffix": "%",
-        "label": "Average cost reduction",
-        "desc": "Our clients reduce their energy bill by an average of 40% from the first year of operation."
-      },
-      {
-        "value": "120",
-        "suffix": "+",
-        "label": "Completed projects",
-        "desc": "Over 120 installations in the Canary Islands with proven return on investment."
-      },
-      {
-        "value": "6.8",
-        "suffix": "",
-        "label": "Average payback period",
-        "desc": "Recover your investment in under 7 years on average, with equipment that lasts 25."
-      }
+      { "value": "20",  "suffix": "+", "label": "Years",         "body": "operating across the Canary Islands" },
+      { "value": "120", "suffix": "+", "label": "Projects",      "body": "completed across the archipelago" },
+      { "value": "40",  "suffix": "%", "label": "Average savings", "body": "on the energy bill" },
+      { "value": "6.8", "suffix": "",  "label": "Years",         "body": "average payback period" }
+    ]
+  },
+  "benefits": {
+    "eyebrow": "Why ESC",
+    "title":   "The energy partner that understands the islands.",
+    "items": [
+      { "num": "01", "label": "We know the territory",     "desc": "Over two decades operating in the archipelago. We understand its climate, its regulations and its particularities like no outsider can." },
+      { "num": "02", "label": "We manage everything",      "desc": "From the energy diagnosis to the grant, the installation and the maintenance. A single point of contact, zero friction." },
+      { "num": "03", "label": "We simplify the decision",  "desc": "We give you certainty before you commit. Feasibility study, financial scenarios and real timelines from day one." },
+      { "num": "04", "label": "We're always there",        "desc": "Continuous support, monitoring and reporting. We're not a one-off supplier: we're your long-term energy partner." }
+    ]
+  },
+  "sectores": {
+    "eyebrow": "Sectors",
+    "title":   "Every sector demands a different energy.",
+    "body":    "We design energy architectures tailored to the operations that sustain the Canarian economy.",
+    "cta":     "See all B2B solutions",
+    "items": [
+      { "key": "hoteles",   "label": "Hotels",       "title": "Energy that protects the guest experience",   "desc": "Large-scale rooftops, storage and critical maintenance. Zero operational downtime.",          "metric": "Up to 45% lower cost per room·year" },
+      { "key": "industria", "label": "Industry",     "title": "Production lines shielded from price swings", "desc": "Warehouses, industrial cooling, HVAC. Sized to real peak demand.",                            "metric": "Average ROI < 6 years" },
+      { "key": "retail",    "label": "Retail",       "title": "Distributed operations, unified billing",      "desc": "Multi-store, multi-island. Centralized monitoring and financial reporting per point of sale.", "metric": "Structural savings in the P&L" },
+      { "key": "agro",      "label": "Agribusiness", "title": "Pumping, irrigation and cooling, self-powered", "desc": "Shared self-consumption, storage and full grant management for the agricultural sector.",    "metric": "Sector-specific grants handled" }
+    ],
+    "hogares": {
+      "label": "Homes too",
+      "title": "Canarian residential with payback under 7 years.",
+      "body":  "Domestic installations sized to island climate and tariffs. The free energy that belongs to you, too.",
+      "cta":   "See home solutions →"
+    }
+  },
+  "proceso": {
+    "eyebrow": "How we work",
+    "title":   "A single point of contact, from the first kilowatt to the last report.",
+    "items": [
+      { "num": "01", "title": "Diagnosis",     "body": "Consumption audit, return simulation and generation plan by island and sector." },
+      { "num": "02", "title": "Grants",        "body": "We fully manage the grant application process. A complex journey we make simple for you." },
+      { "num": "03", "title": "Installation",  "body": "Local team, committed deadlines. Zero operational downtime." },
+      { "num": "04", "title": "Maintenance",   "body": "Continuous monitoring, scheduled reviews, periodic reporting. Your installation, always under control." }
+    ]
+  },
+  "casos": {
+    "eyebrow": "Case studies",
+    "title":   "Energy already in operation.",
+    "cta":     "All projects",
+    "items": [
+      { "tag": "Hotel · South Tenerife",    "title": "4,200 m² rooftop",       "detail": "35% grant managed in 11 weeks. Zero downtime.",                      "kpis": [ { "v": "4,200", "u": "m² rooftop" }, { "v": "35",   "u": "% grant" },   { "v": "11",   "u": "weeks" } ] },
+      { "tag": "Industry · Arinaga Park",   "title": "450 kWp + storage",      "detail": "24/7 monitoring. Cost-per-kWh reduced by over 40%.",                  "kpis": [ { "v": "450",   "u": "kWp" },        { "v": "40",   "u": "% saved" },   { "v": "24/7", "u": "monitoring" } ] },
+      { "tag": "Agro · Gáldar",             "title": "Solar pumping · 18 ha",  "detail": "Shared self-consumption with neighbouring cooperative. Full grant management.", "kpis": [ { "v": "18",    "u": "hectares" },   { "v": "100",  "u": "% grant" },   { "v": "0",    "u": "€ outlay" } ] }
     ]
   },
   "founder": {
-    "eyebrow": "About us",
-    "title": "20 years building a more sustainable energy model",
-    "role": "Purpose",
-    "name": "Carla Isarí Díaz Ortega, CEO & Owner",
-    "body1": "We believe energy is free — given by nature, meant for all. Our mission is to transform it and bring it to where it belongs: every business and home across the Canarian archipelago.",
-    "quote": "leads ESC with over 20 years of experience in the Canarian energy sector, convinced that the islands can become a world reference in island energy transition.",
-    "link": "Learn more about us"
+    "eyebrow":     "Visible leadership",
+    "name":        "Carla Isarí Díaz Ortega",
+    "role":        "CEO & Owner · Energía Solar Canarias",
+    "credentials": "20 years in the Canarian energy sector",
+    "quote":       "We believe energy is free — given by nature, meant for all. Our mission is to transform it and bring it to where it belongs: every business and home across the Canarian archipelago.",
+    "link":        "Learn more about us"
   },
   "testimonials": {
-    "eyebrow": "Clients",
-    "title": "What our clients say",
-    "body": "When your clients are your best business card, you know you're on the right track.",
+    "eyebrow":   "Voices · Verified reviews",
+    "title":     "What those already operating with us say.",
+    "trustmark": "Reviews verified on Google",
     "items": [
-      { "name": "Sofía Rubio",              "role": "Google Review",              "quote": "If you're looking for professionalism, quality and long-term trust, they are without doubt the best. A 10 out of 10 experience." },
-      { "name": "Miguel Ángel Sánchez",     "role": "Google Review",              "quote": "Great professionals — fast, clean work. They handled all the paperwork. I had doubts about the investment at first, but now I'm very happy. I'm covering the consumption of my home and my electric car." },
-      { "name": "Ton Pot",                  "role": "Google Review",              "quote": "Very satisfied with the delivery, installation and grant application process. The staff are friendly and professional." },
-      { "name": "Juan Monzón",              "role": "Google Review",              "quote": "This Canarian company installed my solar panels with storage batteries. Fast, clean, they handle all the paperwork and the staff are very professional. Highly recommended." },
-      { "name": "Grancanarion",             "role": "Google Review · Local Guide", "quote": "Works perfectly. Full solar study and they always respond to any query. No complaints at all. I've had panels for 5 years and on the rare occasion there's an issue, they sort it remotely." },
-      { "name": "Julio Rubio Robles",       "role": "Google Review",              "quote": "Excellent professionals, always focused on the best solution for the client. Tremendously satisfied with the whole process and a real guarantee of quality." }
+      { "name": "Sofía Rubio",          "role": "Google review",               "quote": "If you're looking for professionalism, quality and long-term trust, they are without doubt the best. A 10 out of 10 experience." },
+      { "name": "Miguel Ángel Sánchez", "role": "Google review",               "quote": "Fast, clean work. They handled all the paperwork. I'm covering the consumption of my home and my electric car." },
+      { "name": "Ton Pot",              "role": "Google review",               "quote": "Very satisfied with the delivery, installation and grant application process. The staff are friendly and professional." },
+      { "name": "Juan Monzón",          "role": "Google review",               "quote": "Fast, clean, they handle all the paperwork and the staff are very professional. Highly recommended." },
+      { "name": "Grancanarion",         "role": "Google review · Local Guide", "quote": "Works perfectly. Full solar study and they always respond to any query. No complaints in 5 years." },
+      { "name": "Julio Rubio Robles",   "role": "Google review",               "quote": "Excellent professionals, always focused on the best solution for the client. Tremendously satisfied with the whole process." }
     ]
   },
   "cta": {
-    "title": "Request your free energy audit",
-    "body": "Discover how to optimise your consumption and move towards a more efficient energy model. No cost. No commitment.",
-    "primary": "Request your audit ↗",
-    "secondary": "Contact us"
+    "title":     "Request your free energy audit",
+    "primary":   "Request your audit ↗",
+    "secondary": "Contact us",
+    "trust":     "No cost · No commitment · Reply within 24h",
+    "signRole":  "Carla & the team · Energía Solar Canarias"
   }
 }
