@@ -59,14 +59,14 @@ export function initStatsRevealAnimation(): () => void {
     }, '-=0.5')
   }
 
+  const statsStartAt = tl.duration() - 0.45
+
   tl.to(stats, {
     opacity: 1, y: 0,
     duration: 0.65,
     stagger: 0.15,
     ease: 'power3.out',
   }, '-=0.45')
-
-  const statsStartAt = tl.recent().startTime()
 
   values.forEach((el, i) => {
     const target  = el.getAttribute('data-target') || '0'
