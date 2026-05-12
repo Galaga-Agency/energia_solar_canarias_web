@@ -6,8 +6,7 @@ interface MenuToggleProps {
   heroMode?: boolean
 }
 
-export function MenuToggle({ open, onToggle, heroMode }: MenuToggleProps) {
-  const barColor = open ? 'bg-(--color-ink)' : heroMode ? 'bg-(--color-bg)' : 'bg-(--color-primary)'
+export function MenuToggle({ open, onToggle }: MenuToggleProps) {
   return (
     <button
       type="button"
@@ -15,26 +14,22 @@ export function MenuToggle({ open, onToggle, heroMode }: MenuToggleProps) {
       aria-expanded={open}
       aria-controls="mobile-menu"
       onClick={onToggle}
-      className={`ml-auto flex h-11 w-11 items-center justify-center rounded-full transition-all duration-200 lg:hidden ${
-        open
-          ? 'bg-(--color-bg) border border-(--color-border)'
-          : 'bg-white/6 backdrop-blur-sm'
-      }`}
+      className="ml-auto flex h-11 w-11 items-center justify-center bg-transparent transition-colors duration-200 lg:hidden"
     >
       <span className="relative block h-4.5 w-5">
         <span
-          className={`absolute left-0 top-1/2 block h-0.5 w-5 rounded-full transition-all duration-300 ${
-            open ? 'translate-y-0 rotate-45 bg-(--color-ink)' : '-translate-y-1.5 bg-(--color-primary)'
+          className={`absolute left-0 top-1/2 block h-0.5 w-5 transition-all duration-300 ${
+            open ? 'translate-y-0 rotate-45 bg-(--color-primary)' : '-translate-y-1.5 bg-(--color-primary)'
           }`}
         />
         <span
-          className={`absolute left-0 top-1/2 block h-0.5 rounded-full transition-all duration-300 ${
+          className={`absolute left-0 top-1/2 block h-0.5 transition-all duration-300 ${
             open ? 'w-0 opacity-0' : 'w-5 -translate-y-1/2 bg-(--color-primary)'
           }`}
         />
         <span
-          className={`absolute left-0 top-1/2 block h-0.5 w-5 rounded-full transition-all duration-300 ${
-            open ? 'translate-y-0 -rotate-45 bg-(--color-ink)' : 'translate-y-1.25 bg-(--color-primary)'
+          className={`absolute left-0 top-1/2 block h-0.5 w-5 transition-all duration-300 ${
+            open ? 'translate-y-0 -rotate-45 bg-(--color-primary)' : 'translate-y-1.25 bg-(--color-primary)'
           }`}
         />
       </span>

@@ -8,11 +8,7 @@ export function HomeFounder() {
   const t = useTranslations('home.founder')
 
   return (
-    <section data-founder-section className="section-spacing relative isolate overflow-hidden bg-[#ece7db]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-35 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center"
-      />
+    <section data-founder-section className="section-spacing relative overflow-hidden">
       <div className="section-inner relative z-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:items-stretch md:gap-16 lg:gap-20">
           <div className="relative order-2 flex flex-col gap-10 md:order-1 md:col-span-7 md:py-4">
@@ -25,12 +21,11 @@ export function HomeFounder() {
               >
                 “
               </span>
-              <p data-founder-item className="relative text-title max-w-[26ch] italic">
+              <p data-founder-quote className="relative text-title max-w-[26ch] italic">
                 {t('quote')}
               </p>
 
               <div data-founder-item className="flex items-start gap-5">
-                <span className="mt-3 block h-px w-12 shrink-0 bg-ink/25" />
                 <div className="flex flex-col gap-2">
                   <cite className="not-italic">
                     <span className="font-mono text-[13px] uppercase tracking-[0.22em] text-ink">
@@ -53,7 +48,13 @@ export function HomeFounder() {
           </div>
 
           <div className="relative order-1 md:order-2 md:col-span-5" data-founder-portrait>
-            <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-full">
+            <span
+              aria-hidden
+              data-founder-frame
+              className="pointer-events-none absolute inset-0 z-0 bg-[#1f3a34]"
+            />
+
+            <div className="relative z-10 aspect-[4/5] overflow-hidden md:aspect-auto md:h-full">
               <Image
                 src="/assets/images/home/carla-portrait.webp"
                 alt={t('name')}
@@ -70,7 +71,7 @@ export function HomeFounder() {
             <span
               data-founder-stamp
               aria-hidden
-              className="absolute right-4 top-4 font-mono text-[12px] uppercase tracking-[0.24em] text-[#f4f1ea]/85 md:right-6 md:top-6"
+              className="absolute right-4 top-4 z-20 font-mono text-[12px] uppercase tracking-[0.24em] text-[#f4f1ea]/85 md:right-6 md:top-6"
             >
               CEO · ESC · 2026
             </span>

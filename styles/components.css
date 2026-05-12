@@ -32,6 +32,15 @@
   box-shadow: 0 4px 24px rgba(18, 28, 24, 0.05);
 }
 
+@media (max-width: 1023px) {
+  .navbar-shell.navbar-shell--menu-open {
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+}
+
 .navbar-desktop {
   position: absolute;
   left: 50%;

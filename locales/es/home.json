@@ -2,6 +2,7 @@
   "hero": {
     "eyebrow":  "Instaladores certificados en Canarias",
     "title":    "Diseñamos tu independencia energética",
+    "titleEm":  "independencia",
     "body":     "El socio energético local de referencia para empresas canarias. Auditoría, subvención, instalación y mantenimiento.",
     "cta1":     "Solicita tu auditoría",
     "cta2":     "Por qué elegirnos",
@@ -23,14 +24,35 @@
       { "value": "6,8", "suffix": "",  "label": "Años",         "body": "retorno medio de inversión" }
     ]
   },
+  "bridge": {
+    "eyebrow": "→ Soluciones",
+    "lines": [
+      { "t": "Del " },
+      { "t": "por qué", "h": true },
+      { "t": ", al " },
+      { "t": "cómo", "h": true },
+      { "t": "." }
+    ]
+  },
   "benefits": {
     "eyebrow": "Por qué ESC",
     "title":   "El socio energético que entiende las islas.",
     "items": [
-      { "num": "01", "label": "Conocemos el territorio",  "desc": "Más de dos décadas operando en el archipiélago. Entendemos su clima, su normativa y sus particularidades como nadie fuera puede hacerlo." },
-      { "num": "02", "label": "Gestionamos todo",          "desc": "Del diagnóstico energético a la subvención, la instalación y el mantenimiento. Una sola interlocución, sin fricción." },
-      { "num": "03", "label": "Simplificamos la decisión", "desc": "Te damos certeza antes de comprometerte. Estudio de viabilidad, escenarios financieros y plazos reales desde el primer día." },
-      { "num": "04", "label": "Acompañamos siempre",       "desc": "Soporte continuo, monitorización y reporting. No somos un proveedor puntual: somos tu socio energético a largo plazo." }
+      { "keyword": "Territorio", "label": "Conocemos el territorio",   "desc": "Más de dos décadas operando en el archipiélago. Entendemos su clima, su normativa y sus particularidades como nadie fuera puede hacerlo." },
+      { "keyword": "Gestión",    "label": "Gestionamos todo",          "desc": "Del diagnóstico energético a la subvención, la instalación y el mantenimiento. Una sola interlocución, sin fricción." },
+      { "keyword": "Certeza",    "label": "Simplificamos la decisión", "desc": "Te damos certeza antes de comprometerte. Estudio de viabilidad, escenarios financieros y plazos reales desde el primer día." },
+      { "keyword": "Contigo",    "label": "Acompañamos siempre",       "desc": "Soporte continuo, monitorización y reporting. No somos un proveedor puntual: somos tu socio energético a largo plazo." }
+    ],
+    "manifesto": [
+      { "t": "Conocemos el " },
+      { "t": "territorio", "h": true },
+      { "t": " como nadie. Llevamos más de dos décadas en el archipiélago — su clima, su normativa, sus particularidades. " },
+      { "t": "Gestionamos todo", "h": true },
+      { "t": " de principio a fin: diagnóstico, subvención, instalación y mantenimiento. Una sola interlocución, sin fricción. Te damos " },
+      { "t": "certeza", "h": true },
+      { "t": " antes de comprometerte, con estudios de viabilidad y plazos reales. Y seguimos " },
+      { "t": "contigo", "h": true },
+      { "t": " siempre. No somos un proveedor: somos tu socio energético a largo plazo." }
     ]
   },
   "sectores": {
@@ -62,9 +84,10 @@
     ]
   },
   "casos": {
-    "eyebrow": "Casos",
-    "title":   "Energía ya en marcha.",
-    "cta":     "Todos los proyectos",
+    "eyebrow":  "Casos",
+    "title":    "Energía ya en marcha.",
+    "subtitle": "Una selección de instalaciones en operación a través del archipiélago — resultados medibles, plazos cumplidos, subvenciones gestionadas.",
+    "cta":      "Todos los proyectos",
     "items": [
       { "tag": "Hotel · Sur de Tenerife",       "title": "Cubierta de 4.200 m²",      "detail": "Subvención del 35% gestionada en 11 semanas. Sin parada operativa.",          "kpis": [ { "v": "4.200", "u": "m² cubierta" }, { "v": "35",   "u": "% subvención" }, { "v": "11",   "u": "semanas" } ] },
       { "tag": "Industria · Polígono Arinaga",  "title": "450 kWp + almacenamiento",  "detail": "Monitorización 24/7. Caída del coste por kWh superior al 40%.",                "kpis": [ { "v": "450",   "u": "kWp" },        { "v": "40",   "u": "% ahorro" },     { "v": "24/7", "u": "monitorización" } ] },

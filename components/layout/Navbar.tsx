@@ -42,10 +42,10 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
   return (
     <header
       style={{ height: "72px" }}
-      className="lg:fixed lg:inset-x-0 lg:top-0 lg:z-70"
+      className="relative z-80 lg:fixed lg:inset-x-0 lg:top-0 lg:z-70"
     >
       <div
-        className={`relative navbar-shell navbar-shell-layout flex h-[72px] items-center gap-4 px-[clamp(1.5rem,5vw,4rem)] ${transparent ? "navbar-shell--hero" : "navbar-shell--scrolled"}`}
+        className={`relative navbar-shell navbar-shell-layout flex h-[72px] items-center gap-4 px-[clamp(1.5rem,5vw,4rem)] ${transparent ? "navbar-shell--hero" : "navbar-shell--scrolled"} ${mobileMenuOpen ? "navbar-shell--menu-open" : ""}`}
       >
         <TransitionLink
           href="/"
@@ -126,7 +126,11 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
           </div>
         </div>
 
-        <div className="lg:hidden ml-auto">
+        <div
+          className={`right-4 top-4 lg:hidden ${
+            mobileMenuOpen ? "fixed z-[90]" : "absolute"
+          }`}
+        >
           <MenuToggle
             open={mobileMenuOpen}
             onToggle={onMobileMenuToggle}

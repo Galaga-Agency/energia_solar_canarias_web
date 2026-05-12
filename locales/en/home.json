@@ -2,6 +2,7 @@
   "hero": {
     "eyebrow": "Certified installers in the Canary Islands",
     "title":   "We design your energy independence",
+    "titleEm": "independence",
     "body":    "The local energy partner of reference for Canarian companies. Audit, grants, installation and maintenance.",
     "cta1":    "Request your audit",
     "cta2":    "Why choose us",
@@ -23,14 +24,35 @@
       { "value": "6.8", "suffix": "",  "label": "Years",         "body": "average payback period" }
     ]
   },
+  "bridge": {
+    "eyebrow": "→ Solutions",
+    "lines": [
+      { "t": "From the " },
+      { "t": "why", "h": true },
+      { "t": ", to the " },
+      { "t": "how", "h": true },
+      { "t": "." }
+    ]
+  },
   "benefits": {
     "eyebrow": "Why ESC",
     "title":   "The energy partner that understands the islands.",
     "items": [
-      { "num": "01", "label": "We know the territory",     "desc": "Over two decades operating in the archipelago. We understand its climate, its regulations and its particularities like no outsider can." },
-      { "num": "02", "label": "We manage everything",      "desc": "From the energy diagnosis to the grant, the installation and the maintenance. A single point of contact, zero friction." },
-      { "num": "03", "label": "We simplify the decision",  "desc": "We give you certainty before you commit. Feasibility study, financial scenarios and real timelines from day one." },
-      { "num": "04", "label": "We're always there",        "desc": "Continuous support, monitoring and reporting. We're not a one-off supplier: we're your long-term energy partner." }
+      { "keyword": "Territory",  "label": "We know the territory",     "desc": "Over two decades operating in the archipelago. We understand its climate, its regulations and its particularities like no outsider can." },
+      { "keyword": "End-to-end", "label": "We manage everything",      "desc": "From the energy diagnosis to the grant, the installation and the maintenance. A single point of contact, zero friction." },
+      { "keyword": "Certainty",  "label": "We simplify the decision",  "desc": "We give you certainty before you commit. Feasibility study, financial scenarios and real timelines from day one." },
+      { "keyword": "Together",   "label": "We're always there",        "desc": "Continuous support, monitoring and reporting. We're not a one-off supplier: we're your long-term energy partner." }
+    ],
+    "manifesto": [
+      { "t": "We know the " },
+      { "t": "territory", "h": true },
+      { "t": " like no outsider can. Two decades in the archipelago — its climate, its rules, its quirks. We " },
+      { "t": "manage everything", "h": true },
+      { "t": " end to end: diagnosis, grants, installation, maintenance. A single point of contact, zero friction. We give you " },
+      { "t": "certainty", "h": true },
+      { "t": " before you commit, with real feasibility studies and timelines. And we stay " },
+      { "t": "with you", "h": true },
+      { "t": ". Always. Not a one-off supplier — your long-term energy partner." }
     ]
   },
   "sectores": {
@@ -62,9 +84,10 @@
     ]
   },
   "casos": {
-    "eyebrow": "Case studies",
-    "title":   "Energy already in operation.",
-    "cta":     "All projects",
+    "eyebrow":  "Case studies",
+    "title":    "Energy already in operation.",
+    "subtitle": "A selection of installations operating across the archipelago — measurable results, deadlines met, grants secured.",
+    "cta":      "All projects",
     "items": [
       { "tag": "Hotel · South Tenerife",    "title": "4,200 m² rooftop",       "detail": "35% grant managed in 11 weeks. Zero downtime.",                      "kpis": [ { "v": "4,200", "u": "m² rooftop" }, { "v": "35",   "u": "% grant" },   { "v": "11",   "u": "weeks" } ] },
       { "tag": "Industry · Arinaga Park",   "title": "450 kWp + storage",      "detail": "24/7 monitoring. Cost-per-kWh reduced by over 40%.",                  "kpis": [ { "v": "450",   "u": "kWp" },        { "v": "40",   "u": "% saved" },   { "v": "24/7", "u": "monitoring" } ] },

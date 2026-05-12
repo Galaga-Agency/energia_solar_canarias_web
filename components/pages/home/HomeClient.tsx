@@ -12,6 +12,9 @@ import { initSolucionCardsAnimation } from "@/utils/animations/solucion-cards";
 import { initStatsRevealAnimation } from "@/utils/animations/stats-reveal";
 import { initProcesoTimelineAnimation } from "@/utils/animations/proceso-timeline";
 import { initCtaRevealAnimation } from "@/utils/animations/cta-reveal";
+import { initBeneficiosListAnimation } from "@/utils/animations/beneficios-list";
+import { initFounderFrameAnimation } from "@/utils/animations/founder-frame";
+import { initProyectosCardsAnimation } from "@/utils/animations/proyectos-cards";
 import { initHero2Animations } from "@/utils/animations/hero2-layers";
 import { HomeHero2 } from "./HomeHero2";
 import { HomeManifestoStrip } from "./HomeManifestoStrip";
@@ -57,13 +60,22 @@ export function HomeClient() {
       initStatsRevealAnimation,
       initProcesoTimelineAnimation,
       initCtaRevealAnimation,
+      initBeneficiosListAnimation,
+      initFounderFrameAnimation,
+      initProyectosCardsAnimation,
     ],
   }));
 
   return (
     <>
-      <HomeHero2 />
-      <HomeManifestoStrip />
+      <div className="relative isolate">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-30 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
+        />
+        <HomeHero2 />
+        <HomeManifestoStrip />
+      </div>
       <HomeStats />
       <div className="relative bg-[#f4f1ea]">
         <MouseReactiveFlock
@@ -74,14 +86,18 @@ export function HomeClient() {
         <HomeSoluciones />
       </div>
       <HomeProceso />
-      <div className="relative bg-[#f4f1ea]">
+      <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
+        />
         <MouseReactiveFlock
           className="pointer-events-none absolute inset-0 h-full w-full"
           birds={flockBirds.bottom}
         />
         <HomeProyectos />
+        <HomeFounder />
       </div>
-      <HomeFounder />
       <HomeTestimonials />
       <HomeCTA />
     </>
