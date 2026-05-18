@@ -10,17 +10,13 @@ import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
 import { initHeroAnimations }        from '@/utils/animations/hero-animations'
 import { initDrawArrowAnimation }    from '@/utils/animations/draw-arrow'
 import { initScrollRevealSections }  from '@/utils/animations/scroll-reveal'
-import { initProcessStepsAnimation } from '@/utils/animations/process-steps'
 import { initFAQAccordion }          from '@/utils/animations/faq-accordion'
 
-const SolucionesPainPoints     = dynamic(() => import('./SolucionesPainPoints').then(m => m.SolucionesPainPoints))
-const SolucionesQuote          = dynamic(() => import('./SolucionesQuote').then(m => m.SolucionesQuote))
-const SolucionesDifferentiator = dynamic(() => import('./SolucionesDifferentiator').then(m => m.SolucionesDifferentiator))
-const SolucionesProcess        = dynamic(() => import('./SolucionesProcess').then(m => m.SolucionesProcess))
-const SolucionesGuarantees     = dynamic(() => import('./SolucionesGuarantees').then(m => m.SolucionesGuarantees))
-const ClientsMarquee           = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
-const FAQAccordion             = dynamic(() => import('@/components/shared/FAQAccordion').then(m => m.FAQAccordion), { ssr: false })
-const CTABanner                = dynamic(() => import('@/components/shared/CTABanner').then(m => m.CTABanner), { ssr: false })
+const SolucionesQuote      = dynamic(() => import('./SolucionesQuote').then(m => m.SolucionesQuote))
+const SolucionesGuarantees = dynamic(() => import('./SolucionesGuarantees').then(m => m.SolucionesGuarantees))
+const SolucionesFAQ        = dynamic(() => import('./SolucionesFAQ').then(m => m.SolucionesFAQ), { ssr: false })
+const SolucionesCTA        = dynamic(() => import('./SolucionesCTA').then(m => m.SolucionesCTA), { ssr: false })
+const ClientsMarquee       = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
 
 export function SolucionesClient() {
   usePageReady()
@@ -30,7 +26,7 @@ export function SolucionesClient() {
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
     raf:      [initDrawArrowAnimation],
-    timeout:  [initScrollRevealSections, initProcessStepsAnimation, initFAQAccordion],
+    timeout:  [initScrollRevealSections, initFAQAccordion],
   }))
 
   return (
@@ -40,27 +36,17 @@ export function SolucionesClient() {
         { label: nav('solutions'), href: '/soluciones' },
       ]} />
       <SolucionesHero />
-      <SolucionesPainPoints />
       <SolucionesQuote />
-      <SolucionesDifferentiator />
-      <SolucionesProcess />
       <SolucionesGuarantees />
       <ClientsMarquee />
-      <FAQAccordion
+      <SolucionesFAQ
         label={t('faq.label')}
         items={FAQ_SOLUCIONES_KEYS.map(key => ({
           question: t(`faq.items.${key}.question`),
           answer:   t(`faq.items.${key}.answer`),
         }))}
       />
-      <CTABanner
-        title={t('cta.title')}
-        body={t('cta.body')}
-        primaryLabel={t('cta.primary')}
-        primaryHref="/contacto"
-        secondaryLabel={t('cta.secondary')}
-        secondaryHref="/contacto"
-      />
+      <SolucionesCTA />
     </>
   )
 }

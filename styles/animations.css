@@ -2,6 +2,31 @@
 /* GSAP handles entrance/scroll animations. This file is purely for CSS-only  */
 /* decorative effects that don't require JS.                                   */
 
+/* Pre-hide reveal targets to prevent flicker before GSAP runs */
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; }
+}
+
+/* FAQ collapse — auto-height transition via grid-template-rows */
+.faq-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 360ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-collapse[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.faq-collapse > div {
+  min-height: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-collapse { transition: none; }
+}
+
 @property --btn-sweep {
   syntax: '<angle>';
   inherits: true;

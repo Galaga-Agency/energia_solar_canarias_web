@@ -1,65 +1,129 @@
 {
   "hero": {
-    "eyebrow": "Solutions",
-    "title": "Energy that adapts to your business",
-    "body": "Every sector has its own operational and financial logic. Our solutions adapt to your reality, challenges and opportunities so you can get the most out of your energy.",
-    "items": [
-      { "label": "Photovoltaic", "title": "Photovoltaic energy", "body": "Specialized photovoltaic solution for your company or facility." },
-      { "label": "Storage", "title": "Energy storage", "body": "Specialized storage solution for your company or facility." },
-      { "label": "Consulting", "title": "Energy consulting", "body": "Specialized consulting solution for your company or facility." }
+    "eyebrow": "B2B Solutions",
+    "titleLead": "Four sectors. One single point",
+    "titleTail": "of contact.",
+    "body": "Sector-specific packages for hotels, industry, retail and agroindustry. Diagnosis, grants, installation and maintenance under one signature.",
+    "primary": "Request your free study",
+    "secondary": "View sectors",
+    "services": "Diagnosis · Grants · Installation · Maintenance"
+  },
+  "insight": {
+    "eyebrow": "The context",
+    "quoteLead": "Deciding on solar still feels",
+    "quoteTail": "uncertain.",
+    "body": "Canarian companies want to move, but they need real guarantees: clear return, trust in the partner, measurable results.",
+    "stats": [
+      { "value": "90%", "label": "family SMEs with risk aversion", "source": "SME Observatory, 2024" },
+      { "value": "30%", "label": "actually access available grants", "source": "Chamber of Commerce, 2024" },
+      { "value": "+50%", "label": "YoY interest in self-consumption", "source": "Google Trends, 2024" }
     ]
   },
-  "painPoints": {
-    "eyebrow": "What is slowing down your decision?",
-    "title": "We understand your energy challenges",
-    "body": "Companies in the Canary Islands operating with increasingly unpredictable energy costs need clarity around sustainability and decisions that are not always obvious. The question is no longer whether to change, but how to do it without taking unnecessary risks.",
-    "tags": ["Lack of visibility on return", "Complex and slow processes", "A market that is hard to evaluate"],
-    "cta": "See our projects"
-  },
-  "quote": {
-    "eyebrow": "Clients",
-    "quote": "It is not always clear when or how the investment is recovered.",
-    "body": "That is why Energía Solar Canarias always starts with a free audit that gives you a clear analysis of the expected return before you commit to anything."
-  },
-  "differentiator": {
-    "titleStart": "At Energía Solar",
-    "titleBrand": "Canarias",
-    "titleEnd": ", we make the difference",
-    "body": "We bring transparency, guidance and solutions designed from deep knowledge of the Canarian energy landscape, step by step and without uncertainty.",
-    "primary": "Contact",
-    "secondary": "Audit ↗"
-  },
-  "process": {
-    "title": "Your project, step by step.",
-    "body": "Every solution starts with an analysis of your reality. If you continue, we define a technical proposal, coordinate implementation and support the client through every phase.",
+  "sectores": {
+    "eyebrow": "Sectors",
+    "titleLead": "Designed for the sectors that move",
+    "titleTail": "the Canaries.",
+    "body": "Sector-specific packages with real knowledge of the local business fabric.",
     "items": [
-      { "n": "01", "title": "Analysis and diagnosis", "body": "We assess your consumption and identify improvement opportunities." },
-      { "n": "02", "title": "Design and strategic plan", "body": "We create a technical and financial plan adapted to your activity and island context." },
-      { "n": "03", "title": "Implementation and support", "body": "A technical team with years of experience handles installation and commissioning." },
-      { "n": "04", "title": "Monitoring and maintenance", "body": "We supervise system performance and make sure it works at its best every day." }
+      {
+        "key": "hoteles",
+        "tag": "Hotels",
+        "title": "Energy that protects the experience.",
+        "body": "Rooftop PV, storage and monitoring for tourist accommodation. Zero operational downtime.",
+        "metric": "−45% energy cost per room · year"
+      },
+      {
+        "key": "industria",
+        "tag": "Industry & logistics",
+        "title": "Processes shielded against price.",
+        "body": "Scalable industrial self-consumption, predictive maintenance and remote monitoring.",
+        "metric": "Average payback < 6 years"
+      },
+      {
+        "key": "retail",
+        "tag": "Retail & big-box",
+        "title": "Lighting and cooling on your own energy.",
+        "body": "Integrated rooftops, storage for demand peaks and impact reporting.",
+        "metric": "−38% electricity bill"
+      },
+      {
+        "key": "agro",
+        "tag": "Agroindustry",
+        "title": "Solar pumping, irrigation and cooling.",
+        "body": "Shared self-consumption and pumping solutions for greenhouses and cooperatives.",
+        "metric": "Agricultural grants managed"
+      }
     ]
   },
-  "guarantees": {
+  "pilares": {
+    "eyebrow": "Why ESC",
+    "titleLead": "Four pillars that hold up every",
+    "titleTail": "project.",
+    "body": "Technical strength, local sensitivity and human accompaniment.",
     "items": [
-      { "title": "Service guarantee", "body": "All our systems include installation warranty and technical follow-up after commissioning." },
-      { "title": "Full transparency", "body": "We explain every step and give you access to real-time performance data." },
-      { "title": "Continuous support", "body": "Our team is available to resolve any issue throughout the system's lifetime." }
+      {
+        "tag": "Canarian specialisation",
+        "title": "We know the islands and your business.",
+        "body": "Over two decades operating in the archipelago. We understand the grid, climate and regional regulations like no outsider can."
+      },
+      {
+        "tag": "Reliability & accompaniment",
+        "title": "Your investment, always protected.",
+        "body": "Periodic reviews, monitoring and agile support. A long-term energy partner, not a one-shot vendor."
+      },
+      {
+        "tag": "Clarity & simplicity",
+        "title": "Less paperwork, more savings.",
+        "body": "Diagnosis, grants, installation and maintenance under one point of contact. Direct language at every stage."
+      },
+      {
+        "tag": "Technical authority",
+        "title": "Proven experience, measurable results.",
+        "body": "Documented case studies, certifications and referenceable projects in key sectors."
+      }
+    ]
+  },
+  "proceso": {
+    "eyebrow": "How we work",
+    "titleLead": "Four steps. One single point",
+    "titleTail": "of contact.",
+    "body": "From the first diagnosis to maintenance, the whole process is our responsibility.",
+    "items": [
+      { "n": "01", "title": "Diagnosis",      "body": "Free audit of consumption and solar potential. Clear return estimate." },
+      { "n": "02", "title": "Grants",         "body": "We process regional and European subsidies. Documentation and legalisation." },
+      { "n": "03", "title": "Installation",   "body": "Project, materials, assembly and commissioning. In-house team, communicated deadlines." },
+      { "n": "04", "title": "Maintenance",    "body": "Remote monitoring, periodic reviews and agile local support." }
+    ]
+  },
+  "decisores": {
+    "eyebrow": "For each decision-maker",
+    "titleLead": "We speak the language of every",
+    "titleTail": "table.",
+    "body": "Each role has its own question. These are the messages we open each conversation with.",
+    "items": [
+      { "role": "CEO / Manager",                   "message": "Investing in solar is a strategic decision, not a technical one." },
+      { "role": "Finance Director",                "message": "We calculate your savings and manage financing and grants." },
+      { "role": "Operations / Maintenance",        "message": "Monitored installations and 100% predictive maintenance." },
+      { "role": "Sustainability / Communication",  "message": "We turn your ESG commitment into a competitive advantage." }
     ]
   },
   "cta": {
-    "title": "Request your free audit",
-    "body": "Discover how to optimize your consumption and move toward a more efficient energy model adapted to your company. No cost. No commitment. No waiting.",
-    "primary": "Request your audit ↗",
-    "secondary": "Contact us"
+    "eyebrow": "Take the first step",
+    "title": "Request your free savings study.",
+    "body": "Consumption analysis, solar potential, return estimate and applicable grants. Response in under 24 hours.",
+    "primary": "Request your study",
+    "secondary": "Talk to an expert",
+    "trust": "No cost · No commitment · 24h response"
   },
   "faq": {
     "label": "Frequently asked questions",
     "items": {
-      "timeline":   { "question": "How long does a project take from audit to commissioning?", "answer": "Depending on size and complexity, projects are typically completed within 3 to 6 months. We always communicate clear timelines from the outset." },
-      "guarantees": { "question": "What guarantees do installed systems come with?", "answer": "All our systems include an installation warranty and post-commissioning technical follow-up. Equipment comes with manufacturer warranties, which vary by product." },
-      "financing":  { "question": "Can I finance my project?", "answer": "Yes. We work with several financial institutions to offer financing options tailored to each project. Contact us and we will advise you with no commitment." },
-      "savings":    { "question": "What savings can I expect?", "answer": "Savings depend on current consumption and the installed system, but on average our clients reduce their energy bill by 30% to 70%." },
-      "audit":      { "question": "What does the energy audit include?", "answer": "The audit includes historical consumption analysis, evaluation of the solar generation potential at your facility, a technical proposal and an ROI estimate. It is free and without commitment." }
+      "timeline":    { "question": "How long does a project take?", "answer": "Between 3 and 6 months depending on size and subsidy deadlines. We communicate clear milestones from day one." },
+      "subventions": { "question": "Do you handle subsidy applications?", "answer": "Yes, end-to-end. We know the Canarian regional programs and European grants applicable to each sector." },
+      "financing":   { "question": "Are there financing options?", "answer": "We work with local institutions for adapted conditions. We advise on amortisation and combinations with public grants." },
+      "savings":     { "question": "What real savings can I expect?", "answer": "Our clients reduce their bills between 30% and 70%. In the diagnosis we deliver a clear estimate." },
+      "guarantees":  { "question": "What does post-sale accompaniment include?", "answer": "Remote monitoring, periodic reviews, savings reports and local support for any incident." },
+      "audit":       { "question": "What does the free study include?", "answer": "Consumption analysis, solar potential, technical proposal, return estimate and grant map. No cost, no commitment." }
     }
   }
 }

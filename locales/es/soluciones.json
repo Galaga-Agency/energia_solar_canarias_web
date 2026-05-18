@@ -1,65 +1,137 @@
 {
   "hero": {
-    "eyebrow": "Soluciones",
-    "title": "Energía que se adapta a tu negocio",
-    "body": "Cada sector tiene su propia lógica operativa y financiera. Nuestras soluciones se ajustan a la realidad, desafíos y oportunidades para sacarle el máximo rendimiento a tu energía.",
-    "items": [
-      { "label": "Fotovoltaica", "title": "Fotovoltaica energética", "body": "Solución especializada en fotovoltaica para tu empresa o instalación." },
-      { "label": "Almacenamiento", "title": "Almacenamiento energético", "body": "Solución especializada en almacenamiento para tu empresa o instalación." },
-      { "label": "Consultoría", "title": "Consultoría energética", "body": "Solución especializada en consultoría para tu empresa o instalación." }
+    "eyebrow": "Soluciones B2B",
+    "titleLead": "Cuatro sectores. Una sola",
+    "titleTail": "interlocución.",
+    "body": "Paquetes específicos para hoteles, industria, retail y agroindustria. Diagnóstico, subvenciones, instalación y mantenimiento bajo una misma firma.",
+    "primary": "Solicita tu estudio gratuito",
+    "secondary": "Ver sectores",
+    "services": "Diagnóstico · Subvención · Instalación · Mantenimiento"
+  },
+  "insight": {
+    "eyebrow": "El contexto",
+    "quoteLead": "Decidir en energía solar sigue siendo",
+    "quoteTail": "incierto.",
+    "body": "Las empresas canarias quieren avanzar, pero necesitan garantías reales: retorno claro, confianza en el proveedor, resultados medibles.",
+    "stats": [
+      { "value": "90%", "label": "pymes familiares con aversión al riesgo", "source": "Observatorio PYME, 2024" },
+      { "value": "30%", "label": "acceden a las ayudas disponibles", "source": "Cámara de Comercio, 2024" },
+      { "value": "+50%", "label": "interés interanual en autoconsumo", "source": "Google Trends, 2024" }
     ]
   },
-  "painPoints": {
-    "eyebrow": "¿Qué está frenando tu decisión?",
-    "title": "Conocemos tus desafíos energéticos",
-    "body": "Las empresas en Canarias que operan con costes energéticos cada vez más imprevisibles necesitan transparencia en la sostenibilidad y decisiones que no siempre están claras. La duda ya no es si cambiar, sino cómo hacerlo sin asumir riesgos innecesarios.",
-    "tags": ["Falta de visibilidad sobre el retorno", "Procesos complejos y poco ágiles", "Un mercado difícil de evaluar"],
-    "cta": "Conocer nuestros proyectos"
-  },
-  "quote": {
-    "eyebrow": "Clientes",
-    "quote": "No siempre está claro cuándo ni cómo se recupera la inversión.",
-    "body": "Por eso en Energía Solar Canarias comenzamos siempre con una auditoría gratuita que te da un análisis claro del retorno esperado antes de comprometerte con nada."
-  },
-  "differentiator": {
-    "titleStart": "En Energía Solar",
-    "titleBrand": "Canarias",
-    "titleEnd": ", marcamos la diferencia",
-    "body": "Aportamos transparencia, asesoramiento y soluciones diseñadas desde el conocimiento del territorio energético canario y paso a paso sin incertidumbre.",
-    "primary": "Contactar",
-    "secondary": "Auditoría ↗"
-  },
-  "process": {
-    "title": "Tu proyecto, paso a paso.",
-    "body": "Cada solución parte de un análisis de tu realidad. Después, si continúas, te definimos una propuesta técnica, coordinamos su implementación y acompañamos al cliente en cada fase.",
+  "sectores": {
+    "eyebrow": "Sectores",
+    "titleLead": "Diseñadas para los sectores que mueven",
+    "titleTail": "Canarias.",
+    "body": "Paquetes específicos por sector, con conocimiento real del tejido empresarial local.",
     "items": [
-      { "n": "01", "title": "Análisis y diagnóstico", "body": "Evaluamos tu consumo y detectamos oportunidades de mejora." },
-      { "n": "02", "title": "Diseño y plan estratégico", "body": "Creamos un plan técnico y económico adaptado a la actividad y a la realidad insular." },
-      { "n": "03", "title": "Implementación y acompañamiento", "body": "Un equipo técnico con años de experiencia en el proceso de instalación y puesta en marcha." },
-      { "n": "04", "title": "Monitorización y mantenimiento", "body": "Supervisamos el rendimiento del sistema y nos aseguramos de que funcione al máximo cada día." }
+      {
+        "key": "hoteles",
+        "tag": "Hoteles",
+        "title": "Energía que protege la experiencia.",
+        "context": "El turismo representa más del 30% del PIB canario y opera bajo creciente presión ESG por parte de touroperadores y normativa europea.",
+        "offer": "Soluciones llave en mano: fotovoltaica, almacenamiento, monitorización y cargadores eléctricos. Cero parada operativa.",
+        "decisores": "Dirección general · Director de sostenibilidad · Director técnico u operaciones",
+        "metric": "−45% coste energético por habitación-año"
+      },
+      {
+        "key": "industria",
+        "tag": "Industria & logística",
+        "title": "Procesos blindados frente al precio.",
+        "context": "Naves, fábricas y hubs logísticos combinan consumo energético alto con superficies amplias listas para autoconsumo.",
+        "offer": "Proyectos escalables de autoconsumo industrial con mantenimiento predictivo y monitorización remota.",
+        "decisores": "Director de operaciones · Director financiero · Responsable de mantenimiento",
+        "metric": "ROI medio inferior a 6 años"
+      },
+      {
+        "key": "retail",
+        "tag": "Retail & grandes superficies",
+        "title": "Iluminación y frío con energía propia.",
+        "context": "Supermercados y grandes superficies combinan alto gasto en iluminación y refrigeración con la necesidad de mejorar su imagen sostenible.",
+        "offer": "Cubiertas fotovoltaicas integradas, almacenamiento para picos de demanda y reporting de impacto para comunicación corporativa.",
+        "decisores": "Dirección general · Director de operaciones · Responsable de sostenibilidad",
+        "metric": "Reducción media del 38% en factura eléctrica"
+      },
+      {
+        "key": "agro",
+        "tag": "Agroindustria",
+        "title": "Bombeo, riego y refrigeración solar.",
+        "context": "Regadíos, invernaderos y cooperativas operan con costes energéticos crecientes y presión por sostenibilidad alimentaria.",
+        "offer": "Autoconsumo compartido, soluciones de bombeo solar y gestión íntegra de subvenciones agrarias específicas.",
+        "decisores": "Propietarios de cooperativas · Gerentes agrícolas · Responsables de producción",
+        "metric": "Subvenciones específicas gestionadas"
+      }
     ]
   },
-  "guarantees": {
+  "pilares": {
+    "eyebrow": "Por qué ESC",
+    "titleLead": "Cuatro pilares que sostienen cada",
+    "titleTail": "proyecto.",
+    "body": "Solidez técnica, sensibilidad local y acompañamiento humano.",
     "items": [
-      { "title": "Garantía de nuestros servicios", "body": "Todos nuestros sistemas incluyen garantía de instalación y seguimiento técnico post-puesta en marcha." },
-      { "title": "Transparencia total", "body": "Te explicamos cada paso del proceso y te damos acceso a los datos de rendimiento en tiempo real." },
-      { "title": "Soporte continuo", "body": "Nuestro equipo está disponible para resolver cualquier incidencia durante toda la vida útil del sistema." }
+      {
+        "tag": "Especialización en Canarias",
+        "title": "Conocemos las islas y tu negocio.",
+        "body": "Más de dos décadas operando en el archipiélago. Entendemos red, clima y normativa autonómica como nadie de fuera."
+      },
+      {
+        "tag": "Fiabilidad y acompañamiento",
+        "title": "Tu inversión, siempre protegida.",
+        "body": "Revisiones periódicas, monitorización y soporte ágil. Socio energético a largo plazo, no proveedor puntual."
+      },
+      {
+        "tag": "Claridad y sencillez",
+        "title": "Menos trámites, más ahorro.",
+        "body": "Diagnóstico, subvención, instalación y mantenimiento bajo una sola interlocución. Lenguaje directo en cada fase."
+      },
+      {
+        "tag": "Autoridad técnica",
+        "title": "Experiencia comprobada, resultados medibles.",
+        "body": "Casos de éxito documentados, certificaciones y proyectos referenciables en sectores clave."
+      }
+    ]
+  },
+  "proceso": {
+    "eyebrow": "Cómo trabajamos",
+    "titleLead": "Cuatro pasos. Una sola",
+    "titleTail": "interlocución.",
+    "body": "Desde el primer diagnóstico hasta el mantenimiento, todo el proceso es responsabilidad nuestra.",
+    "items": [
+      { "n": "01", "title": "Diagnóstico", "body": "Auditoría gratuita del consumo y potencial solar. Retorno estimado claro." },
+      { "n": "02", "title": "Subvenciones", "body": "Tramitamos las ayudas autonómicas y europeas. Documentación y legalización." },
+      { "n": "03", "title": "Instalación", "body": "Proyecto, materiales, montaje y puesta en marcha. Equipo propio, plazos comunicados." },
+      { "n": "04", "title": "Mantenimiento", "body": "Monitorización remota, revisiones periódicas y soporte local ágil." }
+    ]
+  },
+  "decisores": {
+    "eyebrow": "Para cada decisor",
+    "titleLead": "Hablamos el idioma de cada",
+    "titleTail": "mesa.",
+    "body": "Cada rol tiene su pregunta. Estos son los mensajes con los que abrimos la conversación.",
+    "items": [
+      { "role": "CEO / Gerente",                 "message": "Invertir en solar es una decisión estratégica, no técnica." },
+      { "role": "Director Financiero",           "message": "Calculamos tu ahorro y gestionamos financiación y ayudas." },
+      { "role": "Operaciones / Mantenimiento",   "message": "Instalaciones monitorizadas, mantenimiento 100% predictivo." },
+      { "role": "Sostenibilidad / Comunicación", "message": "Convertimos tu compromiso ESG en ventaja competitiva." }
     ]
   },
   "cta": {
-    "title": "Solicita tu auditoría gratuita",
-    "body": "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente y adaptado a tu empresa. Sin coste. Sin compromiso. Sin esperas.",
-    "primary": "Solicita tu auditoría ↗",
-    "secondary": "Contacta con nosotros"
+    "eyebrow": "Da el primer paso",
+    "title": "Solicita tu estudio de ahorro gratuito.",
+    "body": "Análisis de consumo, potencial solar, retorno estimado y ayudas aplicables. Respuesta en menos de 24 horas.",
+    "primary": "Solicita tu estudio",
+    "secondary": "Hablar con un experto",
+    "trust": "Sin coste · Sin compromiso · Respuesta en 24h"
   },
   "faq": {
     "label": "Preguntas frecuentes",
     "items": {
-      "timeline":   { "question": "¿Cuánto tarda un proyecto desde la auditoría hasta la puesta en marcha?", "answer": "Dependiendo del tamaño y complejidad, los proyectos suelen completarse entre 3 y 6 meses. Siempre comunicamos plazos claros desde el inicio." },
-      "guarantees": { "question": "¿Qué garantías ofrecen los sistemas instalados?", "answer": "Todos nuestros sistemas incluyen garantía de instalación y seguimiento post-puesta en marcha. Los equipos cuentan con las garantías del fabricante, que varían según el producto." },
-      "financing":  { "question": "¿Puedo financiar mi proyecto?", "answer": "Sí. Trabajamos con varias entidades financieras para ofrecer opciones de financiamiento adaptadas a cada proyecto. Consúltanos y te asesoramos sin compromiso." },
-      "savings":    { "question": "¿Qué ahorros puedo esperar?", "answer": "Los ahorros dependen del consumo actual y del sistema instalado, pero en promedio nuestros clientes reducen su factura energética entre un 30% y un 70%." },
-      "audit":      { "question": "¿Qué incluye la auditoría energética?", "answer": "La auditoría incluye análisis del consumo histórico, evaluación del potencial de generación solar en tu instalación, propuesta técnica y estimación de retorno de inversión. Es gratuita y sin compromiso." }
+      "timeline":    { "question": "¿Cuánto tarda un proyecto?", "answer": "Entre 3 y 6 meses según tamaño y plazos de subvención. Comunicamos hitos claros desde el primer día." },
+      "subventions": { "question": "¿Tramitáis las subvenciones?", "answer": "Sí, íntegramente. Conocemos los programas autonómicos canarios y las ayudas europeas aplicables a cada sector." },
+      "financing":   { "question": "¿Hay opciones de financiación?", "answer": "Trabajamos con entidades locales para condiciones adaptadas. Asesoramos sobre amortización y combinaciones con ayudas públicas." },
+      "savings":     { "question": "¿Qué ahorro real puedo esperar?", "answer": "Nuestros clientes reducen su factura entre un 30% y un 70%. En el diagnóstico entregamos una estimación clara." },
+      "guarantees":  { "question": "¿Qué incluye el acompañamiento postventa?", "answer": "Monitorización remota, revisiones periódicas, reportes de ahorro y soporte local ante cualquier incidencia." },
+      "audit":       { "question": "¿Qué incluye el estudio gratuito?", "answer": "Análisis del consumo, potencial solar, propuesta técnica, retorno estimado y mapa de ayudas. Sin coste, sin compromiso." }
     }
   }
 }

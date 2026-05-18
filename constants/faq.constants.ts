@@ -1,8 +1,9 @@
 export const FAQ_SOLUCIONES_KEYS = [
   'timeline',
-  'guarantees',
+  'subventions',
   'financing',
   'savings',
+  'guarantees',
   'audit',
 ] as const
 
