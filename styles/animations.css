@@ -54,6 +54,18 @@
   to   { opacity: 1; }
 }
 
+/* Tab-panel swap for the soluciones architecture section */
+@keyframes arqfade {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes slide-down {
   from {
     opacity: 0;

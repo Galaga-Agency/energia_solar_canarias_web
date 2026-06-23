@@ -107,12 +107,12 @@ proyectos.stats.items[0].value
 Each component calls `useTranslations()` with its own namespace. No content is passed as props from parent to child.
 
 ```tsx
-// components/pages/home/HomeHero2.tsx
-import { useTranslations } from 'next-intl'
+// components/pages/home/HomeHero.tsx
+import { useTranslations } from "next-intl";
 
-export function HomeHero2() {
-  const t = useTranslations('home.hero')
-  return <h1>{t('title')}</h1>
+export function HomeHero() {
+  const t = useTranslations("home.hero");
+  return <h1>{t("title")}</h1>;
 }
 ```
 
@@ -134,20 +134,20 @@ The client controller renders section components with zero content props:
 ```tsx
 // HomeClient.tsx
 export function HomeClient() {
-  const nav = useTranslations('nav')
+  const nav = useTranslations("nav");
   return (
     <>
-      <Breadcrumbs items={[{ label: nav('home'), href: '/' }]} />
-      <HomeHero2 />
+      <Breadcrumbs items={[{ label: nav("home"), href: "/" }]} />
+      <HomeHero />
       <HomeSoluciones />
       <HomeStats />
     </>
-  )
+  );
 }
 ```
 
-❌ Never: `<HomeHero2 title={t('hero.title')} body={t('hero.body')} />`
-✅ Always: `<HomeHero2 />`
+❌ Never: `<HomeHero title={t('hero.title')} body={t('hero.body')} />`
+✅ Always: `<HomeHero />`
 
 The only exception is truly shared layout primitives like `FAQAccordion` and `CTABanner`, which are used across pages with different content. Those legitimately receive data as props — the client component reads the relevant namespace and passes it down. This is acceptable because these are reusable UI components, not page sections.
 
@@ -155,40 +155,40 @@ The only exception is truly shared layout primitives like `FAQAccordion` and `CT
 
 ## Namespace map
 
-| Component | Namespace |
-|---|---|
-| `HomeHero2` | `home.hero` |
-| `HomeSoluciones` | `home.solutions` |
-| `HomeBeneficios` | `home.benefits` |
-| `HomeProyectos` | `home.projects` |
-| `HomeStats` | `home.stats` |
-| `HomeFounder` | `home.founder` |
-| `HomeTestimonials` | `home.testimonials` |
-| `HomeCTA` | `home.cta` |
-| `SolucionesHero` | `soluciones.hero` |
-| `SolucionesPainPoints` | `soluciones.painPoints` |
-| `SolucionesQuote` | `soluciones.quote` |
-| `SolucionesDifferentiator` | `soluciones.differentiator` |
-| `SolucionesProcess` | `soluciones.process` |
-| `SolucionesGuarantees` | `soluciones.guarantees` |
-| `ProyectosHero` | `proyectos.hero` |
-| `ProyectosGrid` | `proyectos.grid` |
-| `ProyectosStats` | `proyectos.stats` |
-| `ProyectosTestimonial` | `proyectos.testimonial` |
-| `SobreNosotrosHero` | `sobre-nosotros.hero` |
-| `SobreNosotrosNarrative` | `sobre-nosotros.narrative` |
-| `SobreNosotrosBenefits` | `sobre-nosotros.benefits` |
-| `SobreNosotrosLeadership` | `sobre-nosotros.leadership` |
+| Component                  | Namespace                    |
+| -------------------------- | ---------------------------- |
+| `HomeHero`                 | `home.hero`                  |
+| `HomeSoluciones`           | `home.solutions`             |
+| `HomeBeneficios`           | `home.benefits`              |
+| `HomeProyectos`            | `home.projects`              |
+| `HomeStats`                | `home.stats`                 |
+| `HomeFounder`              | `home.founder`               |
+| `HomeTestimonials`         | `home.testimonials`          |
+| `HomeCTA`                  | `home.cta`                   |
+| `SolucionesHero`           | `soluciones.hero`            |
+| `SolucionesPainPoints`     | `soluciones.painPoints`      |
+| `SolucionesQuote`          | `soluciones.quote`           |
+| `SolucionesDifferentiator` | `soluciones.differentiator`  |
+| `SolucionesProcess`        | `soluciones.process`         |
+| `SolucionesGuarantees`     | `soluciones.guarantees`      |
+| `ProyectosHero`            | `proyectos.hero`             |
+| `ProyectosGrid`            | `proyectos.grid`             |
+| `ProyectosStats`           | `proyectos.stats`            |
+| `ProyectosTestimonial`     | `proyectos.testimonial`      |
+| `SobreNosotrosHero`        | `sobre-nosotros.hero`        |
+| `SobreNosotrosNarrative`   | `sobre-nosotros.narrative`   |
+| `SobreNosotrosBenefits`    | `sobre-nosotros.benefits`    |
+| `SobreNosotrosLeadership`  | `sobre-nosotros.leadership`  |
 | `SobreNosotrosTestimonial` | `sobre-nosotros.testimonial` |
-| `ContactoSection` | `contacto.section` |
-| `BlogHero` | `blog.hero` |
-| `BlogFilterBar` | `blog.filter` |
-| `BlogArticles` | `blog` |
-| Breadcrumbs nav labels | `nav` (in client component) |
-| FAQ accordion (soluciones) | `soluciones.faq` |
-| FAQ accordion (contacto) | `contacto.faq` |
-| CTA banner (soluciones) | `soluciones.cta` |
-| CTA banner (proyectos) | `proyectos.cta` |
+| `ContactoSection`          | `contacto.section`           |
+| `BlogHero`                 | `blog.hero`                  |
+| `BlogFilterBar`            | `blog.filter`                |
+| `BlogArticles`             | `blog`                       |
+| Breadcrumbs nav labels     | `nav` (in client component)  |
+| FAQ accordion (soluciones) | `soluciones.faq`             |
+| FAQ accordion (contacto)   | `contacto.faq`               |
+| CTA banner (soluciones)    | `soluciones.cta`             |
+| CTA banner (proyectos)     | `proyectos.cta`              |
 
 ---
 
@@ -209,12 +209,12 @@ After resolving the locale, `proxy.ts` sets the `x-next-intl-locale` request hea
 `app/[locale]/layout.tsx` wraps every page in `NextIntlClientProvider` with the server-fetched messages, making `useTranslations()` available in all client components:
 
 ```tsx
-const messages = await getMessages()  // calls i18n/request.ts
+const messages = await getMessages(); // calls i18n/request.ts
 return (
   <NextIntlClientProvider messages={messages}>
     {children}
   </NextIntlClientProvider>
-)
+);
 ```
 
 ---

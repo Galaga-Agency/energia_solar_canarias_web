@@ -14,9 +14,21 @@
     "quoteTail": "incierto.",
     "body": "Las empresas canarias quieren avanzar, pero necesitan garantías reales: retorno claro, confianza en el proveedor, resultados medibles.",
     "stats": [
-      { "value": "90%", "label": "pymes familiares con aversión al riesgo", "source": "Observatorio PYME, 2024" },
-      { "value": "30%", "label": "acceden a las ayudas disponibles", "source": "Cámara de Comercio, 2024" },
-      { "value": "+50%", "label": "interés interanual en autoconsumo", "source": "Google Trends, 2024" }
+      {
+        "value": "90%",
+        "label": "pymes familiares con aversión al riesgo",
+        "source": "Observatorio PYME, 2024"
+      },
+      {
+        "value": "30%",
+        "label": "acceden a las ayudas disponibles",
+        "source": "Cámara de Comercio, 2024"
+      },
+      {
+        "value": "+50%",
+        "label": "interés interanual en autoconsumo",
+        "source": "Google Trends, 2024"
+      }
     ]
   },
   "sectores": {
@@ -30,7 +42,7 @@
         "tag": "Hoteles",
         "title": "Energía que protege la experiencia.",
         "context": "El turismo representa más del 30% del PIB canario y opera bajo creciente presión ESG por parte de touroperadores y normativa europea.",
-        "offer": "Soluciones llave en mano: fotovoltaica, almacenamiento, monitorización y cargadores eléctricos. Cero parada operativa.",
+        "offer": "Alineamos tu operación con los estándares ESG que exigen los touroperadores europeos. Solución llave en mano sin parada operativa.",
         "decisores": "Dirección general · Director de sostenibilidad · Director técnico u operaciones",
         "metric": "−45% coste energético por habitación-año"
       },
@@ -39,7 +51,7 @@
         "tag": "Industria & logística",
         "title": "Procesos blindados frente al precio.",
         "context": "Naves, fábricas y hubs logísticos combinan consumo energético alto con superficies amplias listas para autoconsumo.",
-        "offer": "Proyectos escalables de autoconsumo industrial con mantenimiento predictivo y monitorización remota.",
+        "offer": "Estabilizamos tu cuenta de resultados con mantenimiento predictivo y grandes superficies de autoconsumo. Coste energético bajo control.",
         "decisores": "Director de operaciones · Director financiero · Responsable de mantenimiento",
         "metric": "ROI medio inferior a 6 años"
       },
@@ -48,7 +60,7 @@
         "tag": "Retail & grandes superficies",
         "title": "Iluminación y frío con energía propia.",
         "context": "Supermercados y grandes superficies combinan alto gasto en iluminación y refrigeración con la necesidad de mejorar su imagen sostenible.",
-        "offer": "Cubiertas fotovoltaicas integradas, almacenamiento para picos de demanda y reporting de impacto para comunicación corporativa.",
+        "offer": "Ahorro crítico en refrigeración e iluminación, transformando el gasto energético en imagen de marca verde y reporting de impacto.",
         "decisores": "Dirección general · Director de operaciones · Responsable de sostenibilidad",
         "metric": "Reducción media del 38% en factura eléctrica"
       },
@@ -57,9 +69,142 @@
         "tag": "Agroindustria",
         "title": "Bombeo, riego y refrigeración solar.",
         "context": "Regadíos, invernaderos y cooperativas operan con costes energéticos crecientes y presión por sostenibilidad alimentaria.",
-        "offer": "Autoconsumo compartido, soluciones de bombeo solar y gestión íntegra de subvenciones agrarias específicas.",
+        "offer": "Eficiencia en regadíos mediante bombeo solar y autoconsumo compartido para cooperativas. Gestión íntegra de subvenciones agrarias.",
         "decisores": "Propietarios de cooperativas · Gerentes agrícolas · Responsables de producción",
         "metric": "Subvenciones específicas gestionadas"
+      }
+    ]
+  },
+  "arquitectura": {
+    "eyebrow": "Arquitectura de servicios",
+    "titleLead": "Tres pilares. Una estrategia",
+    "titleTail": "energética.",
+    "body": "Dejamos de vender placas: estabilizamos tu cuenta de resultados. Tres pilares que cubren todo el ciclo de tu inversión, de la decisión al rendimiento.",
+    "show": "Ver servicios",
+    "hide": "Cerrar",
+    "items": [
+      {
+        "key": "planificacion",
+        "num": "01",
+        "tag": "Planificación y consultoría",
+        "title": "De la parálisis burocrática a la certeza financiera.",
+        "body": "La puerta de entrada estratégica. Garantizamos el éxito del proyecto antes de mover el primer panel, externalizando la carga administrativa que asfixia a las empresas locales.",
+        "groups": [
+          {
+            "name": "Estudios y diseño",
+            "items": [
+              "Estudios de viabilidad y diseño de la instalación",
+              "Simulación de consumo y retorno de inversión (ROI)",
+              "Auditorías de eficiencia energética",
+              "Informes técnicos y peritajes"
+            ]
+          },
+          {
+            "name": "Trámites y legalización",
+            "items": [
+              "Legalización ante Industria, Ministerio o Ayuntamiento",
+              "Gestión de licencias y trámites administrativos",
+              "Certificados energéticos para alquiler, venta y rendimiento"
+            ]
+          },
+          {
+            "name": "Subvenciones y financiación",
+            "items": [
+              "Tramitación de subvenciones y ayudas (incluido NextGen)",
+              "Estructuración de financiación con BBVA, Santander, Abanca y LaCaixa",
+              "Presupuestos personalizados"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ejecucion",
+        "num": "02",
+        "tag": "Ejecución de proyectos",
+        "title": "Ingeniería de precisión como activo de balance.",
+        "body": "El núcleo operativo llave en mano. Desplegamos infraestructura diseñada para la continuidad del negocio, no un simple montaje. Tu inversión, protegida frente a la volatilidad del pool energético.",
+        "groups": [
+          {
+            "name": "Instalaciones fotovoltaicas por uso",
+            "items": [
+              "Industriales: naves, fábricas y hoteles",
+              "Residenciales: viviendas unifamiliares y plurifamiliares",
+              "Agrícolas: bombeo solar con variador y con acumulación",
+              "Fincas aisladas / off-grid",
+              "Venta a red y autoconsumo con excedentes",
+              "Huertas solares y proyectos a medida",
+              "Instalaciones híbridas: solar + generador + baterías"
+            ]
+          },
+          {
+            "name": "Configuración del sistema",
+            "items": [
+              "Con o sin acumulación en baterías",
+              "Optimización automática de consumos y gestión inteligente de cargas",
+              "Optimizadores y microinversores"
+            ]
+          },
+          {
+            "name": "Autoconsumo y comunidades",
+            "items": [
+              "Autoconsumo residencial y empresarial",
+              "Autoconsumo compartido y consumos colectivos",
+              "Comunidades energéticas locales",
+              "Gestión de la demanda y uso eficiente de la energía"
+            ]
+          },
+          {
+            "name": "Almacenamiento y resiliencia",
+            "items": [
+              "Instalación de baterías de litio y sistemas híbridos",
+              "Configuraciones de backup ante fallos de la red insular"
+            ]
+          },
+          {
+            "name": "Electrificación e innovación",
+            "items": [
+              "Cargadores de vehículos eléctricos",
+              "Climatización eficiente: bombas de calor y aerotermia",
+              "I+D: carga inalámbrica VE bidireccional (en proceso)"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "gestion",
+        "num": "03",
+        "tag": "Gestión y optimización de activos",
+        "title": "El ahorro como dato auditable y recurrente.",
+        "body": "Evolucionamos el mantenimiento hacia la gestión de activos energéticos. Aseguramos que la eficiencia proyectada se mantenga o mejore durante toda la vida útil del sistema.",
+        "groups": [
+          {
+            "name": "Monitorización y optimización",
+            "items": [
+              "Monitorización inteligente y diagnóstico en tiempo real",
+              "Optimización automática de cargas",
+              "Gestión de excedentes con comercializadora",
+              "Asesoría para un consumo eficiente"
+            ]
+          },
+          {
+            "name": "Mantenimiento técnico",
+            "items": [
+              "Mantenimiento preventivo y revisiones periódicas",
+              "Limpieza y seguridad de paneles frente a calima y salitre",
+              "Diagnóstico y reparaciones",
+              "Instalaciones de enlace y adecuación eléctrica"
+            ]
+          },
+          {
+            "name": "Mejora y cobertura",
+            "items": [
+              "Actualización tecnológica y mejoras de rendimiento",
+              "Reacondicionamiento de instalaciones FV antiguas",
+              "Contratos de mantenimiento",
+              "Garantías ampliadas, seguros y soporte postventa"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -97,10 +242,26 @@
     "titleTail": "interlocución.",
     "body": "Desde el primer diagnóstico hasta el mantenimiento, todo el proceso es responsabilidad nuestra.",
     "items": [
-      { "n": "01", "title": "Diagnóstico", "body": "Auditoría gratuita del consumo y potencial solar. Retorno estimado claro." },
-      { "n": "02", "title": "Subvenciones", "body": "Tramitamos las ayudas autonómicas y europeas. Documentación y legalización." },
-      { "n": "03", "title": "Instalación", "body": "Proyecto, materiales, montaje y puesta en marcha. Equipo propio, plazos comunicados." },
-      { "n": "04", "title": "Mantenimiento", "body": "Monitorización remota, revisiones periódicas y soporte local ágil." }
+      {
+        "n": "01",
+        "title": "Diagnóstico",
+        "body": "Auditoría gratuita del consumo y potencial solar. Retorno estimado claro."
+      },
+      {
+        "n": "02",
+        "title": "Subvenciones",
+        "body": "Tramitamos las ayudas autonómicas y europeas. Documentación y legalización."
+      },
+      {
+        "n": "03",
+        "title": "Instalación",
+        "body": "Proyecto, materiales, montaje y puesta en marcha. Equipo propio, plazos comunicados."
+      },
+      {
+        "n": "04",
+        "title": "Mantenimiento",
+        "body": "Monitorización remota, revisiones periódicas y soporte local ágil."
+      }
     ]
   },
   "decisores": {
@@ -109,11 +270,48 @@
     "titleTail": "mesa.",
     "body": "Cada rol tiene su pregunta. Estos son los mensajes con los que abrimos la conversación.",
     "items": [
-      { "role": "CEO / Gerente",                 "message": "Invertir en solar es una decisión estratégica, no técnica." },
-      { "role": "Director Financiero",           "message": "Calculamos tu ahorro y gestionamos financiación y ayudas." },
-      { "role": "Operaciones / Mantenimiento",   "message": "Instalaciones monitorizadas, mantenimiento 100% predictivo." },
-      { "role": "Sostenibilidad / Comunicación", "message": "Convertimos tu compromiso ESG en ventaja competitiva." }
+      {
+        "role": "CEO / Gerente",
+        "message": "Invertir en solar es una decisión estratégica, no técnica."
+      },
+      {
+        "role": "Director Financiero",
+        "message": "Calculamos tu ahorro y gestionamos financiación y ayudas."
+      },
+      {
+        "role": "Operaciones / Mantenimiento",
+        "message": "Instalaciones monitorizadas, mantenimiento 100% predictivo."
+      },
+      {
+        "role": "Sostenibilidad / Comunicación",
+        "message": "Convertimos tu compromiso ESG en ventaja competitiva."
+      }
     ]
+  },
+  "promesa": {
+    "eyebrow": "Nuestra promesa",
+    "titleLead": "De instalador a socio energético de tu",
+    "titleTail": "negocio.",
+    "body": "La metamorfosis de un instalador reactivo a un socio proactivo y consultivo. Tres activos para cada cliente canario:",
+    "items": [
+      {
+        "key": "confianza",
+        "label": "Confianza",
+        "body": "Por nuestro dominio del entorno: red insular, clima salino y burocracia autonómica que ningún player nacional replica."
+      },
+      {
+        "key": "claridad",
+        "label": "Claridad",
+        "body": "Eliminamos la complejidad técnica y burocrática. Una sola interlocución, lenguaje directo en cada fase."
+      },
+      {
+        "key": "retorno",
+        "label": "Retorno",
+        "body": "Aseguramos la rentabilidad financiera del proyecto: ahorro auditable que estabiliza tu cuenta de resultados."
+      }
+    ],
+    "tagline": "Energía para tu negocio con la confianza de quien conoce el entorno.",
+    "signature": "Energía Solar Canarias, la energía de todos."
   },
   "cta": {
     "eyebrow": "Da el primer paso",
@@ -126,12 +324,30 @@
   "faq": {
     "label": "Preguntas frecuentes",
     "items": {
-      "timeline":    { "question": "¿Cuánto tarda un proyecto?", "answer": "Entre 3 y 6 meses según tamaño y plazos de subvención. Comunicamos hitos claros desde el primer día." },
-      "subventions": { "question": "¿Tramitáis las subvenciones?", "answer": "Sí, íntegramente. Conocemos los programas autonómicos canarios y las ayudas europeas aplicables a cada sector." },
-      "financing":   { "question": "¿Hay opciones de financiación?", "answer": "Trabajamos con entidades locales para condiciones adaptadas. Asesoramos sobre amortización y combinaciones con ayudas públicas." },
-      "savings":     { "question": "¿Qué ahorro real puedo esperar?", "answer": "Nuestros clientes reducen su factura entre un 30% y un 70%. En el diagnóstico entregamos una estimación clara." },
-      "guarantees":  { "question": "¿Qué incluye el acompañamiento postventa?", "answer": "Monitorización remota, revisiones periódicas, reportes de ahorro y soporte local ante cualquier incidencia." },
-      "audit":       { "question": "¿Qué incluye el estudio gratuito?", "answer": "Análisis del consumo, potencial solar, propuesta técnica, retorno estimado y mapa de ayudas. Sin coste, sin compromiso." }
+      "timeline": {
+        "question": "¿Cuánto tarda un proyecto?",
+        "answer": "Entre 3 y 6 meses según tamaño y plazos de subvención. Comunicamos hitos claros desde el primer día."
+      },
+      "subventions": {
+        "question": "¿Tramitáis las subvenciones?",
+        "answer": "Sí, íntegramente. Conocemos los programas autonómicos canarios y las ayudas europeas aplicables a cada sector."
+      },
+      "financing": {
+        "question": "¿Hay opciones de financiación?",
+        "answer": "Trabajamos con entidades locales para condiciones adaptadas. Asesoramos sobre amortización y combinaciones con ayudas públicas."
+      },
+      "savings": {
+        "question": "¿Qué ahorro real puedo esperar?",
+        "answer": "Nuestros clientes reducen su factura entre un 30% y un 70%. En el diagnóstico entregamos una estimación clara."
+      },
+      "guarantees": {
+        "question": "¿Qué incluye el acompañamiento postventa?",
+        "answer": "Monitorización remota, revisiones periódicas, reportes de ahorro y soporte local ante cualquier incidencia."
+      },
+      "audit": {
+        "question": "¿Qué incluye el estudio gratuito?",
+        "answer": "Análisis del consumo, potencial solar, propuesta técnica, retorno estimado y mapa de ayudas. Sin coste, sin compromiso."
+      }
     }
   }
 }

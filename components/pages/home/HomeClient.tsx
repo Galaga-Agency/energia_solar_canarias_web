@@ -16,7 +16,7 @@ import { initBeneficiosListAnimation } from "@/utils/animations/beneficios-list"
 import { initFounderFrameAnimation } from "@/utils/animations/founder-frame";
 import { initProyectosCardsAnimation } from "@/utils/animations/proyectos-cards";
 import { initHero2Animations } from "@/utils/animations/hero2-layers";
-import { HomeHero2 } from "./HomeHero2";
+import { HomeHero } from "./HomeHero";
 import { HomeManifestoStrip } from "./HomeManifestoStrip";
 import { MouseReactiveFlock } from "@/components/shared/MouseReactiveFlock";
 
@@ -46,7 +46,7 @@ export function HomeClient() {
 
   const isMobile = useIsMobile();
   const flockBirds = isMobile
-    ? { top: 60,  bottom: 40  }
+    ? { top: 60, bottom: 40 }
     : { top: 140, bottom: 100 };
 
   useGSAPAnimations(() => ({
@@ -73,7 +73,7 @@ export function HomeClient() {
           aria-hidden
           className="pointer-events-none absolute inset-0 z-30 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
         />
-        <HomeHero2 />
+        <HomeHero />
         <HomeManifestoStrip />
       </div>
       <HomeStats />

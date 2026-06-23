@@ -45,9 +45,14 @@ export function initProcesoTimelineAnimation(): () => void {
 
     /* ── Pin + horizontal scrub ── */
     const getDistance = () => {
-      const trackWidth = track.scrollWidth
-      const vw         = window.innerWidth
-      return Math.max(0, trackWidth - vw)
+      const lastCard = cards[cards.length - 1]
+      const vw       = window.innerWidth
+      // Scroll only until the last card's right edge meets the track's right
+      // padding inset — using scrollWidth would also count the trailing padding
+      // and leave a large empty gap after the final card.
+      const padRight  = parseFloat(getComputedStyle(track).paddingRight) || 0
+      const lastRight = lastCard.offsetLeft + lastCard.offsetWidth
+      return Math.max(0, lastRight - (vw - padRight))
     }
 
     const tween = gsap.to(track, {

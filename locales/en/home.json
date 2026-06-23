@@ -5,13 +5,13 @@
     "titleEm": "independence",
     "body":    "The local energy partner of reference for Canarian companies. Audit, grants, installation and maintenance.",
     "cta1":    "Request your audit",
-    "cta2":    "Why choose us",
+    "cta2":    "View our solutions",
     "scroll":  "Scroll"
   },
   "manifesto": {
     "eyebrow":   "Manifesto",
     "statement": "Light as origin, balance as system, and energy as order.",
-    "note":      "We design the energy independence of the businesses that hold the Canary Islands together.",
+    "note":      "Clean, free energy — backed by more than 20 years of experience.",
     "label":     "Energía Solar Canarias"
   },
   "stats": {
@@ -78,7 +78,7 @@
     "title":   "A single point of contact, from the first kilowatt to the last report.",
     "items": [
       { "num": "01", "title": "Diagnosis",     "body": "Consumption audit, return simulation and generation plan by island and sector." },
-      { "num": "02", "title": "Grants",        "body": "We fully manage the grant application process. A complex journey we make simple for you." },
+      { "num": "02", "title": "Administration & paperwork", "body": "We fully manage the grant application process. A complex journey we make simple for you." },
       { "num": "03", "title": "Installation",  "body": "Local team, committed deadlines. Zero operational downtime." },
       { "num": "04", "title": "Maintenance",   "body": "Continuous monitoring, scheduled reviews, periodic reporting. Your installation, always under control." }
     ]

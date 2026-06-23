@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/Button'
+import { PlaceholderImage } from '@/components/shared/PlaceholderImage'
 
 const IMAGES = [
   { src: '/assets/images/common/lanzarote-beach-sunset.webp',   alt: 'Hotel en el sur de Tenerife' },
@@ -76,7 +76,7 @@ export function HomeProyectos() {
                 data-proyecto-card
               >
                 <div className={`relative w-full overflow-hidden brand-radius bg-[#e1d8c7] md:w-1/2 lg:w-full ${p.aspect}`}>
-                  <Image
+                  <PlaceholderImage
                     src={IMAGES[i].src}
                     alt={IMAGES[i].alt}
                     fill

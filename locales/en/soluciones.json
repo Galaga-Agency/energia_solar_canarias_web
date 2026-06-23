@@ -14,9 +14,21 @@
     "quoteTail": "uncertain.",
     "body": "Canarian companies want to move, but they need real guarantees: clear return, trust in the partner, measurable results.",
     "stats": [
-      { "value": "90%", "label": "family SMEs with risk aversion", "source": "SME Observatory, 2024" },
-      { "value": "30%", "label": "actually access available grants", "source": "Chamber of Commerce, 2024" },
-      { "value": "+50%", "label": "YoY interest in self-consumption", "source": "Google Trends, 2024" }
+      {
+        "value": "90%",
+        "label": "family SMEs with risk aversion",
+        "source": "SME Observatory, 2024"
+      },
+      {
+        "value": "30%",
+        "label": "actually access available grants",
+        "source": "Chamber of Commerce, 2024"
+      },
+      {
+        "value": "+50%",
+        "label": "YoY interest in self-consumption",
+        "source": "Google Trends, 2024"
+      }
     ]
   },
   "sectores": {
@@ -29,29 +41,170 @@
         "key": "hoteles",
         "tag": "Hotels",
         "title": "Energy that protects the experience.",
-        "body": "Rooftop PV, storage and monitoring for tourist accommodation. Zero operational downtime.",
+        "context": "Tourism is over 30% of Canarian GDP and runs under growing ESG pressure from tour operators and EU regulation.",
+        "offer": "We align your operation with the ESG standards European tour operators demand. Turnkey solution, zero operational downtime.",
+        "decisores": "General management · Sustainability director · Technical / operations lead",
         "metric": "−45% energy cost per room · year"
       },
       {
         "key": "industria",
         "tag": "Industry & logistics",
         "title": "Processes shielded against price.",
-        "body": "Scalable industrial self-consumption, predictive maintenance and remote monitoring.",
+        "context": "Warehouses, factories and logistics hubs combine high energy use with large surfaces ready for self-consumption.",
+        "offer": "We stabilize your P&L with predictive maintenance and large self-consumption surfaces. Energy cost under control.",
+        "decisores": "Operations director · Finance director · Maintenance lead",
         "metric": "Average payback < 6 years"
       },
       {
         "key": "retail",
         "tag": "Retail & big-box",
         "title": "Lighting and cooling on your own energy.",
-        "body": "Integrated rooftops, storage for demand peaks and impact reporting.",
+        "context": "Supermarkets and big-box stores pair high lighting and refrigeration spend with the need for a stronger green image.",
+        "offer": "Critical savings on refrigeration and lighting, turning energy spend into green brand image and impact reporting.",
+        "decisores": "General management · Operations director · Sustainability lead",
         "metric": "−38% electricity bill"
       },
       {
         "key": "agro",
         "tag": "Agroindustry",
         "title": "Solar pumping, irrigation and cooling.",
-        "body": "Shared self-consumption and pumping solutions for greenhouses and cooperatives.",
+        "context": "Irrigation, greenhouses and cooperatives face rising energy costs and food-sustainability pressure.",
+        "offer": "Efficiency in irrigation through solar pumping and shared self-consumption for cooperatives. Full grant management.",
+        "decisores": "Cooperative owners · Farm managers · Production leads",
         "metric": "Agricultural grants managed"
+      }
+    ]
+  },
+  "arquitectura": {
+    "eyebrow": "Service architecture",
+    "titleLead": "Three pillars. One energy",
+    "titleTail": "strategy.",
+    "body": "We stopped selling panels: we stabilize your bottom line. Three pillars covering the full lifecycle of your investment, from decision to performance.",
+    "show": "View services",
+    "hide": "Close",
+    "items": [
+      {
+        "key": "planificacion",
+        "num": "01",
+        "tag": "Planning & consulting",
+        "title": "From bureaucratic paralysis to financial certainty.",
+        "body": "The strategic entry point. We guarantee the project's success before the first panel moves, taking on the administrative burden that suffocates local companies.",
+        "groups": [
+          {
+            "name": "Studies & design",
+            "items": [
+              "Feasibility studies and installation design",
+              "Consumption simulation and return on investment (ROI)",
+              "Energy efficiency audits",
+              "Technical reports and expert appraisals"
+            ]
+          },
+          {
+            "name": "Permits & legalization",
+            "items": [
+              "Legalization with Industry, Ministry or Town Hall",
+              "Licensing and administrative processing",
+              "Energy certificates for rental, sale and performance"
+            ]
+          },
+          {
+            "name": "Grants & financing",
+            "items": [
+              "Processing of grants and incentives (including NextGen)",
+              "Financing structuring with BBVA, Santander, Abanca and LaCaixa",
+              "Tailored quotes"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "ejecucion",
+        "num": "02",
+        "tag": "Project execution",
+        "title": "Precision engineering as a balance-sheet asset.",
+        "body": "The turnkey operational core. We deploy infrastructure designed for business continuity, not a simple assembly. Your investment, protected against energy-market volatility.",
+        "groups": [
+          {
+            "name": "Photovoltaic installations by use",
+            "items": [
+              "Industrial: warehouses, factories and hotels",
+              "Residential: single- and multi-family homes",
+              "Agricultural: solar pumping with variator and with storage",
+              "Off-grid isolated estates",
+              "Grid export and self-consumption with surplus",
+              "Solar farms and bespoke projects",
+              "Hybrid installations: solar + generator + batteries"
+            ]
+          },
+          {
+            "name": "System configuration",
+            "items": [
+              "With or without battery storage",
+              "Automatic consumption optimization and smart load management",
+              "Optimizers and microinverters"
+            ]
+          },
+          {
+            "name": "Self-consumption & communities",
+            "items": [
+              "Residential and business self-consumption",
+              "Shared self-consumption and collective consumption",
+              "Local energy communities",
+              "Demand management and efficient energy use"
+            ]
+          },
+          {
+            "name": "Storage & resilience",
+            "items": [
+              "Lithium battery installation and hybrid systems",
+              "Backup configurations against island grid failures"
+            ]
+          },
+          {
+            "name": "Electrification & innovation",
+            "items": [
+              "Electric vehicle chargers",
+              "Efficient climate control: heat pumps and aerothermal",
+              "R&D: bidirectional wireless EV charging (in progress)"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "gestion",
+        "num": "03",
+        "tag": "Asset management & optimization",
+        "title": "Savings as an auditable, recurring metric.",
+        "body": "We evolve maintenance into energy asset management. We ensure projected efficiency is maintained or improved across the system's entire service life.",
+        "groups": [
+          {
+            "name": "Monitoring & optimization",
+            "items": [
+              "Smart monitoring and real-time diagnostics",
+              "Automatic load optimization",
+              "Surplus management with energy retailers",
+              "Advice for efficient consumption"
+            ]
+          },
+          {
+            "name": "Technical maintenance",
+            "items": [
+              "Preventive maintenance and periodic inspections",
+              "Panel cleaning and safety against calima and salt",
+              "Diagnosis and repairs",
+              "Connection works and electrical upgrades"
+            ]
+          },
+          {
+            "name": "Upgrades & coverage",
+            "items": [
+              "Technological upgrades and performance improvements",
+              "Refurbishment of old PV installations",
+              "Maintenance contracts",
+              "Extended warranties, insurance and after-sales support"
+            ]
+          }
+        ]
       }
     ]
   },
@@ -89,10 +242,26 @@
     "titleTail": "of contact.",
     "body": "From the first diagnosis to maintenance, the whole process is our responsibility.",
     "items": [
-      { "n": "01", "title": "Diagnosis",      "body": "Free audit of consumption and solar potential. Clear return estimate." },
-      { "n": "02", "title": "Grants",         "body": "We process regional and European subsidies. Documentation and legalisation." },
-      { "n": "03", "title": "Installation",   "body": "Project, materials, assembly and commissioning. In-house team, communicated deadlines." },
-      { "n": "04", "title": "Maintenance",    "body": "Remote monitoring, periodic reviews and agile local support." }
+      {
+        "n": "01",
+        "title": "Diagnosis",
+        "body": "Free audit of consumption and solar potential. Clear return estimate."
+      },
+      {
+        "n": "02",
+        "title": "Grants",
+        "body": "We process regional and European subsidies. Documentation and legalisation."
+      },
+      {
+        "n": "03",
+        "title": "Installation",
+        "body": "Project, materials, assembly and commissioning. In-house team, communicated deadlines."
+      },
+      {
+        "n": "04",
+        "title": "Maintenance",
+        "body": "Remote monitoring, periodic reviews and agile local support."
+      }
     ]
   },
   "decisores": {
@@ -101,11 +270,48 @@
     "titleTail": "table.",
     "body": "Each role has its own question. These are the messages we open each conversation with.",
     "items": [
-      { "role": "CEO / Manager",                   "message": "Investing in solar is a strategic decision, not a technical one." },
-      { "role": "Finance Director",                "message": "We calculate your savings and manage financing and grants." },
-      { "role": "Operations / Maintenance",        "message": "Monitored installations and 100% predictive maintenance." },
-      { "role": "Sustainability / Communication",  "message": "We turn your ESG commitment into a competitive advantage." }
+      {
+        "role": "CEO / Manager",
+        "message": "Investing in solar is a strategic decision, not a technical one."
+      },
+      {
+        "role": "Finance Director",
+        "message": "We calculate your savings and manage financing and grants."
+      },
+      {
+        "role": "Operations / Maintenance",
+        "message": "Monitored installations and 100% predictive maintenance."
+      },
+      {
+        "role": "Sustainability / Communication",
+        "message": "We turn your ESG commitment into a competitive advantage."
+      }
     ]
+  },
+  "promesa": {
+    "eyebrow": "Our promise",
+    "titleLead": "From installer to energy partner for your",
+    "titleTail": "business.",
+    "body": "The metamorphosis from a reactive installer to a proactive, consultative partner. Three assets for every Canarian client:",
+    "items": [
+      {
+        "key": "confianza",
+        "label": "Trust",
+        "body": "Through our command of the environment: island grid, salt climate and regional bureaucracy no national player can replicate."
+      },
+      {
+        "key": "claridad",
+        "label": "Clarity",
+        "body": "We remove technical and bureaucratic complexity. A single point of contact, direct language at every phase."
+      },
+      {
+        "key": "retorno",
+        "label": "Return",
+        "body": "We secure the project's financial profitability: auditable savings that stabilize your bottom line."
+      }
+    ],
+    "tagline": "Energy for your business, with the confidence of those who know the environment.",
+    "signature": "Energía Solar Canarias — everyone's energy."
   },
   "cta": {
     "eyebrow": "Take the first step",
@@ -118,12 +324,30 @@
   "faq": {
     "label": "Frequently asked questions",
     "items": {
-      "timeline":    { "question": "How long does a project take?", "answer": "Between 3 and 6 months depending on size and subsidy deadlines. We communicate clear milestones from day one." },
-      "subventions": { "question": "Do you handle subsidy applications?", "answer": "Yes, end-to-end. We know the Canarian regional programs and European grants applicable to each sector." },
-      "financing":   { "question": "Are there financing options?", "answer": "We work with local institutions for adapted conditions. We advise on amortisation and combinations with public grants." },
-      "savings":     { "question": "What real savings can I expect?", "answer": "Our clients reduce their bills between 30% and 70%. In the diagnosis we deliver a clear estimate." },
-      "guarantees":  { "question": "What does post-sale accompaniment include?", "answer": "Remote monitoring, periodic reviews, savings reports and local support for any incident." },
-      "audit":       { "question": "What does the free study include?", "answer": "Consumption analysis, solar potential, technical proposal, return estimate and grant map. No cost, no commitment." }
+      "timeline": {
+        "question": "How long does a project take?",
+        "answer": "Between 3 and 6 months depending on size and subsidy deadlines. We communicate clear milestones from day one."
+      },
+      "subventions": {
+        "question": "Do you handle subsidy applications?",
+        "answer": "Yes, end-to-end. We know the Canarian regional programs and European grants applicable to each sector."
+      },
+      "financing": {
+        "question": "Are there financing options?",
+        "answer": "We work with local institutions for adapted conditions. We advise on amortisation and combinations with public grants."
+      },
+      "savings": {
+        "question": "What real savings can I expect?",
+        "answer": "Our clients reduce their bills between 30% and 70%. In the diagnosis we deliver a clear estimate."
+      },
+      "guarantees": {
+        "question": "What does post-sale accompaniment include?",
+        "answer": "Remote monitoring, periodic reviews, savings reports and local support for any incident."
+      },
+      "audit": {
+        "question": "What does the free study include?",
+        "answer": "Consumption analysis, solar potential, technical proposal, return estimate and grant map. No cost, no commitment."
+      }
     }
   }
 }

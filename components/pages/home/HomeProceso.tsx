@@ -78,7 +78,7 @@ export function HomeProceso() {
               <article
                 key={step.num}
                 data-proceso-card
-                className="relative flex h-[58vh] w-[52vw] shrink-0 flex-col gap-6 border border-[#f4f1ea]/12 bg-[#f4f1ea]/[0.03] p-10 lg:w-[44vw] lg:p-12"
+                className="relative flex h-[58vh] w-[42vw] shrink-0 flex-col gap-6 border border-[#f4f1ea]/12 bg-[#f4f1ea]/[0.03] p-10 lg:w-[34vw] lg:p-12"
               >
                 <div className="flex items-start justify-between">
                   <span className="font-mono text-[12px] uppercase tracking-[0.22em] text-primary">

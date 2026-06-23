@@ -72,11 +72,12 @@ export function Footer() {
           </div>
         </div>
 
-        {/* ── Middle: brand block + link columns + newsletter ────────────── */}
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 py-10 sm:grid-cols-3 lg:grid-cols-12 lg:gap-x-10 lg:gap-y-8">
+        {/* ── Middle: brand block + link columns ─────────────────────────── */}
+        {/* Mobile-first: 1 col → 2-up on sm → brand + 3 link cols, full width on lg */}
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 py-10 sm:grid-cols-2 lg:grid-cols-4">
 
           {/* Brand block */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-3">
+          <div className="sm:col-span-2 lg:col-span-1">
             <Image
               src="/assets/logos/svg/logo-white.svg"
               alt="Energía Solar Canarias"
@@ -113,60 +114,25 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Link columns — direct grid children, responsive spans */}
-          {footerColumns.map((column) => (
-            <div key={column.title} className="col-span-1 lg:col-span-2">
-              <span className="text-label text-primary! mb-3 block">{column.title}</span>
-              <ul className="flex flex-col gap-2.5">
-                {column.links.map(({ labelKey, href }) => (
-                  <li key={labelKey}>
-                    <TransitionLink
-                      href={href}
-                      className="card-content inline-block py-1 text-[#f4f1ea]/80! transition-colors hover:text-primary"
-                    >
-                      {t(labelKey)}
-                    </TransitionLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Newsletter */}
-          <div className="col-span-2 sm:col-span-3 lg:col-span-3">
-            <span className="text-label text-primary! mb-3 block">{t('footer.links.newsletter')}</span>
-            <p className="card-content text-[#f4f1ea]/80! mb-4 max-w-[28ch]">
-              {t('footer.newsletter')}
-            </p>
-
-            <form
-              className="flex flex-col gap-3"
-              onSubmit={(event) => event.preventDefault()}
-            >
-              <label className="block border-b border-[#f4f1ea]/30 pb-3 transition-colors focus-within:border-primary">
-                <span className="sr-only">{t('footer.email')}</span>
-                <input
-                  type="email"
-                  placeholder={t('footer.email')}
-                  aria-label={t('footer.email')}
-                  inputMode="email"
-                  autoComplete="email"
-                  className="w-full bg-transparent card-content text-[#f4f1ea] placeholder:text-[#f4f1ea]/45 focus:outline-none"
-                />
-              </label>
-
-              <button
-                type="submit"
-                className="group inline-flex items-center gap-2 self-start py-2 text-label text-primary! transition-colors hover:text-[#f4f1ea]"
-              >
-                <span>{t('footer.send')}</span>
-                <span aria-hidden className="font-mono text-sm transition-transform duration-300 group-hover:translate-x-1">↗</span>
-              </button>
-            </form>
-
-            <p className="mt-5 text-sm leading-relaxed text-[#f4f1ea]/55 md:text-xs">
-              {t('footer.disclaimer')}
-            </p>
+          {/* Link columns — pushed to the right, packed together */}
+          <div className="grid grid-cols-2 gap-x-12 gap-y-10 sm:col-span-2 sm:grid-cols-3 lg:col-span-3 lg:justify-items-end">
+            {footerColumns.map((column) => (
+              <div key={column.title}>
+                <span className="text-label text-primary! mb-3 block">{column.title}</span>
+                <ul className="flex flex-col gap-2.5">
+                  {column.links.map(({ labelKey, href }) => (
+                    <li key={labelKey}>
+                      <TransitionLink
+                        href={href}
+                        className="card-content inline-block py-1 text-[#f4f1ea]/80! transition-colors hover:text-primary"
+                      >
+                        {t(labelKey)}
+                      </TransitionLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 

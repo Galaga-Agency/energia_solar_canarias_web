@@ -6,7 +6,7 @@
     "about":      "Sobre nosotros",
     "blog":       "Blog",
     "contact":    "Contactar",
-    "cta":        "Contacta con nosotros"
+    "cta":        "Hablemos"
   },
   "actions": {
     "send":       "Enviar",
@@ -26,11 +26,6 @@
     "addressHeader":"Sede",
     "contactHeader":"Contacto",
     "rights":       "Todos los derechos reservados.",
-    "newsletter":   "Recibe actualizaciones sobre soluciones energéticas y tendencias del mercado.",
-    "subscribe":    "Suscribirse",
-    "email":        "Tu correo electrónico",
-    "disclaimer":   "Al suscribirte aceptas nuestra política de privacidad y recibirás comunicaciones de la empresa.",
-    "send":         "Enviar",
     "copyright":    "© 2026 Energía Solar Canarias.",
     "sections": {
       "sections":  "Secciones",
@@ -55,8 +50,7 @@
       "privacy":        "Privacidad",
       "terms":          "Términos",
       "cookies":        "Cookies",
-      "support":        "Soporte",
-      "newsletter":     "Boletín"
+      "support":        "Soporte"
     },
     "bottomLinks": {
       "privacyPolicy":  "Política de privacidad",

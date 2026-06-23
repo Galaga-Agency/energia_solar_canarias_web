@@ -3,4 +3,5 @@ export const NAV_LINKS = [
   { labelKey: 'projects',  href: '/proyectos'      },
   { labelKey: 'about',     href: '/sobre-nosotros' },
   { labelKey: 'blog',      href: '/blog'           },
+  { labelKey: 'contact',   href: '/contacto'       },
 ] as const

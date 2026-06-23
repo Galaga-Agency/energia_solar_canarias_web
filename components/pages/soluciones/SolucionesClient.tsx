@@ -12,11 +12,16 @@ import { initDrawArrowAnimation }    from '@/utils/animations/draw-arrow'
 import { initScrollRevealSections }  from '@/utils/animations/scroll-reveal'
 import { initFAQAccordion }          from '@/utils/animations/faq-accordion'
 
-const SolucionesQuote      = dynamic(() => import('./SolucionesQuote').then(m => m.SolucionesQuote))
-const SolucionesGuarantees = dynamic(() => import('./SolucionesGuarantees').then(m => m.SolucionesGuarantees))
-const SolucionesFAQ        = dynamic(() => import('./SolucionesFAQ').then(m => m.SolucionesFAQ), { ssr: false })
-const SolucionesCTA        = dynamic(() => import('./SolucionesCTA').then(m => m.SolucionesCTA), { ssr: false })
-const ClientsMarquee       = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
+const SolucionesContexto     = dynamic(() => import('./SolucionesContexto').then(m => m.SolucionesContexto))
+const SolucionesSectores     = dynamic(() => import('./SolucionesSectores').then(m => m.SolucionesSectores))
+const SolucionesArquitectura = dynamic(() => import('./SolucionesArquitectura').then(m => m.SolucionesArquitectura))
+const SolucionesPilares      = dynamic(() => import('./SolucionesPilares').then(m => m.SolucionesPilares))
+const SolucionesProceso      = dynamic(() => import('./SolucionesProceso').then(m => m.SolucionesProceso))
+const SolucionesGuarantees   = dynamic(() => import('./SolucionesGuarantees').then(m => m.SolucionesGuarantees))
+const SolucionesPromesa      = dynamic(() => import('./SolucionesPromesa').then(m => m.SolucionesPromesa))
+const SolucionesFAQ          = dynamic(() => import('./SolucionesFAQ').then(m => m.SolucionesFAQ), { ssr: false })
+const SolucionesCTA          = dynamic(() => import('./SolucionesCTA').then(m => m.SolucionesCTA), { ssr: false })
+const ClientsMarquee         = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
 
 export function SolucionesClient() {
   usePageReady()
@@ -36,8 +41,13 @@ export function SolucionesClient() {
         { label: nav('solutions'), href: '/soluciones' },
       ]} />
       <SolucionesHero />
-      <SolucionesQuote />
+      <SolucionesContexto />
+      <SolucionesSectores />
+      <SolucionesArquitectura />
+      <SolucionesPilares />
+      <SolucionesProceso />
       <SolucionesGuarantees />
+      <SolucionesPromesa />
       <ClientsMarquee />
       <SolucionesFAQ
         label={t('faq.label')}

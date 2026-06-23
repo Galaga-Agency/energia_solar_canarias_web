@@ -5,13 +5,13 @@
     "titleEm":  "independencia",
     "body":     "El socio energético local de referencia para empresas canarias. Auditoría, subvención, instalación y mantenimiento.",
     "cta1":     "Solicita tu auditoría",
-    "cta2":     "Por qué elegirnos",
+    "cta2":     "Ver nuestras soluciones",
     "scroll":   "Scroll"
   },
   "manifesto": {
     "eyebrow":   "Manifesto",
     "statement": "La luz como origen, el equilibrio como sistema, y la energía como orden.",
-    "note":      "Diseñamos la independencia energética de las empresas que sostienen Canarias.",
+    "note":      "Energía limpia y libre, con la confianza de más de 20 años de experiencia.",
     "label":     "Energía Solar Canarias"
   },
   "stats": {
@@ -78,7 +78,7 @@
     "title":   "Una sola interlocución, del primer kilovatio al último reporte.",
     "items": [
       { "num": "01", "title": "Diagnóstico",    "body": "Auditoría de consumo, simulación de retorno y plan de generación por isla y sector." },
-      { "num": "02", "title": "Subvención",     "body": "Gestionamos íntegramente la tramitación de ayudas. Un proceso complejo que convertimos en algo sencillo para ti." },
+      { "num": "02", "title": "Administración o trámites", "body": "Gestionamos íntegramente la tramitación de ayudas. Un proceso complejo que convertimos en algo sencillo para ti." },
       { "num": "03", "title": "Instalación",    "body": "Equipo local, plazos comprometidos. Cero parada operativa." },
       { "num": "04", "title": "Mantenimiento",  "body": "Monitorización continua, revisiones programadas, reporting periódico. Tu instalación, siempre bajo control." }
     ]

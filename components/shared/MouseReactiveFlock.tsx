@@ -10,6 +10,8 @@ interface Props {
   className?: string
   minSize?:   number
   maxSize?:   number
+  /** CSS color to tint the (black silhouette) bird sprites. */
+  tint?:      string
 }
 
 interface Bird {
@@ -53,6 +55,7 @@ export function MouseReactiveFlock({
   className = '',
   minSize = 28,
   maxSize = 48,
+  tint = '#6b4a2b',
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -71,8 +74,26 @@ export function MouseReactiveFlock({
     let mouseY  = -9999
     let rafId   = 0
     let stopped = false
-    let frames: HTMLImageElement[] = []
+    let frames: CanvasImageSource[] = []
     const flock: Bird[] = []
+
+    /* Recolor a black-silhouette sprite to `tint` once, keeping its alpha mask. */
+    function tintFrame(img: HTMLImageElement): CanvasImageSource {
+      if (!tint) return img
+      const w = img.naturalWidth, h = img.naturalHeight
+      if (!w || !h) return img
+      const off = document.createElement('canvas')
+      off.width = w
+      off.height = h
+      const octx = off.getContext('2d')
+      if (!octx) return img
+      octx.drawImage(img, 0, 0)
+      // Paint tint only over opaque pixels (the bird shape), preserving anti-aliasing.
+      octx.globalCompositeOperation = 'source-in'
+      octx.fillStyle = tint
+      octx.fillRect(0, 0, w, h)
+      return off
+    }
 
     /* ── Flow field ── */
     const NOISE_SCALE = 0.0025     // moderate features → visual variety across canvas
@@ -309,7 +330,7 @@ export function MouseReactiveFlock({
     loadFrames()
       .then((imgs) => {
         if (stopped) return
-        frames = imgs
+        frames = imgs.map(tintFrame)
         spawn()
         if (!reduced) rafId = requestAnimationFrame(step)
         else step(0)
@@ -322,7 +343,7 @@ export function MouseReactiveFlock({
       ro.disconnect()
       window.removeEventListener('mousemove', onMove)
     }
-  }, [birds, minSize, maxSize])
+  }, [birds, minSize, maxSize, tint])
 
   return <canvas ref={canvasRef} className={`block ${className}`} />
 
