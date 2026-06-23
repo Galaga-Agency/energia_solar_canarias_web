@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
+import { splitLastWord } from '@/utils/text'
 import { PlaceholderImage } from '@/components/shared/PlaceholderImage'
 
 export interface SectorCardItem {
@@ -51,11 +52,6 @@ const PANEL_VARIANTS = [
   },
 ] as const
 
-function splitLastWord(label: string): { lead: string; tail: string } {
-  const idx = label.lastIndexOf(' ')
-  if (idx === -1) return { lead: '', tail: label }
-  return { lead: label.slice(0, idx), tail: label.slice(idx + 1) }
-}
 
 export function SectorCard({ item, variant }: { item: SectorCardItem; variant: number }) {
   const v = PANEL_VARIANTS[variant % PANEL_VARIANTS.length]

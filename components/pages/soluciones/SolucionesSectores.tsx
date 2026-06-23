@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { splitLastWord } from '@/utils/text'
 import { SectorCard } from './SectorCard'
 
 type Sector = {
@@ -13,23 +14,13 @@ type Sector = {
   metric: string
 }
 
-function splitLastWord(label: string): { lead: string; tail: string } {
-  const idx = label.lastIndexOf(' ')
-  if (idx === -1) return { lead: '', tail: label }
-  return { lead: label.slice(0, idx), tail: label.slice(idx + 1) }
-}
-
 export function SolucionesSectores() {
   const t       = useTranslations('soluciones.sectores')
   const sectors = t.raw('items') as Sector[]
   const tt      = splitLastWord(t('titleLead') + ' ' + t('titleTail'))
 
   return (
-    <section id="sectores" className="section-spacing relative isolate overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
+    <section id="sectores" className="section-spacing relative overflow-hidden">
       <div className="section-inner relative z-10">
         {/* Centered header — different rhythm from the other sections */}
         <div className="mx-auto mb-20 max-w-[46ch] text-center md:mb-28" data-reveal>
@@ -44,9 +35,12 @@ export function SolucionesSectores() {
         <div
           className="grid grid-cols-1 gap-y-20 gap-x-12 sm:grid-cols-2 lg:gap-x-20 lg:gap-y-28"
           style={{ perspective: '1200px' }}
+          data-sol-stagger
         >
           {sectors.map((item, i) => (
-            <SectorCard key={item.key} item={item} variant={i} />
+            <div key={item.key} data-sol-item>
+              <SectorCard item={item} variant={i} />
+            </div>
           ))}
         </div>
       </div>

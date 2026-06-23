@@ -39,9 +39,11 @@
 }
 
 .text-body {
-  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
   font-weight: 400;
-  line-height: var(--leading-normal);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--color-text);
 }
 

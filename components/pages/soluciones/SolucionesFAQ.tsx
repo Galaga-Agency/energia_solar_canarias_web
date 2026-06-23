@@ -12,13 +12,8 @@ export function SolucionesFAQ({ items, label }: { items: Item[]; label: string }
   return (
     <section
       aria-label={label}
-      className="relative isolate overflow-hidden bg-[#f4f1ea] section-spacing"
+      className="relative overflow-hidden section-spacing"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
-
       <div className="section-inner relative z-10">
         <div className="mb-12 flex flex-col gap-6 md:mb-16 md:grid md:grid-cols-12 md:items-end md:gap-12" data-reveal>
           <div className="md:col-span-7">
@@ -36,7 +31,6 @@ export function SolucionesFAQ({ items, label }: { items: Item[]; label: string }
         <dl className="border-t border-ink/15">
           {items.map((item, i) => {
             const isOpen = open === i
-            const num    = String(i + 1).padStart(2, '0')
             return (
               <div
                 key={i}
@@ -48,14 +42,9 @@ export function SolucionesFAQ({ items, label }: { items: Item[]; label: string }
                     aria-expanded={isOpen}
                     aria-controls={`faq-panel-${i}`}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="flex w-full items-start justify-between gap-6 py-7 text-left md:gap-10 md:py-8"
+                    className="flex w-full items-start justify-between gap-6 px-4 py-7 text-left md:gap-10 md:px-6 md:py-8"
                   >
-                    <span className="flex flex-1 items-baseline gap-4 md:gap-8">
-                      <span className="text-label font-mono text-primary!">
-                        {num}
-                      </span>
-                      <span className="text-heading text-ink!">{item.question}</span>
-                    </span>
+                    <span className="flex-1 text-heading text-ink!">{item.question}</span>
                     <span
                       aria-hidden
                       className={`mt-2 font-mono text-2xl leading-none text-primary transition-transform duration-300 ${
@@ -73,9 +62,8 @@ export function SolucionesFAQ({ items, label }: { items: Item[]; label: string }
                   data-open={isOpen ? 'true' : 'false'}
                 >
                   <div className="overflow-hidden">
-                    <div className="pb-8 md:grid md:grid-cols-12 md:gap-10 md:pb-10">
-                      <div aria-hidden className="hidden md:col-span-2 md:block" />
-                      <p className="card-content text-ink/70! max-w-[64ch] md:col-span-10">
+                    <div className="px-4 pb-8 md:px-6 md:pb-10">
+                      <p className="card-content text-ink/70! max-w-[64ch]">
                         {item.answer}
                       </p>
                     </div>

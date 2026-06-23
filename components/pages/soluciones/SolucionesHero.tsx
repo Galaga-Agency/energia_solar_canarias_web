@@ -17,14 +17,9 @@ export function SolucionesHero() {
   return (
     <section
       data-hero
-      className="relative isolate flex min-h-svh flex-col justify-between overflow-hidden bg-(--color-bg) pt-24 pb-14 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24"
+      className="relative isolate flex min-h-svh flex-col justify-between overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24"
     >
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-30 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
-
-      <AnimatedBrandBlob className="pointer-events-none absolute -right-[12%] top-[8%] z-0 h-auto w-[55%] opacity-45 md:-right-[6%] md:w-[36%] lg:w-[26%]" />
+      <AnimatedBrandBlob className="pointer-events-none absolute -right-[12%] top-[10%] z-0 h-auto w-[55%] opacity-45 md:-right-[6%] md:w-[36%] lg:w-[26%]" />
       <AnimatedBrandBlob className="pointer-events-none absolute -left-[16%] bottom-[12%] z-0 h-auto w-[40%] opacity-25 hidden md:block" />
 
       {/* Top edge — mono labels (replace centered eyebrow) */}
@@ -32,7 +27,7 @@ export function SolucionesHero() {
         <span data-hero-item className="opacity-0 text-label text-ink/65!">
           {t('eyebrow')}
         </span>
-        <span data-hero-item className="opacity-0 text-label text-ink/35!">
+        <span data-hero-item className="opacity-0 text-label text-ink/35! ml-4">
           04 / sectores · 2026
         </span>
       </div>
@@ -49,7 +44,6 @@ export function SolucionesHero() {
               >
                 {t('titleLead')}{' '}
                 <em className="italic font-normal text-primary">{t('titleTail')}</em>
-                <span aria-hidden className="mx-[2vw] text-primary">·</span>
               </span>
             ))}
           </div>

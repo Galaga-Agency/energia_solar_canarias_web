@@ -1,16 +1,9 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { splitTail } from '@/utils/text'
 
 type Promise = { key: string; label: string; body: string }
-
-function splitTail(text: string): { lead: string; tail: string } {
-  const trimmed = text.replace(/\.$/, '')
-  const idx     = trimmed.lastIndexOf(' ')
-  if (idx === -1) return { lead: '', tail: text }
-  const dot = text.endsWith('.') ? '.' : ''
-  return { lead: trimmed.slice(0, idx), tail: trimmed.slice(idx + 1) + dot }
-}
 
 export function SolucionesPromesa() {
   const t     = useTranslations('soluciones.promesa')
