@@ -109,13 +109,15 @@ function TiltCard({ item, variant }: { item: Item; variant: number }) {
           className="absolute -inset-6 will-change-transform"
           data-solucion-media
         >
-          <Image
-            src={SECTOR_IMAGES[item.key]}
-            alt={item.title}
-            fill
-            sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-            className="solucion-card-image object-cover"
-          />
+          <div className="relative h-full w-full">
+            <Image
+              src={SECTOR_IMAGES[item.key]}
+              alt={item.title}
+              fill
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+              className="solucion-card-image object-cover"
+            />
+          </div>
         </div>
 
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(15,24,20,0.25)_0%,transparent_55%)]" />

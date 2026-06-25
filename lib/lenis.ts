@@ -28,6 +28,13 @@ export function initLenis(): Lenis {
   gsap.ticker.add(tickerCallback)
   gsap.ticker.lagSmoothing(0)
 
+  // When a pinned ScrollTrigger adds/removes its pin-spacer the document
+  // height changes; Lenis must re-read its scroll limit, otherwise its target
+  // scroll and ScrollTrigger's measured scroll desync by a frame and the pin
+  // strobes active/inactive (only visible after a client-side nav, once a pin
+  // is created against an already-scrolled Lenis instance).
+  ScrollTrigger.addEventListener('refreshInit', () => lenisInstance?.resize())
+
   return lenisInstance
 }
 

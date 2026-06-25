@@ -15,10 +15,10 @@ interface PlaceholderImageProps extends ImageProps {
  */
 export function PlaceholderImage({ note, className, alt, ...imageProps }: PlaceholderImageProps) {
   return (
-    <span data-placeholder-image className="contents">
+    <span data-placeholder-image className="absolute inset-0 z-0 block">
       <Image alt={alt} className={className} {...imageProps} />
 
-      {/* Overlay — does not affect layout (absolute inside the image's positioned parent). */}
+      {/* Overlay — absolute inside this positioned wrapper. */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center overflow-hidden"

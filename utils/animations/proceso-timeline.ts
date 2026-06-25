@@ -1,6 +1,7 @@
 'use client'
 
 import { gsap } from '@/lib/gsap'
+import { getLenis } from '@/lib/lenis'
 
 export function initProcesoTimelineAnimation(): () => void {
   const section = document.querySelector<HTMLElement>('[data-proceso-section]')
@@ -44,15 +45,25 @@ export function initProcesoTimelineAnimation(): () => void {
     }, header ? '-=0.5' : 0)
 
     /* ── Pin + horizontal scrub ── */
-    const getDistance = () => {
-      const lastCard = cards[cards.length - 1]
+    const measure = () => {
       const vw       = window.innerWidth
-      // Scroll only until the last card's right edge meets the track's right
-      // padding inset — using scrollWidth would also count the trailing padding
-      // and leave a large empty gap after the final card.
-      const padRight  = parseFloat(getComputedStyle(track).paddingRight) || 0
-      const lastRight = lastCard.offsetLeft + lastCard.offsetWidth
+      const padRight = parseFloat(getComputedStyle(track).paddingRight) || 0
+      const lastRight = track.scrollWidth - padRight
       return Math.max(0, lastRight - (vw - padRight))
+    }
+
+    // Cache the distance and only re-measure on real viewport resizes, not on
+    // every global ScrollTrigger.refresh() (which fire as unrelated images
+    // load after a client-side nav). A jittering distance makes the pin
+    // boundary move under the cursor and the pin strobes active/inactive.
+    let distance = measure()
+    let lastVW   = window.innerWidth
+    const getDistance = () => {
+      if (window.innerWidth !== lastVW) {
+        lastVW = window.innerWidth
+        distance = measure()
+      }
+      return distance
     }
 
     const tween = gsap.to(track, {
@@ -64,8 +75,7 @@ export function initProcesoTimelineAnimation(): () => void {
         start:                'top top',
         end:                  () => `+=${getDistance()}`,
         scrub:                0.6,
-        anticipatePin:        1,
-        invalidateOnRefresh:  true,
+        onToggle: (self) => console.log('[PIN]', self.isActive, 'scrollY', Math.round(window.scrollY), 'lenis', Math.round(getLenis()?.scroll ?? -1)),
         onUpdate: (self) => {
           if (current) {
             const idx = Math.min(cards.length - 1, Math.floor(self.progress * cards.length))
