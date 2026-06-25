@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "node scripts/patch-payload.mjs",
+    "postinstall": "node -e \"require('fs').existsSync('scripts/patch-payload.mjs')&&require('child_process').execFileSync(process.execPath,['scripts/patch-payload.mjs'],{stdio:'inherit'})\"",
     "payload": "payload"
   },
   "dependencies": {
