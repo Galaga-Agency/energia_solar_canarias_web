@@ -9,7 +9,8 @@ interface BlogPageProps {
   params: Promise<{ locale: Language }>;
 }
 
-export const dynamic = "force-static";
+// ISR: render on-demand at runtime (where PAYLOAD_SECRET/DB exist), cache 5 min.
+// NOT force-static — that prerenders at build time when the secret is absent.
 export const revalidate = 300;
 
 export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {

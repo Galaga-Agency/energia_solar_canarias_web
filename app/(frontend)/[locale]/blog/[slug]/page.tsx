@@ -2,22 +2,21 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import type { Language } from "@/config/i18n.config"
 import { SITE_URL, SITE_NAME } from "@/config/site"
-import { getArticleWithBody, getArticleBySlug, getAllSlugs, getArticleSlugs } from "@/lib/articles"
+import { getArticleWithBody, getArticleBySlug, getArticleSlugs } from "@/lib/articles"
 import { ArticlePost } from "@/components/pages/blog/ArticlePost"
 
 interface BlogPostPageProps {
   params: Promise<{ locale: Language; slug: string }>
 }
 
-export const dynamic = "force-static"
+// ISR: render on-demand at runtime (where PAYLOAD_SECRET/DB exist), cache 5 min.
+// NOT force-static — that prerenders at build time when the secret is absent.
 export const revalidate = 300
+export const dynamicParams = true
 
 export async function generateStaticParams() {
-  try {
-    return await getAllSlugs()
-  } catch {
-    return []
-  }
+  // Skip DB access at build time — slugs render on first request via ISR.
+  return []
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
