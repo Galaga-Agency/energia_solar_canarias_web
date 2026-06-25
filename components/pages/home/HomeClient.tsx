@@ -19,6 +19,7 @@ import { initHero2Animations } from "@/utils/animations/hero2-layers";
 import { HomeHero } from "./HomeHero";
 import { HomeManifestoStrip } from "./HomeManifestoStrip";
 import { MouseReactiveFlock } from "@/components/shared/MouseReactiveFlock";
+import { PaperTexture } from "@/components/ui/PaperTexture";
 
 const HomeStats = dynamic(() => import("./HomeStats").then((m) => m.HomeStats));
 const HomeBeneficios = dynamic(() =>
@@ -69,17 +70,15 @@ export function HomeClient() {
   return (
     <>
       <div className="relative isolate">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-30 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-        />
+        <PaperTexture className="z-30" />
         <HomeHero />
-        <HomeManifestoStrip />
+      <HomeManifestoStrip />
       </div>
       <HomeStats />
-      <div className="relative bg-[#f4f1ea]">
+      <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
+        <PaperTexture className="z-0" />
         <MouseReactiveFlock
-          className="pointer-events-none absolute inset-0 h-full w-full"
+          className="pointer-events-none absolute inset-0 z-10 h-full w-full"
           birds={flockBirds.top}
         />
         <HomeBeneficios />
@@ -87,12 +86,9 @@ export function HomeClient() {
       </div>
       <HomeProceso />
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-        />
+        <PaperTexture className="z-0" />
         <MouseReactiveFlock
-          className="pointer-events-none absolute inset-0 h-full w-full"
+          className="pointer-events-none absolute inset-0 z-10 h-full w-full"
           birds={flockBirds.bottom}
         />
         <HomeProyectos />

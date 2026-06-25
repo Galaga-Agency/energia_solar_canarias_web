@@ -1,58 +1,57 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Dropdown }               from '@/components/ui/Dropdown'
-import { MdGridView, MdViewList } from '@/components/ui/Icons'
+import { PaperTexture } from '@/components/ui/PaperTexture'
+import type { CategoryInfo } from '@/types/article'
 
 interface BlogFilterBarProps {
   category: string
-  categories: string[]
-  viewMode: 'grid' | 'list'
+  categories: CategoryInfo[]
+  allValue: string
+  counts: Record<string, number>
+  total: number
   onCategoryChange: (category: string) => void
-  onViewModeChange: (viewMode: 'grid' | 'list') => void
 }
 
 export function BlogFilterBar({
   category,
   categories,
-  viewMode,
+  allValue,
+  counts,
+  total,
   onCategoryChange,
-  onViewModeChange,
 }: BlogFilterBarProps) {
   const t = useTranslations('blog.filter')
 
-  return (
-    <div className="sticky top-16 z-10" style={{ backgroundColor: 'var(--color-bg)', borderBottom: '1px solid var(--color-border)' }}>
-      <div className="section-inner flex items-center justify-between py-4 gap-4">
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            aria-label={t('gridLabel')}
-            aria-pressed={viewMode === 'grid'}
-            onClick={() => onViewModeChange('grid')}
-            className="p-2 rounded-md"
-            style={{ backgroundColor: viewMode === 'grid' ? 'var(--color-ink)' : 'transparent', color: viewMode === 'grid' ? 'var(--color-text-on-dark)' : 'var(--color-text)' }}
-          >
-            <MdGridView aria-hidden="true" className="w-5 h-5" />
-          </button>
-          <button
-            type="button"
-            aria-label={t('listLabel')}
-            aria-pressed={viewMode === 'list'}
-            onClick={() => onViewModeChange('list')}
-            className="p-2 rounded-md"
-            style={{ backgroundColor: viewMode === 'list' ? 'var(--color-ink)' : 'transparent', color: viewMode === 'list' ? 'var(--color-text-on-dark)' : 'var(--color-text)' }}
-          >
-            <MdViewList aria-hidden="true" className="w-5 h-5" />
-          </button>
-        </div>
+  const pills = [
+    { slug: allValue, label: t('all'), count: total },
+    ...categories.map((c) => ({ slug: c.slug, label: c.label, count: counts[c.slug] ?? 0 })),
+  ]
 
-        <Dropdown
-          label="Todos"
-          options={categories}
-          value={category}
-          onChange={onCategoryChange}
-        />
+  return (
+    <div className="sticky top-0 z-dropdown isolate overflow-hidden border-b border-ink/12 bg-bg/95 backdrop-blur">
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10 flex items-center gap-x-8 gap-y-3 overflow-x-auto py-4" role="tablist" aria-label={t('all')}>
+        {pills.map((p) => {
+          const active = category === p.slug
+          return (
+            <button
+              key={p.slug}
+              type="button"
+              role="tab"
+              aria-selected={active}
+              onClick={() => onCategoryChange(p.slug)}
+              className={`keyboard-focus-ring flex shrink-0 items-baseline gap-2 text-label font-mono transition-colors ${
+                active ? 'text-primary!' : 'text-ink/70! hover:text-ink!'
+              }`}
+            >
+              {p.label}
+              <span aria-hidden className={active ? 'text-primary/60' : 'text-ink/35'}>
+                {String(p.count).padStart(2, '0')}
+              </span>
+            </button>
+          )
+        })}
       </div>
     </div>
   )

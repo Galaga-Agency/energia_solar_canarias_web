@@ -3,16 +3,14 @@
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/Button'
 import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 export function SolucionesCTA() {
   const t = useTranslations('soluciones.cta')
 
   return (
     <section data-cta-section className="relative isolate overflow-hidden bg-[#d8cbb5] section-spacing-both">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
+      <PaperTexture className="z-0" />
 
       <AnimatedBrandBlob className="pointer-events-none absolute -right-[10%] top-[15%] z-0 h-auto w-[55%] opacity-55 md:w-[42%] lg:w-[34%]" />
 

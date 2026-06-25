@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 export function HomeTestimonials() {
   const t     = useTranslations('home.testimonials')
@@ -15,10 +16,7 @@ export function HomeTestimonials() {
 
   return (
     <section className="section-spacing relative isolate overflow-hidden bg-[#d8cbb5] text-ink">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
+      <PaperTexture className="z-0" />
       <div className="section-inner relative z-10">
 
         {/* Top bar — eyebrow */}

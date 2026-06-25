@@ -1,14 +1,38 @@
 {
   "hero": {
-    "eyebrow": "Blog",
-    "title": "News, analysis and energy trends",
-    "body": "Resources and articles on renewable energy, Canarian regulations and energy sector trends."
+    "eyebrow": "The Observatory",
+    "title": "The Canary Islands Solar Energy Observatory",
+    "body": "Local data, real projects and analysis of the islands' energy sector. The reference for understanding how energy moves across the Canaries."
   },
   "filter": {
-    "categories": ["All", "Energy", "Regulations", "Sustainability", "Installation"],
+    "all": "All",
     "gridLabel": "Grid view",
     "listLabel": "List view"
   },
-  "readMore": "Read more →",
-  "empty": "There are no articles in this category."
+  "card": {
+    "readTime": "min read"
+  },
+  "readMore": "Read article",
+  "loading": "Loading article",
+  "featured": "Featured",
+  "moreLabel": "More from the Observatory",
+  "search": {
+    "label": "Search articles",
+    "placeholder": "Search by idea, not exact words…",
+    "searching": "Searching…",
+    "results": "{count, plural, =0 {No results} one {# result} other {# results}}",
+    "empty": "We couldn't find anything similar. Try another idea."
+  },
+  "empty": "No articles in this editorial line yet.",
+  "comingSoon": "More Observatory analysis coming soon.",
+  "tags": {
+    "intro": "Explore by topic. Tap one to filter.",
+    "filtered": "{count, plural, =0 {No articles} one {# article} other {# articles}} in “{tag}”",
+    "clear": "Clear filter ✕"
+  },
+  "post": {
+    "back": "Back to the Observatory",
+    "updated": "Updated on",
+    "share": "Share"
+  }
 }

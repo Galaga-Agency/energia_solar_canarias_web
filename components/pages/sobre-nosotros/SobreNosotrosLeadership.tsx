@@ -1,12 +1,14 @@
 import { useTranslations } from 'next-intl'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 
 export function SobreNosotrosLeadership() {
   const t = useTranslations('sobre-nosotros.leadership')
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: 'var(--color-surface)' }}>
-      <div className="section-inner" data-reveal>
+    <section className="section-spacing relative isolate overflow-hidden" style={{ backgroundColor: 'var(--color-surface)' }}>
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10" data-reveal>
         <span className="text-label block mb-4">{t('eyebrow')}</span>
         <h2 className="text-heading mb-8">{t('title')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">

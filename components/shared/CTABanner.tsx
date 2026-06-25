@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/Button'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 interface CTABannerProps {
   title:          string
@@ -21,10 +22,11 @@ export function CTABanner({
 }: CTABannerProps) {
   return (
     <section
-      className="relative overflow-hidden section-spacing-both"
+      className="relative isolate overflow-hidden section-spacing-both"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
-      <div className="section-inner relative text-center" data-reveal>
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10 text-center" data-reveal>
         <h2 className="text-heading mb-4">{title}</h2>
         <p className="text-body max-w-2xl mx-auto mb-8">{body}</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

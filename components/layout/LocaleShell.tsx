@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "./Navbar";
 import { MobileMenu } from "./MobileMenu";
+import { AlternateLocaleProvider } from "@/contexts/AlternateLocaleContext";
 import { stripLocaleFromPathname } from "@/config/i18n.config";
 
 export function LocaleShell({ children }: { children: ReactNode }) {
@@ -23,7 +24,7 @@ export function LocaleShell({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <>
+    <AlternateLocaleProvider>
       <div
         className={`sticky top-0 z-70 lg:contents ${
           !heroMode && !menuOpen
@@ -41,6 +42,6 @@ export function LocaleShell({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
-    </>
+    </AlternateLocaleProvider>
   );
 }

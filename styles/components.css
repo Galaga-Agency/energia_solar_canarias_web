@@ -180,3 +180,60 @@
   max-width: 22ch;
 }
 
+
+/* ── Article prose — Lexical body output for the blog (El Observatorio) ───── */
+.article-prose {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--color-ink);
+}
+.article-prose > * + * { margin-top: 1.4em; }
+.article-prose h2 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: 2.4em;
+  margin-bottom: 0.2em;
+  color: var(--color-ink);
+}
+.article-prose h3 {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-top: 2em;
+  color: var(--color-ink);
+}
+.article-prose h4 {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-top: 1.6em;
+  color: var(--color-ink);
+}
+.article-prose p { color: color-mix(in srgb, var(--color-ink) 82%, transparent); max-width: 68ch; }
+.article-prose a { color: var(--color-primary); text-decoration: underline; text-underline-offset: 3px; }
+.article-prose a:hover { text-decoration-thickness: 2px; }
+.article-prose strong { font-weight: 700; color: var(--color-ink); }
+.article-prose em { font-style: italic; }
+.article-prose ul,
+.article-prose ol { padding-left: 1.4em; max-width: 64ch; color: color-mix(in srgb, var(--color-ink) 82%, transparent); }
+.article-prose ul { list-style: none; }
+.article-prose ul > li { position: relative; padding-left: 1.1em; margin-top: 0.5em; }
+.article-prose ul > li::before {
+  content: ""; position: absolute; left: 0; top: 0.7em;
+  width: 5px; height: 5px; background: var(--color-primary);
+}
+.article-prose ol { list-style: decimal; }
+.article-prose ol > li { margin-top: 0.5em; padding-left: 0.3em; }
+.article-prose ol > li::marker { color: var(--color-primary); font-family: var(--font-mono); font-weight: 600; }
+.article-prose blockquote {
+  border-left: 2px solid var(--color-primary);
+  padding-left: 1.4em;
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin-top: 2em; margin-bottom: 2em;
+}
+.article-prose hr { border: 0; border-top: 1px solid color-mix(in srgb, var(--color-ink) 15%, transparent); margin: 2.5em 0; }

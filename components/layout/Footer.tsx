@@ -12,6 +12,7 @@ import {
 } from '@/constants/footer.constants'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import { FaInstagram, FaLinkedin } from '@/components/ui/Icons'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 const socialIconMap: Record<string, ElementType> = {
   FaInstagram,
@@ -36,10 +37,7 @@ export function Footer() {
     <footer className="relative isolate overflow-hidden bg-[#1f3a34] text-[#f4f1ea]">
       <span aria-hidden className="absolute inset-x-0 top-0 z-10 block h-px bg-primary/70" />
 
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed opacity-35 mix-blend-multiply"
-      />
+      <PaperTexture className="z-0" opacityClassName="opacity-35" />
 
       <div className="section-inner relative z-10 pt-12 pb-6 md:pt-16 md:pb-8">
 

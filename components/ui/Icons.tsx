@@ -12,6 +12,7 @@ export { FaXTwitter } from 'react-icons/fa6'
 export {
   HiMenu,
   HiX,
+  HiSearch,
   HiChevronDown,
   HiChevronUp,
   HiChevronRight,

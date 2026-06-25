@@ -5,6 +5,13 @@
   outline-offset: 3px;
 }
 
+/* Text inputs / textareas indicate focus via their own border, never a box outline.
+   (Opt back in per-field with .focus-ring-box if a boxed input is ever wanted.) */
+input:focus-visible:not(.focus-ring-box),
+textarea:focus-visible:not(.focus-ring-box) {
+  outline: none;
+}
+
 /* Remove default focus outline for mouse users */
 :focus:not(:focus-visible) {
   outline: none;

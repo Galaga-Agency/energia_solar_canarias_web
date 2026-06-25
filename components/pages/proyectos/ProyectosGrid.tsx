@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { Button }         from '@/components/ui/Button'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import type { Project }   from '@/types/project'
 
@@ -7,8 +8,9 @@ export function ProyectosGrid({ projects }: { projects: Project[] }) {
   const t = useTranslations('proyectos.grid')
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
-      <div className="section-inner">
+    <section className="section-spacing relative isolate overflow-hidden" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {projects.map((p) => (
             <article key={p.id} className="bg-surface rounded-2xl overflow-hidden flex flex-col">

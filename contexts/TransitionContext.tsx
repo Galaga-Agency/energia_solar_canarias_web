@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import { ScrollTrigger } from '@/lib/gsap'
 import { exitPage, enterPage } from '@/utils/animations/pageTransitions'
 import { getLenis } from '@/lib/lenis'
 import { stripLocaleFromPathname } from '@/config/i18n.config'
@@ -49,6 +50,8 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
     scrollToTop()
     requestAnimationFrame(() => {
       enterPage(() => {
+        getLenis()?.resize()
+        ScrollTrigger.refresh()
         pendingHref.current = null
         setIsTransitioning(false)
       })

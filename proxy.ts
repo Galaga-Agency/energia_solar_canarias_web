@@ -3,7 +3,11 @@ import type { NextRequest } from 'next/server'
 import { defaultLocale, isLocale, routeTranslations } from '@/config/i18n.config'
 
 const englishToCanonical = Object.fromEntries(
-  Object.entries(routeTranslations.en).map(([canonical, translated]) => [translated, canonical]),
+  Object.entries(routeTranslations.en)
+    // Skip self-mappings (e.g. blog → blog): they are not English aliases, so the
+    // proxy must NOT redirect them — doing so 307s /blog → /es/blog and drops slugs.
+    .filter(([canonical, translated]) => canonical !== translated)
+    .map(([canonical, translated]) => [translated, canonical]),
 )
 
 function withLocaleHeader(response: NextResponse, locale: string): NextResponse {
@@ -42,5 +46,7 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|favicon.ico|assets|.*\\..*).*)'],
+  // Exclude Payload's own routes (/admin, /api, /media) and static assets so
+  // next-intl never rewrites them to a locale-prefixed path.
+  matcher: ['/((?!_next|api|admin|media|favicon.ico|assets|.*\\..*).*)'],
 }

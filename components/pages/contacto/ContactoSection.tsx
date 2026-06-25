@@ -6,6 +6,7 @@ import { ContactForm } from '@/components/forms/ContactForm'
 import { CONTACT_INFO } from '@/constants/contact.constants'
 import { HiMail, HiLocationMarker, HiClock } from '@/components/ui/Icons'
 import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 import { splitTail } from '@/utils/text'
 
 const ContactMap = dynamic(() => import('@/components/pages/contacto/ContactMap').then(m => m.ContactMap), { ssr: false })
@@ -21,10 +22,7 @@ export function ContactoSection() {
         data-hero
         className="relative isolate overflow-hidden bg-(--color-bg) pt-[clamp(7rem,13vw,10rem)] pb-[clamp(4rem,8vw,7rem)]"
       >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-        />
+        <PaperTexture className="z-0" />
         <AnimatedBrandBlob className="pointer-events-none absolute -right-[10%] top-[10%] z-0 h-auto w-[55%] opacity-30 md:-right-[2%] md:w-[30%] lg:w-[24%]" />
 
         {/* Big editorial header */}

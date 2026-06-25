@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 import { splitTail } from '@/utils/text'
 
 type Promise = { key: string; label: string; body: string }
@@ -12,10 +13,7 @@ export function SolucionesPromesa() {
 
   return (
     <section className="relative isolate overflow-hidden bg-(--color-bg) section-spacing">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
+      <PaperTexture className="z-0" />
 
       <div className="section-inner relative z-10">
         <div className="mb-14 flex flex-col gap-8 md:mb-20 md:grid md:grid-cols-12 md:items-end md:gap-12" data-reveal>

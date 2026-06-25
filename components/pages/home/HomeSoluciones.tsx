@@ -203,10 +203,6 @@ export function HomeSoluciones() {
 
   return (
     <section className="section-spacing relative isolate overflow-hidden">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
       <div className="section-inner relative z-10">
         <div className="mb-16 grid grid-cols-1 gap-10 md:mb-20 md:grid-cols-12 md:items-start md:gap-x-12 lg:gap-x-16" data-reveal>
           <div className="flex flex-col gap-6 md:col-span-5 md:order-1">

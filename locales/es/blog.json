@@ -1,14 +1,38 @@
 {
   "hero": {
-    "eyebrow": "Blog",
-    "title": "Noticias, análisis y tendencias energéticas",
-    "body": "Recursos y artículos sobre energía renovable, normativas canarias y tendencias del sector energético."
+    "eyebrow": "El Observatorio",
+    "title": "El Observatorio de Energía Solar en Canarias",
+    "body": "Datos locales, casos reales y análisis del sector energético insular. La referencia para entender cómo se mueve la energía en las islas."
   },
   "filter": {
-    "categories": ["Todos", "Energía", "Normativas", "Sostenibilidad", "Instalación"],
+    "all": "Todo",
     "gridLabel": "Vista en cuadrícula",
     "listLabel": "Vista en lista"
   },
-  "readMore": "Leer más →",
-  "empty": "No hay artículos en esta categoría."
+  "card": {
+    "readTime": "min de lectura"
+  },
+  "readMore": "Leer artículo",
+  "loading": "Cargando artículo",
+  "featured": "Destacado",
+  "moreLabel": "Más del Observatorio",
+  "search": {
+    "label": "Buscar artículos",
+    "placeholder": "Busca por idea, no por palabra exacta…",
+    "searching": "Buscando…",
+    "results": "{count, plural, =0 {Sin resultados} one {# resultado} other {# resultados}}",
+    "empty": "No encontramos nada parecido. Prueba con otra idea."
+  },
+  "empty": "Aún no hay artículos en esta línea editorial.",
+  "comingSoon": "Próximamente más análisis del Observatorio.",
+  "tags": {
+    "intro": "Explora por temas. Toca uno para filtrar.",
+    "filtered": "{count, plural, =0 {Sin artículos} one {# artículo} other {# artículos}} en «{tag}»",
+    "clear": "Quitar filtro ✕"
+  },
+  "post": {
+    "back": "Volver al Observatorio",
+    "updated": "Actualizado el",
+    "share": "Compartir"
+  }
 }

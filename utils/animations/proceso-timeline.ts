@@ -1,7 +1,6 @@
 'use client'
 
 import { gsap } from '@/lib/gsap'
-import { getLenis } from '@/lib/lenis'
 
 export function initProcesoTimelineAnimation(): () => void {
   const section = document.querySelector<HTMLElement>('[data-proceso-section]')
@@ -75,7 +74,6 @@ export function initProcesoTimelineAnimation(): () => void {
         start:                'top top',
         end:                  () => `+=${getDistance()}`,
         scrub:                0.6,
-        onToggle: (self) => console.log('[PIN]', self.isActive, 'scrollY', Math.round(window.scrollY), 'lenis', Math.round(getLenis()?.scroll ?? -1)),
         onUpdate: (self) => {
           if (current) {
             const idx = Math.min(cards.length - 1, Math.floor(self.progress * cards.length))

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { MdStar } from '@/components/ui/Icons'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 interface TestimonialSingleProps {
   quote:       string
@@ -20,10 +21,11 @@ export function TestimonialSingle({
 }: TestimonialSingleProps) {
   return (
     <section
-      className="section-spacing-both"
+      className="section-spacing-both relative isolate overflow-hidden"
       style={{ backgroundColor: 'var(--color-bg)' }}
     >
-      <div className="section-inner" data-reveal>
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10" data-reveal>
         <div className="flex gap-1 mb-6 stars">
           {Array.from({ length: 5 }).map((_, i) => (
             <MdStar key={i} aria-hidden="true" className="w-5 h-5" />

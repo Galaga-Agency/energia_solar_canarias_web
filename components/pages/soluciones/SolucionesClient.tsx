@@ -7,6 +7,7 @@ import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 import { FAQ_SOLUCIONES_KEYS } from '@/constants/faq.constants'
 import { SolucionesHero }  from '@/components/pages/soluciones/SolucionesHero'
 import { Breadcrumbs }     from '@/components/shared/Breadcrumbs'
+import { PaperTexture }    from '@/components/ui/PaperTexture'
 import { initHeroAnimations }        from '@/utils/animations/hero-animations'
 import { initDrawArrowAnimation }    from '@/utils/animations/draw-arrow'
 import { initScrollRevealSections }  from '@/utils/animations/scroll-reveal'
@@ -45,10 +46,7 @@ export function SolucionesClient() {
 
       {/* Hero (cream + texture, no flock) */}
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-size-[600px_auto] bg-repeat bg-center"
-        />
+        <PaperTexture className="z-0" />
         <SolucionesHero />
       </div>
 
@@ -56,10 +54,7 @@ export function SolucionesClient() {
 
       {/* Cream group — Sectores */}
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-size-[600px_auto] bg-repeat bg-center"
-        />
+        <PaperTexture className="z-0" />
         <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
         <SolucionesSectores />
       </div>
@@ -68,10 +63,7 @@ export function SolucionesClient() {
 
       {/* Cream group — Proceso + Pilares + FAQ */}
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-size-[600px_auto] bg-repeat bg-center"
-        />
+        <PaperTexture className="z-0" />
         <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={110} />
         <SolucionesProceso />
         <SolucionesPilares />

@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/Button'
 import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 export function HomeCTA() {
   const t = useTranslations('home.cta')
@@ -12,11 +13,7 @@ export function HomeCTA() {
       data-cta-section
       className="section-spacing-both relative isolate overflow-hidden bg-[#f4f1ea] text-ink"
     >
-      {/* Paper texture */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
+      <PaperTexture />
 
       {/* Brand blob — top right on mobile, mid-right on desktop */}
       <AnimatedBrandBlob

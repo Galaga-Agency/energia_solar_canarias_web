@@ -4,6 +4,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useAppReady } from "@/hooks/useAppReady";
 import { AppReadyContext } from "@/contexts/AppReadyContext";
 import { Logo } from "@/components/shared/Logo";
+import { PaperTexture } from "@/components/ui/PaperTexture";
 
 const SIM_TARGET = 86;
 const SIM_DURATION = 2200;
@@ -86,10 +87,7 @@ export function PageLoader() {
       }}
     >
       {/* Paper texture — same overlay as the rest of the site */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 mix-blend-multiply opacity-30 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center"
-      />
+      <PaperTexture opacityClassName="opacity-30" />
 
       <div className="section-inner relative flex h-full flex-col">
         {/* TOP — brand mark */}

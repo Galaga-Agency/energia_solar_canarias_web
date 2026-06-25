@@ -13,7 +13,9 @@ import {
   getLocalizedHref,
   getLocalizedCanonicalPath,
   stripLocaleFromPathname,
+  defaultLocale,
 } from "@/config/i18n.config";
+import { useAlternateLocale } from "@/contexts/AlternateLocaleContext";
 import commonEs from "@/locales/es/common.json";
 import commonEn from "@/locales/en/common.json";
 
@@ -29,6 +31,15 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
   const locale   = getLocaleFromPathname(pathname);
   const messages = locale === "en" ? commonEn : commonEs;
   const isHome   = stripLocaleFromPathname(pathname) === "/";
+  const { alternates } = useAlternateLocale();
+
+  // Build the language-switch href for a target locale. Pages with locale-specific
+  // slugs (blog articles) register an override so we don't 404 on the wrong slug.
+  const switchHref = (loc: typeof locale): string => {
+    const override = alternates?.[loc];
+    if (override) return loc === defaultLocale ? override : `/${loc}${override}`;
+    return getLocalizedCanonicalPath(pathname, loc);
+  };
 
   useEffect(() => {
     const check = () => setScrolled(window.scrollY > window.innerHeight * 0.6);
@@ -85,7 +96,7 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
           >
             {(["es", "en"] as const).map((loc, i) => {
               const active = loc === locale;
-              const href   = getLocalizedCanonicalPath(pathname, loc);
+              const href   = switchHref(loc);
               return (
                 <span key={loc} className="flex items-center gap-2">
                   {i > 0 && (

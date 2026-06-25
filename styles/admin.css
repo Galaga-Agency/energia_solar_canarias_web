@@ -1,0 +1,140 @@
+/*
+  Materia Prima — Admin Panel Theme
+  Overrides @payloadcms/next/css with brand tokens.
+  Light theme is forced via payload.config.ts (admin.theme: "light").
+*/
+
+/* ─── 0. Load DM Sans from Google Fonts ───────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+/* ─── 1. Font ─────────────────────────────────────────────── */
+
+html[data-theme] {
+  --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
+}
+
+/* ─── 2. Warm neutral gray scale ──────────────────────────── */
+/*
+  Payload defines --color-base-* inside @layer payload-default.
+  Unlayered CSS wins over any named layer, so these override it.
+*/
+
+html[data-theme=light] {
+  /* Base palette → warm paper tones */
+  --color-base-0:    #FFFFFF;
+  --color-base-50:   #F7F5F3;
+  --color-base-100:  #EDE9E5;
+  --color-base-150:  #E0DBD6;
+  --color-base-200:  #D3CEC8;
+  --color-base-250:  #C4BDB6;
+  --color-base-300:  #B4ACA4;
+  --color-base-350:  #A39B92;
+  --color-base-400:  #928981;
+  --color-base-450:  #81786F;
+  --color-base-500:  #706760;
+  --color-base-550:  #5F5750;
+  --color-base-600:  #52524E;
+  --color-base-650:  #433E3A;
+  --color-base-700:  #37322E;
+  --color-base-750:  #2C2627;
+  --color-base-800:  #221D1F;
+  --color-base-850:  #1A1516;
+  --color-base-900:  #110E0F;
+  --color-base-950:  #080607;
+  --color-base-1000: #000000;
+
+  /* Semantic overrides */
+  --theme-bg:            #F7F5F3;
+  --theme-input-bg:      #FFFFFF;
+  --theme-border-color:  #E0DBD6;
+  --theme-text:          #2C2627;
+
+  /* Brand navy accent scale */
+  --color-success-50:  #EAF2F7;
+  --color-success-100: #CAE0EC;
+  --color-success-150: #A9CEDF;
+  --color-success-200: #88BAD2;
+  --color-success-250: #67A6C4;
+  --color-success-300: #4792B6;
+  --color-success-350: #2D7EA8;
+  --color-success-400: #1A6B96;
+  --color-success-450: #0E5880;
+  --color-success-500: #0A4568;
+  --color-success-550: #083455;
+  --color-success-600: #062840;
+  --color-success-650: #051F32;
+  --color-success-700: #062232;
+  --color-success-750: #031219;
+  --color-success-800: #020D12;
+  --color-success-850: #01080C;
+  --color-success-900: #010506;
+  --color-success-950: #000203;
+}
+
+/* ─── 3. Nav sidebar — brand navy background ──────────────── */
+
+html[data-theme=light] .nav {
+  background-color: #32061d;
+  border-right-color: #031522;
+}
+
+html[data-theme=light] .nav__wrap,
+html[data-theme=light] .nav__scroll {
+  background-color: #062232;
+}
+
+/* Nav text & links */
+html[data-theme=light] .nav__label,
+html[data-theme=light] .nav-group__toggle,
+html[data-theme=light] .nav__log-out {
+  color: rgba(247, 245, 243, 0.6);
+}
+
+html[data-theme=light] .nav__link {
+  color: rgba(247, 245, 243, 0.85);
+}
+
+html[data-theme=light] .nav__link:hover {
+  color: #F7F5F3;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+html[data-theme=light] .nav__link.active,
+html[data-theme=light] .nav__link[aria-current="true"] {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme=light] .nav__link-indicator {
+  background: #F7F5F3;
+}
+
+/* Nav header separator */
+html[data-theme=light] .nav__header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Logo / brand mark in nav */
+html[data-theme=light] .nav__header .step-nav {
+  color: #F7F5F3;
+}
+
+/* ─── 4. App header (top bar) ─────────────────────────────── */
+
+html[data-theme=light] .app-header {
+  background-color: #F7F5F3;
+  border-bottom-color: #E0DBD6;
+}
+
+/* ─── 5. Buttons ──────────────────────────────────────────── */
+
+html[data-theme=light] .btn--style-primary {
+  background-color: #062232;
+  color: #F7F5F3;
+}
+
+html[data-theme=light] .btn--style-primary:hover {
+  background-color: #0A3448;
+}

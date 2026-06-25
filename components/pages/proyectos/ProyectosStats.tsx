@@ -1,12 +1,14 @@
 import { useTranslations } from 'next-intl'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 export function ProyectosStats() {
   const t     = useTranslations('proyectos.stats')
   const items = t.raw('items') as { value: string; suffix: string; label: string; body: string }[]
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
-      <div className="section-inner grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-reveal>
+    <section className="section-spacing relative isolate overflow-hidden" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center" data-reveal>
         <div>
           <h2 className="text-heading mb-6">{t('title')}</h2>
           <p className="text-body">{t('body')}</p>

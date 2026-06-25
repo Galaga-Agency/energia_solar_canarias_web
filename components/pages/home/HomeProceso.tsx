@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 type Step = { num: string; title: string; body: string }
 
@@ -11,10 +12,7 @@ export function HomeProceso() {
 
   return (
     <section data-proceso-section className="relative isolate overflow-hidden bg-[#1f3a34] text-[#f4f1ea]">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0 mix-blend-multiply opacity-35 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center bg-fixed"
-      />
+      <PaperTexture className="z-0" opacityClassName="opacity-35" />
 
       {/* Mobile — natural vertical stack */}
       <div className="section-spacing md:hidden">

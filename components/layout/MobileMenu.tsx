@@ -11,10 +11,13 @@ import {
   getLocaleFromPathname,
   getLocalizedHref,
   getLocalizedCanonicalPath,
+  defaultLocale,
 } from '@/config/i18n.config'
+import { useAlternateLocale } from '@/contexts/AlternateLocaleContext'
 import { CONTACT_INFO } from '@/constants/contact.constants'
 import commonEs from '@/locales/es/common.json'
 import commonEn from '@/locales/en/common.json'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 interface MobileMenuProps {
   open:    boolean
@@ -27,6 +30,13 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname()
   const locale   = getLocaleFromPathname(pathname)
   const messages = locale === 'en' ? commonEn : commonEs
+  const { alternates } = useAlternateLocale()
+
+  const switchHref = (loc: typeof locale): string => {
+    const override = alternates?.[loc]
+    if (override) return loc === defaultLocale ? override : `/${loc}${override}`
+    return getLocalizedCanonicalPath(pathname, loc)
+  }
 
   useEffect(() => {
     if (!open) return
@@ -54,10 +64,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       className="mob-nav-shell lg:hidden"
     >
       <div className="mob-nav-root">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-multiply opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center"
-        />
+        <PaperTexture />
 
         <AnimatedBrandBlob className="pointer-events-none absolute -right-24 top-[18%] h-auto w-72 opacity-55" />
 
@@ -89,7 +96,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             <div className="flex items-center gap-6">
               {(['es', 'en'] as const).map((loc, i) => {
                 const active = loc === locale
-                const href   = getLocalizedCanonicalPath(pathname, loc)
+                const href   = switchHref(loc)
                 return (
                   <span key={loc} className="flex items-center gap-6">
                     {i > 0 && <span aria-hidden className="h-5 w-px bg-ink/25" />}
@@ -113,10 +120,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
       </div>
 
       <div className="mob-nav-card-bottom">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 mix-blend-overlay opacity-25 bg-[url('/assets/images/common/white-paper-texture.jpg')] bg-cover bg-center"
-        />
+        <PaperTexture blendClassName="mix-blend-overlay" />
         <div className="relative z-10">
           <span className="text-label text-primary/70!">{contactKey}</span>
           <a

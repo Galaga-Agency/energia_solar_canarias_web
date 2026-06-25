@@ -1,13 +1,15 @@
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/Button'
+import { PaperTexture } from '@/components/ui/PaperTexture'
 
 export function SobreNosotrosBenefits() {
   const t     = useTranslations('sobre-nosotros.benefits')
   const items = t.raw('items') as { title: string; body: string }[]
 
   return (
-    <section className="section-spacing" style={{ backgroundColor: 'var(--color-bg)' }}>
-      <div className="section-inner" data-reveal>
+    <section className="section-spacing relative isolate overflow-hidden" style={{ backgroundColor: 'var(--color-bg)' }}>
+      <PaperTexture className="z-0" />
+      <div className="section-inner relative z-10" data-reveal>
         <span className="text-label block mb-4">{t('eyebrow')}</span>
         <h2 className="text-heading mb-4">{t('title')}</h2>
         <p className="text-body mb-12 max-w-xl">{t('body')}</p>
