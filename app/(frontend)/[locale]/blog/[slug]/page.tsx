@@ -9,15 +9,10 @@ interface BlogPostPageProps {
   params: Promise<{ locale: Language; slug: string }>
 }
 
-// ISR: render on-demand at runtime (where PAYLOAD_SECRET/DB exist), cache 5 min.
-// NOT force-static — that prerenders at build time when the secret is absent.
-export const revalidate = 300
-export const dynamicParams = true
-
-export async function generateStaticParams() {
-  // Skip DB access at build time — slugs render on first request via ISR.
-  return []
-}
+// Fully dynamic: render at request time (where PAYLOAD_SECRET/DB exist).
+// force-static prerendered at build time (no secret); plain ISR still tried to
+// statically cache and threw DYNAMIC_SERVER_USAGE. force-dynamic avoids both.
+export const dynamic = "force-dynamic"
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params
