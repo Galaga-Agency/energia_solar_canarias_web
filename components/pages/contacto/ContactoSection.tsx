@@ -9,6 +9,8 @@ import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
 import { PaperTexture } from '@/components/ui/PaperTexture'
 import { splitTail } from '@/utils/text'
 
+const MouseReactiveFlock = dynamic(() => import('@/components/shared/MouseReactiveFlock').then(m => m.MouseReactiveFlock), { ssr: false })
+
 const ContactMap = dynamic(() => import('@/components/pages/contacto/ContactMap').then(m => m.ContactMap), { ssr: false })
 
 export function ContactoSection() {
@@ -23,6 +25,7 @@ export function ContactoSection() {
         className="relative isolate overflow-hidden bg-(--color-bg) pt-[clamp(7rem,13vw,10rem)] pb-[clamp(4rem,8vw,7rem)]"
       >
         <PaperTexture className="z-0" />
+        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
         <AnimatedBrandBlob className="pointer-events-none absolute -right-[10%] top-[10%] z-0 h-auto w-[55%] opacity-30 md:-right-[2%] md:w-[30%] lg:w-[24%]" />
 
         {/* Big editorial header */}

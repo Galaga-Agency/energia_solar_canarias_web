@@ -1,9 +1,12 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
 import { TransitionLink } from '@/components/ui/TransitionLink'
 import { PaperTexture } from '@/components/ui/PaperTexture'
+
+const MouseReactiveFlock = dynamic(() => import('@/components/shared/MouseReactiveFlock').then(m => m.MouseReactiveFlock), { ssr: false })
 import { useGSAPAnimations } from '@/hooks/useGSAPAnimations'
 import { splitLastWord } from '@/utils/text'
 import type { Article } from '@/types/article'
@@ -96,6 +99,7 @@ export function BlogArticles({ articles, tags = [], activeTag, searching = false
   return (
     <section className="section-spacing-both relative isolate overflow-hidden bg-bg">
       <PaperTexture className="z-0" />
+      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
       <div className="section-inner relative z-10">
         {isSearchResult && (
           <p className="mb-10 text-label font-mono text-ink/45!">

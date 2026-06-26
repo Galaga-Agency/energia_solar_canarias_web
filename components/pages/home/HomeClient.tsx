@@ -78,21 +78,25 @@ export function HomeClient() {
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
         <PaperTexture className="z-0" />
         <MouseReactiveFlock
-          className="pointer-events-none absolute inset-0 z-10 h-full w-full"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full"
           birds={flockBirds.top}
         />
-        <HomeBeneficios />
-        <HomeSoluciones />
+        <div className="relative z-10">
+          <HomeBeneficios />
+          <HomeSoluciones />
+        </div>
       </div>
       <HomeProceso />
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
         <PaperTexture className="z-0" />
         <MouseReactiveFlock
-          className="pointer-events-none absolute inset-0 z-10 h-full w-full"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full"
           birds={flockBirds.bottom}
         />
-        <HomeProyectos />
-        <HomeFounder />
+        <div className="relative z-10">
+          <HomeProyectos />
+          <HomeFounder />
+        </div>
       </div>
       <HomeTestimonials />
       <HomeCTA />

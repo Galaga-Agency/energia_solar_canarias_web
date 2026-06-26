@@ -1,40 +1,87 @@
 {
   "hero": {
-    "title": "Driving energy that belongs to the islands",
-    "body": "A Canarian company committed to the archipelago's energy transition."
+    "eyebrow": "Who we are",
+    "meta": "Agüimes · Gran Canaria · since 2000",
+    "titleLead": "The energy partner",
+    "titleTail": "of the Canary Islands.",
+    "body": "We are the reference energy partner for businesses across the Canary Islands. We don't sell panels: we design structural savings, operational security and real autonomy, with the judgement of those who know the territory.",
+    "cta": "Talk to us"
   },
   "narrative": {
-    "title": "A new energy model",
-    "paragraphs": [
-      "The Canary Islands are in the middle of an energy transition. The archipelago has taken on a major challenge: decarbonizing the energy system before 2040, changing how society consumes, produces and manages energy.",
-      "That is why we take part in projects that bring the new Canarian energy ecosystem to life: from analysis to the field, from technical rigor to economic and energy reality. Not only through our solutions, but through the relationships we build with our clients.",
-      "Every project is a commitment to a more autonomous, resilient and fair Canary Islands in access to energy. That is our commitment and our reason for being."
-    ]
-  },
-  "benefits": {
-    "eyebrow": "Achievements",
-    "title": "Proven benefits",
-    "body": "What our team's consistency and commitment make possible.",
-    "items": [
-      { "title": "Real, measurable savings", "body": "Our clients see the direct impact on their energy bill from the first month of system operation." },
-      { "title": "Advanced technology", "body": "We only work with equipment and solutions that have proven reliable in the Canarian climate and energy context." }
+    "eyebrow": "Our purpose",
+    "lead": "We believe in free energy.",
+    "leadAccent": "The kind that belongs to all.",
+    "chapters": [
+      {
+        "kicker": "The origin",
+        "title": "We believe in free energy.",
+        "text": "The kind nature and our surroundings provide. Our work is to transform it and bring it to those it belongs to: every home and every business in the Canary Islands."
+      },
+      {
+        "kicker": "The challenge",
+        "title": "We know the terrain.",
+        "text": "We were founded in 2000 to support the energy transition from within, with technical rigour and a local sensitivity no national operator can replicate."
+      },
+      {
+        "kicker": "Our space",
+        "title": "Solidity and proximity.",
+        "text": "We compete between the large operators who don't know the islands and the small installers without structure. We fill the space in between that neither covers."
+      }
     ],
-    "cardTitle": "Operational independence",
-    "cardBody": "From the Canary Islands, with local permits and local knowledge, we help lead the new energy ecosystem. We design, implement and manage projects that build a better way to do things because we want the Canary Islands to become a reference point.",
-    "cta": "Our projects"
+    "pull": "We don't just install. We accompany."
+  },
+  "pillars": {
+    "eyebrow": "Why us",
+    "titleLead": "What makes us",
+    "titleTail": "different.",
+    "body": "Four commitments that define how we work with every company that trusts us.",
+    "items": [
+      {
+        "tag": "01 / territory",
+        "title": "Local knowledge",
+        "body": "We understand the regulatory framework, the climate, island logistics and the subsidies specific to the Canary Islands. We know the islands and we know your business."
+      },
+      {
+        "tag": "02 / accompaniment",
+        "title": "Start to finish",
+        "body": "From the energy study to subsidy applications, from installation to maintenance. Transparency and continuous communication at every stage."
+      },
+      {
+        "tag": "03 / business",
+        "title": "B2B specialisation",
+        "body": "We work with hotels, industry, retail and agribusiness. We talk about ROI, efficiency and operational continuity, not empty promises."
+      },
+      {
+        "tag": "04 / judgement",
+        "title": "Technical authority",
+        "body": "We only work with equipment and solutions proven reliable in the Canary Islands' energy and climate context."
+      }
+    ]
   },
   "leadership": {
     "eyebrow": "Leadership",
-    "title": "Leadership in action",
-    "quote": "For Carla, moving toward energy that belongs to the islands is not only a professional goal, it is a way to strengthen the archipelago's resilience.",
-    "body": "With more than 20 years in the Canarian energy sector, Carla Isarí Díaz Ortega has led some of the islands' most ambitious energy transition projects. Her vision combines technical rigor with deep respect for the territory and its communities.",
-    "link": "Read more →"
+    "titleLead": "A vision",
+    "titleTail": "with a face.",
+    "quote": "Moving towards energy that is more our own is not just a professional goal: it is a way to strengthen the resilience of the archipelago.",
+    "name": "Carla Isarí Díaz Ortega",
+    "role": "Director · Energía Solar Canarias",
+    "body": "With over two decades in the Canary Islands' energy sector, Carla has led some of the most ambitious transition projects in the islands. Her vision combines technical rigour with a deep respect for the territory and its communities.",
+    "link": "Explore our projects"
   },
   "testimonial": {
-    "quote": "The team did not just install our renewable energy system from day one. They solved a real problem for us.",
-    "name": "Roberto Martinez",
-    "role": "Operations Director, industrial plant",
+    "quote": "The team didn't just install our renewable system: they supported us from day one and solved a real operational continuity problem.",
+    "name": "Roberto Martínez",
+    "role": "Operations Director · Industrial plant",
     "companyLogo": "/assets/logos/placeholder.svg",
     "avatar": "/assets/avatars/roberto-martinez.webp"
+  },
+  "cta": {
+    "eyebrow": "Let's talk",
+    "titleLead": "Energy for your business, with the confidence of",
+    "titleTail": "those who know the territory.",
+    "body": "Request your free savings study. We analyse your consumption and show you the real potential of your installation, with no commitment.",
+    "primary": "Request free study",
+    "secondary": "Read our blog",
+    "trust": "Reply within 48 h · No commitment"
   }
 }

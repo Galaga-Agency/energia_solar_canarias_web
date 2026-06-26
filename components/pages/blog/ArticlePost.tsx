@@ -54,7 +54,7 @@ export function ArticlePost({ article, body, altPaths }: ArticlePostProps) {
 
       {/* Header */}
       <header className="section-inner relative z-10 pt-[clamp(5rem,10vw,8rem)] pb-10 md:pb-14">
-        <div className="max-w-[60ch]">
+        <div className="max-w-[100ch]">
           <div className="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
             {article.categoryLabel && (
               <span className="text-label font-mono text-primary!">{article.categoryLabel}</span>
@@ -63,7 +63,7 @@ export function ArticlePost({ article, body, altPaths }: ArticlePostProps) {
             <span className="text-label font-mono text-ink/45!">{article.readTime} min</span>
           </div>
 
-          <h1 className="text-title">{article.title}</h1>
+          <h1 className="text-display">{article.title}</h1>
           <p className="mt-6 text-body text-ink/70 max-w-[52ch]">{article.excerpt}</p>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-ink/12 pt-6">

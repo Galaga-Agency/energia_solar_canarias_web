@@ -1,9 +1,12 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { useTranslations } from 'next-intl'
 import { Button } from '@/components/ui/Button'
 import { AnimatedBrandBlob } from '@/components/ui/AnimatedBrandBlob'
 import { PaperTexture } from '@/components/ui/PaperTexture'
+
+const MouseReactiveFlock = dynamic(() => import('@/components/shared/MouseReactiveFlock').then(m => m.MouseReactiveFlock), { ssr: false })
 
 export function HomeCTA() {
   const t = useTranslations('home.cta')
@@ -14,6 +17,7 @@ export function HomeCTA() {
       className="section-spacing-both relative isolate overflow-hidden bg-[#f4f1ea] text-ink"
     >
       <PaperTexture />
+      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
 
       {/* Brand blob — top right on mobile, mid-right on desktop */}
       <AnimatedBrandBlob

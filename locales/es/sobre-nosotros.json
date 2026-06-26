@@ -1,40 +1,87 @@
 {
   "hero": {
-    "title": "Impulsamos una energía más nuestra",
-    "body": "Una empresa canaria comprometida con la transición energética del archipiélago."
+    "eyebrow": "Quiénes somos",
+    "meta": "Agüimes · Gran Canaria · desde 2000",
+    "titleLead": "El socio energético",
+    "titleTail": "de Canarias.",
+    "body": "Somos el socio energético de referencia para las empresas de Canarias. No vendemos paneles: diseñamos ahorro estructural, seguridad operativa y autonomía real, con el criterio de quien conoce el territorio.",
+    "cta": "Hablemos con nosotros"
   },
   "narrative": {
-    "title": "Un nuevo modelo energético",
-    "paragraphs": [
-      "Canarias es un archipiélago en plena transición energética. La isla ha asumido un reto enorme: la descarbonización del sistema energético antes de 2040, y eso cambia la forma en que la sociedad consume, produce y gestiona la energía.",
-      "Por eso participamos en proyectos que trasladan cómo se diseña el nuevo ecosistema en Canarias: del análisis al terreno, del rigor y el tiempo y la energía a la realidad económica y energética radical. No solo por sus soluciones, sino también por las relaciones que construimos con nuestros clientes.",
-      "Cada proyecto es una apuesta por un Canarias más autónomo, más resiliente y más justo en el acceso a la energía. Ese es nuestro compromiso y nuestra razón de ser."
-    ]
-  },
-  "benefits": {
-    "eyebrow": "Logros",
-    "title": "Beneficios comprobados",
-    "body": "Lo que garantiza la constancia y el compromiso de nuestro equipo.",
-    "items": [
-      { "title": "Ahorro real y medible", "body": "Nuestros clientes ven el impacto directo en su factura energética desde el primer mes de operación del sistema." },
-      { "title": "Tecnología de vanguardia", "body": "Trabajamos solo con equipos y soluciones que han demostrado su fiabilidad en el contexto climático y energético canario." }
+    "eyebrow": "Nuestra razón de ser",
+    "lead": "Creemos en la energía libre.",
+    "leadAccent": "La que pertenece a todos.",
+    "chapters": [
+      {
+        "kicker": "El origen",
+        "title": "Creemos en la energía libre.",
+        "text": "La que nos brinda la naturaleza y todo nuestro entorno. Nuestro trabajo es transformarla y llevarla a quien le pertenece: a cada hogar y a cada negocio de Canarias."
+      },
+      {
+        "kicker": "El reto",
+        "title": "Conocemos el terreno.",
+        "text": "Nacimos en 2000 para acompañar la transición energética desde dentro, con rigor técnico y una sensibilidad local que ningún operador nacional puede replicar."
+      },
+      {
+        "kicker": "Nuestro espacio",
+        "title": "Solidez y cercanía.",
+        "text": "Competimos entre los grandes operadores que no conocen las islas y los pequeños instaladores sin estructura. Ocupamos ese espacio intermedio que ninguno cubre."
+      }
     ],
-    "cardTitle": "Independencia operativa",
-    "cardBody": "Desde Canarias, con conocimiento local y homologaciones propias, acompañamos a empresas y hogares en su transición energética. Diseñamos, instalamos y gestionamos sistemas que hacen la energía solar accesible, rentable y sostenible. Porque queremos que Canarias sea un referente mundial en energía limpia.",
-    "cta": "Nuestros proyectos"
+    "pull": "No solo instalamos. Acompañamos."
+  },
+  "pillars": {
+    "eyebrow": "Por qué nosotros",
+    "titleLead": "Lo que nos hace",
+    "titleTail": "diferentes.",
+    "body": "Cuatro compromisos que definen cómo trabajamos con cada empresa que confía en nosotros.",
+    "items": [
+      {
+        "tag": "01 / territorio",
+        "title": "Conocimiento local",
+        "body": "Entendemos el marco regulatorio, el clima, la logística insular y las subvenciones propias de Canarias. Conocemos las islas y conocemos tu negocio."
+      },
+      {
+        "tag": "02 / acompañamiento",
+        "title": "De principio a fin",
+        "body": "Del estudio energético a la tramitación de ayudas, de la instalación al mantenimiento. Transparencia y comunicación continua en cada fase."
+      },
+      {
+        "tag": "03 / empresa",
+        "title": "Especialización B2B",
+        "body": "Trabajamos con hoteles, industria, retail y agroindustria. Hablamos de ROI, eficiencia y continuidad operativa, no de promesas vacías."
+      },
+      {
+        "tag": "04 / criterio",
+        "title": "Autoridad técnica",
+        "body": "Solo trabajamos con equipos y soluciones que han demostrado su fiabilidad en el contexto energético y climático canario."
+      }
+    ]
   },
   "leadership": {
     "eyebrow": "Liderazgo",
-    "title": "Hablemos de liderazgo",
-    "quote": "Para Carla, avanzar hacia una energía más nuestra no es solo una meta profesional, es una forma de fortalecer la resiliencia del archipiélago.",
-    "body": "Con más de 20 años en el sector energético canario, Carla Isarí Díaz Ortega ha liderado algunos de los proyectos más ambiciosos de transición energética de las islas. Su visión combina la exigencia técnica con un profundo respeto por el territorio y sus comunidades.",
-    "link": "Leer más →"
+    "titleLead": "Una visión",
+    "titleTail": "con rostro.",
+    "quote": "Avanzar hacia una energía más nuestra no es solo una meta profesional: es una forma de fortalecer la resiliencia del archipiélago.",
+    "name": "Carla Isarí Díaz Ortega",
+    "role": "Dirección · Energía Solar Canarias",
+    "body": "Con más de dos décadas en el sector energético canario, Carla ha liderado algunos de los proyectos de transición más ambiciosos de las islas. Su visión combina la exigencia técnica con un profundo respeto por el territorio y sus comunidades.",
+    "link": "Conoce nuestros proyectos"
   },
   "testimonial": {
-    "quote": "El equipo no solo instaló nuestro sistema de energía renovable desde el primer día. No dudaron en ningún momento, nos resolvieron un problema real.",
+    "quote": "El equipo no solo instaló nuestro sistema renovable: nos acompañó desde el primer día y resolvió un problema real de continuidad operativa.",
     "name": "Roberto Martínez",
-    "role": "Director de Operaciones, Planta industrial",
+    "role": "Director de Operaciones · Planta industrial",
     "companyLogo": "/assets/logos/placeholder.svg",
     "avatar": "/assets/avatars/roberto-martinez.webp"
+  },
+  "cta": {
+    "eyebrow": "Hablemos",
+    "titleLead": "Energía para tu negocio, con la confianza de",
+    "titleTail": "quien conoce el entorno.",
+    "body": "Solicita tu estudio de ahorro gratuito. Analizamos tu consumo y te mostramos el potencial real de tu instalación, sin compromiso.",
+    "primary": "Solicitar estudio gratuito",
+    "secondary": "Leer nuestro blog",
+    "trust": "Respuesta en menos de 48 h · Sin compromiso"
   }
 }
