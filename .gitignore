@@ -40,7 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Payload
-*.db
+# Payload — DB and media ARE committed (shipped to prod via the image, like materia-prima)
 *.db-journal
-/public/media
+*.db-wal
+*.db-shm

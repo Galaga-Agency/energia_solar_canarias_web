@@ -53,19 +53,24 @@ const PUBLISHED_AND: Where[] = [
 ]
 const PUBLISHED: Where = { and: PUBLISHED_AND }
 
-/** All published articles, newest first. */
+/** All published articles, newest first. Degrades to [] if Payload/DB is unavailable. */
 export async function getArticles(locale: Locale = "es"): Promise<Article[]> {
-  const payload = await getPayloadClient()
-  const result = await payload.find({
-    collection: "posts",
-    locale,
-    fallbackLocale: "es",
-    where: PUBLISHED,
-    limit: 200,
-    depth: 1,
-    sort: "-publishedAt",
-  })
-  return result.docs.map(toArticle)
+  try {
+    const payload = await getPayloadClient()
+    const result = await payload.find({
+      collection: "posts",
+      locale,
+      fallbackLocale: "es",
+      where: PUBLISHED,
+      limit: 200,
+      depth: 1,
+      sort: "-publishedAt",
+    })
+    return result.docs.map(toArticle)
+  } catch (e) {
+    console.error("[getArticles] Payload query failed:", e)
+    return []
+  }
 }
 
 /** Single article meta by slug (no body). */
@@ -133,26 +138,31 @@ export async function getArticleSlugs(slug: string, locale: Locale = "es"): Prom
   return out
 }
 
-/** All categories, ordered — for the filter bar. */
+/** All categories, ordered — for the filter bar. Degrades to [] on failure. */
 export async function getCategories(locale: Locale = "es"): Promise<CategoryInfo[]> {
-  const payload = await getPayloadClient()
-  const result = await payload.find({
-    collection: "categories",
-    locale,
-    fallbackLocale: "es",
-    where: { hidden: { not_equals: true } },
-    limit: 50,
-    depth: 0,
-    sort: "order",
-  })
-  return result.docs.map((c: Record<string, unknown>) => ({
-    id:          c.id as number | string,
-    slug:        String(c.slug ?? ""),
-    label:       String(c.label ?? c.title ?? c.slug ?? ""),
-    description: c.description ? String(c.description) : undefined,
-    tagline:     c.tagline ? String(c.tagline) : undefined,
-    order:       c.order != null ? Number(c.order) : undefined,
-  }))
+  try {
+    const payload = await getPayloadClient()
+    const result = await payload.find({
+      collection: "categories",
+      locale,
+      fallbackLocale: "es",
+      where: { hidden: { not_equals: true } },
+      limit: 50,
+      depth: 0,
+      sort: "order",
+    })
+    return result.docs.map((c: Record<string, unknown>) => ({
+      id:          c.id as number | string,
+      slug:        String(c.slug ?? ""),
+      label:       String(c.label ?? c.title ?? c.slug ?? ""),
+      description: c.description ? String(c.description) : undefined,
+      tagline:     c.tagline ? String(c.tagline) : undefined,
+      order:       c.order != null ? Number(c.order) : undefined,
+    }))
+  } catch (e) {
+    console.error("[getCategories] Payload query failed:", e)
+    return []
+  }
 }
 
 export async function getArticlesByCategory(slug: ArticleCategory, locale: Locale = "es"): Promise<Article[]> {
