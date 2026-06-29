@@ -19,7 +19,7 @@ export function initFounderFrameAnimation(): () => void {
   }
 
   if (frame) gsap.set(frame, { x: 0, y: 0, opacity: 0 })
-  if (quote) gsap.set(quote, { y: 32, opacity: 0 })
+  if (quote) gsap.set(quote, { opacity: 0 })
 
   const tl = gsap.timeline({
     scrollTrigger: { trigger: section, start: 'top 70%', once: true },
@@ -37,10 +37,9 @@ export function initFounderFrameAnimation(): () => void {
 
   if (quote) {
     tl.to(quote, {
-      y:        0,
       opacity:  1,
       duration: 0.95,
-      ease:     'power3.out',
+      ease:     'power2.out',
     }, 0.2)
   }
 

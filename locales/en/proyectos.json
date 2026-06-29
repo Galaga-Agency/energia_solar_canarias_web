@@ -1,41 +1,85 @@
 {
   "hero": {
     "eyebrow": "Projects",
-    "title": "Every project tells a story of efficiency achieved.",
-    "body": "Real cases from companies and homes in the Canary Islands that have transformed their energy model with us."
+    "titleLead": "What we do,",
+    "titleTail": "proven.",
+    "body": "Real cases of Canary Islands businesses. Each project shows a service in action — with figures, not promises.",
+    "meta": "Hospitality · Industry · Agribusiness · Retail",
+    "facts": [
+      {
+        "lead": "25 years",
+        "label": "of experience in the Canaries"
+      },
+      {
+        "lead": "4 sectors",
+        "label": "hospitality · industry · agro · retail"
+      },
+      {
+        "lead": "Integral energy",
+        "label": "study · installation · maintenance"
+      },
+      {
+        "lead": "100% local",
+        "label": "we know the islands"
+      }
+    ]
   },
   "projects": [
     {
       "id": "1",
       "slug": "hotel-las-palmas",
-      "title": "Hotel Las Palmas — 45% energy reduction",
-      "excerpt": "200 kWp photovoltaic installation with storage system for a four-star hotel in Gran Canaria.",
-      "image": "/assets/images/common/aerial-sandy-beach-shoreline.webp",
-      "tags": ["Hospitality", "Photovoltaic", "Storage"],
-      "updatedAt": "2025-03-01"
+      "service": "Self-consumption + Storage",
+      "sector": "Hospitality · Gran Canaria",
+      "title": "A hotel that stays off-grid in peak season",
+      "challenge": "A four-star hotel with summer consumption peaks and an energy bill rising every year.",
+      "solution": "We designed a 200 kWp photovoltaic installation with batteries that covers daytime demand and backs up the busiest nights.",
+      "result": "45% lower energy bill and autonomy during grid outages.",
+      "metric": "45% savings",
+      "image": "/assets/images/common/aerial-sandy-beach-shoreline.webp"
     },
     {
       "id": "2",
-      "slug": "finca-la-palma",
-      "title": "Finca La Palma — Agricultural self-consumption",
-      "excerpt": "Photovoltaic self-consumption system for an 80-hectare agricultural estate in La Palma.",
-      "image": "/assets/images/common/volcanic-vineyard-landscape.webp",
-      "tags": ["Agriculture", "Self-consumption"],
-      "updatedAt": "2025-01-15"
+      "slug": "nave-industrial-tenerife",
+      "service": "Rooftop photovoltaic + Maintenance",
+      "sector": "Industry · Tenerife",
+      "title": "An industrial plant that locks in its cost per kWh",
+      "challenge": "An industrial plant exposed to volatile electricity prices, with processes that cannot stop.",
+      "solution": "A 120 kWp rooftop installation with real-time monitoring and a preventive maintenance contract.",
+      "result": "Stable, predictable energy cost with no process downtime.",
+      "metric": "120 kWp installed",
+      "image": "/assets/images/common/diagonal-solar-panel-grid.webp"
     },
     {
       "id": "3",
-      "slug": "nave-industrial-tenerife",
-      "title": "Industrial warehouse Tenerife — 120 kWp",
-      "excerpt": "Rooftop industrial installation with real-time monitoring and preventive maintenance contract.",
-      "image": "/assets/images/common/diagonal-solar-panel-grid.webp",
-      "tags": ["Industrial", "Photovoltaic"],
-      "updatedAt": "2024-11-20"
+      "slug": "bodega-lanzarote",
+      "service": "Self-consumption + Subsidy management",
+      "sector": "Agribusiness · Lanzarote",
+      "title": "A volcanic winery that cuts its wine-making cost",
+      "challenge": "A winery with an intensive cooling process and limited access to grants for lack of technical support.",
+      "solution": "We integrated 90 kWp into the winery and handled the NextGen subsidies end to end.",
+      "result": "Lower wine-making cost and part of the investment covered by grants.",
+      "metric": "90 kWp + subsidy",
+      "image": "/assets/images/common/volcanic-vineyard-landscape.webp"
+    },
+    {
+      "id": "4",
+      "slug": "centro-comercial-maspalomas",
+      "service": "Solar canopy + EV mobility",
+      "sector": "Retail · Gran Canaria",
+      "title": "A shopping centre that turns its car park into energy",
+      "challenge": "A shopping centre with an underused car park and growing demand for charging points.",
+      "solution": "We covered the car park with a 350 kWp solar canopy and integrated EV charging points.",
+      "result": "On-site generation, shade for customers and a new charging service.",
+      "metric": "350 kWp + EV charging",
+      "image": "/assets/images/home/aerial-solar-panel-rows.webp"
     }
   ],
   "grid": {
     "readMore": "Read more →",
-    "seeAll": "See all"
+    "seeAll": "Let's talk about your project",
+    "challenge": "The challenge",
+    "solution": "What we did",
+    "result": "The result"
   },
   "testimonial": {
     "quote": "The team did not just install our renewable energy system from day one. They solved a real problem for us.",
@@ -48,10 +92,30 @@
     "title": "Results that speak for themselves",
     "body": "Every installation we complete demonstrates the real impact renewable energy can have on the finances of a Canarian company or home.",
     "items": [
-      { "value": "40", "suffix": "%", "label": "Average savings", "body": "on energy bills" },
-      { "value": "6.8", "suffix": "", "label": "Years", "body": "average payback period" },
-      { "value": "120", "suffix": "", "label": "Projects", "body": "completed in the Canary Islands" },
-      { "value": "98", "suffix": "%", "label": "Satisfied clients", "body": "would recommend us" }
+      {
+        "value": "40",
+        "suffix": "%",
+        "label": "Average savings",
+        "body": "on energy bills"
+      },
+      {
+        "value": "6.8",
+        "suffix": "",
+        "label": "Years",
+        "body": "average payback period"
+      },
+      {
+        "value": "120",
+        "suffix": "",
+        "label": "Projects",
+        "body": "completed in the Canary Islands"
+      },
+      {
+        "value": "98",
+        "suffix": "%",
+        "label": "Satisfied clients",
+        "body": "would recommend us"
+      }
     ]
   },
   "cta": {
@@ -59,5 +123,8 @@
     "body": "Discover how to optimize your consumption and move toward a more efficient energy model adapted to your company. No cost. No commitment. No waiting.",
     "primary": "Request your audit ↗",
     "secondary": "Contact us"
+  },
+  "brands": {
+    "label": "The brands we work with"
   }
 }

@@ -22,7 +22,7 @@ export function SolucionesHero() {
       data-hero
       className="relative isolate flex min-h-svh flex-col justify-between overflow-hidden pt-24 pb-14 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24"
     >
-      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={80} />
+      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
       <AnimatedBrandBlob className="pointer-events-none absolute -right-[12%] top-[10%] z-0 h-auto w-[55%] opacity-45 md:-right-[6%] md:w-[36%] lg:w-[26%]" />
       <AnimatedBrandBlob className="pointer-events-none absolute -left-[16%] bottom-[12%] z-0 h-auto w-[40%] opacity-25 hidden md:block" />
 

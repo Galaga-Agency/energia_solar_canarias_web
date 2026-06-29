@@ -17,6 +17,9 @@ const MouseReactiveFlock = dynamic(
 import { initHeroAnimations } from "@/utils/animations/hero-animations";
 import { initScrollRevealSections } from "@/utils/animations/scroll-reveal";
 import { initBlobAnimation } from "@/utils/animations/blob";
+import { initFounderFrameAnimation } from "@/utils/animations/founder-frame";
+import { initBentoReveal } from "@/utils/animations/bento-reveal";
+import { initCtaRevealAnimation } from "@/utils/animations/cta-reveal";
 
 const SobreNosotrosNarrative = dynamic(() =>
   import("./SobreNosotrosNarrative").then((m) => m.SobreNosotrosNarrative),
@@ -44,7 +47,7 @@ export function SobreNosotrosClient() {
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
-    timeout: [initScrollRevealSections, initBlobAnimation],
+    timeout: [initScrollRevealSections, initBlobAnimation, initFounderFrameAnimation, initBentoReveal, initCtaRevealAnimation],
   }));
 
   return (
@@ -62,7 +65,7 @@ export function SobreNosotrosClient() {
       <div className="relative isolate overflow-hidden">
         <MouseReactiveFlock
           className="pointer-events-none absolute inset-0 z-0 h-full w-full"
-          birds={80}
+          birds={50}
         />
         <div className="relative z-10">
           <SobreNosotrosHero />

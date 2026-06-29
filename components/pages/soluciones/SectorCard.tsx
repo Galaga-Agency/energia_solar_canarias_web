@@ -98,10 +98,10 @@ export function SectorCard({ item, variant }: { item: SectorCardItem; variant: n
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       className={`group relative cursor-pointer will-change-transform ${v.cardPadding}`}
-      data-reveal
+      data-solucion-card
     >
       <div className="relative aspect-4/3 overflow-hidden">
-        <div ref={imgRef} className="absolute -inset-6 will-change-transform">
+        <div ref={imgRef} className="absolute -inset-6 will-change-transform" data-solucion-media>
           <PlaceholderImage
             src={SECTOR_IMAGES[item.key]}
             alt={item.title}
@@ -113,7 +113,7 @@ export function SectorCard({ item, variant }: { item: SectorCardItem; variant: n
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(15,24,20,0.25)_0%,transparent_55%)]" />
       </div>
 
-      <div className={`z-10 p-5 lg:p-6 ${v.position} ${v.panel}`}>
+      <div className={`z-10 p-5 lg:p-6 ${v.position} ${v.panel}`} data-solucion-copy>
         <span className="font-mono text-[11px] uppercase italic tracking-[0.26em] text-primary md:text-[12px]">
           {item.tag}
         </span>

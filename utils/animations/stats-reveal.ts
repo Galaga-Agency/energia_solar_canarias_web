@@ -37,8 +37,8 @@ export function initStatsRevealAnimation(): () => void {
   const travelX     = (sectionRect.left + sectionRect.width / 2) - (titleRect.left + titleRect.width / 2)
 
   gsap.set(titleWrap, { x: travelX, y: travelY, scale: 1.15, transformOrigin: '50% 50%' })
-  if (meta) gsap.set(meta, { opacity: 0, y: 24 })
-  gsap.set(stats, { opacity: 0, y: 28 })
+  if (meta) gsap.set(meta, { opacity: 0 })
+  gsap.set(stats, { opacity: 0 })
   values.forEach(el => { el.textContent = '0' })
 
   const tl = gsap.timeline({
@@ -53,20 +53,20 @@ export function initStatsRevealAnimation(): () => void {
 
   if (meta) {
     tl.to(meta, {
-      opacity: 1, y: 0,
+      opacity: 1,
       duration: 0.5,
-      ease: 'power3.out',
+      ease: 'power2.out',
     }, '-=0.5')
   }
 
-  const statsStartAt = tl.duration() - 0.45
-
   tl.to(stats, {
-    opacity: 1, y: 0,
+    opacity: 1,
     duration: 0.65,
     stagger: 0.15,
-    ease: 'power3.out',
+    ease: 'power2.out',
   }, '-=0.45')
+
+  const statsStartAt = tl.duration() - 0.45
 
   values.forEach((el, i) => {
     const target  = el.getAttribute('data-target') || '0'

@@ -14,6 +14,8 @@ export function initHeroAnimations(): void {
     gsap.fromTo(heroImage, { scale: 1.12 }, { scale: 1, duration: 3, ease: 'power3.out' })
   }
 
+  // Hero titles/items fade UP — this is the ONLY place fade-up is allowed
+  // (the user re-enabled it for hero titles specifically, nowhere else).
   gsap.fromTo(
     elements,
     { opacity: 0, y: 40 },

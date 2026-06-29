@@ -14,6 +14,7 @@ import { initScrollRevealSections }  from '@/utils/animations/scroll-reveal'
 import { initFAQAccordion }          from '@/utils/animations/faq-accordion'
 import { initContextoReveal }        from '@/utils/animations/contexto-reveal'
 import { initSolucionesReveal }      from '@/utils/animations/soluciones-reveal'
+import { initSolucionCardsAnimation } from '@/utils/animations/solucion-cards'
 import { initCtaRevealAnimation }    from '@/utils/animations/cta-reveal'
 
 const SolucionesContexto     = dynamic(() => import('./SolucionesContexto').then(m => m.SolucionesContexto))
@@ -34,7 +35,7 @@ export function SolucionesClient() {
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
     raf:      [initDrawArrowAnimation],
-    timeout:  [initScrollRevealSections, initFAQAccordion, initContextoReveal, initSolucionesReveal, initCtaRevealAnimation],
+    timeout:  [initScrollRevealSections, initFAQAccordion, initContextoReveal, initSolucionesReveal, initSolucionCardsAnimation, initCtaRevealAnimation],
   }))
 
   return (
@@ -55,7 +56,7 @@ export function SolucionesClient() {
       {/* Cream group — Sectores */}
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
         <PaperTexture className="z-0" />
-        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
+        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={35} />
         <SolucionesSectores />
       </div>
 
@@ -64,7 +65,7 @@ export function SolucionesClient() {
       {/* Cream group — Proceso + Pilares + FAQ */}
       <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
         <PaperTexture className="z-0" />
-        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={110} />
+        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
         <SolucionesProceso />
         <SolucionesPilares />
         <SolucionesFAQ

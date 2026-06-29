@@ -17,7 +17,7 @@ export function HomeCTA() {
       className="section-spacing-both relative isolate overflow-hidden bg-[#f4f1ea] text-ink"
     >
       <PaperTexture />
-      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
+      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
 
       {/* Brand blob — top right on mobile, mid-right on desktop */}
       <AnimatedBrandBlob

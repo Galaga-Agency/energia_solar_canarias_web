@@ -35,10 +35,10 @@ export function SolucionesSectores() {
         <div
           className="grid grid-cols-1 gap-y-20 gap-x-12 sm:grid-cols-2 lg:gap-x-20 lg:gap-y-28"
           style={{ perspective: '1200px' }}
-          data-sol-stagger
+          data-soluciones-grid
         >
           {sectors.map((item, i) => (
-            <div key={item.key} data-sol-item>
+            <div key={item.key}>
               <SectorCard item={item} variant={i} />
             </div>
           ))}

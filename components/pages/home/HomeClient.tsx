@@ -47,8 +47,8 @@ export function HomeClient() {
 
   const isMobile = useIsMobile();
   const flockBirds = isMobile
-    ? { top: 60, bottom: 40 }
-    : { top: 140, bottom: 100 };
+    ? { top: 40, bottom: 30 }
+    : { top: 70, bottom: 55 };
 
   useGSAPAnimations(() => ({
     critical: [initHero2Animations, initParallax],

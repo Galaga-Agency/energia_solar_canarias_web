@@ -25,27 +25,27 @@ export function ContactoSection() {
         className="relative isolate overflow-hidden bg-(--color-bg) pt-[clamp(7rem,13vw,10rem)] pb-[clamp(4rem,8vw,7rem)]"
       >
         <PaperTexture className="z-0" />
-        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
+        <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
         <AnimatedBrandBlob className="pointer-events-none absolute -right-[10%] top-[10%] z-0 h-auto w-[55%] opacity-30 md:-right-[2%] md:w-[30%] lg:w-[24%]" />
 
         {/* Big editorial header */}
         <div className="section-inner relative z-10 mb-16 max-w-[20ch] md:mb-24">
-          <span data-hero-item className="text-label text-primary! mb-5 block">{t('eyebrow')}</span>
-          <h1 data-hero-item className="text-display">
+          <span data-hero-item className="opacity-0 text-label text-primary! mb-5 block">{t('eyebrow')}</span>
+          <h1 data-hero-item className="opacity-0 text-display">
             {tt.lead}{' '}
             <em className="not-italic md:italic md:font-normal md:text-primary">{tt.tail}</em>
           </h1>
-          <p data-hero-item className="mt-6 max-w-[46ch] text-body text-ink/68!">{t('body')}</p>
+          <p data-hero-item className="opacity-0 mt-6 max-w-[46ch] text-body text-ink/68!">{t('body')}</p>
         </div>
 
         <div className="section-inner relative z-10 grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
           {/* Form column */}
-          <div data-hero-item className="lg:col-span-7">
+          <div data-hero-item className="opacity-0 lg:col-span-7">
             <ContactForm />
           </div>
 
           {/* Info column — phone is the focal "call us" moment */}
-          <aside data-hero-item className="lg:col-span-5 lg:pl-10 lg:border-l lg:border-ink/12">
+          <aside data-hero-item className="opacity-0 lg:col-span-5 lg:pl-10 lg:border-l lg:border-ink/12">
             <span className="text-label text-primary! mb-3 block">{t('callLabel')}</span>
             <a
               href={`tel:${CONTACT_INFO.phone}`}

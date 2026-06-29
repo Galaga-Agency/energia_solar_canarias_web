@@ -28,7 +28,7 @@ export function SobreNosotrosBenefits() {
   const renderPillar = (p: Pillar, i: number) => {
     const tone = PILLARS[i]
     return (
-      <article key={p.tag} className={`flex flex-col justify-between gap-6 p-8 md:p-10 ${tone.span} ${tone.bg}`}>
+      <article key={p.tag} data-bento-tile className={`flex flex-col justify-between gap-6 p-8 md:p-10 ${tone.span} ${tone.bg}`}>
         <div className="flex items-baseline justify-between">
           <span className="text-stat leading-none text-primary!">{String(i + 1).padStart(2, '0')}</span>
           <span className={`text-label ${tone.body}`}>{p.tag.split('/').pop()?.trim()}</span>
@@ -42,7 +42,7 @@ export function SobreNosotrosBenefits() {
   }
 
   const ImgTile = ({ src, span }: { src: string; span: string }) => (
-    <div className={`relative h-full min-h-56 overflow-hidden ${span}`}>
+    <div data-bento-tile className={`relative h-full min-h-56 overflow-hidden ${span}`}>
       <Image src={src} alt="" fill sizes="(max-width:768px) 100vw, 40vw" className="object-cover" aria-hidden />
     </div>
   )
@@ -50,11 +50,11 @@ export function SobreNosotrosBenefits() {
   return (
     <section className="relative isolate overflow-hidden bg-[#f4f1ea] text-ink section-spacing-both">
       <PaperTexture className="z-0" />
-      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
+      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
       <div className="section-inner relative z-10">
-        <div className="grid auto-rows-[minmax(11rem,auto)] grid-cols-1 gap-4 md:grid-cols-12" data-reveal>
+        <div className="grid auto-rows-[minmax(11rem,auto)] grid-cols-1 gap-4 md:grid-cols-12">
           {/* Intro tile — no card, sits on the cream bg */}
-          <div className="flex flex-col justify-between gap-8 p-2 md:col-span-5 md:row-span-2 md:p-4">
+          <div className="flex flex-col justify-between gap-8 p-2 md:col-span-5 md:row-span-2 md:p-4" data-reveal>
             <span className="text-label text-primary!">{t('eyebrow')}</span>
             <h2 className="text-display text-ink">
               {t('titleLead')}{' '}

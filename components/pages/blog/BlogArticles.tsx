@@ -99,7 +99,7 @@ export function BlogArticles({ articles, tags = [], activeTag, searching = false
   return (
     <section className="section-spacing-both relative isolate overflow-hidden bg-bg">
       <PaperTexture className="z-0" />
-      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={70} />
+      <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
       <div className="section-inner relative z-10">
         {isSearchResult && (
           <p className="mb-10 text-label font-mono text-ink/45!">

@@ -1,41 +1,85 @@
 {
   "hero": {
     "eyebrow": "Proyectos",
-    "title": "Cada proyecto cuenta una historia de eficiencia lograda.",
-    "body": "Casos reales de empresas y hogares en Canarias que han transformado su modelo energético con nosotros."
+    "titleLead": "Lo que hacemos,",
+    "titleTail": "demostrado.",
+    "body": "Casos reales de empresas en Canarias. Cada proyecto ilustra un servicio en acción — con cifras, no promesas.",
+    "meta": "Hostelería · Industria · Agroindustria · Retail",
+    "facts": [
+      {
+        "lead": "25 años",
+        "label": "de experiencia en Canarias"
+      },
+      {
+        "lead": "4 sectores",
+        "label": "hostelería · industria · agro · retail"
+      },
+      {
+        "lead": "Energía integral",
+        "label": "estudio · instalación · mantenimiento"
+      },
+      {
+        "lead": "100% local",
+        "label": "conocemos las islas"
+      }
+    ]
   },
   "projects": [
     {
       "id": "1",
       "slug": "hotel-las-palmas",
-      "title": "Hotel Las Palmas — 45% de reducción energética",
-      "excerpt": "Instalación fotovoltaica de 200 kWp con sistema de almacenamiento para un hotel de 4 estrellas en Gran Canaria.",
-      "image": "/assets/images/common/aerial-sandy-beach-shoreline.webp",
-      "tags": ["Hostelería", "Fotovoltaica", "Almacenamiento"],
-      "updatedAt": "2025-03-01"
+      "service": "Autoconsumo + Almacenamiento",
+      "sector": "Hostelería · Gran Canaria",
+      "title": "Un hotel que no depende de la red en plena temporada",
+      "challenge": "Un hotel de 4 estrellas con picos de consumo en verano y una factura energética que crecía cada año.",
+      "solution": "Diseñamos una instalación fotovoltaica de 200 kWp con baterías que cubre la demanda diurna y respalda las noches de mayor ocupación.",
+      "result": "45% menos en la factura energética y autonomía durante los cortes de red.",
+      "metric": "45% de ahorro",
+      "image": "/assets/images/common/aerial-sandy-beach-shoreline.webp"
     },
     {
       "id": "2",
-      "slug": "finca-la-palma",
-      "title": "Finca La Palma — Autoconsumo agrícola",
-      "excerpt": "Sistema de autoconsumo fotovoltaico para una finca agrícola de 80 hectáreas en La Palma.",
-      "image": "/assets/images/common/volcanic-vineyard-landscape.webp",
-      "tags": ["Agricultura", "Autoconsumo"],
-      "updatedAt": "2025-01-15"
+      "slug": "nave-industrial-tenerife",
+      "service": "Fotovoltaica sobre cubierta + Mantenimiento",
+      "sector": "Industria · Tenerife",
+      "title": "Una nave industrial que blinda su coste por kWh",
+      "challenge": "Una planta industrial expuesta a la volatilidad del precio de la electricidad, con procesos que no pueden parar.",
+      "solution": "Instalación de 120 kWp sobre cubierta con monitorización en tiempo real y un contrato de mantenimiento preventivo.",
+      "result": "Coste energético estable y previsible, sin paradas de proceso.",
+      "metric": "120 kWp instalados",
+      "image": "/assets/images/common/diagonal-solar-panel-grid.webp"
     },
     {
       "id": "3",
-      "slug": "nave-industrial-tenerife",
-      "title": "Nave industrial Tenerife — 120 kWp",
-      "excerpt": "Instalación sobre cubierta industrial con monitorización en tiempo real y contrato de mantenimiento preventivo.",
-      "image": "/assets/images/common/diagonal-solar-panel-grid.webp",
-      "tags": ["Industrial", "Fotovoltaica"],
-      "updatedAt": "2024-11-20"
+      "slug": "bodega-lanzarote",
+      "service": "Autoconsumo + Tramitación de subvenciones",
+      "sector": "Agroindustria · Lanzarote",
+      "title": "Una bodega volcánica que reduce el coste de vinificación",
+      "challenge": "Una bodega con un proceso de frío intensivo y acceso limitado a las ayudas por falta de acompañamiento técnico.",
+      "solution": "Integramos 90 kWp en la bodega y tramitamos las subvenciones NextGen de principio a fin.",
+      "result": "Coste de vinificación reducido y parte de la inversión cubierta por ayudas.",
+      "metric": "90 kWp + subvención",
+      "image": "/assets/images/common/volcanic-vineyard-landscape.webp"
+    },
+    {
+      "id": "4",
+      "slug": "centro-comercial-maspalomas",
+      "service": "Cubierta solar + Movilidad eléctrica",
+      "sector": "Retail · Gran Canaria",
+      "title": "Un centro comercial que convierte su parking en energía",
+      "challenge": "Un centro comercial con un parking infrautilizado y demanda creciente de puntos de recarga.",
+      "solution": "Cubrimos el parking con una marquesina solar de 350 kWp e integramos puntos de recarga para vehículo eléctrico.",
+      "result": "Generación propia, sombra para los clientes y un nuevo servicio de recarga.",
+      "metric": "350 kWp + recarga VE",
+      "image": "/assets/images/home/aerial-solar-panel-rows.webp"
     }
   ],
   "grid": {
     "readMore": "Leer más →",
-    "seeAll": "Ver todos"
+    "seeAll": "Hablemos de tu proyecto",
+    "challenge": "El reto",
+    "solution": "Lo que hicimos",
+    "result": "El resultado"
   },
   "testimonial": {
     "quote": "El equipo no solo instaló nuestro sistema de energía renovable desde el primer día. No dudaron en ningún momento, nos resolvieron un problema real.",
@@ -48,10 +92,30 @@
     "title": "Resultados que hablan por sí solos",
     "body": "Cada instalación que completamos es una demostración del impacto real que la energía renovable puede tener en la economía de una empresa o hogar canario.",
     "items": [
-      { "value": "40", "suffix": "%", "label": "Ahorro medio", "body": "en factura energética" },
-      { "value": "6,8", "suffix": "", "label": "Años", "body": "de retorno de inversión" },
-      { "value": "120", "suffix": "", "label": "Proyectos", "body": "completados en Canarias" },
-      { "value": "98", "suffix": "%", "label": "Clientes satisfechos", "body": "nos recomendarían" }
+      {
+        "value": "40",
+        "suffix": "%",
+        "label": "Ahorro medio",
+        "body": "en factura energética"
+      },
+      {
+        "value": "6,8",
+        "suffix": "",
+        "label": "Años",
+        "body": "de retorno de inversión"
+      },
+      {
+        "value": "120",
+        "suffix": "",
+        "label": "Proyectos",
+        "body": "completados en Canarias"
+      },
+      {
+        "value": "98",
+        "suffix": "%",
+        "label": "Clientes satisfechos",
+        "body": "nos recomendarían"
+      }
     ]
   },
   "cta": {
@@ -59,5 +123,8 @@
     "body": "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente y adaptado a tu empresa. Sin coste. Sin compromiso. Sin esperas.",
     "primary": "Solicita tu auditoría ↗",
     "secondary": "Contacta con nosotros"
+  },
+  "brands": {
+    "label": "Marcas con las que trabajamos"
   }
 }

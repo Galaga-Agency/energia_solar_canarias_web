@@ -3,10 +3,9 @@
 import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 /**
- * Staggered entrances for the soluciones page. Each element marked
- * `data-sol-stagger` is a group whose direct `data-sol-item` children
- * animate up in sequence when the group scrolls into view. Mirrors the
- * homepage's card/list stagger feel (fade + rise, expo.out).
+ * Staggered entrances for the soluciones page. Each `data-sol-stagger` group's
+ * direct `data-sol-item` children un-mask upward (clip wipe) with a small rise
+ * when the group scrolls in. Matches the refined homepage card reveals.
  */
 export function initSolucionesReveal(): () => void {
   const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-sol-stagger]'))
@@ -22,15 +21,16 @@ export function initSolucionesReveal(): () => void {
       .filter((el) => el.closest('[data-sol-stagger]') === group)
     if (!items.length) return
 
-    gsap.set(items, { opacity: 0, y: 44 })
+    // Card rise — matches the homepage cards (rise + fade, staggered).
+    gsap.set(items, { opacity: 0, y: 48 })
 
     const tw = gsap.to(items, {
       opacity: 1,
       y: 0,
       duration: 0.9,
-      stagger: 0.12,
-      ease: 'expo.out',
-      scrollTrigger: { trigger: group, start: 'top 80%', once: true },
+      stagger: 0.18,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: group, start: 'top 75%', once: true },
     })
     tweens.push(tw)
   })

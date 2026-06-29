@@ -22,7 +22,7 @@ export function initCtaRevealAnimation(): () => void {
 
   // Set initial state
   gsap.set(titleEl, { x: travelX, y: travelY, scale: 1.15, transformOrigin: '50% 50%' })
-  if (items.length) gsap.set(items, { opacity: 0, y: 28 })
+  if (items.length) gsap.set(items, { opacity: 0 })
 
   // Phone — wipe text and store original
   const phoneText = phone?.getAttribute('data-target') || phone?.textContent || ''
@@ -39,13 +39,13 @@ export function initCtaRevealAnimation(): () => void {
     ease: 'power3.inOut',
   })
 
-  // Items stagger in
+  // Items fade in — no upward motion.
   if (items.length) {
     tl.to(items, {
-      opacity: 1, y: 0,
+      opacity: 1,
       duration: 0.65,
       stagger: 0.13,
-      ease: 'power3.out',
+      ease: 'power2.out',
     }, '-=0.45')
   }
 
