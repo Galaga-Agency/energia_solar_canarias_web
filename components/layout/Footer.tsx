@@ -122,7 +122,7 @@ export function Footer() {
                     <li key={labelKey}>
                       <TransitionLink
                         href={href}
-                        className="navbar-link navbar-link--hero"
+                        className="card-content inline-block py-1 text-[#f4f1ea]/80! transition-colors hover:text-primary"
                       >
                         {t(labelKey)}
                       </TransitionLink>
@@ -151,7 +151,7 @@ export function Footer() {
               <TransitionLink
                 key={labelKey}
                 href={href}
-                className="navbar-link navbar-link--hero"
+                className="py-1 text-sm text-[#f4f1ea]/75 transition-colors hover:text-primary lg:text-xs"
               >
                 {t(labelKey)}
               </TransitionLink>
