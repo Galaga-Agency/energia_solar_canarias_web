@@ -38,6 +38,17 @@ export default buildConfig({
     meta: {
       titleSuffix: "— El Observatorio · Energía Solar Canarias",
     },
+    components: {
+      // Sidebar link to the custom analytics view.
+      beforeNavLinks: ["@/components/admin/AnaliticaNavLink#AnaliticaNavLink"],
+      // GA4 analytics dashboard at /admin/analitica, behind Payload auth.
+      views: {
+        analitica: {
+          Component: "@/components/admin/AnaliticaView#default",
+          path: "/analitica",
+        },
+      },
+    },
   },
   localization: {
     locales: [

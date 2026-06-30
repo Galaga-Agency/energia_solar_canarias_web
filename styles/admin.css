@@ -8,6 +8,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
+/* Tailwind utilities + brand tokens for the analytics dashboard (no Preflight). */
+@import "./admin-tailwind.css";
+
 /* ─── 1. Font ─────────────────────────────────────────────── */
 
 html[data-theme] {
@@ -46,79 +49,145 @@ html[data-theme=light] {
   --color-base-1000: #000000;
 
   /* Semantic overrides */
-  --theme-bg:            #F7F5F3;
+  --theme-bg:            #f4f1ea;
   --theme-input-bg:      #FFFFFF;
-  --theme-border-color:  #E0DBD6;
-  --theme-text:          #2C2627;
+  --theme-border-color:  #d8cbb5;
+  --theme-text:          #21332a;
 
   /* Brand navy accent scale */
-  --color-success-50:  #EAF2F7;
-  --color-success-100: #CAE0EC;
-  --color-success-150: #A9CEDF;
-  --color-success-200: #88BAD2;
-  --color-success-250: #67A6C4;
-  --color-success-300: #4792B6;
-  --color-success-350: #2D7EA8;
-  --color-success-400: #1A6B96;
-  --color-success-450: #0E5880;
-  --color-success-500: #0A4568;
-  --color-success-550: #083455;
-  --color-success-600: #062840;
-  --color-success-650: #051F32;
-  --color-success-700: #062232;
-  --color-success-750: #031219;
-  --color-success-800: #020D12;
-  --color-success-850: #01080C;
-  --color-success-900: #010506;
-  --color-success-950: #000203;
+  /* Teal ramp → ESC brand accent (from --color-teal-* in theme.css) */
+  --color-success-50:  #f3faf7;
+  --color-success-100: #d8efe6;
+  --color-success-150: #c4e7da;
+  --color-success-200: #b0dfcf;
+  --color-success-250: #99d3c0;
+  --color-success-300: #81c7b1;
+  --color-success-350: #6cb8a2;
+  --color-success-400: #57aa93;
+  --color-success-450: #4a9d86;
+  --color-success-500: #3d8f79;
+  --color-success-550: #36806d;
+  --color-success-600: #2f7262;
+  --color-success-650: #2a6759;
+  --color-success-700: #295c50;
+  --color-success-750: #265349;
+  --color-success-800: #244b42;
+  --color-success-850: #21423b;
+  --color-success-900: #1f3a34;
+  --color-success-950: #0f2421;
 }
 
 /* ─── 3. Nav sidebar — brand navy background ──────────────── */
 
 html[data-theme=light] .nav {
-  background-color: #32061d;
-  border-right-color: #031522;
+  background-color: #1a322c;
+  border-right-color: #14241f;
 }
 
 html[data-theme=light] .nav__wrap,
 html[data-theme=light] .nav__scroll {
-  background-color: #062232;
+  background-color: #1f3a34;
 }
 
-/* Nav text & links */
-html[data-theme=light] .nav__label,
+/* Group headings (Analítica / Blog / Ajustes) — orange mono kickers, clearly
+   separated from the links so each section reads as a distinct tab. */
+/* One clean divider per group, on the container. */
+html[data-theme=light] .nav-group {
+  border-top: 1px solid rgba(247, 245, 243, 0.14);
+  margin-top: 10px;
+  padding-top: 12px;
+}
+html[data-theme=light] .nav-group:first-of-type {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* The toggle is a flex row: label on the left, chevron inline on the right —
+   never on its own line, and no stray indicator underline. */
+html[data-theme=light] .nav-group__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
 html[data-theme=light] .nav-group__toggle,
+html[data-theme=light] .nav-group__label {
+  color: #f4a986;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 1;
+}
+
+/* Kill the orphaned indicator line; keep only the chevron glyph, sized small. */
+html[data-theme=light] .nav-group__indicator {
+  border: none !important;
+  background: none !important;
+  width: auto !important;
+  height: auto !important;
+  color: rgba(247, 245, 243, 0.45);
+}
+html[data-theme=light] .nav-group__indicator svg {
+  width: 14px;
+  height: 14px;
+}
+
+html[data-theme=light] .nav-group__toggle:hover,
+html[data-theme=light] .nav-group__toggle:hover .nav-group__label,
+html[data-theme=light] .nav-group__label:hover {
+  color: #e4572c;
+}
+
 html[data-theme=light] .nav__log-out {
   color: rgba(247, 245, 243, 0.6);
 }
 
+/* Links — bright cream on teal, clearly readable below the orange headings. */
 html[data-theme=light] .nav__link {
-  color: rgba(247, 245, 243, 0.85);
+  color: rgba(247, 245, 243, 0.92);
+  font-size: 15px;
 }
 
 html[data-theme=light] .nav__link:hover {
-  color: #F7F5F3;
-  background-color: rgba(255, 255, 255, 0.07);
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 html[data-theme=light] .nav__link.active,
 html[data-theme=light] .nav__link[aria-current="true"] {
   color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(228, 87, 44, 0.20);
 }
 
 html[data-theme=light] .nav__link-indicator {
-  background: #F7F5F3;
+  background: #e4572c;
 }
 
 /* Nav header separator */
 html[data-theme=light] .nav__header {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(247, 245, 243, 0.1);
 }
 
 /* Logo / brand mark in nav */
 html[data-theme=light] .nav__header .step-nav {
   color: #F7F5F3;
+}
+
+/* Bigger sidebar brand title */
+html[data-theme=light] .nav__header .graphic-icon,
+html[data-theme=light] .nav__header svg {
+  transform: scale(1.35);
+  transform-origin: left center;
+}
+
+html[data-theme=light] .nav__header {
+  padding-top: 22px;
+  padding-bottom: 22px;
 }
 
 /* ─── 4. App header (top bar) ─────────────────────────────── */
@@ -131,10 +200,112 @@ html[data-theme=light] .app-header {
 /* ─── 5. Buttons ──────────────────────────────────────────── */
 
 html[data-theme=light] .btn--style-primary {
-  background-color: #062232;
-  color: #F7F5F3;
+  background-color: #e4572c;
+  color: #f4f1ea;
 }
 
 html[data-theme=light] .btn--style-primary:hover {
-  background-color: #0A3448;
+  background-color: #d53f21;
+}
+
+/* Secondary buttons → outlined brand teal. */
+html[data-theme=light] .btn--style-secondary {
+  border-color: #1f3a34;
+  color: #1f3a34;
+}
+html[data-theme=light] .btn--style-secondary:hover {
+  background-color: #1f3a34;
+  color: #f4f1ea;
+}
+
+/* ─── 6. Collection screens (list + edit, all collections) ── */
+/*
+  Tasteful brand polish on Payload's own list/edit views via its theme vars and
+  a few component classes. Layout & usability untouched — just on-brand surfaces,
+  borders, headings, links, and focus accents.
+*/
+
+/* Page background behind the views. */
+html[data-theme=light] .template-default,
+html[data-theme=light] .collection-list,
+html[data-theme=light] .collection-edit {
+  background-color: #f4f1ea;
+}
+
+/* View titles (list/edit headers) → ink, tighter brand type. */
+html[data-theme=light] .list-header h1,
+html[data-theme=light] .doc-header__title,
+html[data-theme=light] .step-nav a,
+html[data-theme=light] .step-nav span {
+  color: #21332a;
+  letter-spacing: -0.02em;
+}
+
+/* Table — cream header row, hairline brand rows, ink text. */
+html[data-theme=light] .table table {
+  border-color: #d8cbb5;
+}
+html[data-theme=light] .table thead th {
+  background-color: #efe9dd;
+  color: #5b5551;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+  border-bottom-color: #d8cbb5;
+}
+html[data-theme=light] .table tbody td {
+  border-bottom-color: #e6ddcc;
+  color: #21332a;
+}
+html[data-theme=light] .table tbody tr:hover td {
+  background-color: rgba(228, 87, 44, 0.05);
+}
+/* First-column links (the doc title) → ink, orange on hover. */
+html[data-theme=light] .table tbody td a {
+  color: #21332a;
+}
+html[data-theme=light] .table tbody td a:hover {
+  color: #e4572c;
+}
+
+/* Field labels → mono kicker, ink. */
+html[data-theme=light] .field-type .field-label {
+  color: #5b5551;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 11px;
+}
+
+/* Inputs → white on sand, brand border, orange focus. */
+html[data-theme=light] .field-type input,
+html[data-theme=light] .field-type textarea,
+html[data-theme=light] .react-select-container .rs__control {
+  background-color: #ffffff;
+  border-color: #d8cbb5;
+  color: #21332a;
+}
+html[data-theme=light] .field-type input:focus,
+html[data-theme=light] .field-type textarea:focus,
+html[data-theme=light] .react-select-container .rs__control--is-focused {
+  border-color: #e4572c;
+  box-shadow: 0 0 0 1px #e4572c;
+}
+
+/* Pills (status chips, relationship tags) → brand surface. */
+html[data-theme=light] .pill {
+  background-color: #efe9dd;
+  color: #21332a;
+}
+html[data-theme=light] .pill--selected,
+html[data-theme=light] .pill:hover {
+  background-color: #e4572c;
+  color: #f4f1ea;
+}
+
+/* Links / interactive accents in views → orange. */
+html[data-theme=light] .collection-list a:not(.btn):hover,
+html[data-theme=light] .doc-controls a:hover {
+  color: #e4572c;
 }

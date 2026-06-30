@@ -15,6 +15,7 @@ export const Tags: CollectionConfig = {
   slug: "tags",
   labels: { singular: "Etiqueta", plural: "Etiquetas" },
   admin: {
+    group: { es: "Blog", en: "Blog" },
     useAsTitle: "name",
     defaultColumns: ["name", "slug"],
   },

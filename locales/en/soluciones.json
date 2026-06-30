@@ -323,6 +323,9 @@
   },
   "faq": {
     "label": "Frequently asked questions",
+    "titleLead": "What people most",
+    "titleEm": "ask us.",
+    "intro": "If you can't find your question here, write to us. We reply within 24 hours with real data for your case.",
     "items": {
       "timeline": {
         "question": "How long does a project take?",
@@ -349,5 +352,9 @@
         "answer": "Consumption analysis, solar potential, technical proposal, return estimate and grant map. No cost, no commitment."
       }
     }
+  },
+  "brands": {
+    "label": "We work with the best brands",
+    "sub": "Equipment from the sector’s leading manufacturers."
   }
 }

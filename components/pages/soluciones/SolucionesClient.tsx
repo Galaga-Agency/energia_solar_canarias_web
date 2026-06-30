@@ -16,6 +16,7 @@ import { initContextoReveal }        from '@/utils/animations/contexto-reveal'
 import { initSolucionesReveal }      from '@/utils/animations/soluciones-reveal'
 import { initSolucionCardsAnimation } from '@/utils/animations/solucion-cards'
 import { initCtaRevealAnimation }    from '@/utils/animations/cta-reveal'
+import { SolucionesBrands } from './SolucionesBrands'
 
 const SolucionesContexto     = dynamic(() => import('./SolucionesContexto').then(m => m.SolucionesContexto))
 const SolucionesSectores     = dynamic(() => import('./SolucionesSectores').then(m => m.SolucionesSectores))
@@ -68,6 +69,12 @@ export function SolucionesClient() {
         <MouseReactiveFlock className="pointer-events-none absolute inset-0 z-0 h-full w-full" birds={45} />
         <SolucionesProceso />
         <SolucionesPilares />
+      </div>
+
+      <SolucionesBrands />
+
+      <div className="relative isolate overflow-hidden bg-[#f4f1ea]">
+        <PaperTexture className="z-0" />
         <SolucionesFAQ
           label={t('faq.label')}
           items={FAQ_SOLUCIONES_KEYS.map(key => ({

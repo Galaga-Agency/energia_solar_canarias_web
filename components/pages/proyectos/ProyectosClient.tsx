@@ -11,20 +11,19 @@ import { initHeroAnimations }         from '@/utils/animations/hero-animations'
 import { initScrollRevealSections }   from '@/utils/animations/scroll-reveal'
 import { initMarqueeAnimation }       from '@/utils/animations/marquee'
 import { initProyectosCardsAnimation } from '@/utils/animations/proyectos-cards'
+import { initCtaRevealAnimation }     from '@/utils/animations/cta-reveal'
 
 const ProyectosGrid        = dynamic(() => import('./ProyectosGrid').then(m => m.ProyectosGrid))
-const ClientsMarquee       = dynamic(() => import('@/components/shared/ClientsMarquee').then(m => m.ClientsMarquee), { ssr: false })
-const CTABanner            = dynamic(() => import('@/components/shared/CTABanner').then(m => m.CTABanner), { ssr: false })
+const ProyectosCTA         = dynamic(() => import('./ProyectosCTA').then(m => m.ProyectosCTA), { ssr: false })
 
 export function ProyectosClient({ projects }: { projects: Project[] }) {
   usePageReady()
   const nav = useTranslations('nav')
-  const t   = useTranslations('proyectos')
 
   useGSAPAnimations(() => ({
     critical: [initHeroAnimations],
     raf:      [],
-    timeout:  [initScrollRevealSections, initMarqueeAnimation, initProyectosCardsAnimation],
+    timeout:  [initScrollRevealSections, initMarqueeAnimation, initProyectosCardsAnimation, initCtaRevealAnimation],
   }))
 
   return (
@@ -35,15 +34,7 @@ export function ProyectosClient({ projects }: { projects: Project[] }) {
       ]} />
       <ProyectosHero />
       <ProyectosGrid projects={projects} />
-      <ClientsMarquee label={t('brands.label')} />
-      <CTABanner
-        title={t('cta.title')}
-        body={t('cta.body')}
-        primaryLabel={t('cta.primary')}
-        primaryHref="/contacto"
-        secondaryLabel={t('cta.secondary')}
-        secondaryHref="/contacto"
-      />
+      <ProyectosCTA />
     </>
   )
 }

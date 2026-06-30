@@ -38,6 +38,7 @@ export const Posts: CollectionConfig = {
   slug: "posts",
   labels: { singular: "Artículo", plural: "Artículos" },
   admin: {
+    group: { es: "Blog", en: "Blog" },
     useAsTitle: "title",
     defaultColumns: ["title", "category", "author", "hidden", "updatedAt"],
     listSearchableFields: ["title", "slug", "excerpt"],

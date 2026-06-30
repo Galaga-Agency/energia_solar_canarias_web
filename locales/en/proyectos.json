@@ -119,12 +119,12 @@
     ]
   },
   "cta": {
-    "title": "Request your free audit",
-    "body": "Discover how to optimize your consumption and move toward a more efficient energy model adapted to your company. No cost. No commitment. No waiting.",
-    "primary": "Request your audit ↗",
-    "secondary": "Contact us"
-  },
-  "brands": {
-    "label": "The brands we work with"
+    "eyebrow": "Your project is next",
+    "titleLead": "Results like these,",
+    "titleEm": "for your business.",
+    "body": "We start with a free energy audit: we analyse your consumption, the solar potential of your site and the estimated return. No commitment.",
+    "primary": "Request your audit",
+    "secondary": "Contact us",
+    "trust": "No cost · No commitment · Reply within 24h"
   }
 }

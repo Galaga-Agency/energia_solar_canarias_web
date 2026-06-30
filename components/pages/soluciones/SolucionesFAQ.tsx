@@ -19,12 +19,12 @@ export function SolucionesFAQ({ items, label }: { items: Item[]; label: string }
           <div className="md:col-span-7">
             <span className="text-label text-primary! mb-4 block">{label}</span>
             <h2 className="text-title max-w-[22ch]">
-              Lo que más nos{' '}
-              <em className="not-italic md:italic md:font-normal md:text-primary">preguntan.</em>
+              {t('titleLead')}{' '}
+              <em className="not-italic md:italic md:font-normal md:text-primary">{t('titleEm')}</em>
             </h2>
           </div>
           <p className="text-body max-w-[42ch] text-ink/70 md:col-span-5 md:justify-self-end md:text-right">
-            Si no encuentras tu duda aquí, escríbenos. Respondemos en menos de 24 horas con datos reales de tu caso.
+            {t('intro')}
           </p>
         </div>
 

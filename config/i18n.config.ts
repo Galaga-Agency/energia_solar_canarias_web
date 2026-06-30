@@ -14,6 +14,10 @@ export const routeTranslations: Record<Language, Record<string, string>> = {
     'about-us':'sobre-nosotros',
     contact:   'contacto',
     blog:      'blog',
+    privacy:   'privacidad',
+    terms:     'terminos',
+    'legal-notice': 'aviso-legal',
+    cookies:   'cookies',
   },
   en: {
     soluciones:       'services',
@@ -21,6 +25,10 @@ export const routeTranslations: Record<Language, Record<string, string>> = {
     'sobre-nosotros': 'about-us',
     contacto:         'contact',
     blog:             'blog',
+    privacidad:       'privacy',
+    terminos:         'terms',
+    'aviso-legal':    'legal-notice',
+    cookies:          'cookies',
   },
 }
 

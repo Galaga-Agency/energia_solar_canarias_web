@@ -2,8 +2,14 @@ import type { ReactNode }      from 'react'
 import { notFound }            from 'next/navigation'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages }         from 'next-intl/server'
+import { GoogleTagManager }    from '@next/third-parties/google'
 import { TranslationProvider } from '@/contexts/TranslationContext'
+import { ConsentProvider }     from '@/contexts/ConsentContext'
+import { ConsentInit }         from '@/components/layout/ConsentInit'
+import { AnalyticsTracker }    from '@/components/layout/AnalyticsTracker'
+import { CookieConsent }       from '@/components/ui/CookieConsent'
 import { LocaleShell }         from '@/components/layout/LocaleShell'
+import { analyticsConfig }     from '@/config/analytics.config'
 import { isLocale, locales, type Language } from '@/config/i18n.config'
 
 interface LocaleLayoutProps {
@@ -27,9 +33,19 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <NextIntlClientProvider messages={messages}>
       <TranslationProvider locale={locale as Language}>
-        <LocaleShell>
-          {children}
-        </LocaleShell>
+        <ConsentProvider>
+          {analyticsConfig.enabled && (
+            <>
+              <ConsentInit />
+              <GoogleTagManager gtmId={analyticsConfig.gtmId} />
+            </>
+          )}
+          <AnalyticsTracker />
+          <LocaleShell>
+            {children}
+          </LocaleShell>
+          <CookieConsent />
+        </ConsentProvider>
       </TranslationProvider>
     </NextIntlClientProvider>
   )

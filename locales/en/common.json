@@ -1,73 +1,90 @@
 {
+  "consent": {
+    "eyebrow": "Consent · Cookies",
+    "title": "We use cookies",
+    "message": "Technical cookies are essential for the site to work; measurement cookies help us understand how it is used, anonymously. You decide.",
+    "accept": "Accept all →",
+    "reject": "Essential only",
+    "customize": "Customize preferences ↓",
+    "back": "← Back",
+    "save": "Save choices",
+    "policy": "Cookie policy",
+    "necessaryName": "Necessary",
+    "necessaryDesc": "Essential for the site to work. Always on.",
+    "analyticsName": "Measurement",
+    "analyticsDesc": "Google Analytics: how the site is used, aggregated and anonymous.",
+    "always": "Always"
+  },
   "nav": {
-    "home":       "Home",
-    "solutions":  "Solutions",
-    "projects":   "Projects",
-    "about":      "About us",
-    "blog":       "Blog",
-    "contact":    "Contact",
-    "cta":        "Let's talk"
+    "home": "Home",
+    "solutions": "Solutions",
+    "projects": "Projects",
+    "about": "About us",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Let's talk"
   },
   "actions": {
-    "send":       "Send",
-    "sending":    "Sending…",
-    "cancel":     "Cancel",
-    "learnMore":  "Learn more",
-    "seeAll":     "See all",
-    "back":       "Back"
+    "send": "Send",
+    "sending": "Sending…",
+    "cancel": "Cancel",
+    "learnMore": "Learn more",
+    "seeAll": "See all",
+    "back": "Back"
   },
   "footer": {
-    "eyebrow":      "Energía Solar Canarias",
-    "taglineLead":  "We design your",
-    "taglineEm":    "energy",
-    "taglineTail":  "independence.",
-    "cta":          "Let's talk",
-    "ctaNote":      "Energy audit, no strings attached.",
-    "addressHeader":"Headquarters",
-    "contactHeader":"Contact",
-    "rights":       "All rights reserved.",
-    "copyright":    "© 2026 Energía Solar Canarias.",
+    "eyebrow": "Energía Solar Canarias",
+    "taglineLead": "We design your",
+    "taglineEm": "energy",
+    "taglineTail": "independence.",
+    "cta": "Let's talk",
+    "ctaNote": "Energy audit, no strings attached.",
+    "addressHeader": "Headquarters",
+    "contactHeader": "Contact",
+    "rights": "All rights reserved.",
+    "copyright": "© 2026 Energía Solar Canarias.",
     "sections": {
-      "sections":  "Sections",
+      "sections": "Sections",
       "solutions": "Solutions",
-      "resources":  "Resources",
-      "legal":      "Legal"
+      "resources": "Resources",
+      "legal": "Legal"
     },
     "links": {
-      "esc":            "ESC",
-      "solutions":      "Solutions",
-      "projects":       "Projects",
-      "companies":      "Companies",
+      "esc": "ESC",
+      "solutions": "Solutions",
+      "projects": "Projects",
+      "companies": "Companies",
       "successStories": "Success stories",
-      "blog":           "Blog",
-      "contact":        "Contact",
-      "about":          "About us",
-      "energyAudit":    "Energy audit",
-      "sustainability":  "Sustainability",
-      "regulations":    "Regulations",
-      "financing":      "Financing",
+      "blog": "Blog",
+      "contact": "Contact",
+      "about": "About us",
+      "energyAudit": "Energy audit",
+      "sustainability": "Sustainability",
+      "regulations": "Regulations",
+      "financing": "Financing",
       "implementation": "Implementation",
-      "privacy":        "Privacy",
-      "terms":          "Terms",
-      "cookies":        "Cookies",
-      "support":        "Support"
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "legalNotice": "Legal notice",
+      "support": "Support"
     },
     "bottomLinks": {
-      "privacyPolicy":  "Privacy policy",
+      "privacyPolicy": "Privacy policy",
       "termsOfService": "Terms of service",
       "cookieSettings": "Cookie settings"
     }
   },
   "accessibility": {
     "skipToContent": "Skip to main content",
-    "openMenu":      "Open menu",
-    "closeMenu":     "Close menu",
-    "loading":       "Loading"
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "loading": "Loading"
   },
   "errors": {
-    "required":    "This field is required",
-    "email":       "Invalid email address",
-    "sendError":   "Error sending your message. Please try again.",
+    "required": "This field is required",
+    "email": "Invalid email address",
+    "sendError": "Error sending your message. Please try again.",
     "sendSuccess": "Message sent successfully"
   }
 }

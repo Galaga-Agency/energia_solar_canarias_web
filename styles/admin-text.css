@@ -1,0 +1,55 @@
+/*
+  Semantic text classes used by the analytics dashboard inside the Payload admin.
+  Copied from styles/base.css (which is NOT loaded in admin, to avoid its global
+  element resets clashing with Payload chrome). Keep in sync if base.css changes.
+*/
+
+.text-title {
+  font-size: var(--text-title);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  color: var(--color-ink);
+}
+
+.text-heading {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-snug);
+  color: var(--color-ink);
+}
+
+.text-subheading {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-ink);
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.text-body-sm {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+  color: var(--color-text-muted);
+}
+
+.text-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Named z-index tiers referenced by the CalendarPicker portal. */
+.z-picker  { z-index: var(--z-picker); }
+.z-consent { z-index: var(--z-consent); }

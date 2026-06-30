@@ -323,6 +323,9 @@
   },
   "faq": {
     "label": "Preguntas frecuentes",
+    "titleLead": "Lo que más nos",
+    "titleEm": "preguntan.",
+    "intro": "Si no encuentras tu duda aquí, escríbenos. Respondemos en menos de 24 horas con datos reales de tu caso.",
     "items": {
       "timeline": {
         "question": "¿Cuánto tarda un proyecto?",
@@ -349,5 +352,9 @@
         "answer": "Análisis del consumo, potencial solar, propuesta técnica, retorno estimado y mapa de ayudas. Sin coste, sin compromiso."
       }
     }
+  },
+  "brands": {
+    "label": "Trabajamos con las mejores marcas",
+    "sub": "Equipos de los principales fabricantes del sector."
   }
 }

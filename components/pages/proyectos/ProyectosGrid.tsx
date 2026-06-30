@@ -160,10 +160,6 @@ export function ProyectosGrid({ projects }: { projects: Project[] }) {
           <CaseStudy key={p.id} project={p} index={i} />
         ))}
       </div>
-
-      <div className="bg-bg py-20 text-center md:py-28">
-        <Button variant="filled" href="/contacto">{t('seeAll')} <span aria-hidden>↗</span></Button>
-      </div>
     </section>
   )
 }

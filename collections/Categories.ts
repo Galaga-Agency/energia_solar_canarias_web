@@ -19,6 +19,7 @@ export const Categories: CollectionConfig = {
   slug: "categories",
   labels: { singular: "Categoría", plural: "Categorías" },
   admin: {
+    group: { es: "Blog", en: "Blog" },
     useAsTitle: "label",
     defaultColumns: ["label", "slug", "order", "hidden", "updatedAt"],
   },

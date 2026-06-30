@@ -4,6 +4,7 @@ export const Comments: CollectionConfig = {
   slug: "comments",
   labels: { singular: "Comentario", plural: "Comentarios" },
   admin: {
+    group: { es: "Blog", en: "Blog" },
     useAsTitle: "name",
     defaultColumns: ["name", "post", "status", "createdAt"],
     description: "Comentarios de los lectores. Aprueba o rechaza antes de que sean visibles.",

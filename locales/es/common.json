@@ -1,73 +1,90 @@
 {
+  "consent": {
+    "eyebrow": "Consentimiento · Cookies",
+    "title": "Usamos cookies",
+    "message": "Las cookies técnicas son imprescindibles para que la web funcione; las de medición nos ayudan a entender cómo se navega, de forma anónima. Tú decides.",
+    "accept": "Aceptar todo →",
+    "reject": "Solo esenciales",
+    "customize": "Personalizar preferencias ↓",
+    "back": "← Volver",
+    "save": "Guardar selección",
+    "policy": "Política de cookies",
+    "necessaryName": "Necesarias",
+    "necessaryDesc": "Imprescindibles para que la web funcione. Siempre activas.",
+    "analyticsName": "Medición",
+    "analyticsDesc": "Google Analytics: cómo se navega la web, de forma agregada y anónima.",
+    "always": "Siempre"
+  },
   "nav": {
-    "home":       "Inicio",
-    "solutions":  "Soluciones",
-    "projects":   "Proyectos",
-    "about":      "Sobre nosotros",
-    "blog":       "Blog",
-    "contact":    "Contactar",
-    "cta":        "Hablemos"
+    "home": "Inicio",
+    "solutions": "Soluciones",
+    "projects": "Proyectos",
+    "about": "Sobre nosotros",
+    "blog": "Blog",
+    "contact": "Contactar",
+    "cta": "Hablemos"
   },
   "actions": {
-    "send":       "Enviar",
-    "sending":    "Enviando…",
-    "cancel":     "Cancelar",
-    "learnMore":  "Saber más",
-    "seeAll":     "Ver todo",
-    "back":       "Volver"
+    "send": "Enviar",
+    "sending": "Enviando…",
+    "cancel": "Cancelar",
+    "learnMore": "Saber más",
+    "seeAll": "Ver todo",
+    "back": "Volver"
   },
   "footer": {
-    "eyebrow":      "Energía Solar Canarias",
-    "taglineLead":  "Diseñamos tu",
-    "taglineEm":    "independencia",
-    "taglineTail":  "energética.",
-    "cta":          "Hablemos",
-    "ctaNote":      "Auditoría energética sin compromiso.",
-    "addressHeader":"Sede",
-    "contactHeader":"Contacto",
-    "rights":       "Todos los derechos reservados.",
-    "copyright":    "© 2026 Energía Solar Canarias.",
+    "eyebrow": "Energía Solar Canarias",
+    "taglineLead": "Diseñamos tu",
+    "taglineEm": "independencia",
+    "taglineTail": "energética.",
+    "cta": "Hablemos",
+    "ctaNote": "Auditoría energética sin compromiso.",
+    "addressHeader": "Sede",
+    "contactHeader": "Contacto",
+    "rights": "Todos los derechos reservados.",
+    "copyright": "© 2026 Energía Solar Canarias.",
     "sections": {
-      "sections":  "Secciones",
+      "sections": "Secciones",
       "solutions": "Soluciones",
-      "resources":  "Recursos",
-      "legal":      "Legal"
+      "resources": "Recursos",
+      "legal": "Legal"
     },
     "links": {
-      "esc":            "ESC",
-      "solutions":      "Soluciones",
-      "projects":       "Proyectos",
-      "companies":      "Empresas",
+      "esc": "ESC",
+      "solutions": "Soluciones",
+      "projects": "Proyectos",
+      "companies": "Empresas",
       "successStories": "Casos de éxito",
-      "blog":           "Blog",
-      "contact":        "Contáctanos",
-      "about":          "Sobre nosotros",
-      "energyAudit":    "Auditoría energética",
-      "sustainability":  "Sostenibilidad",
-      "regulations":    "Normativas",
-      "financing":      "Financiamiento",
+      "blog": "Blog",
+      "contact": "Contáctanos",
+      "about": "Sobre nosotros",
+      "energyAudit": "Auditoría energética",
+      "sustainability": "Sostenibilidad",
+      "regulations": "Normativas",
+      "financing": "Financiamiento",
       "implementation": "Implementación",
-      "privacy":        "Privacidad",
-      "terms":          "Términos",
-      "cookies":        "Cookies",
-      "support":        "Soporte"
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "cookies": "Cookies",
+      "legalNotice": "Aviso legal",
+      "support": "Soporte"
     },
     "bottomLinks": {
-      "privacyPolicy":  "Política de privacidad",
+      "privacyPolicy": "Política de privacidad",
       "termsOfService": "Términos de servicio",
       "cookieSettings": "Configuración de cookies"
     }
   },
   "accessibility": {
     "skipToContent": "Saltar al contenido principal",
-    "openMenu":      "Abrir menú",
-    "closeMenu":     "Cerrar menú",
-    "loading":       "Cargando"
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "loading": "Cargando"
   },
   "errors": {
-    "required":    "Este campo es obligatorio",
-    "email":       "Correo no válido",
-    "sendError":   "Error al enviar el mensaje. Inténtalo de nuevo.",
+    "required": "Este campo es obligatorio",
+    "email": "Correo no válido",
+    "sendError": "Error al enviar el mensaje. Inténtalo de nuevo.",
     "sendSuccess": "Mensaje enviado correctamente"
   }
 }

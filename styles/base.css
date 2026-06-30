@@ -137,6 +137,7 @@ select {
 .z-picker          { z-index: var(--z-picker); }
 .z-overlay         { z-index: var(--z-overlay); }
 .z-toast           { z-index: var(--z-toast); }
+.z-consent         { z-index: var(--z-consent); }
 
 /* ── Brand italic wordmark ────────────────────────────────────────────────── */
 .brand-canarias {

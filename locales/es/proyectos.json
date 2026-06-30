@@ -119,12 +119,12 @@
     ]
   },
   "cta": {
-    "title": "Solicita tu auditoría gratuita",
-    "body": "Descubre cómo optimizar tu consumo y avanzar hacia un modelo energético más eficiente y adaptado a tu empresa. Sin coste. Sin compromiso. Sin esperas.",
-    "primary": "Solicita tu auditoría ↗",
-    "secondary": "Contacta con nosotros"
-  },
-  "brands": {
-    "label": "Marcas con las que trabajamos"
+    "eyebrow": "Tu proyecto, el próximo",
+    "titleLead": "Resultados como estos,",
+    "titleEm": "para tu empresa.",
+    "body": "Empezamos con una auditoría energética sin coste: analizamos tu consumo, el potencial solar de tu instalación y el retorno estimado. Sin compromiso.",
+    "primary": "Solicita tu auditoría",
+    "secondary": "Contacta con nosotros",
+    "trust": "Sin coste · Sin compromiso · Respuesta en 24h"
   }
 }

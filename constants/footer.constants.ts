@@ -16,10 +16,11 @@ export const FOOTER_RECURSOS = [
 ] as const
 
 export const FOOTER_LEGAL = [
-  { labelKey: 'footer.links.privacy',    href: '/privacidad' },
-  { labelKey: 'footer.links.terms',      href: '/terminos'   },
-  { labelKey: 'footer.links.cookies',    href: '/cookies'    },
-  { labelKey: 'footer.links.support',    href: '/contacto'   },
+  { labelKey: 'footer.links.privacy',     href: '/privacidad'  },
+  { labelKey: 'footer.links.terms',       href: '/terminos'    },
+  { labelKey: 'footer.links.cookies',     href: '/cookies'     },
+  { labelKey: 'footer.links.legalNotice', href: '/aviso-legal' },
+  { labelKey: 'footer.links.support',     href: '/contacto'    },
 ] as const
 
 export const FOOTER_BOTTOM_LINKS = [

@@ -1,0 +1,22 @@
+/*
+  Tailwind for the Payload admin panel — utilities + brand tokens ONLY.
+
+  Deliberately omits Tailwind Preflight: Preflight strips all native button/input
+  styling, which would wreck Payload's own admin chrome. By importing just the
+  `theme` and `utilities` layers we get every utility class the analytics dashboard
+  uses (bg-bg, text-ink, grid-cols-4, clamps, arbitrary values…) without touching
+  Payload's forms, buttons, or layout.
+
+  Loaded via styles/admin.css, which Payload's admin layout imports.
+*/
+
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Brand design tokens (@theme) — drives color/spacing utility generation. */
+@import "./theme.css";
+
+/* Semantic text classes the dashboard relies on (text-label, text-title, …). */
+@import "./admin-text.css";

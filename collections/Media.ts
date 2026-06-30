@@ -29,6 +29,7 @@ export const Media: CollectionConfig = {
     read: () => true,
   },
   admin: {
+    group: { es: "Blog", en: "Blog" },
     useAsTitle: "alt",
   },
   hooks: {
