@@ -9,25 +9,37 @@ export function initProyectosCardsAnimation(): () => void {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if (prefersReduced) return () => {}
 
-  gsap.set(cards, { y: 48, opacity: 0 })
+  const triggers: ScrollTrigger[] = []
 
-  const tl = gsap.timeline({
-    scrollTrigger: { trigger: cards[0], start: 'top 70%', once: true },
-  })
+  // Each card reveals on its own as it scrolls into view — a small, gentle fade-up.
+  // (Previously one shared timeline triggered by the first card animated ALL cards
+  // from y:48 at once, so the full-bleed image sections lower down lurched in
+  // together and read as a jarring shove.)
+  cards.forEach((card) => {
+    gsap.set(card, { y: 20, opacity: 0 })
 
-  cards.forEach((card, i) => {
-    tl.to(card, {
-      y:        0,
-      opacity:  1,
-      duration: 0.9,
-      ease:     'power3.out',
-    }, i * 0.18)
+    const tween = gsap.to(card, {
+      y: 0,
+      opacity: 1,
+      duration: 0.7,
+      ease: 'power2.out',
+      paused: true,
+    })
+
+    const st = ScrollTrigger.create({
+      trigger: card,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => tween.play(),
+    })
+    triggers.push(st)
   })
 
   return () => {
-    tl.scrollTrigger?.kill()
-    tl.kill()
-    cards.forEach((card) => gsap.set(card, { clearProps: 'all' }))
-    ScrollTrigger.refresh()
+    triggers.forEach((st) => st.kill())
+    cards.forEach((card) => {
+      gsap.killTweensOf(card)
+      gsap.set(card, { clearProps: 'all' })
+    })
   }
 }

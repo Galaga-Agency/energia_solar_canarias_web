@@ -59,9 +59,11 @@
   justify-content: center;
   position: relative;
   min-height: 2.35rem;
-  padding: 0 0.95rem;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
+  padding: 0 1.1rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
   transition: color 220ms ease;
@@ -70,13 +72,13 @@
 .navbar-link::after {
   content: '';
   position: absolute;
-  bottom: 10px;
+  bottom: 8px;
   left: 0.95rem;
   right: 0.95rem;
-  height: 2px;
+  height: 1.5px;
   transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-link--hero {
@@ -122,6 +124,23 @@
 .navbar-link--active.navbar-link--scrolled::after {
   background: var(--color-primary);
   transform: scaleX(1);
+}
+
+/* Active-link square marker — the brand's signature accent, used in CTA/footer.
+   Sits just left of the active link's label. */
+.navbar-link--active::before {
+  content: '';
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translateY(-50%);
+  background: var(--color-primary);
+}
+
+.navbar-link--active {
+  padding-left: 1.35rem;
 }
 
 /* ── Section spacing ──────────────────────────────────────────────────────── */

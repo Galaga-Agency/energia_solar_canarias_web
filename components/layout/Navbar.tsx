@@ -61,7 +61,7 @@ export function Navbar({ mobileMenuOpen, onMobileMenuToggle }: NavbarProps) {
         <TransitionLink
           href="/"
           aria-label="Energía Solar Canarias — inicio"
-          className={`shrink-0 transition-opacity duration-500 ${transparent ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+          className={`shrink-0 transition-opacity duration-500 ${transparent ? "opacity-0 pointer-events-none" : "opacity-100"} ${mobileMenuOpen ? "max-lg:opacity-0 max-lg:pointer-events-none" : ""}`}
         >
           <Logo width={150} className="transition-all duration-300" />
         </TransitionLink>

@@ -121,17 +121,17 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
       <div className="mob-nav-card-bottom">
         <PaperTexture blendClassName="mix-blend-overlay" />
-        <div className="relative z-10">
-          <span className="text-label text-primary/70!">{contactKey}</span>
+        <div className="relative z-10 flex flex-col gap-2">
+          <span className="text-label text-primary!">{contactKey}</span>
           <a
             href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`}
-            className="mt-3 block text-body font-medium text-white! transition-opacity hover:opacity-75 md:text-subheading"
+            className="mt-3 block text-subheading font-medium text-white! transition-opacity hover:opacity-75 md:text-subheading"
           >
             {CONTACT_INFO.phone}
           </a>
           <a
             href={`mailto:${CONTACT_INFO.email}`}
-            className="mt-1 block text-body lowercase text-white/85! transition-opacity hover:opacity-75 md:text-subheading"
+            className="mt-1 block text-subheading lowercase text-white! transition-opacity hover:opacity-75 md:text-subheading"
           >
             {CONTACT_INFO.email}
           </a>

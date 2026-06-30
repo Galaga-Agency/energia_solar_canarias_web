@@ -130,7 +130,7 @@
   right: 0;
   bottom: 0;
   width: min(78vw, 24rem);
-  padding: 1.25rem 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+  padding: 2rem 1.5rem max(1.5rem, env(safe-area-inset-bottom));
   background: #1f3a34;
   color: var(--color-primary);
   transform: translate3d(0, 110%, 0);

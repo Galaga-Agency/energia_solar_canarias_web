@@ -55,7 +55,7 @@ export function ContactMap() {
   }, [])
 
   return (
-    <section aria-label={CONTACT_INFO.address} className="relative">
+    <section aria-label={CONTACT_INFO.address} className="relative isolate z-0">
       <div className="relative h-[clamp(20rem,40vh,30rem)] w-full overflow-hidden bg-(--color-bg) [&_.leaflet-bottom]:hidden [&_.leaflet-control-attribution]:hidden [&_.leaflet-control-container]:hidden [&_.leaflet-control]:hidden">
         {/* Leaflet map */}
         <div ref={ref} className="absolute inset-0 h-full w-full" />
