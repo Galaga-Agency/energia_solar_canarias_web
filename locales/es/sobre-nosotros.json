@@ -83,5 +83,11 @@
     "primary": "Solicitar estudio gratuito",
     "secondary": "Leer nuestro blog",
     "trust": "Respuesta en menos de 48 h · Sin compromiso"
+  },
+  "award": {
+    "eyebrow": "Reconocimiento",
+    "titleLead": "Instalador",
+    "titleEm": "Excelente 2026",
+    "body": "EUPD Research nos ha distinguido con el Installer Award España 2026, un reconocimiento a las empresas instaladoras fotovoltaicas seleccionadas por su rendimiento y presencia en el mercado, por nuestra contribución a la transición energética en España."
   }
 }

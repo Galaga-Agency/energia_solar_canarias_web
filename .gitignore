@@ -44,3 +44,7 @@ next-env.d.ts
 *.db-journal
 *.db-wal
 *.db-shm
+
+# Service account key — NEVER commit
+energia-solar-canarias-web-*.json
+*-service-account*.json

@@ -14,6 +14,16 @@ COPY . .
 ARG PAYLOAD_SECRET=build-time-placeholder-secret
 ENV PAYLOAD_SECRET=$PAYLOAD_SECRET
 ENV DATABASE_URI=file:./esc.db
+
+# NEXT_PUBLIC_* are inlined by Next.js at BUILD time, so they must be present
+# for `next build` — a runtime env var is too late. Pass via build args.
+ARG NEXT_PUBLIC_GTM_ID
+ARG NEXT_PUBLIC_GA4_ID
+ARG NEXT_PUBLIC_SITE_URL
+ENV NEXT_PUBLIC_GTM_ID=$NEXT_PUBLIC_GTM_ID
+ENV NEXT_PUBLIC_GA4_ID=$NEXT_PUBLIC_GA4_ID
+ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
+
 RUN npm run build
 
 FROM node:20-alpine AS runner

@@ -41,13 +41,16 @@
     "ctaNote": "Energy audit, no strings attached.",
     "addressHeader": "Headquarters",
     "contactHeader": "Contact",
+    "awardHeader": "Recognition",
+    "awardText": "EUPD Research · Excellent Installer Spain 2026",
     "rights": "All rights reserved.",
     "copyright": "© 2026 Energía Solar Canarias.",
     "sections": {
       "sections": "Sections",
       "solutions": "Solutions",
       "resources": "Resources",
-      "legal": "Legal"
+      "legal": "Legal",
+      "sitemap": "Navigation"
     },
     "links": {
       "esc": "ESC",
@@ -73,7 +76,8 @@
       "privacyPolicy": "Privacy policy",
       "termsOfService": "Terms of service",
       "cookieSettings": "Cookie settings"
-    }
+    },
+    "socialHeader": "Follow us"
   },
   "accessibility": {
     "skipToContent": "Skip to main content",

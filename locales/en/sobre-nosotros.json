@@ -83,5 +83,11 @@
     "primary": "Request free study",
     "secondary": "Read our blog",
     "trust": "Reply within 48 h · No commitment"
+  },
+  "award": {
+    "eyebrow": "Recognition",
+    "titleLead": "Excellent",
+    "titleEm": "Installer 2026",
+    "body": "EUPD Research awarded us the Installer Award Spain 2026, a distinction for photovoltaic installers selected on performance and market presence, recognising our contribution to Spain's energy transition."
   }
 }

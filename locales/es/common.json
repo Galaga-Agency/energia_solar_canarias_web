@@ -41,13 +41,16 @@
     "ctaNote": "Auditoría energética sin compromiso.",
     "addressHeader": "Sede",
     "contactHeader": "Contacto",
+    "awardHeader": "Reconocimiento",
+    "awardText": "EUPD Research · Instalador Excelente España 2026",
     "rights": "Todos los derechos reservados.",
     "copyright": "© 2026 Energía Solar Canarias.",
     "sections": {
       "sections": "Secciones",
       "solutions": "Soluciones",
       "resources": "Recursos",
-      "legal": "Legal"
+      "legal": "Legal",
+      "sitemap": "Navegación"
     },
     "links": {
       "esc": "ESC",
@@ -73,7 +76,8 @@
       "privacyPolicy": "Política de privacidad",
       "termsOfService": "Términos de servicio",
       "cookieSettings": "Configuración de cookies"
-    }
+    },
+    "socialHeader": "Síguenos"
   },
   "accessibility": {
     "skipToContent": "Saltar al contenido principal",

@@ -27,6 +27,9 @@ const SobreNosotrosNarrative = dynamic(() =>
 const SobreNosotrosBenefits = dynamic(() =>
   import("./SobreNosotrosBenefits").then((m) => m.SobreNosotrosBenefits),
 );
+const SobreNosotrosAward = dynamic(() =>
+  import("./SobreNosotrosAward").then((m) => m.SobreNosotrosAward),
+);
 const SobreNosotrosLeadership = dynamic(() =>
   import("./SobreNosotrosLeadership").then((m) => m.SobreNosotrosLeadership),
 );
@@ -73,6 +76,7 @@ export function SobreNosotrosClient() {
       </div>
       <SobreNosotrosNarrative />
       <SobreNosotrosBenefits />
+      <SobreNosotrosAward />
       <SobreNosotrosLeadership />
       <SobreNosotrosCTA />
     </>
